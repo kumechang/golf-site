@@ -1,0 +1,44 @@
+---
+import { categories } from '../data/categories';
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t border-slate-200 bg-slate-50">
+  <div class="mx-auto max-w-5xl px-4 py-12">
+    <div class="grid gap-8 sm:grid-cols-3">
+      <div>
+        <p class="text-base font-bold text-slate-900">グラウンドゴルフ入門ナビ</p>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">
+          これからグラウンドゴルフを始める方・始めた方を応援する情報サイトです。
+        </p>
+      </div>
+      <div>
+        <p class="text-sm font-bold text-slate-900">カテゴリ</p>
+        <ul class="mt-2 space-y-2">
+          {
+            categories.map((cat) => (
+              <li>
+                <a href={`/${cat.slug}/`} class="text-sm text-slate-600 hover:text-green-700 hover:underline">
+                  {cat.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-bold text-slate-900">運営情報</p>
+        <ul class="mt-2 space-y-2">
+          <li><a href="/about/" class="text-sm text-slate-600 hover:text-green-700 hover:underline">サイトについて／運営者情報</a></li>
+          <li><a href="/privacy-policy/" class="text-sm text-slate-600 hover:text-green-700 hover:underline">プライバシーポリシー</a></li>
+          <li><a href="/affiliate-disclosure/" class="text-sm text-slate-600 hover:text-green-700 hover:underline">アフィリエイトに関する表記</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="mt-10 border-t border-slate-200 pt-6 text-xs leading-relaxed text-slate-500">
+      本サイトはAmazonアソシエイト・プログラムの参加者であり、適格販売により収入を得ています。
+      商品の価格・在庫状況は変動する場合があるため、最新情報は各商品ページでご確認ください。
+    </p>
+    <p class="mt-4 text-xs text-slate-400">&copy; {year} グラウンドゴルフ入門ナビ</p>
+  </div>
+</footer>

@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const description = 'グラウンドゴルフ入門ナビにおける個人情報の取り扱い、アクセス解析、広告配信についてのプライバシーポリシーです。';
+---
+
+<BaseLayout title="プライバシーポリシー" description={description}>
+  <Breadcrumb items={[{ name: 'トップ', href: '/' }, { name: 'プライバシーポリシー', href: '/privacy-policy/' }]} />
+
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">プライバシーポリシー</h1>
+
+    <div class="prose-article mt-8 text-slate-800">
+      <p>
+        「グラウンドゴルフ入門ナビ」（以下、本サイト）は、利用者の個人情報の重要性を認識し、以下のとおりプライバシーポリシーを定めます。
+      </p>
+
+      <h2>アクセス解析ツールについて</h2>
+      <p>
+        本サイトでは、Googleが提供するアクセス解析ツール「Google Analytics」を利用しています。Google Analyticsはトラフィックデータの収集のためにCookieを使用しますが、この収集は匿名で行われており、個人を特定するものではありません。この機能はCookieを無効にすることで収集を拒否することが可能です。詳しくは、
+        <a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Googleのポリシーと規約</a>
+        をご確認ください。
+      </p>
+
+      <h2>広告配信について</h2>
+      <p>
+        本サイトは、Amazon.co.jpを宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定された、アフィリエイト広告プログラム「Amazonアソシエイト・プログラム」の参加者です。詳しくは
+        <a href="/affiliate-disclosure/">アフィリエイトに関する表記</a>
+        をご覧ください。
+      </p>
+
+      <h2>個人情報の利用目的</h2>
+      <p>
+        本サイトへのお問い合わせの際にご提供いただく氏名・メールアドレス等の個人情報は、お問い合わせへの回答以外の目的では利用いたしません。
+      </p>
+
+      <h2>個人情報の第三者への開示</h2>
+      <p>
+        本サイトは、以下の場合を除いて、個人情報を第三者に開示することはありません。
+      </p>
+      <ul>
+        <li>本人のご了解がある場合</li>
+        <li>法令等への協力のため、開示が必要となる場合</li>
+      </ul>
+
+      <h2>免責事項</h2>
+      <p>
+        本サイトに掲載する情報については、正確な情報を提供するよう努めていますが、内容の正確性・安全性等を保証するものではありません。本サイトの情報を用いて行う行為に関しては、すべて利用者ご自身の責任において行っていただきますようお願いいたします。
+      </p>
+
+      <h2>プライバシーポリシーの変更について</h2>
+      <p>
+        本サイトは、法令等の変更のほか、必要に応じて本ポリシーの内容を変更することがあります。変更後のプライバシーポリシーについては、本ページに掲載したときから効力を生じるものとします。
+      </p>
+
+      <h2>お問い合わせ</h2>
+      <p>
+        本ポリシーに関するお問い合わせは、
+        <a href="/about/">サイトについて／運営者情報</a>
+        ページの案内に沿ってご連絡ください。
+      </p>
+    </div>
+  </article>
+</BaseLayout>

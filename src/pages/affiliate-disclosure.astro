@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const description = 'グラウンドゴルフ入門ナビにおけるアフィリエイト広告の利用について説明しています。';
+---
+
+<BaseLayout title="アフィリエイトに関する表記" description={description}>
+  <Breadcrumb items={[{ name: 'トップ', href: '/' }, { name: 'アフィリエイトに関する表記', href: '/affiliate-disclosure/' }]} />
+
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">アフィリエイトに関する表記</h1>
+
+    <div class="prose-article mt-8 text-slate-800">
+      <p>
+        「グラウンドゴルフ入門ナビ」（以下、本サイト）は、Amazon.co.jpを宣伝しリンクすることによって、サイトが紹介料を獲得できる手段を提供することを目的に設定された、アフィリエイト広告プログラムである「Amazonアソシエイト・プログラム」の参加者です。
+      </p>
+      <p>
+        本サイト内の商品紹介リンク・商品紹介ボタンを経由して商品が購入された場合、本サイトはAmazon.co.jpより紹介料を受け取ることがあります。
+      </p>
+
+      <h2>表記の方針</h2>
+      <ul>
+        <li>アフィリエイトリンクを含む記事には、記事冒頭にその旨を明記しています。</li>
+        <li>商品紹介ボタンの近くには、アフィリエイト広告を含む旨を表示しています。</li>
+        <li>紹介料の有無によって、商品の評価や選定基準を偏らせることはありません。</li>
+      </ul>
+
+      <h2>商品情報について</h2>
+      <p>
+        記事内で紹介している価格・在庫状況・商品仕様は、執筆時点の情報、または一般的な目安であり、実際の販売価格や仕様と異なる場合があります。ご購入の前に、必ず商品ページで最新の情報をご確認ください。
+      </p>
+      <p>
+        本サイトは、特定の商品の購入を強制するものではなく、「絶対に得をする」「必ずこの価格で購入できる」といった断定的な表現は使用しない方針としています。
+      </p>
+
+      <h2>お問い合わせ</h2>
+      <p>
+        本ページの内容に関するお問い合わせは、
+        <a href="/about/">サイトについて／運営者情報</a>
+        ページの案内に沿ってご連絡ください。
+      </p>
+    </div>
+  </article>
+</BaseLayout>

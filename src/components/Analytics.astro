@@ -1,0 +1,36 @@
+---
+// GA4計測（仕様書6.4）。測定IDが未設定の間は何も出力しない。
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+---
+
+{
+  gaId && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+      <script define:vars={{ gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    </>
+  )
+}
+
+<script>
+  // Amazon等の外部リンククリックをGA4イベントとして計測する（仕様書6.4）。
+  // data-gg-outbound属性を持つリンクをまとめて監視するため、ボタン側に個別スクリプトは不要。
+  document.addEventListener('click', (event) => {
+    const target = (event.target as HTMLElement)?.closest<HTMLAnchorElement>('[data-gg-outbound]');
+    if (!target) return;
+
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    w.gtag?.('event', 'outbound_click', {
+      outbound_type: target.dataset.ggOutbound,
+      product_id: target.dataset.ggProduct,
+      link_url: target.href,
+    });
+  });
+</script>

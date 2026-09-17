@@ -1,0 +1,34 @@
+{
+  "name": "golf-site",
+  "version": "1.0.0",
+  "description": "グラウンドゴルフ入門ナビ - グラウンドゴルフ初心者・初級者向け情報サイト",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kumechang/golf-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kumechang/golf-site/issues"
+  },
+  "homepage": "https://github.com/kumechang/golf-site#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^6.0.3"
+  }
+}

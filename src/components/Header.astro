@@ -1,0 +1,75 @@
+---
+import { categories } from '../data/categories';
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
+    <a href="/" class="flex items-center gap-2 tap-target rounded-md">
+      <span
+        class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-green-600 to-sky-500 text-white"
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none" />
+        </svg>
+      </span>
+      <span class="text-lg font-bold text-slate-900 leading-tight">
+        グラウンドゴルフ<br class="sm:hidden" />入門ナビ
+      </span>
+    </a>
+
+    <nav aria-label="メインナビゲーション" class="hidden md:block">
+      <ul class="flex flex-wrap items-center gap-1">
+        {
+          categories.map((cat) => (
+            <li>
+              <a
+                href={`/${cat.slug}/`}
+                class:list={[
+                  'tap-target inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition-colors',
+                  isActive(`/${cat.slug}/`)
+                    ? 'bg-green-700 text-white'
+                    : 'text-slate-700 hover:bg-slate-100',
+                ]}
+                aria-current={isActive(`/${cat.slug}/`) ? 'page' : undefined}
+              >
+                {cat.shortName}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <nav aria-label="メインナビゲーション（モバイル）" class="border-t border-slate-100 md:hidden">
+    <ul class="flex overflow-x-auto px-2 py-2">
+      {
+        categories.map((cat) => (
+          <li class="shrink-0">
+            <a
+              href={`/${cat.slug}/`}
+              class:list={[
+                'tap-target mx-1 inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition-colors',
+                isActive(`/${cat.slug}/`)
+                  ? 'bg-green-700 text-white'
+                  : 'text-slate-700 bg-slate-50',
+              ]}
+              aria-current={isActive(`/${cat.slug}/`) ? 'page' : undefined}
+            >
+              {cat.shortName}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

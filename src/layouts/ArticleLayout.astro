@@ -1,0 +1,105 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import AffiliateNotice from '../components/AffiliateNotice.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { getCategory } from '../data/categories';
+
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  faqItems?: { question: string; answer: string }[];
+  showAffiliateNotice?: boolean;
+}
+
+const { title, description, category, pubDate, updatedDate, faqItems, showAffiliateNotice = false } =
+  Astro.props as Props;
+
+const cat = getCategory(category);
+
+const breadcrumbItems = [
+  { name: 'トップ', href: '/' },
+  ...(cat ? [{ name: cat.name, href: `/${cat.slug}/` }] : []),
+  { name: title, href: Astro.url.pathname },
+];
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
+  author: {
+    '@type': 'Organization',
+    name: 'グラウンドゴルフ入門ナビ運営',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'グラウンドゴルフ入門ナビ',
+  },
+};
+
+const faqJsonLd = faqItems
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    }
+  : undefined;
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+    {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
+  </Fragment>
+
+  <Breadcrumb items={breadcrumbItems} />
+
+  <article class="mx-auto max-w-3xl px-4 pb-20 pt-6">
+    <header>
+      {cat && (
+        <a
+          href={`/${cat.slug}/`}
+          class:list={['inline-block rounded-full px-3 py-1 text-xs font-bold', cat.accent.bg, cat.accent.text]}
+        >
+          {cat.name}
+        </a>
+      )}
+      <h1 class="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">{title}</h1>
+      <p class="mt-3 text-base leading-relaxed text-slate-600">{description}</p>
+      <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400">
+        <time datetime={pubDate.toISOString()}>
+          公開日: {pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        {updatedDate && (
+          <time datetime={updatedDate.toISOString()}>
+            更新日: {updatedDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        )}
+      </div>
+      {showAffiliateNotice && (
+        <div class="mt-5">
+          <AffiliateNotice />
+        </div>
+      )}
+    </header>
+
+    <div class="prose-article mt-8 text-slate-800">
+      <slot />
+    </div>
+
+    {faqItems && faqItems.length > 0 && <FAQSection items={faqItems} />}
+  </article>
+</BaseLayout>
