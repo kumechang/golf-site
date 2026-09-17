@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { categories, getCategory } from '../../data/categories';
+
+export async function getStaticPaths() {
+  return categories.map((cat) => ({ params: { category: cat.slug } }));
+}
+
+const { category } = Astro.params;
+const cat = getCategory(category!)!;
+
+const articles = (await getCollection('articles', (a) => a.data.category === cat.slug)).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout title={cat.name} description={cat.description}>
+  <Breadcrumb items={[{ name: 'トップ', href: '/' }, { name: cat.name, href: `/${cat.slug}/` }]} />
+
+  <header class="mx-auto max-w-5xl px-4 pt-8">
+    <span class:list={['inline-block rounded-full px-3 py-1 text-xs font-bold', cat.accent.bg, cat.accent.text]}>
+      カテゴリ
+    </span>
+    <h1 class="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{cat.name}</h1>
+    <p class="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">{cat.description}</p>
+  </header>
+
+  <section class="mx-auto max-w-5xl px-4 py-10">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        articles.map((article) => (
+          <ArticleCard
+            title={article.data.title}
+            description={article.data.description}
+            href={`/${cat.slug}/${article.id}/`}
+            category={article.data.category}
+            pubDate={article.data.pubDate}
+          />
+        ))
+      }
+    </div>
+    {articles.length === 0 && (
+      <p class="text-slate-500">このカテゴリの記事は準備中です。</p>
+    )}
+  </section>
+</BaseLayout>

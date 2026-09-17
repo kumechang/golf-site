@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ProductComparisonList from '../../components/ProductComparisonList.astro';
+import { getProductsByIds } from '../../data/products';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { category: article.data.category, slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+const relatedProducts = article.data.productIds ? getProductsByIds(article.data.productIds) : [];
+---
+
+<ArticleLayout
+  title={article.data.title}
+  description={article.data.description}
+  category={article.data.category}
+  pubDate={article.data.pubDate}
+  updatedDate={article.data.updatedDate}
+  faqItems={article.data.faqItems}
+  showAffiliateNotice={true}
+>
+  <Content />
+
+  {relatedProducts.length > 0 && (
+    <div class="not-prose mt-10">
+      <h2 class="text-2xl font-bold text-slate-900">おすすめクラブセット比較</h2>
+      <div class="mt-5">
+        <ProductComparisonList products={relatedProducts} />
+      </div>
+    </div>
+  )}
+</ArticleLayout>

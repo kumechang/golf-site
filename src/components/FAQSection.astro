@@ -1,0 +1,36 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props as Props;
+---
+
+<section class="not-prose mt-12 border-t border-slate-200 pt-10" aria-labelledby="faq-heading">
+  <h2 id="faq-heading" class="text-2xl font-bold text-slate-900">よくある質問</h2>
+  <dl class="mt-6 space-y-4">
+    {
+      items.map((item) => (
+        <div class="rounded-xl border border-slate-200 bg-white p-5">
+          <dt class="flex gap-2 text-base font-bold text-slate-900">
+            <span class="text-green-700" aria-hidden="true">
+              Q.
+            </span>
+            {item.question}
+          </dt>
+          <dd class="mt-2 flex gap-2 text-base leading-relaxed text-slate-700">
+            <span class="text-sky-600" aria-hidden="true">
+              A.
+            </span>
+            <span>{item.answer}</span>
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>

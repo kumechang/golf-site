@@ -1,0 +1,30 @@
+---
+import type { CategoryMeta } from '../data/categories';
+
+interface Props {
+  category: CategoryMeta;
+  articleCount?: number;
+}
+
+const { category, articleCount } = Astro.props as Props;
+---
+
+<a
+  href={`/${category.slug}/`}
+  class:list={[
+    'group block rounded-2xl border border-slate-200 p-6 shadow-sm transition-shadow hover:shadow-md',
+    category.accent.bg,
+  ]}
+>
+  <span class:list={['inline-block rounded-full bg-white px-3 py-1 text-xs font-bold ring-1', category.accent.text, category.accent.ring]}>
+    {articleCount !== undefined ? `${articleCount}記事` : 'カテゴリ'}
+  </span>
+  <h3 class="mt-3 text-xl font-bold text-slate-900 group-hover:underline">{category.name}</h3>
+  <p class="mt-2 text-sm leading-relaxed text-slate-600">{category.description}</p>
+  <span class:list={['mt-4 inline-flex items-center gap-1 text-sm font-semibold', category.accent.text]}>
+    記事を見る
+    <svg viewBox="0 0 20 20" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+      <path d="M12.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 9H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" />
+    </svg>
+  </span>
+</a>

@@ -1,0 +1,31 @@
+---
+import type { Product } from '../data/products';
+import { buildAmazonSearchUrl } from '../lib/amazon';
+
+interface Props {
+  product: Product;
+  label?: string;
+}
+
+const { product, label } = Astro.props as Props;
+const href = buildAmazonSearchUrl(product.searchKeyword);
+---
+
+<div class="not-prose">
+  <a
+    href={href}
+    target="_blank"
+    rel="nofollow sponsored noopener"
+    data-gg-outbound="amazon"
+    data-gg-product={product.id}
+    class="tap-target inline-flex w-full items-center justify-center gap-2 rounded-lg bg-amber-500 px-5 py-3 text-base font-bold text-slate-900 shadow-sm transition-colors hover:bg-amber-400 sm:w-auto"
+  >
+    {label ?? `Amazonで「${product.brand}」を見る`}
+    <svg viewBox="0 0 20 20" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+      <path d="M12.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 9H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" />
+    </svg>
+  </a>
+  <p class="mt-1.5 text-xs text-slate-500">
+    ※Amazon内の検索結果ページに移動します。本リンクにはアフィリエイト広告を含みます。
+  </p>
+</div>
