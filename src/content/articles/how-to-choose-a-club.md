@@ -5,6 +5,11 @@ category: "gear"
 articleType: "howto"
 order: 1
 pubDate: 2026-09-17
+productIds:
+  - "aruka-entry-club"
+  - "hatachi-entry-set"
+  - "hatachi-standard-set"
+productsHeading: "価格帯別クラブの例"
 ---
 
 グラウンドゴルフを続けると決めたら、次に気になるのが「自分に合ったクラブの選び方」です。種類が多く、何を基準に選べばよいか迷う方も多いのではないでしょうか。この記事では、初めてクラブを選ぶ際に押さえておきたいポイントを解説します。
