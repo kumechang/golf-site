@@ -56,6 +56,17 @@ const bandColor: Record<Product['priceBand'], string> = {
     <span class="ml-1 text-xs font-normal text-slate-500">（{product.priceCheckedAt}時点・変動あり）</span>
   </p>
 
+  {product.handedness && (
+    <p class:list={[
+      'mt-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold',
+      product.handedness.includes('両面打ち')
+        ? 'bg-teal-100 text-teal-800'
+        : 'bg-slate-100 text-slate-700',
+    ]}>
+      利き手：{product.handedness}
+    </p>
+  )}
+
   <dl class="mt-4 space-y-2 text-sm text-slate-700">
     <div class="flex gap-2">
       <dt class="w-20 shrink-0 font-semibold text-slate-500">セット内容</dt>

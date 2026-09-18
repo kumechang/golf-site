@@ -17,7 +17,7 @@ export const categories: CategoryMeta[] = [
   {
     slug: 'guide',
     name: 'グラウンドゴルフとは',
-    shortName: 'とは',
+    shortName: 'とは？',
     description: 'ルールや魅力など、グラウンドゴルフの基本をやさしく解説します。',
     accent: { bg: 'bg-sky-50', text: 'text-sky-700', ring: 'ring-sky-200' },
   },
