@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CategoryCard from '../components/CategoryCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { categories } from '../data/categories';
-import parkGazebo from '../assets/photos/park-gazebo.avif';
+import equipmentCourse from '../assets/photos/equipment-course-photoac.jpg';
 
 const allArticles = (await getCollection('articles')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -56,11 +56,11 @@ const pageDescription =
           </div>
         </div>
         <Image
-          src={parkGazebo}
-          alt="緑の芝生と東屋がある公園の風景（イメージ）"
-          width={360}
+          src={equipmentCourse}
+          alt="グラウンドゴルフのクラブ・ボールと、番号の旗が立つホールポスト"
+          width={480}
           height={360}
-          class="hidden h-64 w-64 rounded-2xl object-cover shadow-lg ring-4 ring-white/20 lg:block xl:h-72 xl:w-72"
+          class="hidden h-56 w-[26rem] rounded-2xl object-cover shadow-lg ring-4 ring-white/20 lg:block xl:h-64 xl:w-[30rem]"
         />
       </div>
     </section>
