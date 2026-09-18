@@ -5,6 +5,10 @@ category: "gear"
 articleType: "howto"
 order: 3
 pubDate: 2026-09-17
+productIds:
+  - "ground-golf-ball-resin"
+  - "hatachi-ball-pouch"
+productsHeading: "おすすめのボール"
 ---
 
 クラブと並んで欠かせない道具が「ボール」です。見た目はシンプルですが、実は規格や素材の違いがあります。この記事では、グラウンドゴルフのボールを選ぶときのポイントを紹介します。
