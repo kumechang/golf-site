@@ -54,15 +54,31 @@ button {
   outline-offset: 2px;
 }
 
-/* 記事本文の可読性（見出し・段落の余白を広めに） */
+/*
+ * 記事本文の見出し。
+ * Tailwindのpreflightがブラウザ標準の見出しスタイルを打ち消すため、
+ * font-size/weight/colorを明示しないとh2・h3が本文と同じ見た目になってしまう
+ * （実際に発生していた不具合。デザインレビューで発覚）。
+ * 左に緑のアクセントバーを添えて、写真のない紙面でも見出しが拾い読みしやすいようにしている。
+ */
 .prose-article :where(h2) {
   margin-top: 2.5em;
   margin-bottom: 0.75em;
+  border-left: 4px solid var(--color-green-600);
+  padding-left: 0.75rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--color-slate-900);
 }
 
 .prose-article :where(h3) {
   margin-top: 2em;
   margin-bottom: 0.6em;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--color-slate-800);
 }
 
 .prose-article :where(p, ul, ol) {
