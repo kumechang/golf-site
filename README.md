@@ -33,12 +33,23 @@ src/
     about.astro / privacy-policy.astro / affiliate-disclosure.astro
 ```
 
-## 公開前に必ず対応すること
+## 設定状況
 
-1. **ドメイン確定**: `astro.config.mjs` の `SITE_URL`（現在は仮のプレースホルダー）を実際のドメインに差し替える
-2. **Amazonアソシエイトタグ**: `.env` に `PUBLIC_AMAZON_ASSOCIATE_TAG` を設定する（`.env.example` 参照）。未設定の間は仮のタグでビルドされます
-3. **Google Analytics 4**: `.env` に `PUBLIC_GA_MEASUREMENT_ID` を設定する。未設定の間はGAタグは出力されません
-4. **画像素材の追加**: 現状ヒーロー画像・記事画像は未挿入（グラデーションのプレースホルダーのみ）です。画像を追加する場合は `src/assets/` に配置し、各コンポーネントで差し込んでください。検索キーワード例はユーザーに別途共有済みです
-5. **キーワード実測・記事本数の拡充**: 仕様書8章のとおり、公開前にラッコキーワード等で実測し、サイトマップ（仕様書3章）に残る「どんな人におすすめ？」「都道府県別クラブ・コースの探し方」など未執筆の記事を追加してください
-6. **OGP画像**: 現在の `public/ogp-default.svg` はSVGのプレースホルダーです。SVGはOGPとして表示されないSNSがあるため、実運用前にPNG/JPG（1200×630px目安）に差し替えることを推奨します
-7. **紹介料率・商品価格の最新確認**: `src/data/products.ts` の価格帯・商品情報は目安です。公開前にAmazon側の最新情報で確認してください
+- **ドメイン**: `https://ground-golf-navi.com` で確定済み。`astro.config.mjs` の `SITE_URL` に反映済み（DNS浸透待ち）
+- **Amazonアソシエイトタグ**: `hiroshirevolu-22` で確定済み。ローカルの `.env`（gitignore対象）に設定済み
+- **Google Analytics 4**: 測定ID `G-7JGDGW3W1V` で確定済み。ローカルの `.env`（gitignore対象）に設定済み
+
+`.env` はコミットされないため、**本番のホスティング環境（Cloudflare Pagesなど）側の環境変数にも同じ値を設定する必要があります**。
+
+```
+PUBLIC_AMAZON_ASSOCIATE_TAG=hiroshirevolu-22
+PUBLIC_GA_MEASUREMENT_ID=G-7JGDGW3W1V
+```
+
+## 公開前に対応すること
+
+1. **ホスティング環境変数の設定**: 上記の環境変数を本番のホスティングサービス側にも設定する
+2. **画像素材の追加**: 現状ヒーロー画像・記事画像は未挿入（グラデーションのプレースホルダーのみ）です。画像を追加する場合は `src/assets/` に配置し、各コンポーネントで差し込んでください
+3. **キーワード実測**: 仕様書8章のとおり、公開前にラッコキーワード等で検索ボリュームを実測し、記事の優先順位を見直してください
+4. **OGP画像**: 現在の `public/ogp-default.svg` はSVGのプレースホルダーです。SVGはOGPとして表示されないSNSがあるため、実運用前にPNG/JPG（1200×630px目安）に差し替えることを推奨します
+5. **商品価格の最新確認**: `src/data/products.ts` の価格は2026-09-18時点でAmazon.co.jpにて確認した参考価格です。公開前に最新価格・在庫状況を再確認してください
