@@ -5,6 +5,10 @@ category: "start"
 articleType: "howto"
 order: 2
 pubDate: 2026-09-17
+productIds:
+  - "hatachi-club-case"
+  - "hatachi-ball-pouch"
+productsHeading: "持ち運びに便利なグッズ"
 ---
 
 初めてグラウンドゴルフに参加するとき、「何を着ていけばいいのか」「何を持っていけばいいのか」は意外と迷うポイントです。この記事では、体験教室や練習に行くときの持ち物と服装の考え方をまとめました。

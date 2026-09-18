@@ -31,7 +31,7 @@ const relatedProducts = article.data.productIds ? getProductsByIds(article.data.
 
   {relatedProducts.length > 0 && (
     <div class="not-prose mt-10">
-      <h2 class="text-2xl font-bold text-slate-900">おすすめクラブセット比較</h2>
+      <h2 class="text-2xl font-bold text-slate-900">{article.data.productsHeading ?? 'おすすめクラブセット比較'}</h2>
       <div class="mt-5">
         <ProductComparisonList products={relatedProducts} />
       </div>

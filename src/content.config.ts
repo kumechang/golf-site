@@ -16,6 +16,8 @@ const articles = defineCollection({
     updatedDate: z.coerce.date().optional(),
     // 比較・ランキング記事で紹介する商品ID（src/data/products.ts のid参照）
     productIds: z.array(z.string()).optional(),
+    // 商品一覧セクションの見出し（未指定時は「おすすめクラブセット比較」を使用）
+    productsHeading: z.string().optional(),
     // FAQ（あれば FAQPage JSON-LD を自動生成）
     faqItems: z
       .array(
