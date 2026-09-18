@@ -12,6 +12,6 @@
   <circle cx="150" cy="150" r="46" fill="#ffffff"/>
   <circle cx="150" cy="150" r="16" fill="#15803d"/>
   <text x="260" y="145" font-family="'Hiragino Sans','Noto Sans JP',sans-serif" font-size="34" fill="#ffffff" opacity="0.85">グラウンドゴルフ入門ナビ</text>
-  <text x="150" y="320" font-family="'Hiragino Sans','Noto Sans JP',sans-serif" font-size="64" font-weight="700" fill="#ffffff">はじめての一歩を、</text>
-  <text x="150" y="400" font-family="'Hiragino Sans','Noto Sans JP',sans-serif" font-size="64" font-weight="700" fill="#ffffff">やさしくガイド。</text>
+  <text x="150" y="320" font-family="'Hiragino Sans','Noto Sans JP',sans-serif" font-size="60" font-weight="700" fill="#ffffff">はじめてのグラウンドゴルフを、</text>
+  <text x="150" y="400" font-family="'Hiragino Sans','Noto Sans JP',sans-serif" font-size="60" font-weight="700" fill="#ffffff">やさしくガイド</text>
 </svg>
