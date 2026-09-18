@@ -1,138 +1,148 @@
 // 商品データの一元管理（仕様書6.3）。
-// 価格・重量・セット内容はメーカー・時期により変動するため、断定を避け「目安」と明記している。
-// ブランドは公益社団法人日本グラウンド・ゴルフ協会（JGGA）の用具公認制度で認められている
-// メーカーから選定（架空の商品名・価格は使用しない）。実際の商品ページへの固定リンクは、
-// 出品状況が変わりやすいため使わず、ブランド名でのAmazon内検索に誘導する形にしている。
-// 参考: https://groundgolf.or.jp/Portals/0/download/PDF/sP16.pdf（用具標準規則）
+// 2026-09-18に実際のAmazon.co.jp検索結果（保存HTML）から実在するASIN・商品名・価格を確認して登録している。
+// 価格はAmazon側で日々変動するため「確認時点の参考価格」として扱い、断定的な表記は避ける。
+// 月1回を目安に、価格・在庫・出品状況の変化を確認すること（仕様書6.3/7章）。
+// ブランドは公益社団法人日本グラウンド・ゴルフ協会（JGGA）用具公認制度の対象になり得る
+// 国内スポーツ用品メーカー（HATACHI/羽立工業、MIZUNO、NICHIYO/ニチヨー、asics、ALKA/アルカ、
+// マルシン産業）の実商品から選定した。
 
 export type PriceBand = 'entry' | 'standard' | 'premium';
 
 export interface Product {
   id: string;
+  asin: string;
   name: string;
   brand: string;
+  priceYen: number;
   priceBand: PriceBand;
-  priceRangeLabel: string; // 「目安」表記の価格帯
+  priceCheckedAt: string; // 価格確認日（YYYY-MM-DD）
   setContents: string;
   material: string;
   recommendedFor: string;
   reasonSelected: string;
-  searchKeyword: string;
   tags: string[]; // gift-guide等での絞り込みに使用
 }
 
 export const products: Product[] = [
   {
-    id: 'hatachi-entry-set',
-    name: 'HATACHI（ハタチ） グラウンドゴルフ クラブセット',
-    brand: 'HATACHI',
+    id: 'aruka-entry-club',
+    asin: 'B0H2XHN15X',
+    name: 'アルカ（ALKA） グラウンドゴルフクラブ 両面打クラブ GC050',
+    brand: 'アルカ（ALKA）',
+    priceYen: 8490,
     priceBand: 'entry',
-    priceRangeLabel: '1万円前後〜（目安・要確認）',
-    setContents: 'クラブ本体＋専用ケース（モデルにより内容が異なるため購入前に商品ページで要確認）',
-    material: 'JGGA用具標準規則に準拠したヘッド（木製）＋シャフト',
-    recommendedFor: 'これから体験教室に通う方、初めての1本を探している方',
+    priceCheckedAt: '2026-09-18',
+    setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
+    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    recommendedFor: 'まずは費用を抑えて始めてみたい方',
     reasonSelected:
-      'スポーツ用品メーカーとして実績があり、初心者向けモデルの選択肢が豊富なため、最初の1本として選びやすい。',
-    searchKeyword: 'HATACHI ハタチ グラウンドゴルフ クラブ',
-    tags: ['under-15000', 'beginner'],
-  },
-  {
-    id: 'mizuno-standard-club',
-    name: 'MIZUNO（ミズノ） グラウンドゴルフ クラブ',
-    brand: 'MIZUNO',
-    priceBand: 'standard',
-    priceRangeLabel: '1.5万円前後〜（目安・要確認）',
-    setContents: 'クラブ本体（ケースは商品により付属有無が異なる）',
-    material: 'JGGA用具標準規則に準拠したヘッド（木製）＋シャフト',
-    recommendedFor: '体験教室から本格的に始めることが決まった方、握りやすさを重視したい方',
-    reasonSelected:
-      '国内総合スポーツメーカーとしてグリップ・重量バランスの作り込みに定評があり、長く使う1本として選びやすい。',
-    searchKeyword: 'MIZUNO ミズノ グラウンドゴルフ クラブ',
-    tags: ['15000-25000', 'beginner'],
+      'グラウンドゴルフ・パークゴルフ用品を扱うメーカーの実売クラブで、価格帯の中でも手に取りやすい部類に入る。',
+    tags: ['under-10000', 'beginner', 'gift'],
   },
   {
     id: 'nichiyo-club-set',
-    name: 'NICHIYO（ニチヨー） グラウンドゴルフ クラブセット',
-    brand: 'NICHIYO（ニチヨー）',
-    priceBand: 'standard',
-    priceRangeLabel: '1.5万円前後〜（目安・要確認）',
-    setContents: 'クラブ本体＋ケース（モデルにより内容が異なるため購入前に商品ページで要確認）',
-    material: 'JGGA用具標準規則に準拠したヘッド（木製）＋シャフト',
-    recommendedFor: '地域のクラブ・大会にも参加を考えている方',
-    reasonSelected:
-      'グラウンドゴルフ・パークゴルフ用品を専門的に扱うメーカーで、競技志向のモデルまで選択肢が広い。',
-    searchKeyword: 'ニチヨー NICHIYO グラウンドゴルフ クラブ',
-    tags: ['15000-25000', 'club-member'],
-  },
-  {
-    id: 'asics-club',
-    name: 'asics（アシックス） グラウンドゴルフ クラブ',
-    brand: 'asics',
-    priceBand: 'standard',
-    priceRangeLabel: '1.5万円前後〜（目安・要確認）',
-    setContents: 'クラブ本体（ケースは商品により付属有無が異なる）',
-    material: 'JGGA用具標準規則に準拠したヘッド（木製）＋シャフト',
-    recommendedFor: '普段から使い慣れたスポーツブランドで選びたい方',
-    reasonSelected:
-      '大手スポーツブランドとして品質・サイズ展開の安定感があり、贈り物としても選びやすい。',
-    searchKeyword: 'アシックス asics グラウンドゴルフ クラブ',
-    tags: ['15000-25000', 'gift'],
-  },
-  {
-    id: 'itec-club',
-    name: 'ITEC（井上工業） グラウンドゴルフ クラブ',
-    brand: 'ITEC（井上工業）',
-    priceBand: 'premium',
-    priceRangeLabel: '2万円台〜（目安・要確認）',
-    setContents: 'クラブ本体（ケースは商品により付属有無が異なる）',
-    material: 'JGGA用具標準規則に準拠したヘッド（木製）＋シャフト',
-    recommendedFor: '打感や打ちやすさにこだわりたい、上達を目指す方',
-    reasonSelected:
-      'グラウンドゴルフ用具を専門的に手がけるメーカーで、上級者からの評価情報が集めやすい。',
-    searchKeyword: 'ITEC 井上工業 グラウンドゴルフ クラブ',
-    tags: ['25000-plus', 'club-member'],
-  },
-  {
-    id: 'gransia-club-set',
-    name: 'GRANSIA（アルカ） グラウンドゴルフ クラブセット',
-    brand: 'GRANSIA（アルカ）',
-    priceBand: 'premium',
-    priceRangeLabel: '2万円台〜（目安・要確認）',
-    setContents: 'クラブ本体＋ケース（モデルにより内容が異なるため購入前に商品ページで要確認）',
-    material: 'JGGA用具標準規則に準拠したヘッド（木製）＋シャフト',
-    recommendedFor: '大会出場も視野に入れている方、こだわりの1本を探している方',
-    reasonSelected:
-      'JGGA用具公認制度に対応したモデルを展開しており、競技志向の方にも選びやすい。',
-    searchKeyword: 'GRANSIA アルカ グラウンドゴルフ クラブ',
-    tags: ['25000-plus', 'club-member'],
-  },
-  {
-    id: 'aco-club',
-    name: 'A.C.O グラウンドゴルフ クラブ',
-    brand: 'A.C.O',
+    asin: 'B0D7PXWGSW',
+    name: 'ニチヨー（NICHIYO） 特選入門用4点セット K-1700',
+    brand: 'ニチヨー（NICHIYO）',
+    priceYen: 9980,
     priceBand: 'entry',
-    priceRangeLabel: '1万円前後〜（目安・要確認）',
-    setContents: 'クラブ本体（ケースは商品により付属有無が異なる）',
-    material: 'JGGA用具標準規則に準拠したヘッド（木製）＋シャフト',
-    recommendedFor: 'まずは費用を抑えて始めてみたい方',
+    priceCheckedAt: '2026-09-18',
+    setContents: 'クラブ＋ボール＋ケース等の4点セット（内容は商品ページで要確認）',
+    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    recommendedFor: '道具を一式まとめて揃えたい初心者の方',
     reasonSelected:
-      'グラウンドゴルフ・パークゴルフ用品を扱うメーカーとして、手に取りやすい価格帯のモデルがある。',
-    searchKeyword: 'A.C.O グラウンドゴルフ クラブ',
+      'グラウンドゴルフ・パークゴルフ用品を専門的に扱うメーカーの入門者向けセットで、クラブ単体を買い足す手間がない。',
+    tags: ['under-10000', 'beginner', 'gift'],
+  },
+  {
+    id: 'hatachi-entry-set',
+    asin: 'B0CZ9BJ1W5',
+    name: 'HATACHI（ハタチ） お楽しみ3点セット ハードフェイスクラブ 84cm',
+    brand: 'HATACHI（羽立工業）',
+    priceYen: 11980,
+    priceBand: 'entry',
+    priceCheckedAt: '2026-09-18',
+    setContents: 'クラブ＋ケース＋ボールの3点セット',
+    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    recommendedFor: 'これから体験教室に通う方、初めての1本を探している方',
+    reasonSelected:
+      'スポーツ用品メーカーとして実績のあるHATACHI（羽立工業）公式の3点セットで、クラブ・ケース・ボールを一度に揃えられる。',
     tags: ['under-15000', 'beginner', 'gift'],
   },
   {
-    id: 'ground-golf-ball-resin',
-    name: 'グラウンドゴルフ 公認球（樹脂製）',
-    brand: '各メーカー（JGGA認定球）',
-    priceBand: 'entry',
-    priceRangeLabel: '数千円〜（目安・要確認、複数個セットが中心）',
-    setContents: 'ボール単体または複数個セット',
-    material: '樹脂製（直径60mm±1mm、重さ75〜95gのJGGA規格に適合するもの）',
-    recommendedFor: '練習用・予備球を探している方、色違いで複数持ちたい方',
+    id: 'mizuno-standard-club',
+    asin: 'B009C09W6C',
+    name: 'MIZUNO（ミズノ） グラウンドゴルフ クラブ オールスター MX',
+    brand: 'MIZUNO（ミズノ）',
+    priceYen: 15000,
+    priceBand: 'standard',
+    priceCheckedAt: '2026-09-18',
+    setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
+    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    recommendedFor: '体験教室から本格的に始めることが決まった方、振りやすさを重視したい方',
     reasonSelected:
-      '主流である樹脂製かつJGGA認定マーク付きのものを選べば、規格外れによる大会での使用不可を避けられる。',
-    searchKeyword: 'グラウンドゴルフ ボール 公認球',
-    tags: ['under-15000', 'gift', 'ball'],
+      '国内総合スポーツメーカーとして、振りやすさ・打感の作り込みに定評があり、長く使う1本として選びやすい。',
+    tags: ['15000-20000', 'beginner'],
+  },
+  {
+    id: 'asics-club',
+    asin: 'B07JJS595M',
+    name: 'asics（アシックス） グラウンドゴルフクラブ ストロングショット ハイパー',
+    brand: 'asics（アシックス）',
+    priceYen: 16300,
+    priceBand: 'standard',
+    priceCheckedAt: '2026-09-18',
+    setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
+    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    recommendedFor: '普段から使い慣れたスポーツブランドで選びたい方',
+    reasonSelected:
+      '大手スポーツブランドとして品質・ラインアップの安定感があり、贈り物としても選びやすい。',
+    tags: ['15000-20000', 'gift'],
+  },
+  {
+    id: 'hatachi-standard-set',
+    asin: 'B0GG9NTFVW',
+    name: 'HATACHI（ハタチ） パワードソールクラブ3 クラブ・ケース・ボールセット BH1477',
+    brand: 'HATACHI（羽立工業）',
+    priceYen: 19000,
+    priceBand: 'premium',
+    priceCheckedAt: '2026-09-18',
+    setContents: 'クラブ＋ケース＋ボールの3点セット',
+    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    recommendedFor: 'セットで上位モデルを揃えたい方、長く使う1本を探している方',
+    reasonSelected:
+      'HATACHI公式の上位モデルセットで、クラブ・ケース・ボールが一式揃い、贈り物としても本格志向の方にも選びやすい。',
+    tags: ['20000-plus', 'club-member', 'gift'],
+  },
+  {
+    id: 'marushin-premium-club',
+    asin: 'B0BGLBR5XH',
+    name: 'マルシン産業（MARUSHIN） グラウンドゴルフクラブ ブリリアントモデル 84cm',
+    brand: 'マルシン産業（MARUSHIN）',
+    priceYen: 19800,
+    priceBand: 'premium',
+    priceCheckedAt: '2026-09-18',
+    setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
+    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    recommendedFor: '打感や打ちやすさにこだわりたい、上達を目指す方',
+    reasonSelected:
+      'グラウンドゴルフ・パークゴルフ用品を専門的に手がけるメーカーの上位モデルで、競技志向の方にも選びやすい。',
+    tags: ['20000-plus', 'club-member'],
+  },
+  {
+    id: 'ground-golf-ball-resin',
+    asin: 'B0DSNXZK5F',
+    name: 'HATACHI（ハタチ） 公認ボール グラウンドゴルフボール',
+    brand: 'HATACHI（羽立工業）',
+    priceYen: 900,
+    priceBand: 'entry',
+    priceCheckedAt: '2026-09-18',
+    setContents: 'ボール単体',
+    material: '樹脂製（直径60mm±1mm、重さ75〜95gのJGGA規格に適合）',
+    recommendedFor: '練習用・予備球を探している方、気軽なプレゼントを探している方',
+    reasonSelected:
+      'JGGA公認マーク付きの樹脂製ボールで、価格も手頃なため予備球やちょっとした贈り物に選びやすい。',
+    tags: ['under-10000', 'gift', 'ball'],
   },
 ];
 

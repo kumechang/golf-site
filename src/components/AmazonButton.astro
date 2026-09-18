@@ -1,6 +1,6 @@
 ---
 import type { Product } from '../data/products';
-import { buildAmazonSearchUrl } from '../lib/amazon';
+import { buildAmazonProductUrl } from '../lib/amazon';
 
 interface Props {
   product: Product;
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { product, label } = Astro.props as Props;
-const href = buildAmazonSearchUrl(product.searchKeyword);
+const href = buildAmazonProductUrl(product.asin);
 ---
 
 <div class="not-prose">
@@ -26,6 +26,6 @@ const href = buildAmazonSearchUrl(product.searchKeyword);
     </svg>
   </a>
   <p class="mt-1.5 text-xs text-slate-500">
-    ※Amazon内の検索結果ページに移動します。本リンクにはアフィリエイト広告を含みます。
+    ※Amazonの商品ページに移動します。価格・在庫状況は変動するため最新情報は商品ページでご確認ください。本リンクにはアフィリエイト広告を含みます。
   </p>
 </div>
