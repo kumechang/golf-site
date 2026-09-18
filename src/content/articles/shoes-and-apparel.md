@@ -5,6 +5,11 @@ category: "gear"
 articleType: "howto"
 order: 4
 pubDate: 2026-09-17
+productIds:
+  - "lezax-gloves"
+  - "hatachi-stretch-gloves"
+  - "uv-hat-senior"
+productsHeading: "手袋・帽子のおすすめ"
 ---
 
 グラウンドゴルフはクラブとボールがあれば始められますが、長く楽しむためにはシューズやウェア選びも大切なポイントです。この記事では、快適にプレーするためのシューズ・ウェアの選び方を紹介します。

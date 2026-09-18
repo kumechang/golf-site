@@ -1,9 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CategoryCard from '../components/CategoryCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { categories } from '../data/categories';
+import parkGazebo from '../assets/photos/park-gazebo.avif';
 
 const allArticles = (await getCollection('articles')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -25,32 +27,41 @@ const pageDescription =
 <BaseLayout title="グラウンドゴルフ入門ナビ" description={pageDescription}>
   <Fragment slot="full-bleed">
     <section class="bg-gradient-to-br from-green-700 via-green-600 to-sky-600 text-white">
-      <div class="mx-auto max-w-5xl px-4 py-16 sm:py-20">
-        <p class="inline-block rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold">
-          はじめてのグラウンドゴルフを、やさしくガイド
-        </p>
-        <h1 class="mt-5 max-w-2xl text-3xl font-bold leading-snug sm:text-4xl">
-          親の道具選びも、自分の新しい趣味探しも。<br />
-          グラウンドゴルフ入門ナビ
-        </h1>
-        <p class="mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
-          ルールの基本から、体験教室の探し方、失敗しない道具の選び方まで。
-          競技経験がなくても迷わないよう、一つずつやさしく解説します。
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            href="/guide/what-is-ground-golf/"
-            class="tap-target inline-flex items-center rounded-lg bg-white px-5 py-3 text-base font-bold text-green-800 shadow-sm transition-colors hover:bg-green-50"
-          >
-            グラウンドゴルフとは？から読む
-          </a>
-          <a
-            href="/gear/"
-            class="tap-target inline-flex items-center rounded-lg bg-green-800/40 px-5 py-3 text-base font-bold text-white ring-1 ring-white/40 transition-colors hover:bg-green-800/60"
-          >
-            道具選びを見る
-          </a>
+      <div class="mx-auto grid max-w-5xl gap-8 px-4 py-16 sm:py-20 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+          <p class="inline-block rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold">
+            はじめてのグラウンドゴルフを、やさしくガイド
+          </p>
+          <h1 class="mt-5 max-w-2xl text-3xl font-bold leading-snug sm:text-4xl">
+            親の道具選びも、自分の新しい趣味探しも。<br />
+            グラウンドゴルフ入門ナビ
+          </h1>
+          <p class="mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
+            ルールの基本から、体験教室の探し方、失敗しない道具の選び方まで。
+            競技経験がなくても迷わないよう、一つずつやさしく解説します。
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="/guide/what-is-ground-golf/"
+              class="tap-target inline-flex items-center rounded-lg bg-white px-5 py-3 text-base font-bold text-green-800 shadow-sm transition-colors hover:bg-green-50"
+            >
+              グラウンドゴルフとは？から読む
+            </a>
+            <a
+              href="/gear/"
+              class="tap-target inline-flex items-center rounded-lg bg-green-800/40 px-5 py-3 text-base font-bold text-white ring-1 ring-white/40 transition-colors hover:bg-green-800/60"
+            >
+              道具選びを見る
+            </a>
+          </div>
         </div>
+        <Image
+          src={parkGazebo}
+          alt="緑の芝生と東屋がある公園の風景（イメージ）"
+          width={360}
+          height={360}
+          class="hidden h-64 w-64 rounded-2xl object-cover shadow-lg ring-4 ring-white/20 lg:block xl:h-72 xl:w-72"
+        />
       </div>
     </section>
   </Fragment>

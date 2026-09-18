@@ -5,6 +5,10 @@ category: "rules"
 articleType: "howto"
 order: 2
 pubDate: 2026-09-17
+productIds:
+  - "score-card-waterproof"
+  - "hatachi-marker"
+productsHeading: "スコア記入に便利なアイテム"
 ---
 
 グラウンドゴルフを楽しむうえで、スコアの数え方を理解しておくと、プレーがぐっとスムーズになります。この記事では、スコアの基本的な数え方と記録の仕方を紹介します。
