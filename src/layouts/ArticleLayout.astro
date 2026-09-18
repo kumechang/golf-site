@@ -1,4 +1,6 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import AffiliateNotice from '../components/AffiliateNotice.astro';
@@ -13,9 +15,10 @@ interface Props {
   updatedDate?: Date;
   faqItems?: { question: string; answer: string }[];
   showAffiliateNotice?: boolean;
+  image?: { src: ImageMetadata; alt: string };
 }
 
-const { title, description, category, pubDate, updatedDate, faqItems, showAffiliateNotice = false } =
+const { title, description, category, pubDate, updatedDate, faqItems, showAffiliateNotice = false, image } =
   Astro.props as Props;
 
 const cat = getCategory(category);
@@ -95,6 +98,16 @@ const faqJsonLd = faqItems
         </div>
       )}
     </header>
+
+    {image && (
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={900}
+        height={500}
+        class="mt-6 h-auto w-full rounded-2xl object-cover"
+      />
+    )}
 
     <div class="prose-article mt-8 text-slate-800">
       <slot />
