@@ -35,7 +35,8 @@ src/
 
 ## 設定状況
 
-- **ドメイン**: `https://ground-golf-navi.com` で確定済み。`astro.config.mjs` の `SITE_URL` に反映済み（DNS浸透待ち）
+- **ドメイン**: `https://ground-golf-navi.com` で確定済み。`astro.config.mjs` の `SITE_URL` に反映済み（DNS浸透済み）
+- **ホスティング**: Cloudflare（Workers/Pages統合の新方式）。デプロイコマンドが `npx wrangler versions upload` になっており、静的サイトの出力先を明示する `wrangler.jsonc`（`assets.directory: "./dist"`）をリポジトリ直下に配置済み。これが無いと「Missing entry-point to Worker script or to assets directory」でデプロイに失敗する
 - **Amazonアソシエイトタグ**: `hiroshirevolu-22` で確定済み。`src/lib/amazon.ts` にデフォルト値として直接埋め込んでいるため、**ホスティング環境の環境変数設定なしでも正しいリンクが生成されます**（アソシエイトタグは公開後に誰でもリンクから見える値のため、非公開情報として扱う必要はありません）
 - **Google Analytics 4**: 測定ID `G-7JGDGW3W1V` で確定済み。こちらはコード側にデフォルト値を持たせておらず、環境変数 `PUBLIC_GA_MEASUREMENT_ID` が未設定の間はGAタグを一切出力しない設計にしている（計測先を誤って本番以外の環境に送らないため）。**本番のホスティング環境（Cloudflare Pagesなど）側にこの環境変数を設定するまでは、アクセス解析が動きません**
 
