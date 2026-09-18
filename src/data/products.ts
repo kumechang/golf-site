@@ -18,6 +18,9 @@ export interface Product {
   priceCheckedAt: string; // 価格確認日（YYYY-MM-DD）
   setContents: string;
   material: string;
+  // 利き手対応。クラブは右打ち専用・左打ち専用・両面打ち（左右兼用）が混在するため、
+  // 贈り物として選ぶ際に特に重要な情報として独立フィールドにしている。ボールには適用しない。
+  handedness?: string;
   recommendedFor: string;
   reasonSelected: string;
   tags: string[]; // gift-guide等での絞り込みに使用
@@ -34,10 +37,11 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-18',
     setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
     material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
-    recommendedFor: 'まずは費用を抑えて始めてみたい方',
+    handedness: '両面打ち（左右兼用・利き手を選ばず使える）',
+    recommendedFor: 'まずは費用を抑えて始めてみたい方、利き手が分からない相手に贈りたい方',
     reasonSelected:
-      'グラウンドゴルフ・パークゴルフ用品を扱うメーカーの実売クラブで、価格帯の中でも手に取りやすい部類に入る。',
-    tags: ['under-10000', 'beginner', 'gift'],
+      'グラウンドゴルフ・パークゴルフ用品を扱うメーカーの実売クラブで、価格帯の中でも手に取りやすい部類に入る。左右どちらの利き手でも使える両面打ちタイプのため、プレゼントとして利き手を確認できない場合にも選びやすい。',
+    tags: ['under-10000', 'beginner', 'gift', 'ambidextrous'],
   },
   {
     id: 'nichiyo-club-set',
@@ -49,6 +53,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-18',
     setContents: 'クラブ＋ボール＋ケース等の4点セット（内容は商品ページで要確認）',
     material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    handedness: '商品ページに利き手（右打ち／左打ち）の記載なし。購入前に商品ページでご確認ください',
     recommendedFor: '道具を一式まとめて揃えたい初心者の方',
     reasonSelected:
       'グラウンドゴルフ・パークゴルフ用品を専門的に扱うメーカーの入門者向けセットで、クラブ単体を買い足す手間がない。',
@@ -64,6 +69,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-18',
     setContents: 'クラブ＋ケース＋ボールの3点セット',
     material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    handedness: '商品ページに利き手（右打ち／左打ち）の記載なし。購入前に商品ページでご確認ください',
     recommendedFor: 'これから体験教室に通う方、初めての1本を探している方',
     reasonSelected:
       'スポーツ用品メーカーとして実績のあるHATACHI（羽立工業）公式の3点セットで、クラブ・ケース・ボールを一度に揃えられる。',
@@ -72,13 +78,14 @@ export const products: Product[] = [
   {
     id: 'mizuno-standard-club',
     asin: 'B009C09W6C',
-    name: 'MIZUNO（ミズノ） グラウンドゴルフ クラブ オールスター MX',
+    name: 'MIZUNO（ミズノ） グラウンドゴルフ クラブ オールスター MX（右打用）',
     brand: 'MIZUNO（ミズノ）',
     priceYen: 15000,
     priceBand: 'standard',
     priceCheckedAt: '2026-09-18',
     setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
     material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    handedness: '右打ち専用',
     recommendedFor: '体験教室から本格的に始めることが決まった方、振りやすさを重視したい方',
     reasonSelected:
       '国内総合スポーツメーカーとして、振りやすさ・打感の作り込みに定評があり、長く使う1本として選びやすい。',
@@ -94,6 +101,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-18',
     setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
     material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    handedness: '商品ページに利き手（右打ち／左打ち）の記載なし。購入前に商品ページでご確認ください',
     recommendedFor: '普段から使い慣れたスポーツブランドで選びたい方',
     reasonSelected:
       '大手スポーツブランドとして品質・ラインアップの安定感があり、贈り物としても選びやすい。',
@@ -102,13 +110,14 @@ export const products: Product[] = [
   {
     id: 'hatachi-standard-set',
     asin: 'B0GG9NTFVW',
-    name: 'HATACHI（ハタチ） パワードソールクラブ3 クラブ・ケース・ボールセット BH1477',
+    name: 'HATACHI（ハタチ） パワードソールクラブ3 クラブ・ケース・ボールセット BH1477（右打ち）',
     brand: 'HATACHI（羽立工業）',
     priceYen: 19000,
     priceBand: 'premium',
     priceCheckedAt: '2026-09-18',
     setContents: 'クラブ＋ケース＋ボールの3点セット',
     material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    handedness: '右打ち専用',
     recommendedFor: 'セットで上位モデルを揃えたい方、長く使う1本を探している方',
     reasonSelected:
       'HATACHI公式の上位モデルセットで、クラブ・ケース・ボールが一式揃い、贈り物としても本格志向の方にも選びやすい。',
@@ -124,6 +133,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-18',
     setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
     material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    handedness: '商品ページに利き手（右打ち／左打ち）の記載なし。購入前に商品ページでご確認ください',
     recommendedFor: '打感や打ちやすさにこだわりたい、上達を目指す方',
     reasonSelected:
       'グラウンドゴルフ・パークゴルフ用品を専門的に手がけるメーカーの上位モデルで、競技志向の方にも選びやすい。',
