@@ -1,11 +1,15 @@
 ---
+import { Image } from 'astro:assets';
 import type { Product } from '../data/products';
 import AmazonButton from './AmazonButton.astro';
+import { productImages } from '../data/product-images';
 
 interface Props {
   product: Product;
   rank?: number;
 }
+
+const priceFormatter = new Intl.NumberFormat('ja-JP');
 
 const { product, rank } = Astro.props as Props;
 
@@ -34,8 +38,23 @@ const bandColor: Record<Product['priceBand'], string> = {
     </span>
   </div>
 
+  {productImages[product.asin] && (
+    <div class="mt-3 flex h-40 items-center justify-center rounded-lg bg-slate-50">
+      <Image
+        src={productImages[product.asin]}
+        alt={product.name}
+        width={200}
+        height={200}
+        class="h-full w-full object-contain p-2"
+      />
+    </div>
+  )}
+
   <h3 class="mt-3 text-lg font-bold text-slate-900">{product.name}</h3>
-  <p class="mt-1 text-base font-semibold text-slate-800">{product.priceRangeLabel}</p>
+  <p class="mt-1 text-base font-semibold text-slate-800">
+    参考価格 ¥{priceFormatter.format(product.priceYen)}
+    <span class="ml-1 text-xs font-normal text-slate-500">（{product.priceCheckedAt}時点・変動あり）</span>
+  </p>
 
   <dl class="mt-4 space-y-2 text-sm text-slate-700">
     <div class="flex gap-2">
