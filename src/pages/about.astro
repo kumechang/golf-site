@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import parkGazebo from '../assets/photos/park-gazebo.avif';
 
 const description = 'グラウンドゴルフ入門ナビの運営方針、情報の作り方、運営者情報についてご紹介します。';
 ---
@@ -10,6 +12,14 @@ const description = 'グラウンドゴルフ入門ナビの運営方針、情�
 
   <article class="mx-auto max-w-3xl px-4 py-10">
     <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">サイトについて／運営者情報</h1>
+
+    <Image
+      src={parkGazebo}
+      alt="緑の芝生と東屋がある公園の風景（イメージ）"
+      width={720}
+      height={360}
+      class="mt-6 h-48 w-full rounded-2xl object-cover sm:h-64"
+    />
 
     <div class="prose-article mt-8 text-slate-800">
       <h2>このサイトの目的</h2>
