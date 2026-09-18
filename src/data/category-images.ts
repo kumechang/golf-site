@@ -4,6 +4,7 @@ import parkBenchSeniors from '../assets/photos/park-bench-seniors.avif';
 import writingNotebook from '../assets/photos/writing-notebook.avif';
 import communityHighfive from '../assets/illustrations/community-highfive.jpg';
 import guideSwing from '../assets/illustrations/guide-swing.jpg';
+import gearFlatlay from '../assets/illustrations/gear-flatlay.jpg';
 
 // 素材集めの都合上、すべてのカテゴリに対応する写真があるわけではない。
 // 内容と矛盾しない写真が見つかったカテゴリのみ掲載する。
@@ -17,6 +18,10 @@ export const categoryImages: Partial<Record<CategorySlug, { src: ImageMetadata; 
   start: {
     src: communityHighfive,
     alt: 'グラウンドゴルフを楽しむ人々のイラスト',
+  },
+  gear: {
+    src: gearFlatlay,
+    alt: 'クラブ・ボール・グローブ・スコアカード・帽子を並べたイラスト',
   },
   community: {
     src: parkBenchSeniors,
