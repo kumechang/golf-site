@@ -17,7 +17,7 @@ const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const resolvedOgImage = ogImage
   ? new URL(ogImage, Astro.site).toString()
-  : new URL('/ogp-default.svg', Astro.site).toString();
+  : new URL('/ogp-default.png', Astro.site).toString();
 
 const organizationJsonLd = {
   '@context': 'https://schema.org',
