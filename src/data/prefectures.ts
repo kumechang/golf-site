@@ -4,6 +4,9 @@
 //   （https://www.groundgolf.or.jp/certified-courses/ 各地域ブロックページ）に掲載されている情報を
 //   運営者が転記したものです。最新情報は必ずJGGA公式サイト（sourceUrl）でご確認ください。
 
+// コース情報の確認時点（JGGA公式サイトの内容をもとにこのデータを作成した時期）
+export const coursesCheckedAt = "2026年9月";
+
 export interface PrefectureCourse {
   certNo: string;
   name: string;
@@ -26,6 +29,8 @@ export interface PrefectureData {
   association: PrefectureAssociation;
   sourceUrl: string | null;
   courses: PrefectureCourse[];
+  // 認定コースが無い都道府県向けに、近隣で実際にコースがある都道府県のslugを案内する（捏造データではなく実データへの案内）
+  nearbySlugs: string[];
 }
 
 export const prefectures: PrefectureData[] = [
@@ -40,6 +45,7 @@ export const prefectures: PrefectureData[] = [
     },
     sourceUrl: null,
     courses: [],
+    nearbySlugs: [],
   },
   {
     name: "青森県",
@@ -61,6 +67,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×4コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "岩手県",
@@ -82,6 +89,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "宮城県",
@@ -127,6 +135,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "秋田県",
@@ -252,6 +261,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×4コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "山形県",
@@ -313,6 +323,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "福島県",
@@ -350,6 +361,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×4コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "茨城県",
@@ -419,6 +431,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "栃木県",
@@ -448,6 +461,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "群馬県",
@@ -477,6 +491,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×3コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "埼玉県",
@@ -506,6 +521,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "千葉県",
@@ -559,6 +575,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "東京都",
@@ -571,6 +588,7 @@ export const prefectures: PrefectureData[] = [
     },
     sourceUrl: null,
     courses: [],
+    nearbySlugs: ["saitama", "yamanashi", "chiba"],
   },
   {
     name: "神奈川県",
@@ -583,6 +601,7 @@ export const prefectures: PrefectureData[] = [
     },
     sourceUrl: null,
     courses: [],
+    nearbySlugs: ["saitama", "yamanashi", "shizuoka"],
   },
   {
     name: "山梨県",
@@ -604,6 +623,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "新潟県",
@@ -649,6 +669,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×4コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "富山県",
@@ -670,6 +691,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×4コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "石川県",
@@ -723,6 +745,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×4コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "福井県",
@@ -760,6 +783,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×3コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "長野県",
@@ -781,6 +805,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "岐阜県",
@@ -834,6 +859,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "静岡県",
@@ -863,6 +889,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "愛知県",
@@ -900,6 +927,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "三重県",
@@ -921,6 +949,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×3コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "滋賀県",
@@ -1022,6 +1051,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "京都府",
@@ -1075,6 +1105,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "大阪府",
@@ -1096,6 +1127,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×3コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "兵庫県",
@@ -1125,6 +1157,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×3コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "奈良県",
@@ -1162,6 +1195,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "和歌山県",
@@ -1183,6 +1217,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×3コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "鳥取県",
@@ -1236,6 +1271,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "島根県",
@@ -1377,6 +1413,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "岡山県",
@@ -1462,6 +1499,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×4コース 天然芝3コース、人工芝1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "広島県",
@@ -1563,6 +1601,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×3コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "山口県",
@@ -1616,6 +1655,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×4コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "徳島県",
@@ -1637,6 +1677,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "香川県",
@@ -1658,6 +1699,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "愛媛県",
@@ -1679,6 +1721,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×3コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "高知県",
@@ -1691,6 +1734,7 @@ export const prefectures: PrefectureData[] = [
     },
     sourceUrl: null,
     courses: [],
+    nearbySlugs: ["tokushima", "kagawa", "ehime"],
   },
   {
     name: "福岡県",
@@ -1720,6 +1764,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×3コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "佐賀県",
@@ -1765,6 +1810,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×2コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "長崎県",
@@ -1794,6 +1840,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "熊本県",
@@ -1831,6 +1878,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "大分県",
@@ -1860,6 +1908,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×6コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "宮崎県",
@@ -1881,6 +1930,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×4コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "鹿児島県",
@@ -1942,6 +1992,7 @@ export const prefectures: PrefectureData[] = [
         content: "8ホール×1コース",
       },
     ],
+    nearbySlugs: [],
   },
   {
     name: "沖縄県",
@@ -1950,10 +2001,11 @@ export const prefectures: PrefectureData[] = [
     association: {
       url: null,
       urlLabel: null,
-      note: null,
+      note: "本土から離れた島しょ県のため、近隣県のコース情報でのご案内が難しい地域です",
     },
     sourceUrl: null,
     courses: [],
+    nearbySlugs: [],
   },
 ];
 
