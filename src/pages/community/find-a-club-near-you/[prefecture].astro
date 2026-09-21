@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { pref } = Astro.props as { pref: (typeof prefectures)[number] };
 
 const title = `${pref.name}でグラウンドゴルフを楽しめるクラブ・コースの探し方`;
-const description = `${pref.name}でグラウンドゴルフのクラブやコースを探している方向けに、都道府県協会の窓口情報と、JGGA（日本グラウンド・ゴルフ協会）認定コースの一覧を紹介します。`;
+const description = `${pref.name}でグラウンドゴルフのクラブやコースを探している方向けに、都道府県協会の窓口情報と、JGGA（日本グラウンド・ゴルフ協会）認定コースの情報をご紹介します。`;
 
 const breadcrumbItems = [
   { name: 'トップ', href: '/' },
@@ -24,12 +24,7 @@ const breadcrumbItems = [
 
 const nearbyPrefs = pref.nearbySlugs
   .map((slug) => getPrefectureBySlug(slug))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p && p.courses.length > 0));
-
-const mapUrl = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
-
-const showToc = pref.courses.length > 6;
+  .filter((p): p is NonNullable<typeof p> => Boolean(p && p.courseCount > 0));
 ---
 
 <BaseLayout title={title} description={description}>
@@ -69,90 +64,37 @@ const showToc = pref.courses.length > 6;
         </p>
       )}
 
-      <h2>{pref.name}のJGGA認定コース一覧</h2>
-      {pref.courses.length > 0 ? (
-        <>
-          <p>
-            公益社団法人日本グラウンド・ゴルフ協会（JGGA）の公式サイト「認定コース」ページに掲載されている、{pref.name}内の認定コースは次のとおりです（{pref.courses.length}件、{coursesCheckedAt}確認）。ご利用の際は、事前に各施設へ営業状況・予約要否をご確認ください。
-          </p>
-
-          {showToc && (
-            <nav aria-label={`${pref.name}の認定コース一覧（目次）`} class="not-prose mt-4 rounded-xl bg-slate-50 p-4">
-              <p class="text-sm font-bold text-slate-700">コース一覧（{pref.courses.length}件）</p>
-              <ul class="mt-2 grid grid-cols-1 gap-x-4 gap-y-1 text-sm sm:grid-cols-2">
-                {pref.courses.map((course, i) => (
-                  <li>
-                    <a href={`#course-${i}`} class="text-slate-700 hover:text-green-700 hover:underline">
-                      {course.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
-
-          <div class="not-prose mt-4 space-y-4">
-            {pref.courses.map((course, i) => (
-              <div id={`course-${i}`} class="scroll-mt-20 rounded-xl border border-slate-200 p-4 shadow-sm">
-                <p class="text-xs font-semibold text-indigo-700">JGGA認定 {course.certNo}</p>
-                <h3 class="mt-1 text-lg font-bold text-slate-900">{course.name}</h3>
-                <dl class="mt-2 space-y-1 text-sm text-slate-700">
-                  <div class="flex gap-2">
-                    <dt class="w-20 shrink-0 text-slate-500">所在地</dt>
-                    <dd>
-                      {course.address}
-                      {' '}
-                      <a href={mapUrl(course.address)} rel="nofollow noopener" target="_blank" class="whitespace-nowrap text-green-700 hover:underline">
-                        地図で見る
-                      </a>
-                    </dd>
-                  </div>
-                  <div class="flex gap-2">
-                    <dt class="w-20 shrink-0 text-slate-500">電話番号</dt>
-                    <dd><a href={telHref(course.phone)} class="text-green-700 hover:underline">{course.phone}</a></dd>
-                  </div>
-                  <div class="flex gap-2">
-                    <dt class="w-20 shrink-0 text-slate-500">アクセス</dt>
-                    <dd>{course.access}</dd>
-                  </div>
-                  <div class="flex gap-2">
-                    <dt class="w-20 shrink-0 text-slate-500">コース内容</dt>
-                    <dd>{course.content}</dd>
-                  </div>
-                </dl>
-              </div>
-            ))}
-          </div>
-          {pref.sourceUrl && (
-            <p class="mt-4 text-sm text-slate-500">
-              出典：
-              <a href={pref.sourceUrl} rel="nofollow noopener" target="_blank" data-gg-outbound="jgga-courses">
-                日本グラウンド・ゴルフ協会 公式サイト「認定コース」
-              </a>
-              （{coursesCheckedAt}時点でのページ内容をもとに作成。掲載情報は変更される場合があるため、最新情報は公式サイトでご確認ください）
-            </p>
-          )}
-        </>
+      <h2>{pref.name}のJGGA認定コースについて</h2>
+      {pref.courseCount > 0 ? (
+        <p>
+          公益社団法人日本グラウンド・ゴルフ協会（JGGA）公式サイトの「認定コース」ページには、{pref.name}内の認定コースが掲載されています（{coursesCheckedAt}時点で{pref.courseCount}件確認）。施設名・所在地・電話番号など詳しい情報は、JGGA公式サイトでご確認ください。
+        </p>
       ) : (
+        <p>
+          現時点で、{pref.name}内のJGGA認定コースとして公式サイトに掲載されている施設は確認できていません（{coursesCheckedAt}確認）。認定コース以外にも、公共の公園や自治体の運動施設でグラウンドゴルフを楽しめる場合がありますので、お住まいの市区町村のスポーツ振興課や社会福祉協議会にお問い合わせください。
+        </p>
+      )}
+      {pref.sourceUrl && (
+        <p>
+          <a href={pref.sourceUrl} rel="nofollow noopener" target="_blank" data-gg-outbound="jgga-courses">
+            JGGA公式サイトで{pref.name}の認定コース情報を見る
+          </a>
+          （新しいタブで開きます）
+        </p>
+      )}
+      {pref.courseCount === 0 && nearbyPrefs.length > 0 && (
         <>
+          <h3>近隣の都道府県のJGGA認定コース</h3>
           <p>
-            現時点で、{pref.name}内のJGGA認定コースとして公式サイトに掲載されている施設は確認できていません（{coursesCheckedAt}確認）。認定コース以外にも、公共の公園や自治体の運動施設でグラウンドゴルフを楽しめる場合がありますので、お住まいの市区町村のスポーツ振興課や社会福祉協議会にお問い合わせください。
+            {pref.name}に隣接する都道府県には、JGGA認定コースがあります。お住まいの地域によっては、こちらも選択肢になるかもしれません。
           </p>
-          {nearbyPrefs.length > 0 && (
-            <>
-              <h3>近隣の都道府県のJGGA認定コース</h3>
-              <p>
-                {pref.name}に隣接する都道府県には、次のとおりJGGA認定コースがあります。お住まいの地域によっては、こちらも選択肢になるかもしれません。
-              </p>
-              <ul>
-                {nearbyPrefs.map((np) => (
-                  <li>
-                    <a href={`/community/find-a-club-near-you/${np.slug}/`}>{np.name}（{np.courses.length}件）</a>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
+          <ul>
+            {nearbyPrefs.map((np) => (
+              <li>
+                <a href={`/community/find-a-club-near-you/${np.slug}/`}>{np.name}（{np.courseCount}件）</a>
+              </li>
+            ))}
+          </ul>
         </>
       )}
 
