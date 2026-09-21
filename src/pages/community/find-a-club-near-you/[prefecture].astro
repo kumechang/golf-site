@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { prefectures, getPrefectureBySlug, coursesCheckedAt } from '../../../data/prefectures';
+import { getOsmCoursesBySlug, osmCoursesCheckedAt } from '../../../data/osm-course-examples';
 
 export async function getStaticPaths() {
   return prefectures.map((pref) => ({
@@ -25,6 +26,10 @@ const breadcrumbItems = [
 const nearbyPrefs = pref.nearbySlugs
   .map((slug) => getPrefectureBySlug(slug))
   .filter((p): p is NonNullable<typeof p> => Boolean(p && p.courseCount > 0));
+
+const osmCourses = getOsmCoursesBySlug(pref.slug);
+const mapUrl = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -95,6 +100,54 @@ const nearbyPrefs = pref.nearbySlugs
               </li>
             ))}
           </ul>
+        </>
+      )}
+
+      {osmCourses.length > 0 && (
+        <>
+          <h2>{pref.name}で地図データから確認できる施設の例</h2>
+          <p>
+            OpenStreetMap（地図の共同編集プロジェクト）に登録されている情報をもとに、住所・電話番号を個別に確認できた施設を掲載しています（{osmCoursesCheckedAt}確認）。JGGA認定コースとは別の情報源によるもので、網羅的な一覧ではありません。
+          </p>
+          <div class="not-prose mt-4 space-y-4">
+            {osmCourses.map((course) => (
+              <div class="rounded-xl border border-slate-200 p-4 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900">{course.name}</h3>
+                <dl class="mt-2 space-y-1 text-sm text-slate-700">
+                  <div class="flex gap-2">
+                    <dt class="w-20 shrink-0 text-slate-500">所在地</dt>
+                    <dd>
+                      {course.address}
+                      {' '}
+                      <a href={mapUrl(course.address)} rel="nofollow noopener" target="_blank" class="whitespace-nowrap text-green-700 hover:underline">
+                        地図で見る
+                      </a>
+                    </dd>
+                  </div>
+                  {course.phone && (
+                    <div class="flex gap-2">
+                      <dt class="w-20 shrink-0 text-slate-500">電話番号</dt>
+                      <dd><a href={telHref(course.phone)} class="text-green-700 hover:underline">{course.phone}</a></dd>
+                    </div>
+                  )}
+                  {course.note && (
+                    <div class="flex gap-2">
+                      <dt class="w-20 shrink-0 text-slate-500">備考</dt>
+                      <dd>{course.note}</dd>
+                    </div>
+                  )}
+                </dl>
+                <p class="mt-2 text-xs text-slate-400">出典：{course.sourceNote}</p>
+              </div>
+            ))}
+          </div>
+          <p class="mt-4 text-sm text-slate-500">
+            地図データ出典：
+            <a href="https://www.openstreetmap.org/copyright" rel="nofollow noopener" target="_blank">
+              © OpenStreetMap contributors
+            </a>
+            （ODbLライセンス）。営業状況は変更される場合があるため、訪問前に各施設へご確認ください。
+          </p>
         </>
       )}
 
