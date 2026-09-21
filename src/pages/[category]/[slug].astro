@@ -4,6 +4,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import ProductComparisonList from '../../components/ProductComparisonList.astro';
 import { getProductsByIds } from '../../data/products';
 import { articleImages } from '../../data/article-images';
+import { getPrefecturesByRegion } from '../../data/prefectures';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -17,6 +18,7 @@ const { article } = Astro.props;
 const { Content } = await render(article);
 
 const relatedProducts = article.data.productIds ? getProductsByIds(article.data.productIds) : [];
+const prefectureRegions = article.id === 'find-a-club-near-you' ? getPrefecturesByRegion() : null;
 ---
 
 <ArticleLayout
@@ -36,6 +38,34 @@ const relatedProducts = article.data.productIds ? getProductsByIds(article.data.
       <h2 class="text-2xl font-bold text-slate-900">{article.data.productsHeading ?? 'おすすめクラブセット比較'}</h2>
       <div class="mt-5">
         <ProductComparisonList products={relatedProducts} />
+      </div>
+    </div>
+  )}
+
+  {prefectureRegions && (
+    <div class="not-prose mx-auto max-w-3xl px-4 pb-16">
+      <h2 class="text-2xl font-bold text-slate-900">都道府県から探す</h2>
+      <p class="mt-2 text-sm text-slate-600">
+        お住まいの都道府県を選ぶと、協会の窓口情報と、JGGA認定コースの有無・件数（詳細はJGGA公式サイトへのリンクからご確認いただけます）を確認できます。
+      </p>
+      <div class="mt-6 space-y-6">
+        {prefectureRegions.map((group) => (
+          <div>
+            <h3 class="text-sm font-bold text-indigo-700">{group.region}</h3>
+            <ul class="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm sm:grid-cols-3">
+              {group.prefectures.map((pref) => (
+                <li>
+                  <a
+                    href={`/community/find-a-club-near-you/${pref.slug}/`}
+                    class="text-slate-700 hover:text-green-700 hover:underline"
+                  >
+                    {pref.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   )}

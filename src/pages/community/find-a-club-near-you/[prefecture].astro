@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { prefectures, getPrefectureBySlug, coursesCheckedAt } from '../../../data/prefectures';
+
+export async function getStaticPaths() {
+  return prefectures.map((pref) => ({
+    params: { prefecture: pref.slug },
+    props: { pref },
+  }));
+}
+
+const { pref } = Astro.props as { pref: (typeof prefectures)[number] };
+
+const title = `${pref.name}でグラウンドゴルフを楽しめるクラブ・コースの探し方`;
+const description = `${pref.name}でグラウンドゴルフのクラブやコースを探している方向けに、都道府県協会の窓口情報と、JGGA（日本グラウンド・ゴルフ協会）認定コースの情報をご紹介します。`;
+
+const breadcrumbItems = [
+  { name: 'トップ', href: '/' },
+  { name: '大会・コミュニティ情報', href: '/community/' },
+  { name: '都道府県別クラブ・コースの探し方', href: '/community/find-a-club-near-you/' },
+  { name: pref.name, href: Astro.url.pathname },
+];
+
+const nearbyPrefs = pref.nearbySlugs
+  .map((slug) => getPrefectureBySlug(slug))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p && p.courseCount > 0));
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumb items={breadcrumbItems} />
+
+  <article class="mx-auto max-w-3xl px-4 pb-20 pt-6">
+    <header>
+      <a
+        href="/community/"
+        class="inline-block rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-700"
+      >
+        大会・コミュニティ情報
+      </a>
+      <h1 class="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">{title}</h1>
+      <p class="mt-3 text-base leading-relaxed text-slate-600">{description}</p>
+    </header>
+
+    <div class="prose-article mt-8 text-slate-800">
+      <h2>{pref.name}グラウンド・ゴルフ協会の窓口</h2>
+      {pref.association.url ? (
+        <p>
+          {pref.name}には、グラウンドゴルフに関する問い合わせ先として次の窓口があります。
+          {pref.association.urlLabel ?? '公式サイト'}は
+          <a href={pref.association.url} rel="nofollow noopener" target="_blank" data-gg-outbound="association">
+            こちら
+          </a>
+          （新しいタブで開きます）からご確認いただけます。
+          {pref.association.note && <>（{pref.association.note}）</>}
+        </p>
+      ) : (
+        <p>
+          {pref.name}のグラウンド・ゴルフ協会について、独自に運営している公式サイトは現時点で確認できていません。
+          {pref.association.note && <>{pref.association.note}。</>}
+          お住まいの市区町村の「スポーツ振興課」「社会福祉協議会」「スポーツ協会（体育協会）」にお問い合わせいただくと、地域のクラブや窓口を紹介してもらえることが多いです。詳しくは
+          <a href="/community/find-a-club-near-you/">クラブ・コースの探し方</a>
+          の記事もあわせてご覧ください。
+        </p>
+      )}
+
+      <h2>{pref.name}のJGGA認定コースについて</h2>
+      {pref.courseCount > 0 ? (
+        <p>
+          公益社団法人日本グラウンド・ゴルフ協会（JGGA）公式サイトの「認定コース」ページには、{pref.name}内の認定コースが掲載されています（{coursesCheckedAt}時点で{pref.courseCount}件確認）。施設名・所在地・電話番号など詳しい情報は、JGGA公式サイトでご確認ください。
+        </p>
+      ) : (
+        <p>
+          現時点で、{pref.name}内のJGGA認定コースとして公式サイトに掲載されている施設は確認できていません（{coursesCheckedAt}確認）。認定コース以外にも、公共の公園や自治体の運動施設でグラウンドゴルフを楽しめる場合がありますので、お住まいの市区町村のスポーツ振興課や社会福祉協議会にお問い合わせください。
+        </p>
+      )}
+      {pref.sourceUrl && (
+        <p>
+          <a href={pref.sourceUrl} rel="nofollow noopener" target="_blank" data-gg-outbound="jgga-courses">
+            JGGA公式サイトで{pref.name}の認定コース情報を見る
+          </a>
+          （新しいタブで開きます）
+        </p>
+      )}
+      {pref.courseCount === 0 && nearbyPrefs.length > 0 && (
+        <>
+          <h3>近隣の都道府県のJGGA認定コース</h3>
+          <p>
+            {pref.name}に隣接する都道府県には、JGGA認定コースがあります。お住まいの地域によっては、こちらも選択肢になるかもしれません。
+          </p>
+          <ul>
+            {nearbyPrefs.map((np) => (
+              <li>
+                <a href={`/community/find-a-club-near-you/${np.slug}/`}>{np.name}（{np.courseCount}件）</a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      <h2>あわせて読みたい</h2>
+      <ul>
+        <li><a href="/community/find-a-club-near-you/">都道府県別グラウンドゴルフクラブ・コースの探し方（一覧に戻る）</a></li>
+        <li><a href="/start/find-a-class/">体験教室の探し方</a></li>
+        <li><a href="/gear/how-to-choose-a-club/">クラブの選び方（初心者向け）</a></li>
+      </ul>
+    </div>
+  </article>
+</BaseLayout>
