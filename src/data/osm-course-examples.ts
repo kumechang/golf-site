@@ -1,0 +1,177 @@
+// OpenStreetMap（ODbLライセンス）の地図データをもとに存在を確認したグラウンドゴルフ施設の例。
+// JGGA公式サイトのデータとは異なり、この情報は下記の手順で作成した：
+//   1. Overpass API（OpenStreetMap）で `sport=ground_golf` タグおよび施設名に
+//      「グラウンドゴルフ」を含む地物を全国から検索（2026年9月実施）
+//   2. バス停・駐車場・トイレ等、施設そのものではない地物を除外
+//   3. 住所・電話番号など詳しい情報が地図データに無い施設については、
+//      各自治体の公式サイト等の公開情報でWeb検索により個別に確認
+// 住所・電話番号を確認できなかった施設は掲載していない（正直な範囲のみ掲載）。
+// 出典: © OpenStreetMap contributors（ODbL）、および各施設の一次情報源（自治体公式サイト等）。
+
+export interface OsmCourseExample {
+  name: string;
+  address: string;
+  phone: string | null;
+  note: string | null;
+  sourceNote: string;
+}
+
+export const osmCoursesCheckedAt = "2026年9月";
+
+export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
+  chiba: [
+    {
+      name: "君津グラウンド・ゴルフ場",
+      address: "千葉県君津市作木201-3",
+      phone: "0439-55-6225",
+      note: "君津市運営",
+      sourceNote: "OpenStreetMap掲載情報",
+    },
+  ],
+  oita: [
+    {
+      name: "実相寺多目的グラウンド",
+      address: "大分県別府市鶴見3763-1",
+      phone: "0977-26-0535",
+      note: "別府市運営。ラグビー・サッカー・ゲートボール等と共用の多目的グラウンド",
+      sourceNote: "OpenStreetMap掲載情報",
+    },
+  ],
+  ishikawa: [
+    {
+      name: "こなん水辺グラウンドゴルフ場",
+      address: "石川県金沢市（湖南地区）",
+      phone: "076-241-0882",
+      note: null,
+      sourceNote: "金沢市オープンデータ（2013年）",
+    },
+    {
+      name: "加賀朝日町グラウンドゴルフ場",
+      address: "石川県金沢市（加賀朝日町）",
+      phone: "076-241-0882",
+      note: null,
+      sourceNote: "金沢市オープンデータ（2013年）",
+    },
+  ],
+  kagoshima: [
+    {
+      name: "グランド・ゴルフ場 あまみティダパーク",
+      address: "鹿児島県奄美市笠利町大字用安650",
+      phone: "0997-63-2515",
+      note: null,
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  shizuoka: [
+    {
+      name: "浜松グラウンド・ゴルフガーデン",
+      address: "静岡県浜松市中央区白洲町3649-71",
+      phone: "053-525-8900",
+      note: "天然芝全48ホール",
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  okayama: [
+    {
+      name: "奈義町総合運動公園グラウンドゴルフ場",
+      address: "岡山県勝田郡奈義町豊沢314",
+      phone: "0868-36-7311",
+      note: "営業時間9:00〜16:00、月曜定休",
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  mie: [
+    {
+      name: "大羽根運動公園グラウンドゴルフ場",
+      address: "三重県三重郡菰野町（大羽根緑地内）",
+      phone: "059-394-0756",
+      note: "菰野町運営。電話は公園管理棟",
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  tottori: [
+    {
+      name: "グラウンドゴルフのふる里公園「潮風の丘とまり」",
+      address: "鳥取県東伯郡湯梨浜町泊1313",
+      phone: "0858-34-3217",
+      note: "グラウンドゴルフ発祥の地とされる湯梨浜町（旧泊村）にある施設",
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  gifu: [
+    {
+      name: "飛騨川公園 グラウンド・ゴルフコース",
+      address: "岐阜県下呂市萩原町上呂2250-1",
+      phone: "0576-52-4313",
+      note: null,
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  gunma: [
+    {
+      name: "城東グラウンドゴルフ場",
+      address: "群馬県高崎市江木町1474",
+      phone: "027-322-4135",
+      note: "高崎市運営",
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  shiga: [
+    {
+      name: "矢橋帰帆島公園 グラウンド・ゴルフ場",
+      address: "滋賀県草津市矢橋町字帰帆2108",
+      phone: "077-566-3774",
+      note: "全4コース32ホール",
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  nagasaki: [
+    {
+      name: "みずほすこやかランド グラウンド・ゴルフ場",
+      address: "長崎県雲仙市瑞穂町西郷辛621-8",
+      phone: "0957-77-4111",
+      note: null,
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  shimane: [
+    {
+      name: "東出雲グラウンドゴルフ場",
+      address: "島根県松江市東出雲町錦新町六丁目8番1号",
+      phone: "0852-52-7560",
+      note: "8ホール×2面（芝コース・クレーコース）",
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  osaka: [
+    {
+      name: "泉南グラウンド・ゴルフinロングパーク",
+      address: "大阪府泉南市りんくう南浜2-211",
+      phone: "072-477-9134",
+      note: null,
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  hyogo: [
+    {
+      name: "浜坂多目的公園グラウンドゴルフ場",
+      address: "兵庫県美方郡新温泉町浜坂字下タ山61",
+      phone: "0796-82-1616",
+      note: "新温泉町体育協会（浜坂B&G海洋センター内）への申込制",
+      sourceNote: "Web検索により確認",
+    },
+  ],
+  niigata: [
+    {
+      name: "美山グラウンド・ゴルフ場",
+      address: "新潟県糸魚川市大野65-1",
+      phone: "025-552-8290",
+      note: "糸魚川市運営",
+      sourceNote: "Web検索により確認",
+    },
+  ],
+};
+
+export function getOsmCoursesBySlug(slug: string): OsmCourseExample[] {
+  return osmCourseExamples[slug] ?? [];
+}
