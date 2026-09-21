@@ -52,6 +52,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: null,
       sourceNote: "金沢市オープンデータ（2013年）",
     },
+    {
+      name: "泉台グラウンドゴルフ場",
+      address: "石川県能美市泉台町東10番地",
+      phone: "0761-58-5973",
+      note: "協会認定24ホール（白山コース・手取コース・九谷コース）。予約は寺井体育館",
+      sourceNote: "周辺の地図情報から施設名を特定しWeb検索で確認",
+    },
   ],
   kagoshima: [
     {
@@ -79,6 +86,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "営業時間9:00〜16:00、月曜定休",
       sourceNote: "Web検索により確認",
     },
+    {
+      name: "スポーツパーク有漢 グラウンドゴルフ場",
+      address: "岡山県高梁市有漢町有漢7996-1",
+      phone: "0866-57-2983",
+      note: "高梁市運営。多目的グラウンド・補助グラウンドと併設",
+      sourceNote: "周辺の地図情報から施設名を特定しWeb検索で確認",
+    },
   ],
   mie: [
     {
@@ -96,6 +110,29 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       phone: "0858-34-3217",
       note: "グラウンドゴルフ発祥の地とされる湯梨浜町（旧泊村）にある施設",
       sourceNote: "Web検索により確認",
+    },
+    {
+      name: "ふるさと日南邑運動場",
+      address: "鳥取県日野郡日南町神戸上2962-1",
+      phone: "0859-83-1188",
+      note: "営業時間9:00〜17:00、火曜定休",
+      sourceNote: "周辺の地図情報から施設名を特定しWeb検索で確認",
+    },
+  ],
+  akita: [
+    {
+      name: "横手市大森グラウンド・ゴルフ場",
+      address: "秋田県横手市大森町字大中島268番地（大森地域課）",
+      phone: "0182-26-4073",
+      note: "横手市運営",
+      sourceNote: "周辺の地図情報から施設名を特定しWeb検索で確認",
+    },
+    {
+      name: "赤坂総合公園グラウンド・ゴルフ場",
+      address: "秋田県横手市赤坂字大沼沢地内",
+      phone: "0182-33-2546",
+      note: "8ホール×4コース。横手市運営",
+      sourceNote: "周辺の地図情報から施設名を特定しWeb検索で確認",
     },
   ],
   gifu: [
@@ -134,6 +171,15 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       sourceNote: "Web検索により確認",
     },
   ],
+  saga: [
+    {
+      name: "蟻尾山公園グラウンド・ゴルフ場",
+      address: "佐賀県鹿島市大字高津原蟻尾山地内",
+      phone: "080-5272-8407",
+      note: "12ホール（15m・25m・30m・50mの各3ホール）、常設天然芝",
+      sourceNote: "周辺の地図情報から施設名を特定しWeb検索で確認",
+    },
+  ],
   shimane: [
     {
       name: "東出雲グラウンドゴルフ場",
@@ -159,6 +205,22 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       phone: "0796-82-1616",
       note: "新温泉町体育協会（浜坂B&G海洋センター内）への申込制",
       sourceNote: "Web検索により確認",
+    },
+    {
+      name: "しあわせの村グラウンドゴルフ場",
+      address: "兵庫県神戸市北区しあわせの村1-1",
+      phone: "078-743-8000",
+      note: "神戸市運営の複合福祉施設内。火曜定休（春休み・GW・夏休み・祝日は無休）",
+      sourceNote: "周辺の地図情報から施設名を特定しWeb検索で確認",
+    },
+  ],
+  yamaguchi: [
+    {
+      name: "ながとスポーツ公園グラウンド・ゴルフ場",
+      address: "山口県長門市東深川2936番地",
+      phone: "0837-22-1807",
+      note: "スポーツ施設と防災公園を兼ねた公園内",
+      sourceNote: "周辺の地図情報から施設名を特定しWeb検索で確認",
     },
   ],
   niigata: [
