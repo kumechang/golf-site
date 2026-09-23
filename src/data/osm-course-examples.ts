@@ -195,6 +195,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: null,
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "橘ノ丘総合運動公園 多目的広場",
+      address: "香川県高松市国分寺町新名2069-1",
+      phone: "087-874-4311",
+      note: "野球場・テニスコート・プール・キャンプ場等を備える高松市立の総合運動公園",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   tokushima: [
     {
@@ -430,7 +437,7 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
     },
     {
       name: "かもがわ総合スポーツ公園グラウンドゴルフ場",
-      address: "岡山県加賀郡吉備中央町吉川4860-6",
+      address: "岡山県加賀郡吉備中央町上田東2360-3",
       phone: "0867-34-1165",
       note: "野球場・テニスコート・体育館等の複合スポーツ施設",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
@@ -491,7 +498,7 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
     {
       name: "東郷湖羽合臨海公園 あやめ池スポーツセンター",
       address: "鳥取県東伯郡湯梨浜町藤津650",
-      phone: "0858-32-2231",
+      phone: "0858-32-2189",
       note: "体育館・テニスコート・ゲートボール場等を備えた複合公園",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
@@ -660,6 +667,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "群馬県高崎市京目町1031",
       phone: "027-321-1296",
       note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "川原畑グラウンド・ゴルフ場",
+      address: "群馬県吾妻郡長野原町川原畑665-3",
+      phone: "0279-82-4517",
+      note: "8ホール×1コース。JGGA認定コース。町民は無料",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
