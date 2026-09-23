@@ -250,6 +250,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "君津市運営",
       sourceNote: "OpenStreetMap掲載情報",
     },
+    {
+      name: "白子ニューシーサイドホテル",
+      address: "千葉県長生郡白子町中里4482",
+      phone: "0475-30-3555",
+      note: "宿泊施設併設のグラウンドゴルフ場",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   oita: [
     {
@@ -354,6 +361,27 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: null,
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "休暇村指宿エコキャンプ場",
+      address: "鹿児島県指宿市東方10445",
+      phone: "0993-22-3211",
+      note: "宿泊・キャンプ施設併設",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "あやまる岬観光公園",
+      address: "鹿児島県奄美市笠利町大字須野682",
+      phone: "0997-63-8885",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "やぶさめの里総合公園",
+      address: "鹿児島県肝属郡肝付町新富5590-35",
+      phone: "0994-31-5711",
+      note: "高山温泉ドーム・高山やぶさめ館を中心とする総合公園。電話は高山温泉ドーム",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   shizuoka: [
     {
@@ -436,6 +464,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       phone: "059-394-0756",
       note: "菰野町運営。電話は公園管理棟",
       sourceNote: "Web検索により確認",
+    },
+    {
+      name: "NTN総合運動公園",
+      address: "三重県桑名市芳ケ崎1859-4",
+      phone: "0594-32-2000",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
   tottori: [
@@ -540,6 +575,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       phone: "0576-52-4313",
       note: null,
       sourceNote: "Web検索により確認",
+    },
+    {
+      name: "関ケ原グラウンド・ゴルフ場",
+      address: "岐阜県不破郡関ケ原町大字今須2100",
+      phone: "0584-43-0117",
+      note: "JGGA認定コース。3コース（出陣・開戦・決戦）",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
   gunma: [
@@ -887,6 +929,24 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       phone: "025-552-8290",
       note: "糸魚川市運営",
       sourceNote: "Web検索により確認",
+    },
+  ],
+  ehime: [
+    {
+      name: "ジョイグリーン",
+      address: "愛媛県東温市見奈良1110",
+      phone: "089-964-1144",
+      note: "天然芝16ホールのグラウンドゴルフ専用コース",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+  ],
+  miyazaki: [
+    {
+      name: "永山運動公園",
+      address: "宮崎県えびの市大字永山785",
+      phone: "0984-35-2268",
+      note: "サッカー場・ゲートボール場等併設の多目的運動公園。電話はえびの市社会教育課市民体育係",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
 };
