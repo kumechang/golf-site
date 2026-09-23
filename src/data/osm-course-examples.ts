@@ -202,6 +202,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "野球場・テニスコート・プール・キャンプ場等を備える高松市立の総合運動公園",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "国営讃岐まんのう公園 竜頭の丘 多目的広場",
+      address: "香川県仲多度郡まんのう町吉野4243-12",
+      phone: "0877-79-1700",
+      note: "四国唯一の国営公園。北案内所でグラウンドゴルフ用具の無料貸出あり。電話は公園管理センター",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   tokushima: [
     {
@@ -690,6 +697,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "滋賀県野洲市北桜978",
       phone: "077-588-3251",
       note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "グリーンパーク想い出の森 グランドゴルフ場",
+      address: "滋賀県高島市朽木柏341-3",
+      phone: "0740-38-2770",
+      note: "温泉・屋内プール・テニスコート・体育館・宿泊施設を備える複合レジャー施設内",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
