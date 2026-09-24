@@ -20,6 +20,15 @@ export interface OsmCourseExample {
 export const osmCoursesCheckedAt = "2026年9月";
 
 export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
+  tokyo: [
+    {
+      name: "辰巳の森海浜公園",
+      address: "東京都江東区辰巳二丁目1番35号",
+      phone: "03-5569-8672",
+      note: "電話は東京港埠頭株式会社 辰巳の森海浜公園管理事務所",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+  ],
   fukuoka: [
     {
       name: "久山グラウンドゴルフ場",
@@ -154,6 +163,20 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "熊本県宇城市豊野町糸石2614番地1",
       phone: "0964-32-1945",
       note: "電話は宇城市教育部文化スポーツ課スポーツ振興係",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "安津橋健康広場グラウンド・ゴルフ場（グリーンパル甲佐）",
+      address: "熊本県上益城郡甲佐町大字有安地内",
+      phone: "096-234-5660",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "上天草市松島総合運動公園グラウンドゴルフ場",
+      address: "熊本県上天草市松島町合津4276番地44",
+      phone: "0969-56-0777",
+      note: null,
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
@@ -363,6 +386,20 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "徳島県美馬市穴吹町口山字中野宮740",
       phone: "0883-56-1117",
       note: "JGGA認定2コース。9:00〜17:00、月曜・年末年始休",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "星谷運動公園（川の駅かつうら）",
+      address: "徳島県勝浦郡勝浦町星谷",
+      phone: "0885-42-2515",
+      note: "電話は勝浦町教育委員会",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "北島中央公園スポーツ広場",
+      address: "徳島県板野郡北島町中村字中内45-1",
+      phone: "088-697-3241",
+      note: null,
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
@@ -684,6 +721,20 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
+      name: "あっぽ～らんど グラウンドゴルフ",
+      address: "鹿児島県西之表市西之表1910",
+      phone: "0997-24-3611",
+      note: "約73haの芝生広場。パターゴルフも可",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "日置市伊集院総合運動公園グラウンドゴルフ場",
+      address: "鹿児島県日置市伊集院町野田1792番地",
+      phone: "099-272-2525",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
       name: "日置市東市来グラウンドゴルフ場",
       address: "鹿児島県いちき串木野市大里2150",
       phone: "099-274-0405",
@@ -711,6 +762,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "静岡県菊川市下平川506番地の1",
       phone: "0537-73-5600",
       note: "受付・使用料納入場所は菊川市民総合体育館（8:00〜19:00）",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "三保真崎グラウンドゴルフ場",
+      address: "静岡県静岡市清水区三保2399番地地先",
+      phone: "054-334-0826",
+      note: "静岡市営。管理事務所直通",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
@@ -782,6 +840,41 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       name: "頭島グラウンドゴルフ場",
       address: "岡山県備前市日生町日生3518-5",
       phone: "0869-72-2322",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "吉備高原グラウンド・ゴルフ場",
+      address: "岡山県加賀郡吉備中央町吉川4860-6",
+      phone: "0866-56-9191",
+      note: "電話は吉備中央町教育委員会事務局生涯学習班",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "倉敷市グラウンド・ゴルフ場",
+      address: "岡山県倉敷市有城570-3",
+      phone: "086-428-5625",
+      note: "電話は管理棟",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "井原市グラウンド・ゴルフ場",
+      address: "岡山県井原市上出部町四季が丘20-2",
+      phone: "0866-65-2577",
+      note: "クレーコース2・芝コース2の計32ホール",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "恩原高原グラウンドゴルフ場",
+      address: "岡山県苫田郡鏡野町上齋原2037",
+      phone: "0868-44-2840",
+      note: "受付は恩原高原オートキャンプ場",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "矢尾グラウンド・ゴルフ場",
+      address: "岡山県都窪郡早島町矢尾357-2",
+      phone: "086-482-1585",
       note: null,
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
@@ -973,6 +1066,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "岐阜県不破郡関ケ原町大字今須2100",
       phone: "0584-43-0117",
       note: "JGGA認定コース。3コース（出陣・開戦・決戦）",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "飛騨高山グラウンド・ゴルフ倶楽部",
+      address: "岐阜県高山市岡本町4丁目7-1",
+      phone: "0577-57-7244",
+      note: null,
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
@@ -1300,6 +1400,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "有田焼のテーマパーク内。陶芸体験も可能",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "嬉野総合運動公園 みゆきグラウンド・ゴルフ場",
+      address: "佐賀県嬉野市嬉野町大字下宿甲2834",
+      phone: "0954-42-0099",
+      note: "電話は一般社団法人嬉野市スポーツ協会",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   shimane: [
     {
@@ -1447,6 +1554,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "島根県邑智郡美郷町粕渕57-1",
       phone: "0855-75-1670",
       note: "温水プール・温泉・屋内外テニスコート等の複合施設。火曜定休",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "湖陵温泉（湖畔の温泉宿くにびき）",
+      address: "島根県出雲市湖陵町二部1230",
+      phone: "0853-43-2211",
+      note: "神西湖畔の温泉宿泊施設。グラウンドゴルフ場併設",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
@@ -1780,6 +1894,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
   ],
   fukushima: [
     {
+      name: "バーデングラウンド・ゴルフクラブ",
+      address: "福島県郡山市安積町成田字米田28-1",
+      phone: "024-947-7777",
+      note: "8ホール×4コース。ホテルバーデン併設",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
       name: "富岡町総合スポーツセンターグラウンド・ゴルフ場",
       address: "福島県双葉郡富岡町小浜481",
       phone: "0240-22-2690",
@@ -1825,6 +1946,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "長野県下伊那郡売木村45-333",
       phone: "0260-28-2334",
       note: "8ホール×2コース。電話はうるぎ温泉「こまどりの湯」",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "やまゆり公園グラウンドゴルフ場",
+      address: "長野県北佐久郡御代田町",
+      phone: "0267-32-6114",
+      note: "電話は御代田町B&G海洋センター",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
