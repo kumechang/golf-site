@@ -1178,6 +1178,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "電話は香美市役所香北分室",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "東洋町総合運動公園 グラウンド",
+      address: "高知県安芸郡東洋町",
+      phone: "0887-29-3598",
+      note: null,
+      sourceNote: "自治体公式サイト（東洋町ホームページ）をもとにユーザーが確認",
+    },
   ],
   kanagawa: [
     {
