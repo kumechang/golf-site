@@ -2367,6 +2367,71 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
+  yamanashi: [
+    {
+      name: "清里丘の公園レジャーパーク（グラウンド・ゴルフ場）",
+      address: "山梨県北杜市高根町清里3545-5",
+      phone: "0551-48-3456",
+      note: "天然芝16ホール。パターゴルフ場・ドッグラン併設",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "小瀬スポーツ公園",
+      address: "山梨県甲府市小瀬町840",
+      phone: "055-243-3111",
+      note: "県営の総合公園。「エンジョイ グラウンド・ゴルフ」等の開放日あり",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "塩山総合グラウンド",
+      address: "山梨県甲州市塩山小屋敷1897番地",
+      phone: "0553-32-1116",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "御勅使南公園",
+      address: "山梨県南アルプス市六科1588-2",
+      phone: "055-285-4712",
+      note: "電話は管理事務所",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "万力公園（万葉の森）",
+      address: "山梨県山梨市万力1828",
+      phone: "0553-23-1560",
+      note: "電話は万力公園管理事務所",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "忍野村村民グラウンド",
+      address: "山梨県南都留郡忍野村忍草1660",
+      phone: "0555-84-2042",
+      note: "忍野村民運動場",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "中巨摩地区第二公園グラウンド",
+      address: "山梨県中央市一町畑1189",
+      phone: "055-273-6479",
+      note: "電話は中巨摩地区広域事務組合勤労青年センター",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "笛吹市春日居スポーツ広場",
+      address: "山梨県笛吹市春日居町鎮目1323",
+      phone: "0553-26-3773",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "韮崎中央公園",
+      address: "山梨県韮崎市藤井町北下条2531",
+      phone: "0551-22-0498",
+      note: "電話は韮崎市教育課スポーツ振興担当",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+  ],
 };
 
 export function getOsmCoursesBySlug(slug: string): OsmCourseExample[] {
