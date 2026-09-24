@@ -77,6 +77,27 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: null,
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "甘木グラウンドゴルフ場",
+      address: "福岡県朝倉市堤22番地1",
+      phone: "0946-22-7409",
+      note: "電話は甘木体育センター内事務所",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "桂川町グラウンド・ゴルフ場",
+      address: "福岡県嘉穂郡桂川町土師2008-1",
+      phone: "0948-65-5272",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "大島運動場（大島グラウンドゴルフ場）",
+      address: "福岡県田川郡川崎町大字川崎244番地",
+      phone: "0947-73-3899",
+      note: "電話は川崎町B&G海洋センター",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   kumamoto: [
     {
@@ -126,6 +147,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "熊本県葦北郡芦北町大字田浦町488-4",
       phone: "0966-82-5858",
       note: "8ホール×1コース。電話は芦北町教育委員会",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "宇城市豊野グラウンドゴルフ場",
+      address: "熊本県宇城市豊野町糸石2614番地1",
+      phone: "0964-32-1945",
+      note: "電話は宇城市教育部文化スポーツ課スポーツ振興係",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
@@ -627,6 +655,41 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "電話は指宿市健康福祉部地域福祉課",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "砂丘の杜グラウンドゴルフ場",
+      address: "鹿児島県南さつま市金峰町高橋3075-4",
+      phone: "0993-77-2495",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "溝辺グラウンドゴルフ場",
+      address: "鹿児島県霧島市溝辺町麓3391",
+      phone: "0995-58-2451",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "日置市日吉グラウンドゴルフ場",
+      address: "鹿児島県日置市日吉町日置",
+      phone: "099-292-2056",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "宇検村グラウンドゴルフ場",
+      address: "鹿児島県大島郡宇検村大字湯湾2937-83",
+      phone: "0997-67-2211",
+      note: "宇検村役場代表番号",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "日置市東市来グラウンドゴルフ場",
+      address: "鹿児島県いちき串木野市大里2150",
+      phone: "099-274-0405",
+      note: "みなみの風総合運動公園（日置市東市来総合運動公園）内。電話は同公園陸上競技場の窓口",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   shizuoka: [
     {
@@ -641,6 +704,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "静岡県藤枝市原100",
       phone: "054-646-6100",
       note: "サッカー場・陸上競技場・野球場・スケートパーク等を備える藤枝市立の総合運動公園。受付時間8:00〜21:00",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "小笠グラウンドゴルフ場",
+      address: "静岡県菊川市下平川506番地の1",
+      phone: "0537-73-5600",
+      note: "受付・使用料納入場所は菊川市民総合体育館（8:00〜19:00）",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
@@ -745,6 +815,20 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "8ホール×3コース。予約は利用の1週間前まで",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "朝熊山麓公園グラウンドゴルフ場",
+      address: "三重県伊勢市朝熊町4030-2",
+      phone: "0596-22-7891",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "三滝川いこいの広場グラウンドゴルフ場",
+      address: "三重県三重郡菰野町潤田",
+      phone: "059-391-1138",
+      note: "電話は菰野町都市整備課",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   tottori: [
     {
@@ -831,6 +915,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "運動広場100×110m。ログハウス・オートキャンプ場併設",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "八幡グラウンド・ゴルフコース",
+      address: "鳥取県八頭郡若桜町若桜501",
+      phone: "0858-82-2213",
+      note: "電話は若桜町教育委員会事務局",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   akita: [
     {
@@ -859,6 +950,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "秋田県大仙市太田町太田字惣行小坂47",
       phone: "0187-86-9116",
       note: "8:30〜17:00、無休（12〜3月は冬季休業）",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "スポパークかわべグラウンドゴルフ場",
+      address: "秋田県秋田市河辺岩見字萱森上野17-2",
+      phone: "018-881-2411",
+      note: null,
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
@@ -1144,6 +1242,20 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "8ホール×2コース",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "大村市総合運動公園グラウンドゴルフ場",
+      address: "長崎県大村市黒丸町5番1",
+      phone: "0957-53-4111",
+      note: "電話は大村市都市整備部河川公園課公園緑地グループ",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "雲仙諏訪の池ビジターセンターグラウンドゴルフ場",
+      address: "長崎県雲仙市小浜町山畑3952-1",
+      phone: "0957-76-5010",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   saga: [
     {
@@ -1337,6 +1449,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       note: "温水プール・温泉・屋内外テニスコート等の複合施設。火曜定休",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
+    {
+      name: "グリーンヒルさとうグラウンド・ゴルフ場",
+      address: "島根県仁多郡奥出雲町高尾1786-8",
+      phone: "0854-54-2088",
+      note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
   ],
   osaka: [
     {
@@ -1425,6 +1544,13 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "山口県美祢市美東町赤3107番地2",
       phone: "08396-2-2177",
       note: null,
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "乃木浜総合公園グラウンド・ゴルフ場",
+      address: "山口県下関市乃木浜1",
+      phone: "083-248-3081",
+      note: "電話は乃木浜総合公園管理事務所",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
@@ -1635,6 +1761,20 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       address: "山形県西村山郡朝日町白倉745-1",
       phone: "0237-83-7111",
       note: "ホテル・コテージ・スキー場等を備えるアウトドアリゾート内",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "南陽市中央花公園グラウンドゴルフ場",
+      address: "山形県南陽市三間通1096",
+      phone: "0238-49-2600",
+      note: "電話は南陽市民体育館",
+      sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
+    },
+    {
+      name: "コンフォートヤマガタグラウンド・ゴルフ場",
+      address: "山形県山形市樋越51番1",
+      phone: "023-684-9870",
+      note: null,
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
   ],
