@@ -1,0 +1,59 @@
+---
+// 比較記事（articleType: "comparison"）向けの一覧表。
+// カード形式だけだと、複数商品を横断して見比べるのにスクロールが必要になるため、
+// 一覧性を優先した簡易表を先に置く（営業視点レビューで指摘された「一覧比較ができない」対策）。
+// データはproducts.tsを単一の情報源とし、表側で価格・仕様等を書き起こさない。
+import type { Product } from '../data/products';
+
+interface Props {
+  products: Product[];
+}
+
+const { products } = Astro.props as Props;
+
+const priceFormatter = new Intl.NumberFormat('ja-JP');
+
+const bandLabel: Record<Product['priceBand'], string> = {
+  entry: 'エントリー帯',
+  standard: 'スタンダード帯',
+  premium: '上位モデル帯',
+};
+---
+
+<div class="not-prose overflow-x-auto rounded-2xl border border-slate-200">
+  <table class="w-full min-w-[640px] text-left text-sm">
+    <thead class="bg-slate-50 text-xs font-semibold text-slate-500">
+      <tr>
+        <th scope="col" class="px-4 py-3">価格帯</th>
+        <th scope="col" class="px-4 py-3">商品名</th>
+        <th scope="col" class="px-4 py-3">参考価格</th>
+        <th scope="col" class="px-4 py-3">利き手</th>
+        <th scope="col" class="px-4 py-3">セット内容</th>
+        <th scope="col" class="px-4 py-3">こんな方に</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-slate-100">
+      {
+        products.map((product) => (
+          <tr>
+            <td class="px-4 py-3 align-top">
+              <span class="whitespace-nowrap rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
+                {bandLabel[product.priceBand]}
+              </span>
+            </td>
+            <td class="px-4 py-3 align-top font-semibold text-slate-900">{product.name}</td>
+            <td class="whitespace-nowrap px-4 py-3 align-top text-slate-700">
+              ¥{priceFormatter.format(product.priceYen)}
+            </td>
+            <td class="px-4 py-3 align-top text-slate-700">{product.handedness ?? '—'}</td>
+            <td class="px-4 py-3 align-top text-slate-700">{product.setContents}</td>
+            <td class="px-4 py-3 align-top text-slate-700">{product.recommendedFor}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+<p class="mt-2 text-xs text-slate-500">
+  価格は{products[0]?.priceCheckedAt ?? ''}時点でAmazon.co.jpにて確認した参考価格です。変動するため、購入前に最新の商品ページでご確認ください。
+</p>

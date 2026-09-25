@@ -4,16 +4,15 @@ import ProductCard from './ProductCard.astro';
 
 interface Props {
   products: Product[];
-  ranked?: boolean;
 }
 
-const { products, ranked = true } = Astro.props as Props;
+const { products } = Astro.props as Props;
 ---
 
 <div class="not-prose grid gap-5 sm:grid-cols-2">
   {
-    products.map((product, index) => (
-      <ProductCard product={product} rank={ranked ? index + 1 : undefined} />
+    products.map((product) => (
+      <ProductCard product={product} />
     ))
   }
 </div>
