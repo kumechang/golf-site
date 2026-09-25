@@ -5,6 +5,7 @@ category: "gear"
 articleType: "comparison"
 order: 2
 pubDate: 2026-09-17
+updatedDate: 2026-09-25
 productIds:
   - "aruka-entry-club"
   - "nichiyo-club-set"

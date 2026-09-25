@@ -5,6 +5,7 @@ category: "gear"
 articleType: "howto"
 order: 3
 pubDate: 2026-09-17
+updatedDate: 2026-09-25
 productIds:
   - "ground-golf-ball-resin"
   - "hatachi-ball-pouch"

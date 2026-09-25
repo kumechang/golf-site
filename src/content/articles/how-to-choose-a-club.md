@@ -5,6 +5,7 @@ category: "gear"
 articleType: "howto"
 order: 1
 pubDate: 2026-09-17
+updatedDate: 2026-09-25
 productIds:
   - "aruka-entry-club"
   - "hatachi-entry-set"
