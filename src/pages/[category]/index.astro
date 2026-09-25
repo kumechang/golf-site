@@ -20,7 +20,7 @@ const articles = (await getCollection('articles', (a) => a.data.category === cat
 );
 ---
 
-<BaseLayout title={cat.name} description={cat.description}>
+<BaseLayout title={cat.metaTitle} description={cat.metaDescription}>
   <Breadcrumb items={[{ name: 'トップ', href: '/' }, { name: cat.name, href: `/${cat.slug}/` }]} />
 
   <header class="mx-auto max-w-5xl px-4 pt-8">
