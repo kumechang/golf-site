@@ -104,3 +104,44 @@ button {
 .prose-article :where(a:hover) {
   color: var(--color-green-800);
 }
+
+/*
+ * 記事本文（Markdown）内のテーブル。
+ * Tailwindのpreflightで枠線・余白がリセットされる上、列数が多いテーブルは
+ * 記事本文の幅（max-w-3xl）に収まらず、セルが1文字ずつ縦に折り返される
+ * 不具合が発生していた（比較記事のレビューで発覚）。
+ * tableをdisplay:blockのスクロールコンテナにすることでスマホでも横スクロールで
+ * 読める形にし、列の最小幅を確保して文字が極端に折り返されないようにする。
+ */
+.prose-article :where(table) {
+  display: block;
+  margin: 1.75em 0;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-slate-200);
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.prose-article :where(thead) {
+  background-color: var(--color-slate-50);
+}
+
+.prose-article :where(th, td) {
+  min-width: 9rem;
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-slate-100);
+}
+
+.prose-article :where(th) {
+  font-weight: 700;
+  color: var(--color-slate-700);
+  white-space: nowrap;
+}
+
+.prose-article :where(tbody tr:last-child td) {
+  border-bottom: none;
+}
