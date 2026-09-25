@@ -106,6 +106,31 @@ button {
 }
 
 /*
+ * 記事本文内の引用（実際にインタビューした利用者の声など）。
+ * 本文の地の文と視覚的に区別できるよう、左に太めのアクセント線と
+ * 背景色を付ける。2段落目（出典・年代など）は本文より小さく薄い色にし、
+ * 引用文そのものと出典情報が一目で区別できるようにしている。
+ */
+.prose-article :where(blockquote) {
+  margin: 1.75em 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--color-amber-300);
+  background-color: var(--color-amber-50);
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.prose-article :where(blockquote p) {
+  margin: 0;
+  color: var(--color-slate-700);
+}
+
+.prose-article :where(blockquote p + p) {
+  margin-top: 0.5em;
+  font-size: 0.85rem;
+  color: var(--color-slate-500);
+}
+
+/*
  * 記事本文（Markdown）内のテーブル。
  * Tailwindのpreflightで枠線・余白がリセットされる上、列数が多いテーブルは
  * 記事本文の幅（max-w-3xl）に収まらず、セルが1文字ずつ縦に折り返される
