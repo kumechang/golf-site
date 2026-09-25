@@ -5,6 +5,7 @@ category: "guide"
 articleType: "intro"
 order: 1
 pubDate: 2026-09-17
+updatedDate: 2026-09-25
 faqItems:
   - question: "運動が苦手でもできますか？"
     answer: "はい。走ったり跳んだりする場面がほとんどなく、自分のペースで歩きながら打つスポーツなので、体力に自信がない方でも無理なく楽しめます。"

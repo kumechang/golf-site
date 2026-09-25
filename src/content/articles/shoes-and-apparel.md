@@ -5,6 +5,7 @@ category: "gear"
 articleType: "howto"
 order: 4
 pubDate: 2026-09-17
+updatedDate: 2026-09-25
 productIds:
   - "lezax-gloves"
   - "hatachi-stretch-gloves"

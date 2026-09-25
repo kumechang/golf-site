@@ -5,6 +5,7 @@ category: "guide"
 articleType: "intro"
 order: 3
 pubDate: 2026-09-17
+updatedDate: 2026-09-25
 faqItems:
   - question: "体力に自信がなくても大丈夫ですか？"
     answer: "はい。走ったり跳んだりする場面がほとんどなく、自分のペースで歩きながらプレーできるスポーツなので、体力に自信がない方でも無理なく始められます。"

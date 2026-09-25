@@ -5,6 +5,7 @@ category: "gear"
 articleType: "comparison"
 order: 5
 pubDate: 2026-09-17
+updatedDate: 2026-09-25
 productIds:
   - "ground-golf-ball-resin"
   - "lezax-gloves"
