@@ -10,6 +10,10 @@ import mannersComparison from '../assets/illustrations/manners-comparison.jpg';
 import costPiggybank from '../assets/illustrations/cost-piggybank.jpg';
 import clubSelectionLineup from '../assets/illustrations/club-selection-lineup.jpg';
 import localCommunityBoard from '../assets/illustrations/local-community-board.jpg';
+import giftWrappedSet from '../assets/illustrations/gift-wrapped-set.jpg';
+import scorecardCounting from '../assets/illustrations/scorecard-counting.jpg';
+import apparelFlatlay from '../assets/illustrations/apparel-flatlay.jpg';
+import gentleMovement from '../assets/illustrations/gentle-movement.jpg';
 
 // 記事id（src/content/articles/*.md のファイル名）ごとの補助イラスト。
 // すべて生成イラストのため、実写と誤解されないようaltに用途が伝わる説明を入れている。
@@ -57,5 +61,21 @@ export const articleImages: Record<string, { src: ImageMetadata; alt: string }> 
   'find-a-club-near-you': {
     src: localCommunityBoard,
     alt: '公園の掲示板に貼られたグラウンドゴルフのお知らせを確認している高齢男性のイラスト',
+  },
+  'gift-guide': {
+    src: giftWrappedSet,
+    alt: 'リボンをかけたプレゼント箱にボールとグローブが添えられているイラスト',
+  },
+  'how-to-score': {
+    src: scorecardCounting,
+    alt: 'スコアカードとボールを前に、指でスコアを数えている手元のイラスト',
+  },
+  'shoes-and-apparel': {
+    src: apparelFlatlay,
+    alt: 'スニーカー・ポロシャツ・帽子・手袋を並べたイラスト',
+  },
+  'gentle-exercise-comparison': {
+    src: gentleMovement,
+    alt: '無理のない姿勢でボールに向かって構える高齢女性のイラスト',
   },
 };
