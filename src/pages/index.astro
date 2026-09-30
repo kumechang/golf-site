@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CategoryCard from '../components/CategoryCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { categories } from '../data/categories';
-import equipmentCourse from '../assets/photos/equipment-course-photoac.jpg';
+import heroCourseScene from '../assets/illustrations/hero-course-scene.jpg';
 
 const allArticles = (await getCollection('articles')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -59,8 +59,8 @@ const pageDescription =
           </div>
         </div>
         <Image
-          src={equipmentCourse}
-          alt="グラウンドゴルフのクラブ・ボールと、番号の旗が立つホールポスト"
+          src={heroCourseScene}
+          alt="グラウンドゴルフのホールポストに向かってクラブを構える男性のイラスト"
           width={480}
           height={360}
           class="hidden h-56 w-[26rem] rounded-2xl object-cover shadow-lg ring-4 ring-white/20 lg:block xl:h-64 xl:w-[30rem]"

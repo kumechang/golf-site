@@ -4,6 +4,7 @@ import communityHighfive from '../assets/illustrations/community-highfive.jpg';
 import guideSwing from '../assets/illustrations/guide-swing.jpg';
 import gearFlatlay from '../assets/illustrations/gear-flatlay.jpg';
 import communityGathering from '../assets/illustrations/community-gathering.jpg';
+import rulesScorecardCheck from '../assets/illustrations/rules-scorecard-check.jpg';
 
 // 全カテゴリを生成イラストのスタイルに統一している（アートディレクター
 // レビューで、実写ストック写真との画風混在がブランドの一貫性を損なうと
@@ -25,5 +26,9 @@ export const categoryImages: Partial<Record<CategorySlug, { src: ImageMetadata; 
   community: {
     src: communityGathering,
     alt: 'プレー後にベンチで談笑するグラウンドゴルフ仲間のイラスト',
+  },
+  rules: {
+    src: rulesScorecardCheck,
+    alt: 'ホールポストのそばでボールの位置を確認する高齢女性のイラスト',
   },
 };
