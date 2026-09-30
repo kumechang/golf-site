@@ -8,6 +8,8 @@ import ballSizeComparison from '../assets/illustrations/ball-size-comparison.jpg
 import tournamentScene from '../assets/illustrations/tournament-scene.jpg';
 import mannersComparison from '../assets/illustrations/manners-comparison.jpg';
 import costPiggybank from '../assets/illustrations/cost-piggybank.jpg';
+import clubSelectionLineup from '../assets/illustrations/club-selection-lineup.jpg';
+import localCommunityBoard from '../assets/illustrations/local-community-board.jpg';
 
 // 記事id（src/content/articles/*.md のファイル名）ごとの補助イラスト。
 // すべて生成イラストのため、実写と誤解されないようaltに用途が伝わる説明を入れている。
@@ -47,5 +49,13 @@ export const articleImages: Record<string, { src: ImageMetadata; alt: string }> 
   cost: {
     src: costPiggybank,
     alt: 'グラウンドゴルフの道具と貯金箱を並べた、費用の手頃さを表すイラスト',
+  },
+  'best-club-sets': {
+    src: clubSelectionLineup,
+    alt: 'ベンチに立てかけられた形の異なる複数のクラブから1本を選ぼうとしている手のイラスト',
+  },
+  'find-a-club-near-you': {
+    src: localCommunityBoard,
+    alt: '公園の掲示板に貼られたグラウンドゴルフのお知らせを確認している高齢男性のイラスト',
   },
 };
