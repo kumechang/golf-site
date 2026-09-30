@@ -95,13 +95,20 @@ button {
   margin-bottom: 0.4em;
 }
 
-.prose-article :where(a) {
+/*
+ * :not(:where(.not-prose, .not-prose *)) は Tailwind Typography の
+ * not-prose と同じ仕組み。本サイトはそのプラグインを使っていないため、
+ * not-prose クラス自体には何の効果もなく、Amazonボタン等
+ * .not-prose 配下のリンクにまで本文用の下線・リンク色が
+ * 適用されてしまっていた（ボタンがリンクに見える不具合）。
+ */
+.prose-article :where(a):not(:where(.not-prose, .not-prose *)) {
   color: var(--color-green-700);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.prose-article :where(a:hover) {
+.prose-article :where(a:hover):not(:where(.not-prose, .not-prose *)) {
   color: var(--color-green-800);
 }
 
@@ -147,6 +154,26 @@ button {
   border-radius: 0.75rem;
   font-size: 0.9rem;
   line-height: 1.6;
+}
+
+/*
+ * 横スクロールできることに気づきにくいという指摘（UXレビュー）への対応。
+ * スクロールバーやフェードだけでは見落とされやすいため、画面幅が
+ * 狭い場合のみ、はっきり文字で案内する。
+ */
+.prose-article :where(table)::before {
+  content: '→ 表は横にスクロールできます';
+  display: block;
+  margin-bottom: 0.5rem;
+  padding: 0 0.9rem;
+  font-size: 0.8125rem;
+  color: var(--color-slate-500);
+}
+
+@media (min-width: 640px) {
+  .prose-article :where(table)::before {
+    display: none;
+  }
 }
 
 .prose-article :where(thead) {

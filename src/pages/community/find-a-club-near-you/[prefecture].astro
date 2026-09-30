@@ -119,7 +119,7 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
                     <dd>
                       {course.address}
                       {' '}
-                      <a href={mapUrl(course.address)} rel="nofollow noopener" target="_blank" class="whitespace-nowrap text-green-700 hover:underline">
+                      <a href={mapUrl(course.address)} rel="nofollow noopener" target="_blank" class="tap-target inline-flex items-center whitespace-nowrap px-2 text-green-700 hover:underline">
                         地図で見る
                       </a>
                     </dd>
@@ -127,7 +127,7 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
                   {course.phone && (
                     <div class="flex gap-2">
                       <dt class="w-20 shrink-0 text-slate-500">電話番号</dt>
-                      <dd><a href={telHref(course.phone)} class="text-green-700 hover:underline">{course.phone}</a></dd>
+                      <dd><a href={telHref(course.phone)} class="tap-target inline-flex items-center px-2 text-green-700 hover:underline">{course.phone}</a></dd>
                     </div>
                   )}
                   {course.note && (
