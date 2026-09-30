@@ -14,6 +14,9 @@ import giftWrappedSet from '../assets/illustrations/gift-wrapped-set.jpg';
 import scorecardCounting from '../assets/illustrations/scorecard-counting.jpg';
 import apparelFlatlay from '../assets/illustrations/apparel-flatlay.jpg';
 import gentleMovement from '../assets/illustrations/gentle-movement.jpg';
+import courseOverview from '../assets/illustrations/course-overview.jpg';
+import diversePlayersGroup from '../assets/illustrations/diverse-players-group.jpg';
+import hobbyCrossroads from '../assets/illustrations/hobby-crossroads.jpg';
 
 // 記事id（src/content/articles/*.md のファイル名）ごとの補助イラスト。
 // すべて生成イラストのため、実写と誤解されないようaltに用途が伝わる説明を入れている。
@@ -77,5 +80,17 @@ export const articleImages: Record<string, { src: ImageMetadata; alt: string }> 
   'gentle-exercise-comparison': {
     src: gentleMovement,
     alt: '無理のない姿勢でボールに向かって構える高齢女性のイラスト',
+  },
+  'what-is-ground-golf': {
+    src: courseOverview,
+    alt: '番号付きホールポストが並ぶコースを俯瞰し、複数の人がプレーしている様子のイラスト',
+  },
+  'who-is-it-for': {
+    src: diversePlayersGroup,
+    alt: '年代の異なる4人がクラブを持って集まっている様子のイラスト',
+  },
+  'retirement-hobby-comparison': {
+    src: hobbyCrossroads,
+    alt: '公園の分かれ道で立ち止まる男性と、その先にあるグラウンドゴルフの道具や他の趣味の道具のイラスト',
   },
 };
