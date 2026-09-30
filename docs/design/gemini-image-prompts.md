@@ -31,24 +31,28 @@ photorealistic rendering, watermarks, harsh shadows, dark/moody lighting.
 Format: 16:9 landscape, approximately 1400x768px, high detail.
 ```
 
+> **⚠️ 運用上の注意（実際に起きた失敗から）**: プロンプトは必ず「Style〜Subject〜Avoid〜Format」を**1つのブロックとして丸ごと**貼り付けること。Subject部分だけを貼ると、Geminiがスタイル指定を認識できず実写（photorealistic）で生成してしまうことが実際にあった。以下の各プロンプトは、その対策としてすべて単体で完結する形（コピペ1回で完結）にしてある。
+
 ## 一覧
 
-| # | 画像 | 用途 | 保存先（提案） | 優先度 |
-|---|------|------|----------------|--------|
-| 1 | ホームページ ヒーロー | トップページ最上部 | `src/assets/illustrations/hero-course-scene.jpg` | 高（実写→イラスト統一） |
-| 2 | community カテゴリ | `/community/` ヘッダー | `src/assets/illustrations/community-gathering.jpg` | 高（実写→イラスト統一） |
-| 3 | rules カテゴリ | `/rules/` ヘッダー | `src/assets/illustrations/rules-scorecard-check.jpg` | 高（実写→イラスト統一） |
-| 4 | best-club-sets | 記事挿絵 | `src/assets/illustrations/club-selection-lineup.jpg` | 中 |
-| 5 | find-a-club-near-you | 記事挿絵 | `src/assets/illustrations/local-community-board.jpg` | 中 |
-| 6 | gift-guide | 記事挿絵 | `src/assets/illustrations/gift-wrapped-set.jpg` | 中 |
-| 7 | how-to-score | 記事挿絵 | `src/assets/illustrations/scorecard-counting.jpg` | 中 |
-| 8 | shoes-and-apparel | 記事挿絵 | `src/assets/illustrations/apparel-flatlay.jpg` | 中 |
-| 9 | what-is-ground-golf | 記事挿絵 | `src/assets/illustrations/course-overview.jpg` | 中 |
-| 10 | who-is-it-for | 記事挿絵 | `src/assets/illustrations/diverse-players-group.jpg` | 中 |
-| 11 | gentle-exercise-comparison | 記事挿絵 | `src/assets/illustrations/gentle-movement.jpg` | 中 |
-| 12 | retirement-hobby-comparison | 記事挿絵 | `src/assets/illustrations/hobby-crossroads.jpg` | 中 |
+| # | 画像 | 用途 | 保存先（提案） | 状態 |
+|---|------|------|----------------|------|
+| 1 | ホームページ ヒーロー | トップページ最上部 | `src/assets/illustrations/hero-course-scene.jpg` | 未生成（ホールポスト修正版プロンプト待ち） |
+| 2 | community カテゴリ | `/community/` ヘッダー | `src/assets/illustrations/community-gathering.jpg` | ✅配線済み |
+| 3 | rules カテゴリ | `/rules/` ヘッダー | `src/assets/illustrations/rules-scorecard-check.jpg` | 未生成（1回目は実写化、修正版プロンプト待ち） |
+| 4 | best-club-sets | 記事挿絵 | `src/assets/illustrations/club-selection-lineup.jpg` | ✅配線済み |
+| 5 | find-a-club-near-you | 記事挿絵 | `src/assets/illustrations/local-community-board.jpg` | ✅配線済み |
+| 6 | gift-guide | 記事挿絵 | `src/assets/illustrations/gift-wrapped-set.jpg` | ✅配線済み |
+| 7 | how-to-score | 記事挿絵 | `src/assets/illustrations/scorecard-counting.jpg` | ✅配線済み |
+| 8 | shoes-and-apparel | 記事挿絵 | `src/assets/illustrations/apparel-flatlay.jpg` | ✅配線済み |
+| 9 | what-is-ground-golf | 記事挿絵 | `src/assets/illustrations/course-overview.jpg` | 未生成（1回目はホールポストが誤り、修正版プロンプト待ち） |
+| 10 | who-is-it-for | 記事挿絵 | `src/assets/illustrations/diverse-players-group.jpg` | 未生成（1回目はホールポストが誤り、修正版プロンプト待ち） |
+| 11 | gentle-exercise-comparison | 記事挿絵 | `src/assets/illustrations/gentle-movement.jpg` | ✅配線済み |
+| 12 | retirement-hobby-comparison | 記事挿絵 | `src/assets/illustrations/hobby-crossroads.jpg` | 未生成（1回目はホールポストが誤り、修正版プロンプト待ち） |
 
 4〜12は、現在イラストが無い9記事（`src/data/article-images.ts` に未登録）に対応する。1〜3は既存の実写画像の差し替え。
+
+**ホールポストの誤りについて**: 1・3・9・10・12は被写体にホールポスト（ボールを通して支柱に当てる輪）を含むため、通常のゴルフのカップ・フラッグ・グリーンとして誤って生成されやすいことが実際に確認された。各プロンプトに正確な形状（支柱に固定された直径20cm程度のチェーンリング、地面に穴はない）を明記した修正版に更新済み。
 
 ---
 
@@ -58,27 +62,40 @@ Format: 16:9 landscape, approximately 1400x768px, high detail.
 
 **狙い**: 既存イラスト群と様式を統一しつつ、明るく開放的な導入シーンにする。
 
+**修正版（2026-09-30）**: 初回生成でホールポストがゴルフのカップのように描かれたため、用具の正確な形状指示を追加した自己完結プロンプトに更新。
+
 ```
-Wide landscape illustration.
+Wide landscape illustration. This must be a hand-drawn/painted digital illustration —
+NOT a photograph, NOT a photorealistic 3D render.
 
 Style: warm, semi-realistic Japanese digital illustration (similar to anime/light-novel
 background art), clean confident linework, soft cel-shading with gentle gradients, warm
 natural outdoor lighting, lush green park/lawn setting, soft background bokeh, natural
-realistic human proportions (NOT chibi, NOT flat vector icon style, NOT photorealistic
-3D render), muted warm color palette dominated by greens and earth tones with occasional
-color accents, calm and inviting mood.
-Avoid: any legible text, logos, brand names, specific real commercial product designs,
-photorealistic rendering, watermarks, harsh shadows, dark/moody lighting.
-Format: 16:9 landscape, approximately 1400x768px, high detail.
+realistic human proportions (NOT chibi, NOT flat vector icon style), muted warm color
+palette dominated by greens and earth tones with occasional color accents, calm and
+inviting mood.
 
 Subject: A cheerful Japanese man in his late 60s, wearing a navy polo shirt, beige
 trousers and a white cap, mid-swing with a ground golf club (a croquet-mallet-style
 wooden club with a short shaft), about to hit a small orange ball toward a numbered
-metal hole-post ring ("1") in the distance. Wide, well-maintained green lawn park
-setting with tall leafy trees in soft-focus background, bright blue sky with a few
-soft white clouds. Warm, healthy, active mood — NOT strenuous or competitive. Subject
-centered-right with open negative space to the left (for text overlay in the actual
-website layout).
+ground-golf hole-post in the distance. Wide, well-maintained green lawn park setting
+with tall leafy trees in soft-focus background, bright blue sky with a few soft white
+clouds. Warm, healthy, active mood — NOT strenuous or competitive. Subject centered-
+right with open negative space to the left (for text overlay in the actual website
+layout).
+
+IMPORTANT — the hole-post design must be accurate: it is a chain-link metal ring
+(about 20cm diameter) mounted horizontally around a thin vertical metal pole, at
+roughly knee-to-hip height, with a small numbered square sign plate near the top of
+the pole. NOT a golf-style hole/cup dug into the ground, no flagstick, no putting
+green — the ball travels along the grass and passes through the ring, hitting the
+pole to score.
+
+Avoid: any legible text, logos, brand names, specific real commercial product designs,
+photorealistic rendering, photographic realism, watermarks, harsh shadows, dark/moody
+lighting.
+Format: 16:9 landscape, approximately 1400x768px, high detail, illustrated/painted
+style (not a photograph).
 ```
 
 ---
@@ -119,24 +136,36 @@ atmosphere — conveys belonging and local social connection, not competition.
 
 **狙い**: 「審判・取り締まり」ではなく「確認・理解」の落ち着いた雰囲気に。既存の `rule-hole-post-diagram.jpg` と並べても違和感のない画角。
 
+**修正版（2026-09-30）**: 初回生成が実写（photorealistic）になってしまったため、スタイル指定をSubjectと同じブロックにまとめ、用具の正確な形状指示も追加した自己完結プロンプトに更新。**このブロック全体を1回で貼り付けること**（Subject部分だけを貼らない）。
+
 ```
-Landscape illustration.
+Landscape illustration. This must be a hand-drawn/painted digital illustration — NOT
+a photograph, NOT a photorealistic 3D render.
 
 Style: warm, semi-realistic Japanese digital illustration (similar to anime/light-novel
 background art), clean confident linework, soft cel-shading with gentle gradients, warm
 natural outdoor lighting, lush green park/lawn setting, soft background bokeh, natural
-realistic human proportions (NOT chibi, NOT flat vector icon style, NOT photorealistic
-3D render), muted warm color palette dominated by greens and earth tones with occasional
-color accents, calm and inviting mood.
-Avoid: any legible text, logos, brand names, photorealistic rendering, watermarks,
-harsh shadows, dark/moody lighting.
-Format: 16:9 landscape, approximately 1400x768px, high detail.
+realistic human proportions (NOT chibi, NOT flat vector icon style), muted warm color
+palette dominated by greens and earth tones with occasional color accents, calm and
+inviting mood.
 
 Subject: A Japanese senior woman in her 60s, wearing a sun hat and light cardigan,
-crouching slightly beside a numbered metal hole-post ring on a grass lawn, checking
-the ball's position relative to the ring with a gentle, attentive expression, one hand
-pointing near the ball. Soft-focus green park background with trees. Bright, clear,
-instructional mood — conveys "checking carefully" without looking stern or official.
+crouching slightly beside a numbered ground-golf hole-post on a grass lawn, checking
+the ball's position with a gentle, attentive expression, one hand pointing near the
+ball. Soft-focus green park background with trees. Bright, clear, instructional mood
+— conveys "checking carefully" without looking stern or official.
+
+IMPORTANT — the hole-post design must be accurate: it is a chain-link metal ring
+(about 20cm diameter) mounted horizontally around a thin vertical metal pole, at
+roughly knee-to-hip height, with a small numbered square sign plate near the top of
+the pole. The ball rests on the grass near the base of the pole/ring, NOT inside a
+dug hole or cup in the ground. This is NOT conventional golf — there must be no
+golf-style hole/cup in the ground, no flagstick, no putting green.
+
+Avoid: any legible text, logos, brand names, photorealistic rendering, photographic
+realism, watermarks, harsh shadows, dark/moody lighting.
+Format: 16:9 landscape, approximately 1400x768px, high detail, illustrated/painted
+style (not a photograph).
 ```
 
 ---
@@ -278,22 +307,35 @@ conveys appropriate outdoor sports attire for seniors.
 
 **狙い**: 「そもそもどんな競技か」を一目で伝える俯瞰カット。カテゴリヘッダーの `guide-swing.jpg` とは別カットの記事専用イラスト。
 
+**修正版（2026-09-30）**: 初回生成でホールポストが通常のゴルフのカップ・フラッグ・グリーンとして描かれてしまったため、用具の正確な形状指示を追加した自己完結プロンプトに更新。**このブロック全体を1回で貼り付けること**（Subject部分だけを貼らない）。
+
 ```
-Wide landscape illustration, elevated wide-angle view.
+Wide landscape illustration, elevated wide-angle view. This must be a hand-drawn/
+painted digital illustration — NOT a photograph, NOT a photorealistic 3D render.
 
 Style: warm, semi-realistic Japanese digital illustration (similar to anime/light-novel
 background art), clean confident linework, soft cel-shading with gentle gradients, warm
-natural outdoor lighting, soft background bokeh, muted warm color palette.
-Avoid: any legible text (simple numerals "1", "2", "3" on the hole-posts are fine),
-logos, brand names, photorealistic rendering.
-Format: 16:9 landscape, approximately 1400x768px, high detail.
+natural outdoor lighting, soft background bokeh, muted warm color palette. Japanese
+seniors (60s-80s) should look active, dignified, and genuinely happy.
 
 Subject: An elevated wide-angle view across a gently curving green lawn park course,
-showing three numbered metal hole-post rings ("1", "2", "3") spaced out across the
+showing three numbered ground-golf hole-posts ("1", "2", "3") spaced out across the
 grass at different distances, with two or three small distant figures of Japanese
 seniors playing casually near the far hole-posts. Tall trees line the background,
 bright blue sky with soft clouds. Conveys the overall layout and gentle, spacious
 nature of the sport.
+
+IMPORTANT — each hole-post's design must be accurate: it is a chain-link metal ring
+(about 20cm diameter) mounted horizontally around a thin vertical metal pole, at
+roughly knee-to-hip height, with a small numbered square sign plate near the top of
+the pole. The ball rests on the grass near the base of the pole/ring. This is NOT
+conventional golf — there must be absolutely no golf-style holes/cups dug into the
+ground, no flagsticks, no putting greens, no sand bunkers anywhere in the image.
+
+Avoid: any legible text beyond the simple numerals "1"/"2"/"3", logos, brand names,
+photorealistic rendering, photographic realism, watermarks.
+Format: 16:9 landscape, approximately 1400x768px, high detail, illustrated/painted
+style (not a photograph).
 ```
 
 ---
@@ -304,24 +346,36 @@ nature of the sport.
 
 **狙い**: 「幅広い人に向いている」ことを多様な人物構成で表現。既存の `community-highfive.jpg`（ハイタッチの瞬間）とは違う、落ち着いた集合カットにする。
 
+**修正版（2026-09-30）**: 初回生成は人物構成が良かったものの、背景のホールポストがゴルフのカップ・フラッグとして描かれてしまったため、用具の正確な形状指示を追加した自己完結プロンプトに更新。**このブロック全体を1回で貼り付けること**（Subject部分だけを貼らない）。
+
 ```
-Landscape illustration, group portrait composition.
+Landscape illustration, group portrait composition. This must be a hand-drawn/painted
+digital illustration — NOT a photograph, NOT a photorealistic 3D render.
 
 Style: warm, semi-realistic Japanese digital illustration (similar to anime/light-novel
 background art), clean confident linework, soft cel-shading with gentle gradients, warm
 natural outdoor lighting, soft background bokeh, muted warm color palette. Japanese
 people should look active, dignified, and genuinely happy — never frail or caricatured.
-Avoid: any legible text, logos, brand names, photorealistic rendering, stiff/posed
-composition.
-Format: 16:9 landscape, approximately 1400x768px, high detail.
 
 Subject: A relaxed group of four distinct Japanese individuals standing together on a
 grass lawn, each holding a ground golf club: an active-looking man in his 70s, a
 smiling woman in her 60s, an older woman in her 80s with a light cane resting nearby,
 and a woman in her 50s who looks like she just arrived (slightly more casual outfit,
 curious expression). All look approachable and genuinely happy, varied natural body
-language. Soft-focus green park background with trees and a numbered hole-post ring
-nearby. Conveys "this sport welcomes many different kinds of people."
+language. Soft-focus green park background with trees and a numbered ground-golf
+hole-post nearby. Conveys "this sport welcomes many different kinds of people."
+
+IMPORTANT — the hole-post's design must be accurate: it is a chain-link metal ring
+(about 20cm diameter) mounted horizontally around a thin vertical metal pole, at
+roughly knee-to-hip height, with a small numbered square sign plate near the top of
+the pole. The ball rests on the grass near the base of the pole/ring. This is NOT
+conventional golf — there must be absolutely no golf-style hole/cup dug into the
+ground, no flagstick, no putting green.
+
+Avoid: any legible text, logos, brand names, photorealistic rendering, photographic
+realism, stiff/posed composition, watermarks.
+Format: 16:9 landscape, approximately 1400x768px, high detail, illustrated/painted
+style (not a photograph).
 ```
 
 ---
@@ -358,16 +412,16 @@ reassuring, low-impact mood.
 
 **狙い**: 「定年後、何を始めるか選ぶ」という記事の主題を象徴的に表現。焦りや不安ではなく、前向きな選択の場面にする。
 
+**修正版（2026-09-30）**: 初回生成でホールポストがゴルフのカップ・フラッグとして描かれてしまったため、用具の正確な形状指示を追加した自己完結プロンプトに更新。**このブロック全体を1回で貼り付けること**（Subject部分だけを貼らない）。
+
 ```
-Landscape illustration.
+Landscape illustration. This must be a hand-drawn/painted digital illustration — NOT
+a photograph, NOT a photorealistic 3D render.
 
 Style: warm, semi-realistic Japanese digital illustration (similar to anime/light-novel
 background art), clean confident linework, soft cel-shading with gentle gradients, warm
 natural outdoor lighting, soft background bokeh, muted warm color palette. Mood must be
 calm, hopeful, and unhurried — NOT anxious or urgent.
-Avoid: any legible text, logos, brand names, photorealistic rendering, any expression
-of worry, loneliness, or urgency.
-Format: 16:9 landscape, approximately 1400x768px, high detail.
 
 Subject: A thoughtful Japanese man in his late 60s standing at a gentle fork in a park
 path, looking ahead with a calm, curious expression. To one side of the path, a ground
@@ -376,6 +430,18 @@ unobtrusive hints of other hobbies (a small potted plant with a watering can, a 
 are suggested in soft-focus in the far background, without being the main focus. Lush
 green trees, warm bright daylight, open and hopeful mood — conveys "many good choices,
 take your time deciding."
+
+IMPORTANT — the hole-post's design must be accurate: it is a chain-link metal ring
+(about 20cm diameter) mounted horizontally around a thin vertical metal pole, at
+roughly knee-to-hip height, with a small numbered square sign plate near the top of
+the pole. The ball rests on the grass near the base of the pole/ring. This is NOT
+conventional golf — there must be absolutely no golf-style hole/cup dug into the
+ground, no flagstick, no putting green.
+
+Avoid: any legible text, logos, brand names, photorealistic rendering, photographic
+realism, any expression of worry, loneliness, or urgency, watermarks.
+Format: 16:9 landscape, approximately 1400x768px, high detail, illustrated/painted
+style (not a photograph).
 ```
 
 ---
