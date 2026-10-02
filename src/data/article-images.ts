@@ -1,5 +1,4 @@
 import type { ImageMetadata } from 'astro';
-import ruleHolePostDiagram from '../assets/illustrations/rule-hole-post-diagram.jpg';
 import clubAnatomyDiagram from '../assets/illustrations/club-anatomy-diagram.jpg';
 import sportsComparison from '../assets/illustrations/sports-comparison.jpg';
 import findAClassTeaching from '../assets/illustrations/find-a-class-teaching.jpg';
@@ -21,10 +20,6 @@ import hobbyCrossroads from '../assets/illustrations/hobby-crossroads.jpg';
 // 記事id（src/content/articles/*.md のファイル名）ごとの補助イラスト。
 // すべて生成イラストのため、実写と誤解されないようaltに用途が伝わる説明を入れている。
 export const articleImages: Record<string, { src: ImageMetadata; alt: string }> = {
-  'basic-rules': {
-    src: ruleHolePostDiagram,
-    alt: 'ボールが輪を通って支柱に当たるとホールインになることを示す図解イラスト',
-  },
   'how-to-choose-a-club': {
     src: clubAnatomyDiagram,
     alt: 'グラウンドゴルフのクラブの各部名称（ヘッド・グリップ・シャフト長）を示す図解イラスト',
