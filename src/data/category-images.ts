@@ -17,7 +17,7 @@ export const categoryImages: Partial<Record<CategorySlug, { src: ImageMetadata; 
   },
   start: {
     src: communityHighfive,
-    alt: 'グラウンドゴルフを楽しむ人々のイラスト',
+    alt: 'ホールインを喜んでハイタッチする人と、拍手で見守る仲間たちのイラスト',
   },
   gear: {
     src: gearFlatlay,
@@ -29,6 +29,6 @@ export const categoryImages: Partial<Record<CategorySlug, { src: ImageMetadata; 
   },
   rules: {
     src: rulesScorecardCheck,
-    alt: 'ホールポストのそばでボールの位置を確認する高齢女性のイラスト',
+    alt: 'ホールポストに向かってクラブを構える男性のイラスト',
   },
 };
