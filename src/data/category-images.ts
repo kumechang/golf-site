@@ -29,6 +29,6 @@ export const categoryImages: Partial<Record<CategorySlug, { src: ImageMetadata; 
   },
   rules: {
     src: rulesScorecardCheck,
-    alt: 'ホールポストに向かってクラブを構える男性のイラスト',
+    alt: 'ホールポストの輪の中で止まったボールを確認する高齢女性のイラスト',
   },
 };
