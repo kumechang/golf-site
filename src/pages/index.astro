@@ -18,6 +18,19 @@ const featuredComparisons = allArticles.filter((a) => a.data.articleType === 'co
 
 const golfSwitchArticle = allArticles.find((a) => a.id === 'from-golf-to-ground-golf');
 
+// 入門者がまず読む主要記事。順序は読む流れ（どんな競技か→自分に向くか→費用→ルール→スコア→道具）。
+const startHereIds = [
+  'what-is-ground-golf',
+  'who-is-it-for',
+  'cost',
+  'basic-rules',
+  'how-to-score',
+  'how-to-choose-a-club',
+];
+const startHereArticles = startHereIds
+  .map((id) => allArticles.find((a) => a.id === id))
+  .filter((a) => a !== undefined);
+
 function countByCategory(slug: string) {
   return allArticles.filter((a) => a.data.category === slug).length;
 }
@@ -76,6 +89,27 @@ const pageDescription =
       </div>
     </section>
   </Fragment>
+
+  {startHereArticles.length > 0 && (
+    <section class="mx-auto max-w-5xl px-4 pt-14">
+      <h2 class="text-2xl font-bold text-slate-900">はじめての方は、ここから</h2>
+      <ul class="mt-6 grid gap-x-10 sm:grid-cols-2">
+        {startHereArticles.map((article) => (
+          <li class="border-t border-slate-200 py-5">
+            <a
+              href={`/${article.data.category}/${article.id}/`}
+              class="tap-target block text-lg font-bold text-green-800 underline-offset-4 [word-break:auto-phrase] [text-wrap:balance] hover:underline"
+            >
+              {article.data.title}
+            </a>
+            <p class="mt-1 text-base leading-relaxed text-slate-600 [word-break:auto-phrase]">
+              {article.data.description}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   <section class="mx-auto max-w-5xl px-4 py-14">
     <h2 class="text-2xl font-bold text-slate-900">カテゴリから探す</h2>
