@@ -90,6 +90,15 @@ button {
   padding-left: 1.5em;
 }
 
+/* Tailwindのpreflightがリストの記号を消すため、本文では明示的に戻す */
+.prose-article :where(ul) {
+  list-style-type: disc;
+}
+
+.prose-article :where(ol) {
+  list-style-type: decimal;
+}
+
 .prose-article :where(li) {
   margin-top: 0.4em;
   margin-bottom: 0.4em;
