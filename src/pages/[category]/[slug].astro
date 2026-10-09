@@ -29,7 +29,7 @@ const prefectureRegions = article.id === 'find-a-club-near-you' ? getPrefectures
   pubDate={article.data.pubDate}
   updatedDate={article.data.updatedDate}
   faqItems={article.data.faqItems}
-  showAffiliateNotice={true}
+  showAffiliateNotice={relatedProducts.length > 0}
   image={articleImages[article.id]}
 >
   <Content />
