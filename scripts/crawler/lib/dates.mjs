@@ -92,3 +92,32 @@ export function resolveDeadline(text, startIso) {
   if (iso <= startIso) return iso;
   return toIso(sy - 1, Number(m[1]), Number(m[2]));
 }
+
+// 「月/日」「月/日-日」「月/日-月/日」（年なし）を、年を指定して解釈する。曜日が付いていれば整合を確認する。
+// 例: ("10/7-8","水",2026) → 2026-10-07〜10-08 / ("9/26-17","土",2026) → 開始日のみ採用し警告
+export function parseSlashDate(text, weekday, year) {
+  const t = normalize(text);
+  const m = /^(\d{1,2})\/(\d{1,2})(?:-(?:(\d{1,2})\/)?(\d{1,2}))?$/.exec(t);
+  const warnings = [];
+  if (!m) return { start: null, end: null, warnings, reason: '日付を解釈できない' };
+  const start = toIso(year, Number(m[1]), Number(m[2]));
+  if (!start) return { start: null, end: null, warnings, reason: '存在しない日付' };
+  if (weekday && weekdayOf(start) !== normalize(weekday)) warnings.push(`曜日が合わない: ${start} は${weekdayOf(start)}曜日（表記は${weekday}）`);
+  let end = start;
+  if (m[4]) {
+    const em = m[3] ? Number(m[3]) : Number(m[1]);
+    const iso = toIso(year, em, Number(m[4]));
+    if (iso && iso >= start) end = iso;
+    else warnings.push(`終了日の表記が不正（${text}）。開始日のみ採用`);
+  }
+  return { start, end, warnings };
+}
+
+// 「4月 16日」「11月 22日」（月と日が別の文字列で入る表記）
+export function parseMonthDayCell(text, year) {
+  const t = normalize(text);
+  const m = /(\d{1,2})月(\d{1,2})日/.exec(t);
+  if (!m) return { start: null, end: null, warnings: [], reason: '日付を解釈できない' };
+  const iso = toIso(year, Number(m[1]), Number(m[2]));
+  return iso ? { start: iso, end: iso, warnings: [] } : { start: null, end: null, warnings: [], reason: '存在しない日付' };
+}

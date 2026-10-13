@@ -331,7 +331,10 @@
         "https://kanazawagga.jimdofree.com/大会情報/"
       ],
       "terms_checked": "2026-10-14",
-      "official": true
+      "official": true,
+      "reader": "local-kanazawa-gga",
+      "prefecture": "石川県",
+      "organizer": "金沢市グラウンドゴルフ協会"
     },
     {
       "id": "local-kobe-gga",
@@ -347,7 +350,10 @@
         "https://kobe-gga.com/event-2/"
       ],
       "terms_checked": "2026-10-14",
-      "official": true
+      "official": true,
+      "reader": "local-kobe-gga",
+      "prefecture": "兵庫県",
+      "organizer": "神戸市グラウンド・ゴルフ協会"
     },
     {
       "id": "local-satsumasendai",
@@ -363,7 +369,10 @@
         "https://sports-satsumasendai.jp/schedule"
       ],
       "terms_checked": "2026-10-14",
-      "official": true
+      "official": true,
+      "reader": "local-satsumasendai",
+      "prefecture": "鹿児島県",
+      "organizer": "薩摩川内市スポーツ協会 グラウンド・ゴルフ協会"
     },
     {
       "id": "local-yamanashi-doukoukai",
