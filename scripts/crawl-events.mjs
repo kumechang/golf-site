@@ -51,6 +51,7 @@ for (const source of targets) {
     result = { events: [], notes: [`読み取り中にエラー: ${err?.message || err}`] };
   }
   const events = result.events || [];
+  const notesList = result.notes || [];
   for (const e of events) {
     // 開催地に別の都道府県が明記されていれば「県外の大会」に直す（情報源の県と違う場合）
     if (e.scope === 'in_prefecture' && e.prefecture && source.prefecture && e.prefecture !== source.prefecture) e.scope = 'out_of_prefecture';
@@ -66,8 +67,9 @@ for (const source of targets) {
       city: e.city,
       venue: e.venue,
       sponsor_note: e.sponsorKind || null,
+      warnings: notesList.filter((n) => n.startsWith(`${e.name}:`)).map((n) => n.slice(e.name.length + 1).trim()),
       application_deadline: e.applicationDeadline || null,
-      organizer: source.organizer || null,
+      listed_by: source.organizer || null,
       event_type: e.eventType,
       scope: e.scope,
       event_status: eventStatus,
@@ -84,7 +86,7 @@ for (const source of targets) {
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, 'events.json'), JSON.stringify({ generated_at: nowIso, today, user_agent: USER_AGENT, events: rows }, null, 2));
 const cols = Object.keys(rows[0] || { source_id: '' });
-const esc = (v) => (v === null || v === undefined ? '' : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
+const esc = (v) => (Array.isArray(v) ? esc(v.join(' / ')) : v === null || v === undefined ? '' : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
 writeFileSync(join(outDir, 'events.csv'), '﻿' + [cols.join(','), ...rows.map((r) => cols.map((c) => esc(r[c])).join(','))].join('\n') + '\n');
 
 const lines = [`# クローラー実行レポート`, ``, `- 実行日時: ${nowIso}`, `- 今日（日本時間）: ${today}`, `- User-Agent: ${USER_AGENT}`, `- 取得ページ数: ${client.stats().pages}`, ``];
@@ -94,19 +96,7 @@ for (const r of report) {
   if (r.notes.length) lines.push(``, `### 注意`, ...r.notes.map((n) => `- ${n}`));
   lines.push(``);
 }
-// 重複の疑い：公開候補のうち、開始日・終了日が同じで、別の情報源にも載っているもの（名前が違っても同じ大会のことがある）
-const byDates = new Map();
-for (const r of rows.filter((x) => x.publishable)) {
-  const k = `${r.start_date}〜${r.end_date}`;
-  if (!byDates.has(k)) byDates.set(k, []);
-  byDates.get(k).push(r);
-}
-const dups = [...byDates.entries()].filter(([, v]) => new Set(v.map((x) => x.source_id)).size > 1);
-if (dups.length) {
-  lines.push(`## 重複の疑い（同じ日程で複数の情報源に載っている大会）`, ``, `名前の表記が違っても同じ大会のことがあるため、人が確認して統合する。`, ``);
-  for (const [k, v] of dups) lines.push(`- ${k}: ` + v.map((x) => `「${x.event_name}」（${x.source_id}）`).join(' / '));
-  lines.push(``);
-}
+lines.push(`確認の手順は npm run review:events（重複の疑い・要判断の一覧を作る）。`, ``);
 writeFileSync(join(outDir, 'report.md'), lines.join('\n'));
 console.log(`出力: ${outDir}`);
 console.log(lines.join('\n'));

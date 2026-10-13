@@ -5,13 +5,15 @@
 ## 使い方
 
 ```bash
-npm run test:crawler                       # テスト（38件）
+npm run test:crawler                       # テスト（47件）
 npm run crawl:events                       # 台帳で status=allowed かつ reader のある情報源をすべて取得
 npm run crawl:events -- --only=pref-saga   # 1つだけ
 npm run crawl:events -- --today=2026-10-14 --out-dir=/tmp/out
 ```
 
 出力（既定は `data/crawler/out/<日時>/`。gitには入れない）: `events.json` / `events.csv` / `report.md`
+
+取得したイベントを公開するまでの確認の流れは [REVIEW.md](./REVIEW.md)。
 
 ## 取得のルール（変えない）
 
@@ -48,18 +50,19 @@ npm run crawl:events -- --today=2026-10-14 --out-dir=/tmp/out
 
 ## 出力の項目
 
-`source_id, event_name, start_date, end_date, date_text, prefecture, city, venue, sponsor_note, application_deadline, organizer, event_type, scope, event_status, official_source, publishable, source_url, last_checked_at, key`
+`source_id, event_name, start_date, end_date, date_text, prefecture, city, venue, sponsor_note, application_deadline, listed_by, event_type, scope, event_status, official_source, publishable, source_url, last_checked_at, key`
 
 - `scope`: `in_prefecture`（県内の大会）/ `out_of_prefecture`（県外の大会）/ `not_event`（会議・研修など）
 - `publishable`: `not_event` ではなく、`開催予定`（今日以降）で日程が確定しているもの。**公開前には必ず人が確認する**
 - `official_source`: 台帳の `official`（千葉の町会サイトのような非公式の情報源は false）
 - `key`: 都道府県＋開始日＋大会名（記号・全角半角を除いたもの）。名前の表記が違う重複（「全国レディス大会」と「第20回全国グラウンド・ゴルフレディス交歓大会」など）は拾えないため、レポートの「重複の疑い」で人が確認する
+- `listed_by`: 掲載元の団体（情報源の協会）。**大会の主催者ではない**（佐賀県協会のページに全国大会が載る場合など）。主催者は判明したときだけ別項目で足す
 - `sponsor_note`: 情報源の主催区分（金沢の「市」「県」、区分なし＝団体・企業の利用枠）
 
 ## 情報源（reader）を追加する手順
 
 1. 台帳（`data/crawler/sources.json`）で、その情報源が `allowed` で、robots・規約に問題がないことを確認する（`pending` のものは先に確認する）
-2. 台帳の情報源に `reader`（readerのid）、`prefecture`、`organizer` を足す
+2. 台帳の情報源に `reader`（readerのid）、`prefecture`、`organizer`（掲載元の団体名。出力では `listed_by`）を足す
 3. `scripts/crawler/sources/<id>.mjs` に `id`、`run(ctx)`、解析関数を作る。**構造が変わったときは黙って0件にせず、`notes` に理由を返す**
 4. テスト用の**合成HTML**（実ページのコピーはfixtureにしない）で解析関数のテストを書く
 5. `scripts/crawl-events.mjs` の `READERS` に登録し、実際に1回動かして、会場・日付・種別を1件ずつ目で確認する。2回目も同じ結果になることを確認する
@@ -69,7 +72,6 @@ npm run crawl:events -- --today=2026-10-14 --out-dir=/tmp/out
 - 島根県（年度別ページ）、富山・滋賀のreader
 - 埼玉県の開催速報に掲載が出たときの形式に合わせた読み取り
 - 山梨県の詳細ページ（会場・要項）と2ページ目以降
-- 重複の統合（今はレポートに「同じ日程で複数の情報源に載っている大会」を出し、人が確認する。同じ日でも別の大会のことがあるため自動では統合しない）
 - 差分検知（前回の出力との比較）、「開催済みでもう消えた」の検知（完全な一覧を取得できる情報源のみ）
 - 定期実行（GitHub Actions の `workflow_dispatch` を外部のcronから呼ぶ方式を想定。ノウハウ文書の方針どおり）
-- DBへの取り込み（出力→確認→取り込みの手順）
+- 公開サイトのイベント一覧ページ（`data/events/approved.json` を読む）
