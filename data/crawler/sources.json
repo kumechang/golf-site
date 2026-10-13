@@ -57,7 +57,10 @@
         "https://www.saitama-gg.jp/info/info.php"
       ],
       "terms_checked": "2026-10-13",
-      "official": true
+      "official": true,
+      "reader": "pref-saitama",
+      "prefecture": "埼玉県",
+      "organizer": "埼玉県グラウンド・ゴルフ協会"
     },
     {
       "id": "pref-kanagawa",
@@ -90,7 +93,10 @@
         "https://yamanashi-gga.com/"
       ],
       "terms_checked": "2026-10-13",
-      "official": true
+      "official": true,
+      "reader": "pref-yamanashi",
+      "prefecture": "山梨県",
+      "organizer": "山梨県グラウンドゴルフ協会"
     },
     {
       "id": "pref-toyama",
@@ -194,7 +200,10 @@
         "/*.pdf$"
       ],
       "terms_checked": "2026-10-13",
-      "official": true
+      "official": true,
+      "reader": "pref-kagawa",
+      "prefecture": "香川県",
+      "organizer": "香川県グラウンド・ゴルフ協会"
     },
     {
       "id": "pref-saga",
