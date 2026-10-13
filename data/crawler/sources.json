@@ -1,12 +1,13 @@
 {
   "schema": 1,
   "user_agent": "GroundGolfNaviBot/1.0 (+https://ground-golf-navi.com/about/)",
-  "checked_at": "2026-10-13",
+  "checked_at": "2026-10-14",
   "status_legend": {
     "allowed": "robots・規約の確認が済み、取得してよい",
     "pending": "規約や構造の確認が済むまで取得しない",
     "excluded": "規約またはrobotsにより取得しない",
-    "blocked": "技術的に取得できない（回避しない）"
+    "blocked": "技術的に取得できない（回避しない）",
+    "out_of_scope": "イベント情報の取得先ではない（団体の存在確認用など）。取得しない"
   },
   "sources": [
     {
@@ -284,6 +285,178 @@
       "format": "-",
       "entry_urls": [],
       "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "local-kanazawa-gga",
+      "name": "金沢市グラウンドゴルフ協会",
+      "tier": 3,
+      "origin": "https://kanazawagga.jimdofree.com",
+      "status": "allowed",
+      "reason": "robots.txtは許可（Crawl-Delay 5）。「大会情報」にHTMLの日程とPDF（実施要項・申込書・成績）が多数。2026年は「日程など未定」の表記あり。PDFは取得せず、リンクのみ記録する。",
+      "robots": "あり(Crawl-Delay: 5)",
+      "delay": 5,
+      "format": "HTML＋PDF",
+      "entry_urls": [
+        "https://kanazawagga.jimdofree.com/大会情報/"
+      ],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "local-kobe-gga",
+      "name": "神戸市グラウンド・ゴルフ協会",
+      "tier": 3,
+      "origin": "https://kobe-gga.com",
+      "status": "allowed",
+      "reason": "robots.txtは許可。「年間行事予定」に大会日・大会名・会場のHTML表（2026年度）。",
+      "robots": "あり(許可)",
+      "delay": 1,
+      "format": "HTML表",
+      "entry_urls": [
+        "https://kobe-gga.com/event-2/"
+      ],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "local-satsumasendai",
+      "name": "薩摩川内市スポーツ協会",
+      "tier": 3,
+      "origin": "https://sports-satsumasendai.jp",
+      "status": "allowed",
+      "reason": "robots.txtは許可。年間スケジュールは全競技共通のため、グラウンド・ゴルフだけを抽出する処理が必要。",
+      "robots": "あり(許可)",
+      "delay": 1,
+      "format": "HTML（全競技のスケジュール）",
+      "entry_urls": [
+        "https://sports-satsumasendai.jp/schedule"
+      ],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "local-yamanashi-doukoukai",
+      "name": "山梨 同好会活動（グラウンドゴルフ部会）",
+      "tier": 4,
+      "origin": "https://yamasyoai.jimdofree.com",
+      "status": "pending",
+      "reason": "robots.txtは許可（Crawl-Delay 5）だが、会員向けの活動サイトで一般向けイベントかが不明。会員の動向（個人情報）も載るため、取り込む前に運営者の意図を確認する。",
+      "robots": "あり(Crawl-Delay: 5)",
+      "delay": 5,
+      "format": "HTML",
+      "entry_urls": [
+        "https://yamasyoai.jimdofree.com/同好会活動/グラウンドゴルフ部会/"
+      ],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "local-yamaguchi-chubu",
+      "name": "山口県GG協会 中部地区（美東）",
+      "tier": 3,
+      "origin": "https://www.c-able.ne.jp",
+      "status": "allowed",
+      "reason": "robots.txtなし。「行事予定表」「成績」への導線。予定表はPDF中心のため、HTMLの記載のみを対象にする。個人運営の可能性があるので2秒間隔。",
+      "robots": "none(404)",
+      "delay": 2,
+      "format": "HTML＋PDF",
+      "entry_urls": [
+        "https://www.c-able.ne.jp/~mitou-13/tyuubu.html"
+      ],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "local-chiba-chuo",
+      "name": "千葉県・中央地区（町会・小学校区の大会サイト）",
+      "tier": 4,
+      "origin": "https://bvzfu.crayonsite.info",
+      "status": "pending",
+      "reason": "運営主体が不明な小規模サイト。大会情報はあるが、公式性と掲載の可否が確認できるまで取得しない。",
+      "robots": "none(404)",
+      "delay": 2,
+      "format": "HTML",
+      "entry_urls": [
+        "https://bvzfu.crayonsite.info/p/11/"
+      ],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "local-inuyama",
+      "name": "犬山市スポーツ協会",
+      "tier": 3,
+      "origin": "https://www.inuyama-taikyou.net",
+      "status": "allowed",
+      "reason": "robots.txtなし。大会予定・要項・結果へのメニューあり（PDF中心）。取得対象は一覧のHTMLのみ。",
+      "robots": "none(404)",
+      "delay": 1,
+      "format": "HTML＋PDF",
+      "entry_urls": [
+        "https://www.inuyama-taikyou.net/news/koho.php"
+      ],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "local-ja-saitama",
+      "name": "JAグループさいたま（女性組織の活動アルバム）",
+      "tier": 4,
+      "origin": "https://ja-saitama.jp",
+      "status": "out_of_scope",
+      "reason": "活動報告のアルバムで、今後のイベント案内ではない。",
+      "robots": "あり(許可)",
+      "delay": null,
+      "format": "-",
+      "entry_urls": [],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "city-iga",
+      "name": "伊賀市",
+      "tier": 3,
+      "origin": "https://www.city.iga.lg.jp",
+      "status": "pending",
+      "reason": "curlでは取得できるがPython(urllib)では接続できない。広報PDFにイベントが載る想定でPDF中心。接続方法と規約を確認するまで取得しない。",
+      "robots": "未確認",
+      "delay": null,
+      "format": "広報PDF",
+      "entry_urls": [
+        "https://www.city.iga.lg.jp/"
+      ],
+      "terms_checked": null
+    },
+    {
+      "id": "aomori-kokusupo-torch",
+      "name": "あおもり国スポ（炬火）",
+      "tier": 4,
+      "origin": "https://aomorikokuspo2026.pref.aomori.lg.jp",
+      "status": "out_of_scope",
+      "reason": "国民スポーツ大会の炬火リレーのページで、グラウンド・ゴルフのイベント取得先ではない。",
+      "robots": "あり(許可)",
+      "delay": null,
+      "format": "-",
+      "entry_urls": [],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "tokushima-circle",
+      "name": "徳島県立総合大学校・団体紹介",
+      "tier": 4,
+      "origin": "https://syougai.tokushima-ec.ed.jp",
+      "status": "blocked",
+      "reason": "接続が切断される（curlでもConnection reset）。団体紹介ページでイベント取得先としても弱い。",
+      "robots": "未確認",
+      "delay": null,
+      "format": "-",
+      "entry_urls": [],
+      "terms_checked": "2026-10-14"
+    },
+    {
+      "id": "sports-association-member-lists",
+      "name": "県スポーツ協会の加盟団体名簿（栃木・静岡・三重・高知・千葉・新潟・石川・沖縄）",
+      "tier": 4,
+      "origin": "(8サイト)",
+      "status": "out_of_scope",
+      "reason": "協会の存在確認にはなるが、個人名・住所・電話番号を含む連絡先で、サイトURLやイベントはほぼ載っていない。個人情報なので取り込まない。静岡県スポーツ協会は協会紹介ページのみ。",
+      "robots": "サイトごとに確認（禁止なし）",
+      "delay": null,
+      "format": "名簿",
+      "entry_urls": [],
+      "terms_checked": "2026-10-14"
     }
   ]
 }
