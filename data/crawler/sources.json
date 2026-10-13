@@ -210,7 +210,10 @@
         "https://www.saga-groundgolf.jp/schedule.html"
       ],
       "terms_checked": "2026-10-13",
-      "official": true
+      "official": true,
+      "reader": "pref-saga",
+      "prefecture": "佐賀県",
+      "organizer": "佐賀県グラウンド・ゴルフ協会"
     },
     {
       "id": "pref-kumamoto",

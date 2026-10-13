@@ -9,7 +9,9 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "crawl:events": "node scripts/crawl-events.mjs",
+    "test:crawler": "node --test \"scripts/crawler/tests/*.test.mjs\""
   },
   "repository": {
     "type": "git",
