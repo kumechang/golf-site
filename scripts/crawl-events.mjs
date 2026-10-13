@@ -11,8 +11,11 @@ import * as saga from './crawler/sources/saga.mjs';
 import * as kagawa from './crawler/sources/kagawa.mjs';
 import * as yamanashi from './crawler/sources/yamanashi.mjs';
 import * as saitama from './crawler/sources/saitama.mjs';
+import * as kobe from './crawler/sources/kobe.mjs';
+import * as kanazawa from './crawler/sources/kanazawa.mjs';
+import * as satsumasendai from './crawler/sources/satsumasendai.mjs';
 
-const READERS = { [saga.id]: saga, [kagawa.id]: kagawa, [yamanashi.id]: yamanashi, [saitama.id]: saitama };
+const READERS = { [saga.id]: saga, [kagawa.id]: kagawa, [yamanashi.id]: yamanashi, [saitama.id]: saitama, [kobe.id]: kobe, [kanazawa.id]: kanazawa, [satsumasendai.id]: satsumasendai };
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const args = Object.fromEntries(
@@ -49,6 +52,8 @@ for (const source of targets) {
   }
   const events = result.events || [];
   for (const e of events) {
+    // 開催地に別の都道府県が明記されていれば「県外の大会」に直す（情報源の県と違う場合）
+    if (e.scope === 'in_prefecture' && e.prefecture && source.prefecture && e.prefecture !== source.prefecture) e.scope = 'out_of_prefecture';
     const eventStatus = statusFor(e, today);
     const publishable = e.scope !== 'not_event' && eventStatus === '開催予定';
     rows.push({
@@ -60,6 +65,7 @@ for (const source of targets) {
       prefecture: e.prefecture,
       city: e.city,
       venue: e.venue,
+      sponsor_note: e.sponsorKind || null,
       application_deadline: e.applicationDeadline || null,
       organizer: source.organizer || null,
       event_type: e.eventType,
@@ -86,6 +92,19 @@ for (const r of report) {
   const mine = rows.filter((x) => x.source_id === r.source.id);
   lines.push(`## ${r.source.name}（${r.source.id}）`, ``, `- 読み取った行: ${r.count}`, `- 公開候補（大会等・開催予定）: ${mine.filter((x) => x.publishable).length}`, `- 日程未定: ${mine.filter((x) => x.event_status === '日程未定').length}`, `- 開催済み: ${mine.filter((x) => x.event_status === '開催済み').length}`, `- 大会以外（会議・研修など）: ${mine.filter((x) => x.scope === 'not_event').length}`);
   if (r.notes.length) lines.push(``, `### 注意`, ...r.notes.map((n) => `- ${n}`));
+  lines.push(``);
+}
+// 重複の疑い：公開候補のうち、開始日・終了日が同じで、別の情報源にも載っているもの（名前が違っても同じ大会のことがある）
+const byDates = new Map();
+for (const r of rows.filter((x) => x.publishable)) {
+  const k = `${r.start_date}〜${r.end_date}`;
+  if (!byDates.has(k)) byDates.set(k, []);
+  byDates.get(k).push(r);
+}
+const dups = [...byDates.entries()].filter(([, v]) => new Set(v.map((x) => x.source_id)).size > 1);
+if (dups.length) {
+  lines.push(`## 重複の疑い（同じ日程で複数の情報源に載っている大会）`, ``, `名前の表記が違っても同じ大会のことがあるため、人が確認して統合する。`, ``);
+  for (const [k, v] of dups) lines.push(`- ${k}: ` + v.map((x) => `「${x.event_name}」（${x.source_id}）`).join(' / '));
   lines.push(``);
 }
 writeFileSync(join(outDir, 'report.md'), lines.join('\n'));
