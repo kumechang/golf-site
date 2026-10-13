@@ -23,7 +23,8 @@
       "entry_urls": [
         "https://www.groundgolf.or.jp/tournaments/thisyear-tournaments/"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-akita",
@@ -38,7 +39,8 @@
       "entry_urls": [
         "https://www.hana.or.jp/~akita_gg/"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-saitama",
@@ -46,14 +48,16 @@
       "tier": 2,
       "origin": "https://www.saitama-gg.jp",
       "status": "allowed",
-      "reason": "robots.txtなし、トップに利用条件の記載なし。トップの「大会」一覧に日付（令和表記）・大会名・詳細ページあり。開催後は写真（画像）ページになる。",
+      "reason": "robots.txtなし（www・wwwなしの両方）。トップの「大会」一覧に日付（令和表記）・大会名・詳細ページあり。開催後は写真（画像）ページになる。/info/info.php は開催前日・当日の開催可否の速報（大会名・会場・開催日・開催速報、現在は掲載なし、2026/10/14更新）で、イベントの状態（開催・中止）の確認に使える。",
       "robots": "none(404)",
       "delay": 1,
-      "format": "HTML一覧＋詳細（結果は画像）",
+      "format": "HTML一覧＋詳細（結果は画像）＋開催速報",
       "entry_urls": [
-        "https://www.saitama-gg.jp/"
+        "https://www.saitama-gg.jp/",
+        "https://www.saitama-gg.jp/info/info.php"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-kanagawa",
@@ -68,7 +72,8 @@
       "entry_urls": [
         "http://www.kanagawa-gga.org/"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-yamanashi",
@@ -84,7 +89,8 @@
         "https://yamanashi-gga.com/tournament/",
         "https://yamanashi-gga.com/"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-toyama",
@@ -99,7 +105,8 @@
       "entry_urls": [
         "http://toyamatgga.g3.xrea.com/game/index.html"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-gifu",
@@ -114,7 +121,8 @@
       "entry_urls": [
         "https://ameblo.jp/gga66822/"
       ],
-      "terms_checked": null
+      "terms_checked": null,
+      "official": true
     },
     {
       "id": "pref-shiga",
@@ -129,7 +137,8 @@
       "entry_urls": [
         "http://www.gg-shiga.jp/"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-hyogo",
@@ -144,7 +153,8 @@
       "entry_urls": [
         "https://www.h-gga.com/"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-shimane",
@@ -159,7 +169,8 @@
       "entry_urls": [
         "https://www.shimane-gga.com/大会情報/"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-kagawa",
@@ -182,7 +193,8 @@
         "/*?",
         "/*.pdf$"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-saga",
@@ -197,7 +209,8 @@
       "entry_urls": [
         "https://www.saga-groundgolf.jp/schedule.html"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "pref-kumamoto",
@@ -212,7 +225,8 @@
       "entry_urls": [
         "https://kumamotogga.sakura.ne.jp/R8jigyoukeikaku.htm"
       ],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "city-yokohama",
@@ -228,7 +242,8 @@
         "https://www.city.yokohama.lg.jp/aoba/kurashi/kyodo_manabi/manabi/sports/aobagolf.html",
         "https://www.city.yokohama.lg.jp/kohoku/event-bosyu/sports/35thGG.html"
       ],
-      "terms_checked": null
+      "terms_checked": null,
+      "official": true
     },
     {
       "id": "city-inagi",
@@ -243,7 +258,8 @@
       "entry_urls": [
         "https://www.city.inagi.tokyo.jp/event/sports/1004106.html"
       ],
-      "terms_checked": null
+      "terms_checked": null,
+      "official": true
     },
     {
       "id": "city-iwakura",
@@ -258,7 +274,8 @@
       "entry_urls": [
         "https://www.city.iwakura.aichi.jp/0000005301.html"
       ],
-      "terms_checked": null
+      "terms_checked": null,
+      "official": true
     },
     {
       "id": "search-google",
@@ -271,7 +288,8 @@
       "delay": null,
       "format": "-",
       "entry_urls": [],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "search-bing",
@@ -284,7 +302,8 @@
       "delay": null,
       "format": "-",
       "entry_urls": [],
-      "terms_checked": "2026-10-13"
+      "terms_checked": "2026-10-13",
+      "official": true
     },
     {
       "id": "local-kanazawa-gga",
@@ -299,7 +318,8 @@
       "entry_urls": [
         "https://kanazawagga.jimdofree.com/大会情報/"
       ],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     },
     {
       "id": "local-kobe-gga",
@@ -314,7 +334,8 @@
       "entry_urls": [
         "https://kobe-gga.com/event-2/"
       ],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     },
     {
       "id": "local-satsumasendai",
@@ -329,7 +350,8 @@
       "entry_urls": [
         "https://sports-satsumasendai.jp/schedule"
       ],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     },
     {
       "id": "local-yamanashi-doukoukai",
@@ -344,7 +366,8 @@
       "entry_urls": [
         "https://yamasyoai.jimdofree.com/同好会活動/グラウンドゴルフ部会/"
       ],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     },
     {
       "id": "local-yamaguchi-chubu",
@@ -359,22 +382,24 @@
       "entry_urls": [
         "https://www.c-able.ne.jp/~mitou-13/tyuubu.html"
       ],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     },
     {
       "id": "local-chiba-chuo",
-      "name": "千葉県・中央地区（町会・小学校区の大会サイト）",
-      "tier": 4,
+      "name": "千葉県GG協会・中央地区関連ページ（町会・小学校区のサイト、非公式）",
+      "tier": 3,
       "origin": "https://bvzfu.crayonsite.info",
-      "status": "pending",
-      "reason": "運営主体が不明な小規模サイト。大会情報はあるが、公式性と掲載の可否が確認できるまで取得しない。",
+      "status": "allowed",
+      "reason": "運営者の確認で、千葉県GG協会・中央地区の2026年度の県大会・中央地区大会の情報と開催報告を載せているページと判明。ただし町会・小学校区のサイトで公式サイトではない。robots.txtなし。非公式の情報源として扱い、イベントは事実項目のみ取り込み、公式の確認が取れるまで公開時に「情報源は非公式」と区別する。2秒間隔。",
       "robots": "none(404)",
       "delay": 2,
       "format": "HTML",
       "entry_urls": [
         "https://bvzfu.crayonsite.info/p/11/"
       ],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": false
     },
     {
       "id": "local-inuyama",
@@ -389,7 +414,8 @@
       "entry_urls": [
         "https://www.inuyama-taikyou.net/news/koho.php"
       ],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     },
     {
       "id": "local-ja-saitama",
@@ -402,7 +428,8 @@
       "delay": null,
       "format": "-",
       "entry_urls": [],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     },
     {
       "id": "city-iga",
@@ -417,7 +444,8 @@
       "entry_urls": [
         "https://www.city.iga.lg.jp/"
       ],
-      "terms_checked": null
+      "terms_checked": null,
+      "official": true
     },
     {
       "id": "aomori-kokusupo-torch",
@@ -430,7 +458,8 @@
       "delay": null,
       "format": "-",
       "entry_urls": [],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     },
     {
       "id": "tokushima-circle",
@@ -443,7 +472,8 @@
       "delay": null,
       "format": "-",
       "entry_urls": [],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     },
     {
       "id": "sports-association-member-lists",
@@ -456,7 +486,242 @@
       "delay": null,
       "format": "名簿",
       "entry_urls": [],
-      "terms_checked": "2026-10-14"
+      "terms_checked": "2026-10-14",
+      "official": true
     }
-  ]
+  ],
+  "prefecture_coverage": {
+    "北海道": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "青森県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "岩手県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "宮城県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "秋田県": {
+      "sources": [
+        "pref-akita"
+      ],
+      "note": ""
+    },
+    "山形県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "福島県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "茨城県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "栃木県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "群馬県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "埼玉県": {
+      "sources": [
+        "pref-saitama"
+      ],
+      "note": ""
+    },
+    "千葉県": {
+      "sources": [
+        "local-chiba-chuo"
+      ],
+      "note": ""
+    },
+    "東京都": {
+      "sources": [
+        "city-inagi"
+      ],
+      "note": ""
+    },
+    "神奈川県": {
+      "sources": [
+        "pref-kanagawa",
+        "city-yokohama"
+      ],
+      "note": ""
+    },
+    "新潟県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "富山県": {
+      "sources": [
+        "pref-toyama"
+      ],
+      "note": ""
+    },
+    "石川県": {
+      "sources": [
+        "local-kanazawa-gga"
+      ],
+      "note": ""
+    },
+    "福井県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "山梨県": {
+      "sources": [
+        "pref-yamanashi",
+        "local-yamanashi-doukoukai"
+      ],
+      "note": ""
+    },
+    "長野県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "岐阜県": {
+      "sources": [
+        "pref-gifu"
+      ],
+      "note": ""
+    },
+    "静岡県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "愛知県": {
+      "sources": [
+        "local-inuyama",
+        "city-iwakura"
+      ],
+      "note": ""
+    },
+    "三重県": {
+      "sources": [
+        "city-iga"
+      ],
+      "note": ""
+    },
+    "滋賀県": {
+      "sources": [
+        "pref-shiga"
+      ],
+      "note": ""
+    },
+    "京都府": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "大阪府": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "兵庫県": {
+      "sources": [
+        "pref-hyogo",
+        "local-kobe-gga"
+      ],
+      "note": ""
+    },
+    "奈良県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "和歌山県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "鳥取県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "島根県": {
+      "sources": [
+        "pref-shimane"
+      ],
+      "note": ""
+    },
+    "岡山県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "広島県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "山口県": {
+      "sources": [
+        "local-yamaguchi-chubu"
+      ],
+      "note": ""
+    },
+    "徳島県": {
+      "sources": [
+        "tokushima-circle"
+      ],
+      "note": ""
+    },
+    "香川県": {
+      "sources": [
+        "pref-kagawa"
+      ],
+      "note": ""
+    },
+    "愛媛県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "高知県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "福岡県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "佐賀県": {
+      "sources": [
+        "pref-saga"
+      ],
+      "note": ""
+    },
+    "長崎県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "熊本県": {
+      "sources": [
+        "pref-kumamoto"
+      ],
+      "note": ""
+    },
+    "大分県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "宮崎県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    },
+    "鹿児島県": {
+      "sources": [
+        "local-satsumasendai"
+      ],
+      "note": ""
+    },
+    "沖縄県": {
+      "sources": [],
+      "note": "独立した協会サイトは未確認（運営者の調査では存在しない可能性が高い）"
+    }
+  }
 }
