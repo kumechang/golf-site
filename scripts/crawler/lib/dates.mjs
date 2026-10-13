@@ -8,7 +8,7 @@ export function normalize(text) {
   return text
     .replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0))
     .replace(/[（）]/g, (c) => (c === '（' ? '(' : ')'))
-    .replace(/[〜～~－―ー]/g, '-')
+    .replace(/[〜～~]/g, '-')
     .replace(/\s+/g, '');
 }
 
@@ -78,4 +78,17 @@ export function parseSingleDate(text) {
   m = /(20\d{2})(?:年|[./])(\d{1,2})(?:月|[./])(\d{1,2})日?/.exec(t);
   if (m) return toIso(Number(m[1]), Number(m[2]), Number(m[3]));
   return null;
+}
+
+// 申込締切のように「月日だけ」書かれた日付を、開催日から見て直前の日付として解決する。
+// （開催日より後になる年は採らない。例：開催 2026-10-15 に対し「9月24日」→ 2026-09-24、「12月1日」→ 2025-12-01）
+export function resolveDeadline(text, startIso) {
+  const t = normalize(text);
+  const m = /(\d{1,2})月(\d{1,2})日/.exec(t);
+  if (!m || !startIso) return null;
+  const [sy] = startIso.split('-').map(Number);
+  const iso = toIso(sy, Number(m[1]), Number(m[2]));
+  if (!iso) return null;
+  if (iso <= startIso) return iso;
+  return toIso(sy - 1, Number(m[1]), Number(m[2]));
 }

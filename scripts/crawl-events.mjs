@@ -8,8 +8,11 @@ import { fileURLToPath } from 'node:url';
 import { createClient, USER_AGENT } from './crawler/lib/http.mjs';
 import { eventKey, statusFor } from './crawler/lib/event.mjs';
 import * as saga from './crawler/sources/saga.mjs';
+import * as kagawa from './crawler/sources/kagawa.mjs';
+import * as yamanashi from './crawler/sources/yamanashi.mjs';
+import * as saitama from './crawler/sources/saitama.mjs';
 
-const READERS = { [saga.id]: saga };
+const READERS = { [saga.id]: saga, [kagawa.id]: kagawa, [yamanashi.id]: yamanashi, [saitama.id]: saitama };
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const args = Object.fromEntries(
@@ -38,7 +41,12 @@ const rows = [];
 const report = [];
 for (const source of targets) {
   const reader = READERS[source.reader];
-  const result = await reader.run({ source, client, today });
+  let result;
+  try {
+    result = await reader.run({ source, client, today });
+  } catch (err) {
+    result = { events: [], notes: [`読み取り中にエラー: ${err?.message || err}`] };
+  }
   const events = result.events || [];
   for (const e of events) {
     const eventStatus = statusFor(e, today);
@@ -52,6 +60,7 @@ for (const source of targets) {
       prefecture: e.prefecture,
       city: e.city,
       venue: e.venue,
+      application_deadline: e.applicationDeadline || null,
       organizer: source.organizer || null,
       event_type: e.eventType,
       scope: e.scope,
