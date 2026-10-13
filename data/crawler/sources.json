@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "user_agent": "GroundGolfNaviBot/1.0 (+https://ground-golf-navi.com/about/)",
+  "checked_at": "2026-10-13",
+  "status_legend": {
+    "allowed": "robots・規約の確認が済み、取得してよい",
+    "pending": "規約や構造の確認が済むまで取得しない",
+    "excluded": "規約またはrobotsにより取得しない",
+    "blocked": "技術的に取得できない（回避しない）"
+  },
+  "sources": [
+    {
+      "id": "jgga",
+      "name": "日本グラウンド・ゴルフ協会",
+      "tier": 1,
+      "origin": "https://www.groundgolf.or.jp",
+      "status": "excluded",
+      "reason": "サイトポリシーが営利目的の利用を固くお断りし、文章・画像の加工・再配布・二次配布もご遠慮としている。本サイトはアフィリエイトを含むため取得しない。公式ページへのリンク（手動）のみ。",
+      "robots": "none(404)",
+      "delay": null,
+      "format": "静的HTMLの表（今年度の大会）",
+      "entry_urls": [
+        "https://www.groundgolf.or.jp/tournaments/thisyear-tournaments/"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-akita",
+      "name": "秋田県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "https://www.hana.or.jp",
+      "status": "pending",
+      "reason": "トップがフレーム構成で本文がほぼ取れず、大会ページの場所が不明。要手動確認。",
+      "robots": "あり(/wp/wp-admin/のみ禁止)",
+      "delay": 1,
+      "format": "フレーム",
+      "entry_urls": [
+        "https://www.hana.or.jp/~akita_gg/"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-saitama",
+      "name": "埼玉県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "https://www.saitama-gg.jp",
+      "status": "allowed",
+      "reason": "robots.txtなし、トップに利用条件の記載なし。トップの「大会」一覧に日付（令和表記）・大会名・詳細ページあり。開催後は写真（画像）ページになる。",
+      "robots": "none(404)",
+      "delay": 1,
+      "format": "HTML一覧＋詳細（結果は画像）",
+      "entry_urls": [
+        "https://www.saitama-gg.jp/"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-kanagawa",
+      "name": "神奈川県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "http://www.kanagawa-gga.org",
+      "status": "pending",
+      "reason": "トップの本文がほぼ取れない（画像/スクリプト中心の可能性）。大会ページの場所が不明。要手動確認。",
+      "robots": "none(404)",
+      "delay": 1,
+      "format": "不明",
+      "entry_urls": [
+        "http://www.kanagawa-gga.org/"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-yamanashi",
+      "name": "山梨県グラウンドゴルフ協会",
+      "tier": 2,
+      "origin": "https://yamanashi-gga.com",
+      "status": "allowed",
+      "reason": "robots.txtは管理画面のみ禁止。大会結果一覧（開催日・大会名・詳細）と、新着情報の記事（開催案内）あり。WordPress。",
+      "robots": "あり(/wp-admin/のみ禁止)",
+      "delay": 1,
+      "format": "WordPress一覧＋記事（PDFあり）",
+      "entry_urls": [
+        "https://yamanashi-gga.com/tournament/",
+        "https://yamanashi-gga.com/"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-toyama",
+      "name": "富山県グラウンドゴルフ協会",
+      "tier": 2,
+      "origin": "http://toyamatgga.g3.xrea.com",
+      "status": "allowed",
+      "reason": "robots.txtなし。大会情報ページはあるが内容が少なく、日程の掲載は乏しい。無料ホスティングのため2秒間隔。",
+      "robots": "none(404)",
+      "delay": 2,
+      "format": "静的HTML（少量）",
+      "entry_urls": [
+        "http://toyamatgga.g3.xrea.com/game/index.html"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-gifu",
+      "name": "岐阜県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "https://ameblo.jp",
+      "status": "pending",
+      "reason": "Amebaブログ。Amebaの利用規約（自動取得の可否）を確認するまで取得しない。サイト内データのリンクはLINE公式ページ。",
+      "robots": "あり(記事ページは許可)",
+      "delay": null,
+      "format": "ブログ記事",
+      "entry_urls": [
+        "https://ameblo.jp/gga66822/"
+      ],
+      "terms_checked": null
+    },
+    {
+      "id": "pref-shiga",
+      "name": "滋賀県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "http://www.gg-shiga.jp",
+      "status": "allowed",
+      "reason": "robots.txtなし。トップ約190KB。大会結果はPDF中心で、日程の一覧の場所は要確認。",
+      "robots": "none(404)",
+      "delay": 1,
+      "format": "HTML＋PDF",
+      "entry_urls": [
+        "http://www.gg-shiga.jp/"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-hyogo",
+      "name": "兵庫県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "https://www.h-gga.com",
+      "status": "blocked",
+      "reason": "robots.txtもトップも403（サーバー側の遮断）。UAや接続元の偽装による回避はしない。",
+      "robots": "403",
+      "delay": null,
+      "format": "-",
+      "entry_urls": [
+        "https://www.h-gga.com/"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-shimane",
+      "name": "島根県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "https://www.shimane-gga.com",
+      "status": "allowed",
+      "reason": "robots.txtは/app/ /j/ を禁止、Crawl-Delay 5。大会情報は年度別ページ（2026年度ほか）。日本語URLのエンコードが必要。",
+      "robots": "あり(Crawl-Delay: 5)",
+      "delay": 5,
+      "format": "年度別ページ",
+      "entry_urls": [
+        "https://www.shimane-gga.com/大会情報/"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-kagawa",
+      "name": "香川県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "https://gg-kagawa.jp",
+      "status": "allowed",
+      "reason": "robots.txtが /taikai/ /result/ /pdf/ *.pdf /archives/ /*? 等を禁止（GPTBot等も全面禁止）。許可されている /games/ の「開催予定」一覧（日付・大会名・案内リンク）のみ対象。禁止パスと、AI向けクローラー禁止の趣旨に配慮する。",
+      "robots": "あり(/taikai/等を禁止)",
+      "delay": 1,
+      "format": "HTML一覧",
+      "entry_urls": [
+        "https://gg-kagawa.jp/games/"
+      ],
+      "disallow": [
+        "/taikai/",
+        "/result/",
+        "/pdf/",
+        "/archives/",
+        "/*?",
+        "/*.pdf$"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-saga",
+      "name": "佐賀県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "http://www.saga-groundgolf.jp",
+      "status": "allowed",
+      "reason": "robots.txtなし。「大会スケジュール」が日程・大会名・開催地・会場のHTML表で最も扱いやすい（会議・研修も混在するため種別の判定が必要）。",
+      "robots": "none(404)",
+      "delay": 1,
+      "format": "HTML表",
+      "entry_urls": [
+        "https://www.saga-groundgolf.jp/schedule.html"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "pref-kumamoto",
+      "name": "熊本県グラウンド・ゴルフ協会",
+      "tier": 2,
+      "origin": "https://kumamotogga.sakura.ne.jp",
+      "status": "pending",
+      "reason": "行事・大会ページがフレーム＋表計算ソフト出力のHTML（Sheet1）で、本文取得にはフレームの中身の取得が必要。要手動確認。",
+      "robots": "none(404)",
+      "delay": 2,
+      "format": "フレーム/Excel出力HTML",
+      "entry_urls": [
+        "https://kumamotogga.sakura.ne.jp/R8jigyoukeikaku.htm"
+      ],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "city-yokohama",
+      "name": "横浜市（区のイベント・大会ページ）",
+      "tier": 3,
+      "origin": "https://www.city.yokohama.lg.jp",
+      "status": "pending",
+      "reason": "robots.txtは問題なしだが、市サイトの利用規約・二次利用の扱いは未確認。取得時に接続リセットが出ることがあり再試行が必要。",
+      "robots": "none(404)",
+      "delay": 1,
+      "format": "HTML＋PDF",
+      "entry_urls": [
+        "https://www.city.yokohama.lg.jp/aoba/kurashi/kyodo_manabi/manabi/sports/aobagolf.html",
+        "https://www.city.yokohama.lg.jp/kohoku/event-bosyu/sports/35thGG.html"
+      ],
+      "terms_checked": null
+    },
+    {
+      "id": "city-inagi",
+      "name": "稲城市",
+      "tier": 3,
+      "origin": "https://www.city.inagi.tokyo.jp",
+      "status": "pending",
+      "reason": "robots.txtは問題なし（CGIと1ページのみ禁止）。開催日・会場・参加費・申込・定員がHTMLにあり、JSON-LDあり。サイトの利用規約・二次利用の扱いは未確認。",
+      "robots": "あり(/cgi-*/等のみ禁止)",
+      "delay": 1,
+      "format": "HTML＋JSON-LD",
+      "entry_urls": [
+        "https://www.city.inagi.tokyo.jp/event/sports/1004106.html"
+      ],
+      "terms_checked": null
+    },
+    {
+      "id": "city-iwakura",
+      "name": "岩倉市",
+      "tier": 3,
+      "origin": "https://www.city.iwakura.aichi.jp",
+      "status": "pending",
+      "reason": "robots.txtなし。curlでは取得できるがPython(urllib)では403（bot判定の可能性）。取得できない実行環境では取得不可として扱い、回避しない。利用規約は未確認。",
+      "robots": "none(404)",
+      "delay": 1,
+      "format": "HTML",
+      "entry_urls": [
+        "https://www.city.iwakura.aichi.jp/0000005301.html"
+      ],
+      "terms_checked": null
+    },
+    {
+      "id": "search-google",
+      "name": "Google検索・Googleニュース",
+      "tier": 4,
+      "origin": "https://www.google.com",
+      "status": "excluded",
+      "reason": "robots.txtで検索ページ・RSSを含めて禁止。取得しない。",
+      "robots": "あり(/search等を禁止)",
+      "delay": null,
+      "format": "-",
+      "entry_urls": [],
+      "terms_checked": "2026-10-13"
+    },
+    {
+      "id": "search-bing",
+      "name": "Bing検索",
+      "tier": 4,
+      "origin": "https://www.bing.com",
+      "status": "excluded",
+      "reason": "robots.txtで /search を禁止。取得しない（公式APIの提供状況は要確認）。",
+      "robots": "あり(/search禁止)",
+      "delay": null,
+      "format": "-",
+      "entry_urls": [],
+      "terms_checked": "2026-10-13"
+    }
+  ]
+}
