@@ -38,6 +38,16 @@ body {
   }
 }
 
+/* 固定ヘッダーにジャンプ先の見出しが隠れないようにする（モバイルはヘッダーが2段で高い） */
+html {
+  scroll-padding-top: 11rem;
+}
+@media (min-width: 48rem) {
+  html {
+    scroll-padding-top: 5.5rem;
+  }
+}
+
 /* タップ領域の最低サイズを確保（仕様書5.2） */
 a,
 button {

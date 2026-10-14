@@ -137,6 +137,19 @@ export function validateDecision(d) {
   return null;
 }
 
+// 承認の再実行で、前に付けた補足（主催者・表示名・公開用の補足・区分）を黙って消さない。新しく指定したものが優先。
+export function mergeApproval(prev, next) {
+  if (next.status !== 'approved' || prev?.status !== 'approved') return next;
+  const out = { ...next };
+  for (const k of ['level', 'organizer', 'display_name', 'public_note']) if (out[k] === undefined && prev[k] !== undefined) out[k] = prev[k];
+  return out;
+}
+
+// 公開用の承認済み一覧に、区分が未設定のものが混ざっていないか。混ざっていれば id を返す。
+export function eventsWithoutLevel(events) {
+  return events.filter((e) => !approvalLevels.includes(e.level)).map((e) => e.id);
+}
+
 // ---- レポート ---------------------------------------------------------------
 
 const fmtDate = (r) => (r.end_date && r.end_date !== r.start_date ? `${r.start_date}〜${r.end_date.slice(5)}` : r.start_date);

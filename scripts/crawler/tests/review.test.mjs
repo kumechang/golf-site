@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { similarNames, coreName, eventId, annotate, pendingList, staleDecisions, buildApproved, findDuplicateCandidates, validateDecision, renderReview } from '../lib/review.mjs';
+import { similarNames, coreName, eventId, annotate, pendingList, staleDecisions, buildApproved, mergeApproval, eventsWithoutLevel, findDuplicateCandidates, validateDecision, renderReview } from '../lib/review.mjs';
 
 const row = (o) => ({ source_id: 'src-a', event_name: 'テスト大会', start_date: '2026-11-08', end_date: '2026-11-08', prefecture: '佐賀県', city: '佐賀市', venue: '会場', listed_by: '協会', event_type: '大会', scope: 'in_prefecture', event_status: '開催予定', official_source: true, publishable: true, source_url: 'https://example.invalid/a', last_checked_at: '2026-10-14T00:00:00Z', application_deadline: null, warnings: [], key: `佐賀県|2026-11-08|${o.event_name || 'テスト大会'}`, ...o });
 
@@ -96,4 +96,22 @@ test('レポートに要判断・重複・承認済みが出る', () => {
   assert.match(md, /## 要判断[\s\S]*B大会/);
   assert.match(md, /## 承認済み[\s\S]*A大会[\s\S]*OK/);
   assert.match(md, /日程だけ同じ/);
+});
+
+test('承認の再実行で、前の区分・主催者・補足は消えず、新しい指定が優先される', () => {
+  const prev = { id: 'E-0123abcd', status: 'approved', level: 'local', public_note: '補足', organizer: '主催者A' };
+  const again = mergeApproval(prev, { id: 'E-0123abcd', status: 'approved', note: 'メモ' });
+  assert.equal(again.level, 'local');
+  assert.equal(again.public_note, '補足');
+  assert.equal(again.organizer, '主催者A');
+  const changed = mergeApproval(prev, { id: 'E-0123abcd', status: 'approved', level: 'national', public_note: '新しい補足' });
+  assert.equal(changed.level, 'national');
+  assert.equal(changed.public_note, '新しい補足');
+  // 却下などでは引き継がない
+  assert.equal(mergeApproval(prev, { id: 'E-0123abcd', status: 'rejected' }).level, undefined);
+});
+
+test('区分が未設定の承認は、公開用一覧の作成を止める材料になる', () => {
+  assert.deepEqual(eventsWithoutLevel([{ id: 'E-1', level: 'local' }, { id: 'E-2' }, { id: 'E-3', level: 'world' }]), ['E-2', 'E-3']);
+  assert.deepEqual(eventsWithoutLevel([{ id: 'E-1', level: 'block' }]), []);
 });

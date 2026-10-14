@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { annotate, buildApproved, renderReview, validateDecision } from './crawler/lib/review.mjs';
+import { annotate, buildApproved, eventsWithoutLevel, mergeApproval, renderReview, validateDecision } from './crawler/lib/review.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -61,6 +61,12 @@ if (cmd === 'report') {
   }
   const note = rest.join(' ').trim();
   if (note) d.note = note;
+  for (const k of ['level', 'organizer', 'display-name', 'public-note']) {
+    if (flags[k] === true) {
+      console.error(`--${k} には値が必要です（--${k}=…）`);
+      process.exit(1);
+    }
+  }
   if (d.status === 'approved') {
     // level: local=県のセクション / block・national=全国・ブロック大会の別枠。organizer は要項などで主催者を確認できたときだけ。
     if (flags.level) d.level = flags.level;
@@ -68,21 +74,22 @@ if (cmd === 'report') {
     if (flags['display-name']) d.display_name = flags['display-name'];
     if (flags['public-note']) d.public_note = flags['public-note'];
   }
-  const err = validateDecision(d);
+  const err = validateDecision(mergeApproval(decisionsFile.decisions.find((x) => x.id === id), d));
   if (err) {
     console.error(err);
     process.exit(1);
   }
-  decisionsFile.decisions = decisionsFile.decisions.filter((x) => x.id !== id).concat(d);
+  const merged = mergeApproval(decisionsFile.decisions.find((x) => x.id === id), d);
+  decisionsFile.decisions = decisionsFile.decisions.filter((x) => x.id !== id).concat(merged);
   decisionsFile.decisions.sort((a, b) => (a.start_date || '').localeCompare(b.start_date || '') || a.id.localeCompare(b.id));
   mkdirSync(dirname(decisionsPath), { recursive: true });
   writeFileSync(decisionsPath, JSON.stringify(decisionsFile, null, 2) + '\n');
   console.log(`記録しました: ${id}「${target.event_name}」→ ${d.status}`);
 } else if (cmd === 'build') {
   const events = buildApproved(annotated, today);
-  const noLevel = events.filter((e) => !['local', 'block', 'national'].includes(e.level));
+  const noLevel = eventsWithoutLevel(events);
   if (noLevel.length) {
-    console.error(`level が未設定の承認があります（decide <id> approve --level=local|block|national で付け直してください）: ${noLevel.map((e) => e.id).join(', ')}`);
+    console.error(`level が未設定の承認があります（decide <id> approve --level=local|block|national で付け直してください）: ${noLevel.join(', ')}`);
     process.exit(1);
   }
   mkdirSync(dirname(approvedPath), { recursive: true });

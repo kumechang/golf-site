@@ -50,6 +50,7 @@ function isRealDate(s: string): boolean {
 export function todayJst(): string {
   const o = (import.meta.env?.EVENTS_TODAY ?? process.env.EVENTS_TODAY) as string | undefined;
   if (o) {
+    console.warn(`[events] EVENTS_TODAY=${o} が設定されています。表示の確認用です。本番のビルドには付けないでください。`);
     if (!isRealDate(o)) throw new Error(`[events] EVENTS_TODAY の形式が正しくありません: ${o}`);
     return o;
   }
@@ -84,7 +85,8 @@ export function loadEvents(): EventItem[] {
     if (!levels.includes(r.level as EventLevel)) fail(id, 'level が local / block / national のいずれでもありません');
     return {
       id,
-      name,
+      // 表記ゆれを直したいときだけ運営者が display_name を入れる。ふだんは元の名前のまま。
+      name: str(r.display_name) ?? name,
       start,
       end,
       prefecture,

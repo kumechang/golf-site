@@ -24,27 +24,29 @@ const pill = 'inline-flex items-center rounded-full border px-3 py-1 text-sm fon
 >
   <h3 class="text-lg font-bold leading-snug text-slate-900">{e.name}</h3>
 
-  <div class="mt-2 flex flex-wrap gap-2">
-    {levelLabel && <span class={`${pill} border-indigo-300 bg-indigo-50 text-indigo-900`}>{levelLabel}</span>}
-    <span class={`${pill} border-amber-400 bg-amber-50 text-amber-900`} data-closed hidden={!closed}>申込受付終了</span>
-  </div>
+  {(levelLabel || e.applicationDeadline) && (
+    <div class="mt-2 flex flex-wrap gap-2">
+      {levelLabel && <span class={`${pill} border-indigo-300 bg-indigo-50 text-indigo-900`}>{levelLabel}</span>}
+      {e.applicationDeadline && <span class={`${pill} border-amber-400 bg-amber-50 text-amber-900`} data-closed hidden={!closed}>申込受付終了</span>}
+    </div>
+  )}
 
   <dl class="mt-3 space-y-2 text-base leading-relaxed text-slate-700">
     <div class="flex gap-3">
-      <dt class="w-20 shrink-0 font-bold text-slate-900">日程</dt>
+      <dt class="w-20 max-w-[40%] shrink-0 font-bold text-slate-900">日程</dt>
       <dd class="min-w-0 break-words text-lg font-bold text-slate-900">
         <time datetime={e.start} set:html={nowrap(e.start === e.end ? formatDate(e.start) : formatRange(e.start, e.end))} />
       </dd>
     </div>
     <div class="flex gap-3">
-      <dt class="w-20 shrink-0 font-bold text-slate-900">場所</dt>
+      <dt class="w-20 max-w-[40%] shrink-0 font-bold text-slate-900">場所</dt>
       <dd class="min-w-0 break-words">
         {place.text}{place.missingVenue && <span class="block text-sm text-slate-600">（会場は掲載元の予定表に記載がありません）</span>}
       </dd>
     </div>
     {e.applicationDeadline && (
       <div class="flex gap-3">
-        <dt class="w-20 shrink-0 font-bold text-slate-900">申込期限</dt>
+        <dt class="w-20 max-w-[40%] shrink-0 font-bold text-slate-900">申込期限</dt>
         <dd class="min-w-0 break-words">
           <time datetime={e.applicationDeadline} set:html={nowrap(formatDate(e.applicationDeadline))} />
           <span class="mt-1 block text-sm text-slate-600" data-closed hidden={!closed}>掲載元の案内に記された申込期限を過ぎています。</span>
@@ -53,12 +55,12 @@ const pill = 'inline-flex items-center rounded-full border px-3 py-1 text-sm fon
     )}
     {e.organizer && (
       <div class="flex gap-3">
-        <dt class="w-20 shrink-0 font-bold text-slate-900">主催</dt>
+        <dt class="w-20 max-w-[40%] shrink-0 font-bold text-slate-900">主催</dt>
         <dd class="min-w-0 break-words">{e.organizer}</dd>
       </div>
     )}
     <div class="flex gap-3">
-      <dt class="w-20 shrink-0 font-bold text-slate-900">掲載元</dt>
+      <dt class="w-20 max-w-[40%] shrink-0 font-bold text-slate-900">掲載元</dt>
       <dd class="min-w-0 break-words">{e.listedBy}</dd>
     </div>
   </dl>
@@ -74,6 +76,6 @@ const pill = 'inline-flex items-center rounded-full border px-3 py-1 text-sm fon
       target="_blank"
       data-gg-outbound="event-source"
       class="tap-target inline-flex items-center text-base font-bold text-green-800 underline underline-offset-2 hover:text-green-900"
-    >掲載元のページを見る<span class="sr-only">：{e.name}</span></a><span class="whitespace-nowrap text-base text-slate-700">（新しいタブで開きます）</span>
+    >掲載元のページを見る<span class="sr-only">：{e.name}</span></a><span class="text-base text-slate-700">（新しいタブで開きます）</span>
   </p>
 </li>
