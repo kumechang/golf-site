@@ -1,4 +1,122 @@
 {
   "version": 1,
-  "decisions": []
+  "decisions": [
+    {
+      "id": "E-23209e11",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "香川県GG協会 35周年記念大会",
+      "start_date": "2026-10-15",
+      "source_id": "pref-kagawa",
+      "note": "申込は9/24で終了。開催は翌日。申込受付終了と表示する"
+    },
+    {
+      "id": "E-d565dd3a",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "県民スポーツ大会グラウンド・ゴルフ競技",
+      "start_date": "2026-10-17",
+      "source_id": "pref-saga",
+      "note": "佐賀県GG協会の予定表(単一情報源)"
+    },
+    {
+      "id": "E-0eb6f46d",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "2026ねんりんピックさが",
+      "start_date": "2026-10-24",
+      "source_id": "pref-saga",
+      "note": "佐賀県GG協会の予定表(単一情報源)"
+    },
+    {
+      "id": "E-8b9368f4",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "第20回全国グラウンド・ゴルフレディス交歓大会",
+      "start_date": "2026-10-27",
+      "source_id": "pref-saga",
+      "note": "全国大会。別枠(代表選手の大会)で表示"
+    },
+    {
+      "id": "E-ed79f86f",
+      "status": "duplicate_of",
+      "decided_at": "2026-10-14",
+      "name": "全国レディス大会",
+      "start_date": "2026-10-27",
+      "source_id": "local-kanazawa-gga",
+      "duplicate_of": "E-8b9368f4"
+    },
+    {
+      "id": "E-29a735b6",
+      "status": "duplicate_of",
+      "decided_at": "2026-10-14",
+      "name": "全国ねんりんピック",
+      "start_date": "2026-11-08",
+      "source_id": "local-kanazawa-gga",
+      "duplicate_of": "E-7aa0aec5"
+    },
+    {
+      "id": "E-7aa0aec5",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "第38回全国健康福祉祭彩の国さいたま大会(ねんりんピック2026）",
+      "start_date": "2026-11-08",
+      "source_id": "pref-saga",
+      "note": "全国大会。別枠(代表選手の大会)で表示。埼玉県資料で大会期間を確認"
+    },
+    {
+      "id": "E-838d73bc",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "第35回佐賀県グラウンド・ゴルフ交歓大会",
+      "start_date": "2026-11-08",
+      "source_id": "pref-saga",
+      "note": "佐賀県GG協会の予定表(単一情報源)"
+    },
+    {
+      "id": "E-017d6650",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "第30回神戸カップＧＧ交歓大会",
+      "start_date": "2026-11-11",
+      "source_id": "local-kobe-gga",
+      "note": "神戸市GG協会の予定表。同表の開催済み9件は日付どおり開催を確認"
+    },
+    {
+      "id": "E-c3a521db",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "第39回九州地区グラウンド・ゴルフ交歓沖縄県大会",
+      "start_date": "2026-12-03",
+      "source_id": "pref-saga",
+      "note": "ブロック大会。別枠(代表選手の大会)で表示"
+    },
+    {
+      "id": "E-7c53e8ef",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "神戸市2026．ファイナルＧＧ大会",
+      "start_date": "2026-12-09",
+      "source_id": "local-kobe-gga",
+      "note": "神戸市GG協会の予定表"
+    },
+    {
+      "id": "E-416e3545",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "第20回神戸市ＧＧ春季大会",
+      "start_date": "2027-03-06",
+      "source_id": "local-kobe-gga",
+      "note": "神戸市GG協会の予定表"
+    },
+    {
+      "id": "E-f23540d9",
+      "status": "approved",
+      "decided_at": "2026-10-14",
+      "name": "第14回しあわせの村ミズノ杯ＧＧ大会(3/18)",
+      "start_date": "2027-03-17",
+      "source_id": "local-kobe-gga",
+      "note": "名前の括弧(3/18)は予備日の可能性。予定表の日付を採用"
+    }
+  ]
 }
