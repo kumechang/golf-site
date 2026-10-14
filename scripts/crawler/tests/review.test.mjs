@@ -35,6 +35,17 @@ test('注意の印：県不明・非公式・申込締切・会場なし・読�
   const [r] = annotate([row({ prefecture: null, official_source: false, venue: null, application_deadline: '2026-09-01', warnings: ['曜日が合わない'] })], { decisions: [] }, '2026-10-14');
   for (const f of ['開催地の県が不明', '非公式の情報源', '申込締切を過ぎている', '会場が未記載', '曜日が合わない']) assert.ok(r.flags.includes(f), f);
 });
+test('注意の印：参加対象が限られそうな大会（指導員・優良プレーヤー・研修など）', () => {
+  const names = ['金沢市優良プレーヤー及び普及指導員大会', '３級指導員養成講習会', 'ねんりんピック選考会', '普通の交歓大会'];
+  const ann = annotate([row({ event_name: names[0] }), row({ event_name: names[1], event_type: '研修・講習' }), row({ event_name: names[2] }), row({ event_name: names[3] })], { decisions: [] }, '2026-10-14');
+  const limited = (r) => r.flags.some((f) => f.includes('参加対象が限られる'));
+  assert.deepEqual(ann.map(limited), [true, true, true, false]);
+});
+test('注意の印：全国・ブロック大会は代表選手の大会の可能性', () => {
+  const ann = annotate([row({ event_name: '第20回全国グラウンド・ゴルフレディス交歓大会' }), row({ event_name: '第39回九州地区グラウンド・ゴルフ交歓沖縄県大会' }), row({ event_name: '第30回神戸カップＧＧ交歓大会' })], { decisions: [] }, '2026-10-14');
+  const rep = (r) => r.flags.some((f) => f.includes('代表選手'));
+  assert.deepEqual(ann.map(rep), [true, true, false]);
+});
 test('判断：承認済みだけが公開一覧に入る。却下・開催済み・未承認は入らない。重複は統合先にまとめる', () => {
   const rows = [row({ event_name: 'A大会' }), row({ event_name: 'B大会' }), row({ event_name: 'C大会' }), row({ event_name: 'D大会', source_id: 'src-b', source_url: 'https://example.invalid/b' }), row({ event_name: '終わった大会', start_date: '2026-10-01', end_date: '2026-10-01', key: 'x', event_status: '開催済み', publishable: false })];
   const ids = rows.map(eventId);

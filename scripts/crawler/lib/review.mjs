@@ -3,6 +3,11 @@
 // 判断の記録は data/crawler/review/decisions.json（コミットする）。クローラーの出力そのものはコミットしない。
 import { createHash } from 'node:crypto';
 
+// 名前から、参加対象が限られる（一般の人が申し込めない）可能性があるもの
+const RESTRICTED_NAME = /指導員|有資格者|優良プレーヤー|役員|顧問|選考会|予選会|選抜/;
+// 全国・ブロック大会などは、県や市の代表選手が出る大会のことが多い（一般の人が申し込む大会ではない）
+const REPRESENTATIVE_NAME = /全国|ブロック|九州地区|四国|中国地区|近畿|北信越|東海|関東地区|国民スポーツ|ねんりんピック|健康福祉祭/;
+
 export const decisionStatuses = ['approved', 'rejected', 'duplicate_of'];
 
 export function eventId(row) {
@@ -75,6 +80,8 @@ export function annotate(rows, decisionsFile, today) {
     if (r.official_source === false) flags.push('非公式の情報源');
     if (r.application_deadline && r.application_deadline < today && r.event_status === '開催予定') flags.push('申込締切を過ぎている');
     if (!r.venue) flags.push('会場が未記載');
+    if (r.event_type === '研修・講習' || RESTRICTED_NAME.test(r.event_name)) flags.push('参加対象が限られる可能性（研修・指導員・優良プレーヤーなど）');
+    if (REPRESENTATIVE_NAME.test(r.event_name)) flags.push('代表選手などに参加が限られる可能性（全国・ブロック大会など）');
     for (const w of r.warnings || []) flags.push(w);
     return { ...r, id, flags, decision: dec.get(id) || null };
   });
