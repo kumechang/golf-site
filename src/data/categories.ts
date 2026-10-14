@@ -63,10 +63,10 @@ export const categories: CategoryMeta[] = [
     slug: 'community',
     name: '大会・コミュニティ情報',
     shortName: '大会・地域',
-    description: 'お住まいの地域のクラブの探し方や、大会参加のガイドです。',
+    description: 'お住まいの地域のクラブの探し方、大会の種類と参加資格の見方、大会に初めて出るときのガイドです。',
     metaTitle: 'グラウンドゴルフの大会・クラブの探し方ガイド',
     metaDescription:
-      'お住まいの地域でグラウンドゴルフのクラブを探す方法や、大会に初めて参加する際のポイントをまとめました。',
+      'お住まいの地域でグラウンドゴルフのクラブを探す方法、大会の種類と参加資格の見方、大会に初めて参加する際のポイントをまとめました。',
     accent: { bg: 'bg-indigo-50', text: 'text-indigo-700', ring: 'ring-indigo-200' },
   },
 ];
