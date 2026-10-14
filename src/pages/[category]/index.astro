@@ -45,6 +45,15 @@ const articles = (await getCollection('articles', (a) => a.data.category === cat
   </header>
 
   <section class="mx-auto max-w-5xl px-4 py-10">
+    {cat.slug === 'community' && (
+      <a
+        href="/community/events/"
+        class="mb-6 block rounded-2xl border border-indigo-200 bg-indigo-50 p-5 hover:bg-indigo-100"
+      >
+        <span class="block text-lg font-bold text-indigo-900">地域別の大会カレンダー（一部の地域）</span>
+        <span class="mt-1 block text-base leading-relaxed text-slate-700">今後の大会を、日程と開催地で見る。載っているのは一部の地域だけです。</span>
+      </a>
+    )}
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
         articles.map((article) => (

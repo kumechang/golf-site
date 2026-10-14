@@ -1,13 +1,14 @@
 // イベントの確認（レポート作成・判断の記録・承認済み一覧の作成）。
 //   node scripts/review-events.mjs [report] [--in=<クローラー出力のディレクトリ>] [--today=YYYY-MM-DD]
 //   node scripts/review-events.mjs decide <id> approve|reject|dup:<統合先id> ["メモ"] [--in=…]
+//     approve には --level=local|block|national が必須。任意: --organizer= --display-name= --public-note=
 //   node scripts/review-events.mjs build [--in=…]     # 承認済みを data/events/approved.json に書く
 // --decisions=<path> / --approved=<path> で保存先を変えられる（試すときに本物のファイルを汚さない）
 // --in を省略すると data/crawler/out の最新の出力を使う。
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { annotate, buildApproved, renderReview, validateDecision } from './crawler/lib/review.mjs';
+import { annotate, buildApproved, eventsWithoutLevel, mergeApproval, renderReview, validateDecision } from './crawler/lib/review.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -42,7 +43,7 @@ if (cmd === 'report') {
 } else if (cmd === 'decide') {
   const [id, action, ...rest] = pos;
   if (!id || !action) {
-    console.error('使い方: decide <id> approve|reject|dup:<統合先id> ["メモ"]');
+    console.error('使い方: decide <id> approve|reject|dup:<統合先id> ["メモ"]（approve は --level=local|block|national が必須）');
     process.exit(1);
   }
   const target = annotated.find((r) => r.id === id);
@@ -60,18 +61,37 @@ if (cmd === 'report') {
   }
   const note = rest.join(' ').trim();
   if (note) d.note = note;
-  const err = validateDecision(d);
+  for (const k of ['level', 'organizer', 'display-name', 'public-note']) {
+    if (flags[k] === true) {
+      console.error(`--${k} には値が必要です（--${k}=…）`);
+      process.exit(1);
+    }
+  }
+  if (d.status === 'approved') {
+    // level: local=県のセクション / block・national=全国・ブロック大会の別枠。organizer は要項などで主催者を確認できたときだけ。
+    if (flags.level) d.level = flags.level;
+    if (flags.organizer) d.organizer = flags.organizer;
+    if (flags['display-name']) d.display_name = flags['display-name'];
+    if (flags['public-note']) d.public_note = flags['public-note'];
+  }
+  const err = validateDecision(mergeApproval(decisionsFile.decisions.find((x) => x.id === id), d));
   if (err) {
     console.error(err);
     process.exit(1);
   }
-  decisionsFile.decisions = decisionsFile.decisions.filter((x) => x.id !== id).concat(d);
+  const merged = mergeApproval(decisionsFile.decisions.find((x) => x.id === id), d);
+  decisionsFile.decisions = decisionsFile.decisions.filter((x) => x.id !== id).concat(merged);
   decisionsFile.decisions.sort((a, b) => (a.start_date || '').localeCompare(b.start_date || '') || a.id.localeCompare(b.id));
   mkdirSync(dirname(decisionsPath), { recursive: true });
   writeFileSync(decisionsPath, JSON.stringify(decisionsFile, null, 2) + '\n');
   console.log(`記録しました: ${id}「${target.event_name}」→ ${d.status}`);
 } else if (cmd === 'build') {
   const events = buildApproved(annotated, today);
+  const noLevel = eventsWithoutLevel(events);
+  if (noLevel.length) {
+    console.error(`level が未設定の承認があります（decide <id> approve --level=local|block|national で付け直してください）: ${noLevel.join(', ')}`);
+    process.exit(1);
+  }
   mkdirSync(dirname(approvedPath), { recursive: true });
   writeFileSync(approvedPath, JSON.stringify({ generated_at: new Date().toISOString(), today, events }, null, 2) + '\n');
   console.log(`承認済み ${events.length}件を ${approvedPath} に書きました`);

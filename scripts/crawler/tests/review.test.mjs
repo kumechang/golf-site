@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { similarNames, coreName, eventId, annotate, pendingList, staleDecisions, buildApproved, findDuplicateCandidates, validateDecision, renderReview } from '../lib/review.mjs';
+import { similarNames, coreName, eventId, annotate, pendingList, staleDecisions, buildApproved, mergeApproval, eventsWithoutLevel, findDuplicateCandidates, validateDecision, renderReview } from '../lib/review.mjs';
 
 const row = (o) => ({ source_id: 'src-a', event_name: 'テスト大会', start_date: '2026-11-08', end_date: '2026-11-08', prefecture: '佐賀県', city: '佐賀市', venue: '会場', listed_by: '協会', event_type: '大会', scope: 'in_prefecture', event_status: '開催予定', official_source: true, publishable: true, source_url: 'https://example.invalid/a', last_checked_at: '2026-10-14T00:00:00Z', application_deadline: null, warnings: [], key: `佐賀県|2026-11-08|${o.event_name || 'テスト大会'}`, ...o });
 
@@ -50,10 +50,10 @@ test('判断：承認済みだけが公開一覧に入る。却下・開催済�
   const rows = [row({ event_name: 'A大会' }), row({ event_name: 'B大会' }), row({ event_name: 'C大会' }), row({ event_name: 'D大会', source_id: 'src-b', source_url: 'https://example.invalid/b' }), row({ event_name: '終わった大会', start_date: '2026-10-01', end_date: '2026-10-01', key: 'x', event_status: '開催済み', publishable: false })];
   const ids = rows.map(eventId);
   const decisions = { decisions: [
-    { id: ids[0], status: 'approved', note: '確認済み' },
+    { id: ids[0], status: 'approved', level: 'local', note: '確認済み', public_note: '補足です' },
     { id: ids[1], status: 'rejected' },
     { id: ids[3], status: 'duplicate_of', duplicate_of: ids[0] },
-    { id: ids[4], status: 'approved' },
+    { id: ids[4], status: 'approved', level: 'local' },
   ] };
   const ann = annotate(rows, decisions, '2026-10-14');
   assert.deepEqual(pendingList(ann).map((r) => r.event_name), ['C大会']);
@@ -61,10 +61,13 @@ test('判断：承認済みだけが公開一覧に入る。却下・開催済�
   assert.deepEqual(out.map((e) => e.name), ['A大会']);
   assert.deepEqual(out[0].also_listed_in, ['https://example.invalid/b']);
   assert.equal(out[0].note, '確認済み');
+  assert.equal(out[0].level, 'local');
+  assert.equal(out[0].public_note, '補足です');
+  assert.ok(!('organizer' in out[0]), '主催者は確認できたときだけ入る');
 });
 test('承認済みでも開催日を過ぎたら一覧から外れる', () => {
   const r = row({ event_name: 'A大会' });
-  const ann = annotate([r], { decisions: [{ id: eventId(r), status: 'approved' }] }, '2026-11-09');
+  const ann = annotate([r], { decisions: [{ id: eventId(r), status: 'approved', level: 'local' }] }, '2026-11-09');
   assert.equal(buildApproved(ann, '2026-11-09').length, 0);
 });
 test('日程が変わると判断が外れて再確認になり、古い判断は「見つからない」に出る', () => {
@@ -76,8 +79,12 @@ test('日程が変わると判断が外れて再確認になり、古い判断�
   assert.equal(staleDecisions(ann, decisions).length, 1);
 });
 test('判断の検証', () => {
-  assert.equal(validateDecision({ id: 'E-0123abcd', status: 'approved' }), null);
-  assert.ok(validateDecision({ id: 'x', status: 'approved' }));
+  assert.equal(validateDecision({ id: 'E-0123abcd', status: 'approved', level: 'local' }), null);
+  assert.equal(validateDecision({ id: 'E-0123abcd', status: 'approved', level: 'national' }), null);
+  assert.ok(validateDecision({ id: 'E-0123abcd', status: 'approved' }), '承認には level が必須');
+  assert.ok(validateDecision({ id: 'E-0123abcd', status: 'approved', level: 'world' }));
+  assert.equal(validateDecision({ id: 'E-0123abcd', status: 'rejected' }), null);
+  assert.ok(validateDecision({ id: 'x', status: 'approved', level: 'local' }));
   assert.ok(validateDecision({ id: 'E-0123abcd', status: 'maybe' }));
   assert.ok(validateDecision({ id: 'E-0123abcd', status: 'duplicate_of' }));
 });
@@ -89,4 +96,22 @@ test('レポートに要判断・重複・承認済みが出る', () => {
   assert.match(md, /## 要判断[\s\S]*B大会/);
   assert.match(md, /## 承認済み[\s\S]*A大会[\s\S]*OK/);
   assert.match(md, /日程だけ同じ/);
+});
+
+test('承認の再実行で、前の区分・主催者・補足は消えず、新しい指定が優先される', () => {
+  const prev = { id: 'E-0123abcd', status: 'approved', level: 'local', public_note: '補足', organizer: '主催者A' };
+  const again = mergeApproval(prev, { id: 'E-0123abcd', status: 'approved', note: 'メモ' });
+  assert.equal(again.level, 'local');
+  assert.equal(again.public_note, '補足');
+  assert.equal(again.organizer, '主催者A');
+  const changed = mergeApproval(prev, { id: 'E-0123abcd', status: 'approved', level: 'national', public_note: '新しい補足' });
+  assert.equal(changed.level, 'national');
+  assert.equal(changed.public_note, '新しい補足');
+  // 却下などでは引き継がない
+  assert.equal(mergeApproval(prev, { id: 'E-0123abcd', status: 'rejected' }).level, undefined);
+});
+
+test('区分が未設定の承認は、公開用一覧の作成を止める材料になる', () => {
+  assert.deepEqual(eventsWithoutLevel([{ id: 'E-1', level: 'local' }, { id: 'E-2' }, { id: 'E-3', level: 'world' }]), ['E-2', 'E-3']);
+  assert.deepEqual(eventsWithoutLevel([{ id: 'E-1', level: 'block' }]), []);
 });

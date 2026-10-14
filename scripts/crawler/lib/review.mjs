@@ -9,6 +9,7 @@ const RESTRICTED_NAME = /指導員|有資格者|優良プレーヤー|役員|顧
 const REPRESENTATIVE_NAME = /全国|ブロック|九州地区|四国|中国地区|近畿|北信越|東海|関東地区|国民スポーツ|ねんりんピック|健康福祉祭/;
 
 export const decisionStatuses = ['approved', 'rejected', 'duplicate_of'];
+export const approvalLevels = ['local', 'block', 'national'];
 
 export function eventId(row) {
   return 'E-' + createHash('sha1').update(`${row.key}|${row.source_id}`).digest('hex').slice(0, 8);
@@ -118,6 +119,10 @@ export function buildApproved(annotated, today) {
       source_url: r.source_url,
       also_listed_in: alsoListedIn,
       last_checked_at: r.last_checked_at,
+      level: r.decision.level,
+      ...(r.decision.organizer ? { organizer: r.decision.organizer } : {}),
+      ...(r.decision.display_name ? { display_name: r.decision.display_name } : {}),
+      ...(r.decision.public_note ? { public_note: r.decision.public_note } : {}),
       note: r.decision.note || null,
     };
   }).filter((x) => byId.has(x.id));
@@ -127,7 +132,22 @@ export function validateDecision(d) {
   if (!d.id || !/^E-[0-9a-f]{8}$/.test(d.id)) return 'id の形式が正しくない';
   if (!decisionStatuses.includes(d.status)) return `status は ${decisionStatuses.join(' / ')} のいずれか`;
   if (d.status === 'duplicate_of' && !/^E-[0-9a-f]{8}$/.test(d.duplicate_of || '')) return 'duplicate_of に統合先の id が必要';
+  // 承認には公開時の区分（level）が必須。未設定のまま県のセクションに出てしまうのを防ぐ。
+  if (d.status === 'approved' && !approvalLevels.includes(d.level)) return `承認には --level=${approvalLevels.join('|')} が必要（local=県のセクション、block/national=全国・ブロック大会の別枠）`;
   return null;
+}
+
+// 承認の再実行で、前に付けた補足（主催者・表示名・公開用の補足・区分）を黙って消さない。新しく指定したものが優先。
+export function mergeApproval(prev, next) {
+  if (next.status !== 'approved' || prev?.status !== 'approved') return next;
+  const out = { ...next };
+  for (const k of ['level', 'organizer', 'display_name', 'public_note']) if (out[k] === undefined && prev[k] !== undefined) out[k] = prev[k];
+  return out;
+}
+
+// 公開用の承認済み一覧に、区分が未設定のものが混ざっていないか。混ざっていれば id を返す。
+export function eventsWithoutLevel(events) {
+  return events.filter((e) => !approvalLevels.includes(e.level)).map((e) => e.id);
 }
 
 // ---- レポート ---------------------------------------------------------------

@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import EventCard from '../../../components/EventCard.astro';
+import { getPrefectureBySlug } from '../../../data/prefectures';
+import { loadEvents, groupEvents, todayJst, jstDate, daysBetween, STALE_DAYS } from '../../../data/events';
+
+const title = 'グラウンドゴルフの大会カレンダー｜地域別（一部地域）';
+const description =
+  'グラウンドゴルフの今後の大会を、一部の地域に限って日程と開催地で見られるカレンダーです。掲載元の協会などのページへのリンク付き。参加資格・申込は主催者の案内で確認してください。';
+
+const today = todayJst();
+const all = loadEvents();
+const { groups, wide, total, shown } = groupEvents(all, today);
+
+// 確認日は、表示中の大会のうち最も古い確認日。古くなったら注意書きを出す。
+const confirmedAt = shown.length ? shown.map((e) => jstDate(e.lastCheckedAt)).sort()[0] : null;
+const confirmedText = confirmedAt ? `${Number(confirmedAt.slice(0, 4))}年${Number(confirmedAt.slice(5, 7))}月${Number(confirmedAt.slice(8, 10))}日` : null;
+const stale = confirmedAt ? daysBetween(confirmedAt, today) >= STALE_DAYS : false;
+if (confirmedAt && daysBetween(confirmedAt, today) >= 90) {
+  console.warn(`[events] 確認日（${confirmedAt}）から90日以上たっています。クロールと確認をやり直してください。`);
+}
+
+const jump = [
+  ...groups.map((g) => ({ id: g.slug, name: g.name })),
+  ...(wide.length ? [{ id: 'national-block', name: '全国・ブロック大会' }] : []),
+  { id: 'not-listed', name: 'ここに載っていない地域の方へ' },
+];
+
+const breadcrumbItems = [
+  { name: 'トップ', href: '/' },
+  { name: '大会・コミュニティ情報', href: '/community/' },
+  { name: '地域別の大会カレンダー', href: Astro.url.pathname },
+];
+
+const h2 = 'mt-12 text-2xl font-bold leading-snug text-slate-900';
+const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumb items={breadcrumbItems} />
+
+  <div id="events-page" class="mx-auto max-w-3xl px-4 pb-20 pt-6" data-confirmed={confirmedAt ?? undefined} data-stale-days={STALE_DAYS}>
+    <header>
+      <a href="/community/" class="inline-block rounded-full bg-indigo-50 px-3 py-1 text-sm font-bold text-indigo-700">大会・コミュニティ情報</a>
+      <h1 class="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">地域別の大会カレンダー（掲載は一部の地域）</h1>
+      <p class="mt-4 text-base leading-relaxed text-slate-700">
+        グラウンドゴルフの今後の大会を、地域ごとに眺められるページです。参加を勧めるものではなく、どんな大会がいつ、どこで開かれるのかを知る手がかりとして使えます。
+      </p>
+      <p class="mt-3 text-base leading-relaxed text-slate-700">
+        市民向けの体験会や交流の場をお探しの方は、<a class={link} href="/start/find-a-class/">初めてのグラウンドゴルフ体験教室の探し方</a>をご覧ください。このカレンダーには、まだ載せられていません。
+      </p>
+      {confirmedText && (
+        <p class="mt-3 text-base leading-relaxed text-slate-700">
+          掲載内容は、<time datetime={confirmedAt!}>{confirmedText}</time>に、各掲載元のページで確認したものです。その後に変わっていることがあります。開催日を過ぎた大会は表示していません。
+        </p>
+      )}
+      <p class="mt-3 rounded-lg border border-amber-400 bg-amber-50 p-3 text-base leading-relaxed text-amber-900" data-stale hidden={!stale}>
+        しばらく更新できていません。日程が変わっている可能性があります。必ず掲載元のページで確認してください。
+      </p>
+    </header>
+
+    <nav aria-label="地域へ移動" class="mt-8">
+      <ul role="list" class="flex flex-wrap gap-2" data-jump-list>
+        {jump.map((j) => (
+          <li data-jump-item={j.id}>
+            <a href={`#${j.id}`} class="tap-target inline-flex items-center rounded-full border border-slate-300 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">{j.name}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <section aria-labelledby="before-use">
+      <h2 id="before-use" class={h2}>ご利用の前に</h2>
+      <ul role="list" class="mt-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-slate-800">
+        <li>載せているのは、一部の地域の、協会の予定表などで確認できた大会だけです。全国の大会をそろえた一覧ではありません。</li>
+        <li>「掲載元」は、その情報が載っていたページを公開している団体です。大会の主催者とは限りません。日程や会場は変わることがあるので、出かける前に、掲載元のページや主催者の案内で確かめてください。</li>
+        <li>協会の大会が中心で、参加できる方が会員の方や代表の方などに限られる大会も、含まれている可能性があります。参加資格・申込は主催者の案内で確認してください。</li>
+        <li>見学できるかどうかは、分かっていません。気になる場合は、主催者に確認してください。</li>
+      </ul>
+    </section>
+
+    {total > 0 && (
+      <>
+        {groups.map((g) => {
+          const pref = getPrefectureBySlug(g.slug);
+          return (
+            <section id={g.slug} aria-labelledby={`${g.slug}-h`} data-event-section>
+              <h2 id={`${g.slug}-h`} class={h2}>{g.name}</h2>
+              <ul role="list" class="mt-4 space-y-4">
+                {g.events.map((e) => <EventCard event={e} today={today} />)}
+              </ul>
+              {pref && (
+                <p class="mt-4 text-base leading-relaxed text-slate-700">
+                  {g.name}のグラウンド・ゴルフ協会の窓口は、<a class={link} href={`/community/find-a-club-near-you/${g.slug}/`}>{g.name}のクラブ・コースの探し方</a>にあります。体験会や体験教室を探す場合は、<a class={link} href="/start/find-a-class/">体験教室の探し方</a>をご覧ください。
+                </p>
+              )}
+            </section>
+          );
+        })}
+
+        {wide.length > 0 && (
+          <section id="national-block" aria-labelledby="national-block-h" data-event-section>
+            <h2 id="national-block-h" class={h2}>全国・ブロック大会</h2>
+            <div class="mt-3 space-y-3 text-base leading-relaxed text-slate-800">
+              <p>
+                全国規模の大会と、いくつかの都道府県をまとめた地域（ブロック）の大会です。この区分の大会は、掲載元の団体の予定表に載っていたものです。開催地は、掲載元の地域とは異なります。掲載元の地域の大会、という意味ではありません。
+              </p>
+              <p>
+                参加できる方が、都道府県の代表の方などに限られる大会が含まれる可能性があります。当サイトでは、これらの大会の参加資格を確認できていません。
+              </p>
+              <p>
+                この区分の大会の主催者や参加資格は、それぞれの案内で確認してください。日本グラウンド・ゴルフ協会（JGGA）が主催する大会は、<a class={link} href="https://www.groundgolf.or.jp/tournaments/thisyear-tournaments/" rel="nofollow noopener" target="_blank" data-gg-outbound="jgga-tournaments">JGGA公式サイトの「今年度の大会」ページ</a>と<a class={link} href="https://www.groundgolf.or.jp/tournaments/upcoming-tournaments/" rel="nofollow noopener" target="_blank" data-gg-outbound="jgga-tournaments">「今後の大会予定」ページ</a>で見られます（新しいタブで開きます）。参加資格の見方は、<a class={link} href="/community/tournament-overview/">グラウンドゴルフの大会の種類</a>にまとめています。
+              </p>
+            </div>
+            <ul role="list" class="mt-4 space-y-4">
+              {wide.map((e) => <EventCard event={e} today={today} />)}
+            </ul>
+          </section>
+        )}
+      </>
+    )}
+
+    <p class="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-5 text-base leading-relaxed text-slate-800" data-empty-notice hidden={total > 0}>
+      いま、このカレンダーに載せている今後の大会はありません。大会がないという意味ではありません。日程の探し方は、<a class={link} href="/community/tournament-overview/">グラウンドゴルフの大会の種類</a>の「大会の日程の探し方」にまとめています。
+    </p>
+
+    <section aria-labelledby="not-listed">
+      <h2 id="not-listed" class={h2}>お住まいの地域が載っていない方へ</h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-800">
+        ここに載っていない地域は、まだ確認できていない地域です。大会がないという意味ではありません。お住まいの地域の大会は、都道府県や市区町村のグラウンド・ゴルフ協会、自治体の案内で確認できます。協会の窓口は<a class={link} href="/community/find-a-club-near-you/">都道府県別グラウンドゴルフクラブ・コースの探し方</a>から探せます。
+      </p>
+    </section>
+
+    <section aria-labelledby="about-list">
+      <h2 id="about-list" class={h2}>この一覧について</h2>
+      <ul role="list" class="mt-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-slate-800">
+        <li>当サイトは、各協会・自治体とは関係のない個人運営の情報サイトです。この一覧は、各団体の公式の案内ではありません。</li>
+        <li>掲載しているのは、大会名、日程、開催地、会場、申込期限などの事実と、掲載元のページへのリンクです。ページの本文や画像は転載していません。</li>
+        <li>日程が確認できていない大会は、載せていません。</li>
+        <li>情報は<a class={link} href="/about/#crawler">協会などが公開しているページを機械的に読み取り</a>、運営者が内容を確認し、掲載を承認したものだけを載せています。</li>
+        <li>掲載内容に誤りがある場合や、掲載を望まれない場合は、<a class={link} href="/about/">サイトについて／運営者情報</a>のお問い合わせ先までご連絡ください。</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="related">
+      <h2 id="related" class={h2}>あわせて読みたい</h2>
+      <ul role="list" class="mt-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-slate-800">
+        <li><a class={link} href="/community/tournament-overview/">グラウンドゴルフの大会の種類｜地域の集まりから全国規模まで</a>（参加資格の見方）</li>
+        <li><a class={link} href="/community/entering-a-tournament/">グラウンドゴルフの大会に出てみたい人向けガイド</a></li>
+        <li><a class={link} href="/community/find-a-club-near-you/">都道府県別グラウンドゴルフクラブ・コースの探し方</a></li>
+        <li><a class={link} href="/start/find-a-class/">初めてのグラウンドゴルフ体験教室の探し方</a></li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  // 再ビルドされるまで日付が古くなるため、過去に寄せる方向だけ補正する（隠す・申込受付終了を出す・古い注意を出す）。
+  // JavaScript が無効でも、全件が年つきの日付で読める。
+  const jst = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  const main = document.querySelector<HTMLElement>('#events-page');
+  document.querySelectorAll<HTMLElement>('[data-event]').forEach((el) => {
+    if ((el.dataset.end ?? '') < jst) el.hidden = true;
+    const dl = el.dataset.deadline;
+    if (dl && dl < jst) el.querySelectorAll('[data-closed]').forEach((n) => n.removeAttribute('hidden'));
+  });
+  document.querySelectorAll<HTMLElement>('[data-event-section]').forEach((sec) => {
+    if (!sec.querySelector('[data-event]:not([hidden])')) {
+      sec.hidden = true;
+      document.querySelector(`[data-jump-item="${sec.id}"]`)?.setAttribute('hidden', '');
+    }
+  });
+  const confirmed = main?.dataset.confirmed;
+  const limit = Number(main?.dataset.staleDays ?? 45);
+  if (confirmed) {
+    const days = Math.round((Date.parse(`${jst}T00:00:00Z`) - Date.parse(`${confirmed}T00:00:00Z`)) / 86400e3);
+    if (days >= limit) document.querySelector('[data-stale]')?.removeAttribute('hidden');
+  }
+  if (document.querySelector('[data-event-section]') && !document.querySelector('[data-event]:not([hidden])')) {
+    document.querySelector('[data-empty-notice]')?.removeAttribute('hidden');
+  }
+</script>
