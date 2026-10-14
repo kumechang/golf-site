@@ -1,6 +1,7 @@
 // イベントの確認（レポート作成・判断の記録・承認済み一覧の作成）。
 //   node scripts/review-events.mjs [report] [--in=<クローラー出力のディレクトリ>] [--today=YYYY-MM-DD]
 //   node scripts/review-events.mjs decide <id> approve|reject|dup:<統合先id> ["メモ"] [--in=…]
+//     approve には --level=local|block|national が必須。任意: --organizer= --display-name= --public-note=
 //   node scripts/review-events.mjs build [--in=…]     # 承認済みを data/events/approved.json に書く
 // --decisions=<path> / --approved=<path> で保存先を変えられる（試すときに本物のファイルを汚さない）
 // --in を省略すると data/crawler/out の最新の出力を使う。
@@ -42,7 +43,7 @@ if (cmd === 'report') {
 } else if (cmd === 'decide') {
   const [id, action, ...rest] = pos;
   if (!id || !action) {
-    console.error('使い方: decide <id> approve|reject|dup:<統合先id> ["メモ"]');
+    console.error('使い方: decide <id> approve|reject|dup:<統合先id> ["メモ"]（approve は --level=local|block|national が必須）');
     process.exit(1);
   }
   const target = annotated.find((r) => r.id === id);
@@ -60,6 +61,13 @@ if (cmd === 'report') {
   }
   const note = rest.join(' ').trim();
   if (note) d.note = note;
+  if (d.status === 'approved') {
+    // level: local=県のセクション / block・national=全国・ブロック大会の別枠。organizer は要項などで主催者を確認できたときだけ。
+    if (flags.level) d.level = flags.level;
+    if (flags.organizer) d.organizer = flags.organizer;
+    if (flags['display-name']) d.display_name = flags['display-name'];
+    if (flags['public-note']) d.public_note = flags['public-note'];
+  }
   const err = validateDecision(d);
   if (err) {
     console.error(err);
@@ -72,6 +80,11 @@ if (cmd === 'report') {
   console.log(`記録しました: ${id}「${target.event_name}」→ ${d.status}`);
 } else if (cmd === 'build') {
   const events = buildApproved(annotated, today);
+  const noLevel = events.filter((e) => !['local', 'block', 'national'].includes(e.level));
+  if (noLevel.length) {
+    console.error(`level が未設定の承認があります（decide <id> approve --level=local|block|national で付け直してください）: ${noLevel.map((e) => e.id).join(', ')}`);
+    process.exit(1);
+  }
   mkdirSync(dirname(approvedPath), { recursive: true });
   writeFileSync(approvedPath, JSON.stringify({ generated_at: new Date().toISOString(), today, events }, null, 2) + '\n');
   console.log(`承認済み ${events.length}件を ${approvedPath} に書きました`);

@@ -134,6 +134,8 @@ faqItems:
 - [JGGA公式サイトの「今年度の大会」ページ](https://www.groundgolf.or.jp/tournaments/thisyear-tournaments/)
 - [JGGA公式サイトの「今後の大会予定」ページ](https://www.groundgolf.or.jp/tournaments/upcoming-tournaments/)
 
+当サイトでは、一部の地域の今後の大会を、日程と開催地で見られるようにしています。[地域別の今後の大会（一部地域）を見る](/community/events/)。載っているのは一部の地域と大会だけで、掲載元の団体は主催者とは限りません。日程は変わることがあります。参加資格や申込、見学できるかどうかは、それぞれの主催者の案内で確認してください。
+
 地域の大会は、お住まいの地域の協会や自治体の案内で確認できます。
 
 ## まとめ
