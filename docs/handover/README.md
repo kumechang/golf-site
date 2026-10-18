@@ -1,4 +1,4 @@
-# 引き継ぎ資料（2026-10-14 時点）
+# 引き継ぎ資料（2026-10-18 更新。最初の版は 2026-10-14）
 
 「グラウンドゴルフ入門ナビ」の作業を、新しいセッションで続けるための資料。
 前のセッションは会話が非常に長くなったため、ここに必要な文脈をまとめた。**最初にこのファイルを最後まで読むこと。**
@@ -79,6 +79,7 @@
   - Event 構造化データは付けない（BreadcrumbList のみ）。理由は `docs/handover/briefs/calendar-page-brief.md` §5.3
   - 表示の確認: `EVENTS_TODAY=2026-10-16 npm run build`（本番ビルドには付けない）
 - **/about/ にクローラーの節**（`#crawler`）を追加。クローラーのUAがこのURLを指している
+- **市区町村の施設の節**（2026-10-18 公開）。47都道府県ページ（`/community/find-a-club-near-you/<県>/`）に「市区町村の案内に、グラウンドゴルフの記載がある施設」を追加（詳細は §3.6）。`/about/#places` に調べ方の説明、関連4記事（find-a-club-near-you / what-to-bring / find-a-class / entering-a-tournament）から導線
 - 記事「大会の種類」（`/community/tournament-overview/`）と、大会ガイド（entering-a-tournament）の修正（根拠のない「初心者から参加できる部門が多い」を削除、登録・用具条件を追記）
 - カテゴリページ（`/community/`）にカレンダーへのカード
 
@@ -102,7 +103,7 @@
 詳細は `docs/crawler/README.md`（使い方・構造・読み取り器の表）と `docs/crawler/REVIEW.md`（確認の基準・承認の手順）。ここでは要点だけ。
 
 ### 3.1 構成
-- Node 22 ESM、依存なし、`node:test`。`npm run test:crawler`（**57件**が通る状態）
+- Node 22 ESM、依存なし、`node:test`。`npm run test:crawler`（**63件**が通る状態。施設データの整形のテストを含む）
 - `scripts/crawl-events.mjs` が台帳 `data/crawler/sources.json`（30情報源、`status`: allowed/pending/excluded/blocked/out_of_scope、47都道府県のカバレッジ）を読み、`status==='allowed'` で reader のあるものだけ取得
 - 取得クライアント `scripts/crawler/lib/http.mjs`: 誠実なUA（`GroundGolfNaviBot/1.0 (+https://ground-golf-navi.com/about/)`）、robots.txt を先に確認、ホストごとに1秒以上の間隔、リトライ、ページ数上限、リダイレクト先も robots 再確認
 - reader（`scripts/crawler/sources/`）: saga, kagawa, yamanashi, saitama（開催速報の監視のみ）, kobe, kanazawa, satsumasendai
@@ -139,6 +140,18 @@ npm run review:events -- build               # data/events/approved.json を更�
 - `listed_by` は「その情報が載っていたページの団体」で、**主催者ではない**（全国・ブロックの3件は佐賀県協会の予定表に載っていたので、掲載元が佐賀県協会になっている）
 - 一般の人が参加できる市民大会・体験会は、**自治体のサイト**にある（横浜市・稲城市・岩倉市など。規約確認前で保留）
 
+### 3.6 市区町村の施設データ（`docs/places/README.md` に詳細）
+運営者が、全国の市区町村の1次情報（施設の案内ページ）を、**取得時に robots.txt と利用規約を確認しながら**調べたCSV（1,421行・487市区町村・2026-10-17〜18）を元にしている。CSV には自治体ページから抜き出した文（`matched_text`）が入っているため、**リポジトリには入れていない**（新しいセッションでは運営者に再提供してもらう）。
+
+- 流れ: `npm run places:clean -- <CSV> --review=<確認用CSV>` → `data/places/places.json`（施設名・市区町村・元ページURL・取得日・確認用の印）。印のあるもの、http、イベント・大会募集・本文に記載なしのページは載せない
+- 運営者の判断は `data/places/overrides.json`（`source_url` をキーに `exclude` / `name` / `as_listing`）。再生成しても消えない。レビューで見つかった67件の修正が入っている。取り下げ依頼が来たら `exclude` を足して当日中に反映
+- 読み込みと検証は `src/data/places.ts`（不正なデータはビルド失敗。施設名の検査あり）、表示は `src/components/MunicipalPlaces.astro`
+- 現在の掲載: **1,206件・444市区町村**（施設606件＋施設名のない一覧ページ。47都道府県すべて）。偏りが大きい（愛知95、群馬・埼玉80台、北海道・富山は1件）。全国の約1,740市区町村のうち約444
+- 表示の約束: 「利用できます」と書かない（「市区町村の案内に記載がある」まで）。載っていない市区町村は「未確認」で「ない」ではない。件数の多い少ないは調べ方の差。「公式」「提供」「施設一覧」は使わない。構造化データは付けない。親ページに県別の件数は出さない
+- 見せ方: 市区町村ごとにまとめ、20件以上の県は3件以上の市区町村を折りたたみ（h3 は details の外）。10件以上の県は絞り込み欄（JavaScript が使えるときだけ表示）。一覧ページへのリンクは1市区町村につき上位3件まで
+- 注意: 施設名は自動で整えており、**全件を人が通読してはいない**（レビューで664件中約63件を修正）。再調査のたびに通読が必要
+- 設計ブリーフ: `docs/handover/briefs/places-page-brief.md`
+
 ---
 
 ## 4. 体験会（地域の一般向けイベント）について：調査の結論
@@ -174,6 +187,8 @@ npm run review:events -- build               # data/events/approved.json を更�
 - 記事「大会の種類」に画像がない（運営者に画像を依頼する）
 - 任意: JGGA への問い合わせ文面（大会の参加資格・出場の決まり方）、大会カレンダーの県別ページ化（件数が増えたとき。閾値は calendar-page-brief §1）
 - 公開後に人が原文で確認すると安全な点: 北信越・香川の要項PDF（参加資格・用具条件）、JGGA会員規程第5・7・8条（WebFetch の要約経由だった）
+- 市区町村の施設データ: 施設名の通読（誤りが残っている可能性）、再調査の依頼（調査範囲を広げる。北海道・富山・徳島・高知・香川がほぼ空）、http のURL34件を https で開けるか確認して載せるか、件数が増えたときの横断検索（親ページに、市区町村名で探す欄。検索用データを別に持つ）
+- 体験会とカレンダーの関係: カレンダー（大会）と施設（場所）と体験会（手作業登録）をどうつなぐか。県ページから「その県の今後の大会」へのリンク（`/community/events/#<slug>`）も任意で未実装
 
 ---
 
@@ -187,6 +202,8 @@ npm run review:events -- build               # data/events/approved.json を更�
 - モバイルのヘッダーは2段で高さ約175px。ページ内リンクの着地位置は `html { scroll-padding-top }`（`src/styles/global.css`）で調整している
 - Tailwind v4 の preflight で `ul` のリストマークが消える。本文は `.prose-article`、それ以外は `role="list"` と `list-disc` を明示する
 - `astro check` が `npm run build` に含まれる。型エラーがあるとビルドが失敗する
+- 新しい環境では `node_modules` が無いことがある。`astro: not found` が出たら `npm ci` を実行する
+- `src/data/events.ts` の `jstDate` を `places.ts` が再利用している（日本時間の日付）。JIS の都道府県番号は `places.ts` の `JIS_ORDER`（`prefectures.ts` は地方順で JIS 順ではない）
 - このセッションの会話全文のトランスクリプトは、新しい環境では使えない前提で、**重要な決定はすべてこの資料とリポジトリの docs に書いてある**
 
 ---
@@ -210,7 +227,10 @@ npm run review:events -- build               # data/events/approved.json を更�
 | `docs/handover/briefs/tournament-seo-brief.md` | 「大会の種類」記事のSEOブリーフ（過去の例） |
 | `docs/handover/briefs/tournament-psychology-brief.md` | 同・読者心理ブリーフ |
 | `docs/handover/briefs/calendar-page-brief.md` | 大会カレンダーページの設計ブリーフ（構成・文言・a11y・コンプライアンス・運用） |
+| `docs/handover/briefs/places-page-brief.md` | 市区町村の施設の節の設計ブリーフ |
+| `docs/places/README.md` | 施設データの更新手順・overrides・整形ルール・書き方の約束 |
 | `docs/design/gemini-image-prompts.md` | 画像生成用のプロンプト案 |
 | `data/crawler/sources.json` | 情報源の台帳（取得可否・理由・カバレッジ） |
 | `data/crawler/review/decisions.json` | 承認・却下・重複の判断の記録 |
 | `data/events/approved.json` | 公開用の承認済み一覧（カレンダーが読む） |
+| `data/places/places.json` / `overrides.json` | 市区町村の施設データと運営者の判断（都道府県ページが読む） |
