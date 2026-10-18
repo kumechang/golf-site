@@ -44,6 +44,7 @@ const NAME_LINT = [
   /別ウ[ィイ]ンドウ|PDF|ページへ|詳細ページ|はこちら/,
   /できます|ください|申請|申込|お知らせ|ルール|マナー|について/,
   /[（(][^）)]*(課|係|室)[）)]/,
+  /令和|年度|学級|周年|動画|Q&A|ナイター|無料|有料|開放|\.\.|_$|[(（][^)）]*$/,
 ];
 const MAX_NAME = 40;
 
@@ -80,7 +81,7 @@ function load(): PlaceItem[] {
     if (r.kind !== 'facility' && r.kind !== 'listing') return fail(url, 'kind が facility / listing ではありません');
     kind = r.kind;
     let name = typeof r.name === 'string' ? r.name : null;
-    if (ov?.name) name = ov.name;
+    if (ov?.name && kind === 'facility') name = ov.name;
     if (ov?.as_listing) { kind = 'listing'; name = null; }
     if (kind === 'facility' && !name) fail(url, '施設名がありません');
     if (kind === 'listing' && name) fail(url, '一覧ページに施設名が入っています');

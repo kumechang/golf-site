@@ -16,11 +16,14 @@ const surveyed = !data.from ? null : data.from === data.to ? jaDate(data.from) :
 const collapse = data.total >= 20;
 // 絞り込み欄は、ある程度件数のある県だけ。JavaScript が使えるときだけ表示する（使えないときは何も出さない）。
 const filterable = data.total >= 10;
-const listingOnly = data.groups.filter((g) => g.facilities.length === 0).length;
+const hasListing = data.groups.some((g) => g.listings.length > 0);
+const hasOtherSport = data.groups.some((g) => g.facilities.some((f) => /(野球場|サッカー場|球技場|庭球場|テニス)/.test(f.name ?? '')));
+// 一覧ページへのリンクが多い市区町村は、上位3件までにする（番号だけで見分けるリンクが並ぶのを避ける）。
+const MAX_LISTINGS = 3;
 
 const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
   if (it.kind === 'facility') return it.name!;
-  const n = g.listings.length > 1 ? `（${g.listings.indexOf(it) + 1}）` : '';
+  const n = Math.min(g.listings.length, MAX_LISTINGS) > 1 ? `（${g.listings.indexOf(it) + 1}）` : '';
   return `${it.municipality}の施設の案内ページ（グラウンドゴルフの記載あり）${n}`;
 };
 ---
@@ -35,23 +38,13 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
   ) : (
     <>
       <p class="mt-4 text-base leading-relaxed text-slate-800">
-        JGGA認定コースとは別に、{prefName}内の市区町村が公開している施設の案内ページのうち、グラウンドゴルフの記載があったものへのリンクをまとめました。{data.municipalityCount}市区町村・{data.total}件です。{surveyed && <><time datetime={data.from!}>{surveyed}</time>に、</>}運営者が各市区町村のページで確認したもので、その後に変わっていることがあります。
+        JGGA認定コースとは別に、{prefName}内の市区町村が公開している施設の案内ページのうち、グラウンドゴルフの記載があったものへのリンクをまとめました。{data.municipalityCount}市区町村・{data.total}件です。{surveyed && <><time datetime={data.from!}>{surveyed}</time>に、</>}各市区町村のページで調べたもので、その後に変わっていることがあります。
       </p>
-      {data.total <= 3 && (
-        <p class="mt-3 text-base leading-relaxed text-slate-800">
-          {prefName}は、調べた範囲で記載を確認できたのが{data.municipalityCount}市区町村にとどまります。実情の差とは限りません。
-        </p>
-      )}
-
       <p class="mt-6 text-base font-bold text-slate-900">ご覧になる前に</p>
       <ul role="list" class="mt-2 list-disc space-y-2 pl-6 text-base leading-relaxed text-slate-800">
-        <li>全国の市区町村をそろえて調べたものではありません。載っていない市区町村は、調べられていないか、記載を確認できなかったところです。施設がない、グラウンドゴルフができない、という意味ではありません。</li>
-        <li>確認できたのは、「市区町村の案内に、グラウンドゴルフの記載がある」ところまでです。いま利用できるか、誰でも使えるかは、確認できていません。</li>
-        <li>予約が要るか、料金、使える方（その市区町村の方だけ、団体のみ、個人は不可など）、休業や工事は、施設ごとに違います。出かける前に、市区町村の担当窓口か施設に確認してください。</li>
-        <li>件数の多い少ないは、各地の実情ではなく、調べられた範囲の違いによることがあります。</li>
-        <li>施設名は、市区町村のページに載っていた呼び名です。施設名がないものは、その市区町村の施設の案内ページへのリンクで、どの施設に記載があるかはリンク先でご覧いただけます。リンク先は市区町村のページで、施設の運営者のページとは限りません。</li>
-        {listingOnly > 0 && <li>{listingOnly}市区町村は、施設の案内ページへのリンクのみです。</li>}
-        <li>ページの本文は転載していません。くわしくは、各リンク先をご覧ください。</li>
+        <li>全国の市区町村をそろえて調べたものではありません。載っていない市区町村は、調べられていないか、記載を確認できなかったところで、施設がない、グラウンドゴルフができない、という意味ではありません。件数の多い少ないも、調べられた範囲の違いによることがあります。</li>
+        <li>確認できたのは、「市区町村の案内に、グラウンドゴルフの記載がある」ところまでです。いま利用できるか、誰でも使えるかは、確認できていません。予約が要るか、料金、使える方（その市区町村の方だけ、団体のみ、個人は不可など）、休業や工事は、施設ごとに違うので、出かける前に、市区町村の担当窓口か施設に確認してください。</li>
+        <li>リンク先は市区町村のページで、施設の運営者のページとは限りません。{hasListing && '施設名がないものは、その市区町村の施設の案内ページへのリンクで、どの施設に記載があるかはリンク先でご覧いただけます。'}{hasOtherSport && '野球場など、別の競技の名前の施設も、案内にグラウンドゴルフの記載があったものとして載せています。'}</li>
       </ul>
 
       {filterable && (
@@ -73,7 +66,8 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
 
       <div class="mt-6">
         {data.groups.map((g) => {
-          const items = [...g.facilities, ...g.listings];
+          const listings = g.listings.slice(0, MAX_LISTINGS);
+          const items = [...g.facilities, ...listings];
           const rows = (
             <ul role="list" class="mt-1 list-none pl-0">
               {items.map((it) => (
@@ -92,17 +86,16 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
               ))}
             </ul>
           );
-          return collapse && g.count >= 3 ? (
-            <details class="group border-t border-slate-300" data-place-group data-municipality={g.municipality}>
-              <summary class="flex min-h-[44px] cursor-pointer items-center py-2 focus-visible:outline-2">
-                <h3 class="text-lg font-bold text-slate-900">{g.municipality}（{g.count}件）</h3>
-              </summary>
-              {rows}
-            </details>
-          ) : (
+          const fold = collapse && items.length >= 3;
+          return (
             <div class="border-t border-slate-300" data-place-group data-municipality={g.municipality}>
-              <h3 class="py-2 text-lg font-bold text-slate-900">{g.municipality}{collapse ? `（${g.count}件）` : ''}</h3>
-              {rows}
+              <h3 class="!mb-0 !mt-0 py-2 text-lg font-bold text-slate-900">{g.municipality}{collapse ? `（${items.length}件）` : ''}</h3>
+              {fold ? (
+                <details>
+                  <summary class="min-h-[44px] cursor-pointer py-2 text-base font-bold text-green-800 focus-visible:outline-2">{g.municipality}の{items.length}件を表示する</summary>
+                  {rows}
+                </details>
+              ) : rows}
             </div>
           );
         })}
@@ -128,7 +121,8 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
     const clear = box.querySelector<HTMLButtonElement>('[data-place-clear]')!;
     const status = box.querySelector<HTMLElement>('#place-filter-status')!;
     const groups = [...document.querySelectorAll<HTMLElement>('[data-place-group]')];
-    const initialOpen = new Map(groups.map((g) => [g, g instanceof HTMLDetailsElement ? g.open : false]));
+    const detailsOf = (g: HTMLElement) => g.querySelector<HTMLDetailsElement>('details');
+    const initialOpen = new Map(groups.map((g) => [g, detailsOf(g)?.open ?? false]));
     const norm = (s: string) =>
       s.normalize('NFKC').toLowerCase().replace(/\s+/g, '').replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
 
@@ -139,7 +133,8 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
         for (const g of groups) {
           g.hidden = false;
           g.querySelectorAll<HTMLElement>('[data-place-item]').forEach((li) => (li.hidden = false));
-          if (g instanceof HTMLDetailsElement) g.open = initialOpen.get(g) ?? false;
+          const d = detailsOf(g);
+          if (d) d.open = initialOpen.get(g) ?? false;
         }
         status.textContent = '';
         return;
@@ -155,7 +150,8 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
         });
         g.hidden = n === 0;
         total += n;
-        if (n > 0 && g instanceof HTMLDetailsElement) g.open = true;
+        const d = detailsOf(g);
+        if (n > 0 && d) d.open = true;
       }
       status.textContent = total > 0
         ? `${total}件が見つかりました。`

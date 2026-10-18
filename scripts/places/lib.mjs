@@ -27,7 +27,7 @@ export function parseCsv(text) {
 
 const FACILITY_WORD = /(運動公園|運動広場|総合公園|スポーツ公園|スポーツ広場|スポーツセンター|運動場|グラウンド|グランド|広場|球場|体育館|体育センター|公園|競技場|多目的|ドーム|ゴルフ場|アリーナ|スポーツ村|交流センター|河川敷|ふれあい|センター|コート)/;
 // 施設の名前に付いていても取り除けば名前が残る語（「◯◯運動場 施設案内」など）
-const STRIP_SUFFIX = /\s*(の?施設案内|の?利用案内|の?施設情報|の?施設紹介|の?ご案内|の紹介|案内|の利用)$/;
+const STRIP_SUFFIX = /\s*(の?施設案内|の?利用案内|の?施設情報|の?施設紹介|の?ご案内|の?ご紹介|の紹介|紹介|案内|の?ご?利用|ページ|OPEN|受付|\.+|_)$/;
 const STRIP_PREFIX = /^(施設案内|施設紹介|施設情報)\s*/;
 // 名前ではなく、一覧・料金・お知らせ・サイト名などを示す語（含んでいたら施設名として採らない）
 const GENERIC = /(ホームページ|公式|サイト|トップ|一覧|使用料|利用料金|料金|お知らせ|改定|整備事業|貸し出し|貸出|リニューアル|オープン|したい|用具|予約|申込|申し込み|募集|大会|教室|イベント|開放日|ニュース|新着|カレンダー|ガイド|マップ|MAP|FACILITY|検索|について|いいですか|ですか|生まれた|公園案内|公園の紹介|社会体育施設|体育施設|公共施設|スポーツ施設|スポーツ・レクリエーション施設|施設&|施設案内$)/i;
@@ -94,7 +94,7 @@ const TAIL_DATE = /\s*(\d{4}[-\/]\d{1,2}[-\/]\d{1,2}|\d{4}年\d{1,2}月\d{1,2}�
 const HEAD_DATE = /^\s*(\d{4}[-\/]\d{1,2}[-\/]\d{1,2}|\d{4}年\d{1,2}月\d{1,2}日)(更新)?\s*/;
 const NOISE_TAIL = /\s*([（(][^）)]*(施設情報|施設案内|地図|概要|ロケ地情報)[^）)]*[）)]|【[^】]*】|の概要)\s*$/;
 const DEPT_TAIL = /[（(][^）)]*(課|係|室|局|部|担当)[）)]\s*$/;
-const NAME_BAD = /(申請|申込|できます|ください|ルール|マナー|について|お知らせ|ページへ|詳細ページ|はこちら|使用券|独占使用|愛護会|^各|利用するには|にあたって|遵守|概要|集い|ロケ地|仕事|贈呈式|学区内|課|支援センター|[ぁ-ん]$)/;
+const NAME_BAD = /(Q&A|の許可$|外観\)?$|周辺情報$|なります|。|令和|年度|周年|記念事業|動画|学級|ナイター|照明|できる|無料|有料|開放|町民向け|夏季|ゲートボール|マレットゴルフ|パークゴルフ場・|グラウンド・ゴルフ、|[(（][^)）]*$|の公園$|公園等|^(その他|自然・|公園・|スポーツ・|公園施設$|都市公園|施設のご案内|スポーツ公園$|(グラウンド|グランド)[・]?ゴルフ(場|コース)?(\(屋外\))?$)|申請|申込|できます|ください|ルール|マナー|について|お知らせ|ページへ|詳細ページ|はこちら|使用券|独占使用|愛護会|^各|利用するには|にあたって|遵守|概要|集い|ロケ地|仕事|贈呈式|学区内|課|支援センター|[ぁ-ん]$)/;
 export function tidyName(raw) {
   let n = raw.normalize('NFKC').replace(EMOJI, '').replace(UI_TEXT, '').replace(DATE_IN_BRACKET, '').replace(DEPT_TAIL, '').replace(NOISE_TAIL, '');
   n = n.replace(/\s*(配信日|更新日|掲載日|公開日)[:：].*$/, '').replace(TAIL_DATE, '').replace(HEAD_DATE, '').replace(/\s+/g, ' ').trim();
@@ -143,6 +143,12 @@ export function buildPlaces(rows) {
     const key = it.kind === 'facility' ? `${it.municipality_code}|f|${it.name}` : `${it.municipality_code}|l|${it.source_url}`;
     const cur = byKey.get(key);
     if (!cur || it._score > cur._score) byKey.set(key, it);
+  }
+  // 同じ市区町村で、短い名前に括弧書きが付いただけの名前は、同じ施設として短いほうにまとめる
+  const names = [...byKey.values()].filter((x) => x.kind === 'facility');
+  for (const x of names) {
+    const shorter = names.find((y) => y !== x && y.municipality_code === x.municipality_code && x.name.length > y.name.length && x.name.startsWith(y.name) && /^[（(]/.test(x.name.slice(y.name.length)));
+    if (shorter) byKey.delete(`${x.municipality_code}|f|${x.name}`);
   }
   const places = [...byKey.values()].map(({ _score, ...x }) => x)
     .sort((a, b) => a.municipality_code.localeCompare(b.municipality_code) || (a.name ?? '￿').localeCompare(b.name ?? '￿'));
