@@ -14,6 +14,8 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
 const surveyed = !data.from ? null : data.from === data.to ? jaDate(data.from) : `${jaDate(data.from)}から${jaDate(data.to!).replace(/^\d{4}年/, '')}`;
 // 件数の多い県は、市区町村ごとに折りたたむ。2件以下の市区町村は開いたままにする。
 const collapse = data.total >= 20;
+// 絞り込み欄は、ある程度件数のある県だけ。JavaScript が使えるときだけ表示する（使えないときは何も出さない）。
+const filterable = data.total >= 10;
 const listingOnly = data.groups.filter((g) => g.facilities.length === 0).length;
 
 const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
@@ -52,13 +54,30 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
         <li>ページの本文は転載していません。くわしくは、各リンク先をご覧ください。</li>
       </ul>
 
+      {filterable && (
+        <div class="mt-6" data-place-filter hidden>
+          <label for="place-filter" class="block text-base font-bold text-slate-900">市区町村名・施設名で絞り込む</label>
+          <div class="mt-2 flex gap-2">
+            <input
+              id="place-filter"
+              type="search"
+              autocomplete="off"
+              placeholder="例：運動公園"
+              class="min-h-[44px] w-full min-w-0 rounded-lg border border-slate-500 bg-white px-3 text-base text-slate-900 placeholder:text-slate-600"
+            />
+            <button type="button" data-place-clear hidden class="tap-target shrink-0 rounded-lg border border-slate-500 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">クリア</button>
+          </div>
+          <p id="place-filter-status" role="status" class="mt-2 min-h-[1.5rem] text-base text-slate-700"></p>
+        </div>
+      )}
+
       <div class="mt-6">
         {data.groups.map((g) => {
           const items = [...g.facilities, ...g.listings];
           const rows = (
             <ul role="list" class="mt-1 list-none pl-0">
               {items.map((it) => (
-                <li class="border-t border-slate-200 py-3">
+                <li class="border-t border-slate-200 py-3" data-place-item data-search={`${it.municipality} ${it.name ?? ""}`}>
                   <span class="block min-w-0 break-words text-base font-bold text-slate-900">{label(it, g)}</span>
                   <span class="mt-1 block">
                     <a
@@ -74,14 +93,14 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
             </ul>
           );
           return collapse && g.count >= 3 ? (
-            <details class="group border-t border-slate-300">
+            <details class="group border-t border-slate-300" data-place-group data-municipality={g.municipality}>
               <summary class="flex min-h-[44px] cursor-pointer items-center py-2 focus-visible:outline-2">
                 <h3 class="text-lg font-bold text-slate-900">{g.municipality}（{g.count}件）</h3>
               </summary>
               {rows}
             </details>
           ) : (
-            <div class="border-t border-slate-300">
+            <div class="border-t border-slate-300" data-place-group data-municipality={g.municipality}>
               <h3 class="py-2 text-lg font-bold text-slate-900">{g.municipality}{collapse ? `（${g.count}件）` : ''}</h3>
               {rows}
             </div>
@@ -98,3 +117,55 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
     当サイトは、市区町村とは関係のない個人運営の情報サイトです。この一覧は、各市区町村が作ったものではありません。掲載内容に誤りがある場合や、掲載を望まれない場合は、<a class={link} href="/about/">サイトについて／運営者情報</a>のお問い合わせ先までご連絡ください。内容を確認のうえ、対応します。調べ方は<a class={link} href="/about/#places">こちら</a>です。
   </p>
 </section>
+
+<script>
+  // 絞り込み。市区町村名・施設名に含まれる文字で、表示する行を減らす（ひらがな・カタカナ、全角・半角、大文字・小文字の違いは無視）。
+  // 入力を消すと、元の開閉の状態に戻る。
+  const box = document.querySelector<HTMLElement>('[data-place-filter]');
+  if (box) {
+    box.hidden = false;
+    const input = box.querySelector<HTMLInputElement>('input')!;
+    const clear = box.querySelector<HTMLButtonElement>('[data-place-clear]')!;
+    const status = box.querySelector<HTMLElement>('#place-filter-status')!;
+    const groups = [...document.querySelectorAll<HTMLElement>('[data-place-group]')];
+    const initialOpen = new Map(groups.map((g) => [g, g instanceof HTMLDetailsElement ? g.open : false]));
+    const norm = (s: string) =>
+      s.normalize('NFKC').toLowerCase().replace(/\s+/g, '').replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+
+    const apply = () => {
+      const q = norm(input.value);
+      clear.hidden = q === '';
+      if (!q) {
+        for (const g of groups) {
+          g.hidden = false;
+          g.querySelectorAll<HTMLElement>('[data-place-item]').forEach((li) => (li.hidden = false));
+          if (g instanceof HTMLDetailsElement) g.open = initialOpen.get(g) ?? false;
+        }
+        status.textContent = '';
+        return;
+      }
+      let total = 0;
+      for (const g of groups) {
+        const muniHit = norm(g.dataset.municipality ?? '').includes(q);
+        let n = 0;
+        g.querySelectorAll<HTMLElement>('[data-place-item]').forEach((li) => {
+          const hit = muniHit || norm(li.dataset.search ?? '').includes(q);
+          li.hidden = !hit;
+          if (hit) n++;
+        });
+        g.hidden = n === 0;
+        total += n;
+        if (n > 0 && g instanceof HTMLDetailsElement) g.open = true;
+      }
+      status.textContent = total > 0
+        ? `${total}件が見つかりました。`
+        : '該当する施設は見つかりませんでした。載っていないだけで、ないという意味ではありません。';
+    };
+    input.addEventListener('input', apply);
+    clear.addEventListener('click', () => {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+  }
+</script>
