@@ -1,0 +1,272 @@
+{
+  "overrides": [
+    {
+      "source_url": "https://www.city.morioka.iwate.jp/kanko_sports_bunka/rkeishi_bunkazai/shiwajou/1009509.html",
+      "name": "志波城古代公園"
+    },
+    {
+      "source_url": "https://www.city.yurihonjo.lg.jp/shisetsu/1002011/1002035/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.town.nakayama.yamagata.jp/kanko_bunka/shizen/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.town.shonai.lg.jp/kurashi/shisetsu/kanko/tateyamapark.html",
+      "name": "楯山公園"
+    },
+    {
+      "source_url": "https://www.town.tochigi-haga.lg.jp/shisetsu/sport-kouen_index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.kiryu.lg.jp/shisetsu/kouen/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.isesaki.lg.jp/kurashi_tetsuzuki/shisetsu/undoshisetsu/17472.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.matsudo.chiba.jp/shisetsu-guide/setsubi_sport/ground-golf.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.fussa.tokyo.jp/map/sports/1001667.html",
+      "name": "福東総合グランド"
+    },
+    {
+      "source_url": "https://www.city.odawara.kanagawa.jp/field/lifelong/sports/movement/sporting_goods/p0841011.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.nomi.lg.jp/docs/344.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.hakui.lg.jp/shiseijouhou/kakuka_shisetsu/7/4089.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.ono.hyogo.jp/kanko_sports/shizen_koen_seibutsu/onoshinokoen/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.town.kin.okinawa.jp/shisetsuosagasu/684.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.chita.lg.jp/docs/2026040700029/",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.tsuruga.lg.jp/page/1499.html",
+      "name": "総合運動公園"
+    },
+    {
+      "source_url": "https://www.city.tajimi.lg.jp/kanko_bunka_sports/sports/1006736/1010517.html",
+      "name": "市民広場(星ケ台競技場)"
+    },
+    {
+      "source_url": "https://www.city.tokamachi.lg.jp/kanko_bunka_sports/sports_undo/sportsshisetsu_setsubi/2133.html",
+      "name": "吉田クロスカントリー競技場多目的広場"
+    },
+    {
+      "source_url": "https://www.city.nakatsugawa.lg.jp/tcs/facility/1/4350.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.shimada.shizuoka.jp/kanko-docs/kouennq-a.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.handa.lg.jp/bunka/sports/1002825/1002852.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.handa.lg.jp/machi/koen/1003356.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.kasugai.lg.jp/shisei/shisetsu/sports/1010076/1010082.html",
+      "name": "中央公園グラウンド"
+    },
+    {
+      "source_url": "https://www.city.toyokawa.lg.jp/shisetsu/sports_sushisetsu/16524.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.gamagori.lg.jp/site/tamokutekihirobatou/",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.inazawa.aichi.jp/0000000524.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.chiryu.aichi.jp/kanko_bunka_sports/sports/1/1451813692260.html",
+      "name": "北林運動広場"
+    },
+    {
+      "source_url": "https://www.city.chiryu.aichi.jp/kanko_bunka_sports/sports/1/1451813721587.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.otsu.lg.jp/shisei/c/s/f/ps/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.hikone.lg.jp/kakuka/toshi_seisaku/7_1/kouen/2/3/12009.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.hikone.lg.jp/kakuka/toshi_seisaku/7_1/kouen/2/3/4292.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.takatsuki.osaka.jp/soshiki/61/4486.html",
+      "name": "青少年運動広場"
+    },
+    {
+      "source_url": "https://www.city.matsubara.lg.jp/docs/page4058.html",
+      "name": "三宅東公園多目的広場"
+    },
+    {
+      "source_url": "https://www.city.toyooka.lg.jp/kurashi/shogaisports/sports/1019458/1027977.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.ono.hyogo.jp/kanko_sports/sports/sportsshisetsu/12672.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.matsuyama.ehime.jp/shisetsu/koen/sportssyoukai/sportsshisetsu/shisetu2/groundgolf.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.town.hyogo-inami.lg.jp/0000001611.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.town.harima.lg.jp/kikaku/kanko/rekishi/koenshisetsu.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.uda.lg.jp/life/2/16/66/",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.tatsuno.lg.jp/kanko-bunka-sports/supotsu/1/mitsutaiikukan/5455.html",
+      "name": "御津体育館"
+    },
+    {
+      "source_url": "https://www.city.kinokawa.lg.jp/045/01/uchitawakamono.html",
+      "name": "多目的広場(通称:打田若もの広場)"
+    },
+    {
+      "source_url": "https://www.hiezu.jp/%e8%8a%9d%e7%94%9f%e5%ba%83%e5%a0%b4%e3%80%80%e6%9c%89%e6%96%99/",
+      "name": "芝生広場"
+    },
+    {
+      "source_url": "https://www.city.okayama.jp/shisei/0000013416.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.okayama.jp/shisei/0000014896.html",
+      "name": "神崎山公園競技場"
+    },
+    {
+      "source_url": "https://www.city.soja.okayama.jp/soshiki/17/2686.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.soja.okayama.jp/soshiki/17/2683.html",
+      "name": "清音ふるさとふれあい広場"
+    },
+    {
+      "source_url": "https://www.city.ogori.fukuoka.jp/197/797/2204",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.town.sue.fukuoka.jp/kanko_bunka_sports/shisetsu/4/2568.html",
+      "name": "健康広場"
+    },
+    {
+      "source_url": "https://www.town.sue.fukuoka.jp/kanko_bunka_sports/shisetsu/4/2532.html",
+      "name": "旅石広場"
+    },
+    {
+      "source_url": "https://www.city.saga-kashima.lg.jp/main/362.html",
+      "name": "蟻尾山公園"
+    },
+    {
+      "source_url": "https://www.town.miyaki.lg.jp/kanko/shisetsu/_6562.html",
+      "name": "みやき町中央公園"
+    },
+    {
+      "source_url": "https://www.city.beppu.oita.jp/sisetu/supootu/02sports_02-03jissouji.html",
+      "name": "実相寺多目的グラウンド"
+    },
+    {
+      "source_url": "https://www.town.amagi.lg.jp/docs/628.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city-kirishima.jp/ken-cho/shisetsu/kosodate-koen/uenodanhirayamatukawaki.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.kanoya.lg.jp/shisupo/bunka/sport/shisetsu/cycling.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.kanoya.lg.jp/shisupo/bunka/sport/shisetsu/mountainbike.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.kasuga.fukuoka.jp/shisetsu/bunka/sports/1012991.html",
+      "name": "春日西多目的広場公園"
+    },
+    {
+      "source_url": "https://www.town.nagi.okayama.jp/kankou/kankou_spot/asobu/sougou_undoukouen.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.daisen.lg.jp/archive/contents-14155",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.kinokawa.lg.jp/045/01/2014-0307-1415-59.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.town.shinonsen.hyogo.jp/page/?mode=detail&page_id=c47ccc0b17868bad27b1f54c458f4103",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.nishi.or.jp/access/sports/baseball/bunkanunndouzyou.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.shinshiro.lg.jp/mokuteki/shisetu/kyoiku-bunka/onikubo/ground.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.yokote.lg.jp/shisetsu/1001528/1002620.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.katagami.lg.jp/gyosei/kosodate_kyoiku_bunka/supotsu/6110.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.mihara.hiroshima.jp/soshiki/22/hcenter-hcenter.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.miyazaki.miyazaki.jp/culture/facilities/89165.html",
+      "exclude": true
+    }
+  ]
+}

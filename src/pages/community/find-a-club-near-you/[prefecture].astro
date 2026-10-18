@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { prefectures, getPrefectureBySlug, coursesCheckedAt } from '../../../data/prefectures';
 import { getOsmCoursesBySlug, osmCoursesCheckedAt } from '../../../data/osm-course-examples';
+import MunicipalPlaces from '../../../components/MunicipalPlaces.astro';
 
 export async function getStaticPaths() {
   return prefectures.map((pref) => ({
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
 const { pref } = Astro.props as { pref: (typeof prefectures)[number] };
 
 const title = `${pref.name}でグラウンドゴルフを楽しめるクラブ・コースの探し方`;
-const description = `${pref.name}でグラウンドゴルフのクラブやコースを探している方向けに、都道府県協会の窓口情報と、JGGA（日本グラウンド・ゴルフ協会）認定コースの情報をご紹介します。`;
+const description = `${pref.name}でグラウンドゴルフのクラブやコースを探している方向けに、都道府県協会の窓口情報と、JGGA（日本グラウンド・ゴルフ協会）認定コースの情報に加え、市区町村の案内にグラウンドゴルフの記載がある施設へのリンクをご紹介します。`;
 
 const breadcrumbItems = [
   { name: 'トップ', href: '/' },
@@ -102,6 +103,8 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
           </ul>
         </>
       )}
+
+      <MunicipalPlaces prefName={pref.name} slug={pref.slug} />
 
       {osmCourses.length > 0 && (
         <>
