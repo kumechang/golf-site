@@ -12,7 +12,8 @@
     "astro": "astro",
     "crawl:events": "node scripts/crawl-events.mjs",
     "test:crawler": "node --test \"scripts/crawler/tests/*.test.mjs\"",
-    "review:events": "node scripts/review-events.mjs"
+    "review:events": "node scripts/review-events.mjs",
+    "places:clean": "node scripts/places/clean-places.mjs"
   },
   "repository": {
     "type": "git",

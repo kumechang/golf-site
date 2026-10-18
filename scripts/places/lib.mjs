@@ -85,6 +85,24 @@ export function classify(row) {
   return { kind: 'listing', name: null };
 }
 
+// リンクの文字列・日付・UI文言・担当課名が混ざった施設名を掃除する。
+// 掃除しても名前として不自然なもの（手続きの名前、文で終わるもの、複数施設の連結など）は demote=true で一覧ページ扱いに降格する。
+const EMOJI = /[\p{Extended_Pictographic}\uFE0F]/gu;
+const UI_TEXT = /[（(［\[]\s*(別ウ[ィイ]ンドウ[^）)\]］]*|新しいウ[ィイ]ンドウ[^）)\]］]*|外部リンク|PDF[^）)\]］]*)\s*[）)］\]]/g;
+const DATE_IN_BRACKET = /[（(［\[【]\s*(\d{4}[年\-\/.]|令和\d|平成\d)[^）)］\]】]*[）)］\]】]/g;
+const TAIL_DATE = /\s*(\d{4}[-\/]\d{1,2}[-\/]\d{1,2}|\d{4}年\d{1,2}月\d{1,2}日)(更新)?\s*$/;
+const HEAD_DATE = /^\s*(\d{4}[-\/]\d{1,2}[-\/]\d{1,2}|\d{4}年\d{1,2}月\d{1,2}日)(更新)?\s*/;
+const NOISE_TAIL = /\s*([（(][^）)]*(施設情報|施設案内|地図|概要|ロケ地情報)[^）)]*[）)]|【[^】]*】|の概要)\s*$/;
+const DEPT_TAIL = /[（(][^）)]*(課|係|室|局|部|担当)[）)]\s*$/;
+const NAME_BAD = /(申請|申込|できます|ください|ルール|マナー|について|お知らせ|ページへ|詳細ページ|はこちら|使用券|独占使用|愛護会|^各|利用するには|にあたって|遵守|概要|集い|ロケ地|仕事|贈呈式|学区内|課|支援センター|[ぁ-ん]$)/;
+export function tidyName(raw) {
+  let n = raw.normalize('NFKC').replace(EMOJI, '').replace(UI_TEXT, '').replace(DATE_IN_BRACKET, '').replace(DEPT_TAIL, '').replace(NOISE_TAIL, '');
+  n = n.replace(/\s*(配信日|更新日|掲載日|公開日)[:：].*$/, '').replace(TAIL_DATE, '').replace(HEAD_DATE, '').replace(/\s+/g, ' ').trim();
+  const parts = n.split(/[・、,]/).filter((seg) => FACILITY_WORD.test(seg)).length;
+  const demote = !n || n.length > 26 || NAME_BAD.test(n) || parts >= 3 || !FACILITY_WORD.test(n);
+  return { name: n, demote };
+}
+
 // 抜き出した文が、用語の説明に出てきただけ／使えない趣旨の可能性を見分ける確認用の印。
 const DEFINITION = /(とは|等をいう|をいう。)/;
 const NEAR_NEGATIVE = /(グラウンド|グランド).{0,14}(禁止|できません|不可|休止|廃止|中止|閉鎖)|(禁止|できません|不可|休止|廃止|閉鎖).{0,14}(グラウンド|グランド)ゴルフ/;
@@ -96,6 +114,11 @@ export function buildPlaces(rows) {
     const c = classify(r);
     if (c.kind === 'exclude') { excluded.push({ url: r.page_url, municipality: r.municipality_name, reason: c.reason, title: r.page_title }); continue; }
     const flags = [];
+    if (/^http:\/\//i.test(r.page_url)) { excluded.push({ url: r.page_url, municipality: r.municipality_name, reason: 'http（https で開けるか未確認）', title: r.page_title }); continue; }
+    if (c.kind === 'facility') {
+      const t = tidyName(c.name);
+      if (t.demote) { c.kind = 'listing'; c.name = null; } else c.name = t.name;
+    }
     if (c.kind === 'facility') {
       if (/ゴルフ場$/.test(c.name) && !/(グラウンド|グランド|パーク)/.test(c.name)) flags.push('ゴルフ場の名前（グラウンドゴルフ用かを確認）');
       if (PLAIN_NAME.test(c.name)) flags.push('名前が一般的（市区町村名と合わせて表示する）');

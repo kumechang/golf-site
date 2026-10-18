@@ -1,0 +1,100 @@
+---
+import { getPlacesBySlug, jaDate, type PlaceItem } from '../data/places';
+
+interface Props {
+  prefName: string;
+  slug: string;
+}
+
+const { prefName, slug } = Astro.props as Props;
+const data = getPlacesBySlug(slug);
+const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
+
+// 調べた日。1つの日ならその日、範囲なら「から」でつなぐ。
+const surveyed = !data.from ? null : data.from === data.to ? jaDate(data.from) : `${jaDate(data.from)}から${jaDate(data.to!).replace(/^\d{4}年/, '')}`;
+// 件数の多い県は、市区町村ごとに折りたたむ。2件以下の市区町村は開いたままにする。
+const collapse = data.total >= 20;
+const listingOnly = data.groups.filter((g) => g.facilities.length === 0).length;
+
+const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
+  if (it.kind === 'facility') return it.name!;
+  const n = g.listings.length > 1 ? `（${g.listings.indexOf(it) + 1}）` : '';
+  return `${it.municipality}の施設の案内ページ（グラウンドゴルフの記載あり）${n}`;
+};
+---
+
+<section aria-labelledby="municipal-places-h" id="municipal-places" class="mt-12 not-prose">
+  <h2 id="municipal-places-h" class="text-2xl font-bold leading-snug text-slate-900">{prefName}の市区町村の案内に、グラウンドゴルフの記載がある施設</h2>
+
+  {data.total === 0 ? (
+    <p class="mt-4 text-base leading-relaxed text-slate-800">
+      調べた範囲では、{prefName}内の市区町村の案内にグラウンドゴルフの記載を確認できていません。ない、という意味ではありません。{prefName}グラウンド・ゴルフ協会の窓口や、お住まいの市区町村のスポーツ振興課に尋ねてみてください。
+    </p>
+  ) : (
+    <>
+      <p class="mt-4 text-base leading-relaxed text-slate-800">
+        JGGA認定コースとは別に、{prefName}内の市区町村が公開している施設の案内ページのうち、グラウンドゴルフの記載があったものへのリンクをまとめました。{data.municipalityCount}市区町村・{data.total}件です。{surveyed && <><time datetime={data.from!}>{surveyed}</time>に、</>}運営者が各市区町村のページで確認したもので、その後に変わっていることがあります。
+      </p>
+      {data.total <= 3 && (
+        <p class="mt-3 text-base leading-relaxed text-slate-800">
+          {prefName}は、調べた範囲で記載を確認できたのが{data.municipalityCount}市区町村にとどまります。実情の差とは限りません。
+        </p>
+      )}
+
+      <p class="mt-6 text-base font-bold text-slate-900">ご覧になる前に</p>
+      <ul role="list" class="mt-2 list-disc space-y-2 pl-6 text-base leading-relaxed text-slate-800">
+        <li>全国の市区町村をそろえて調べたものではありません。載っていない市区町村は、調べられていないか、記載を確認できなかったところです。施設がない、グラウンドゴルフができない、という意味ではありません。</li>
+        <li>確認できたのは、「市区町村の案内に、グラウンドゴルフの記載がある」ところまでです。いま利用できるか、誰でも使えるかは、確認できていません。</li>
+        <li>予約が要るか、料金、使える方（その市区町村の方だけ、団体のみ、個人は不可など）、休業や工事は、施設ごとに違います。出かける前に、市区町村の担当窓口か施設に確認してください。</li>
+        <li>件数の多い少ないは、各地の実情ではなく、調べられた範囲の違いによることがあります。</li>
+        <li>施設名は、市区町村のページに載っていた呼び名です。施設名がないものは、その市区町村の施設の案内ページへのリンクで、どの施設に記載があるかはリンク先でご覧いただけます。リンク先は市区町村のページで、施設の運営者のページとは限りません。</li>
+        {listingOnly > 0 && <li>{listingOnly}市区町村は、施設の案内ページへのリンクのみです。</li>}
+        <li>ページの本文は転載していません。くわしくは、各リンク先をご覧ください。</li>
+      </ul>
+
+      <div class="mt-6">
+        {data.groups.map((g) => {
+          const items = [...g.facilities, ...g.listings];
+          const rows = (
+            <ul role="list" class="mt-1 list-none pl-0">
+              {items.map((it) => (
+                <li class="border-t border-slate-200 py-3">
+                  <span class="block min-w-0 break-words text-base font-bold text-slate-900">{label(it, g)}</span>
+                  <span class="mt-1 block">
+                    <a
+                      href={it.url}
+                      rel="nofollow noopener"
+                      target="_blank"
+                      data-gg-outbound="place-source"
+                      class={`tap-target inline-flex items-center text-base ${link}`}
+                    >{it.municipality}の案内ページを見る<span class="sr-only">：{label(it, g)}</span></a><span class="ml-1 text-base text-slate-700">（新しいタブで開きます）</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          );
+          return collapse && g.count >= 3 ? (
+            <details class="group border-t border-slate-300">
+              <summary class="flex min-h-[44px] cursor-pointer items-center py-2 focus-visible:outline-2">
+                <h3 class="text-lg font-bold text-slate-900">{g.municipality}（{g.count}件）</h3>
+              </summary>
+              {rows}
+            </details>
+          ) : (
+            <div class="border-t border-slate-300">
+              <h3 class="py-2 text-lg font-bold text-slate-900">{g.municipality}{collapse ? `（${g.count}件）` : ''}</h3>
+              {rows}
+            </div>
+          );
+        })}
+      </div>
+    </>
+  )}
+
+  <p class="mt-6 text-base leading-relaxed text-slate-800">
+    お住まいの市区町村が載っていない場合は、市区町村のスポーツ振興課や社会福祉協議会に、グラウンドゴルフができる場所を尋ねてみてください。上の「{prefName}グラウンド・ゴルフ協会の窓口」も手がかりになります。
+  </p>
+  <p class="mt-3 text-base leading-relaxed text-slate-800">
+    当サイトは、市区町村とは関係のない個人運営の情報サイトです。この一覧は、各市区町村が作ったものではありません。掲載内容に誤りがある場合や、掲載を望まれない場合は、<a class={link} href="/about/">サイトについて／運営者情報</a>のお問い合わせ先までご連絡ください。内容を確認のうえ、対応します。調べ方は<a class={link} href="/about/#places">こちら</a>です。
+  </p>
+</section>
