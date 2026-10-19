@@ -15,6 +15,8 @@ export interface OsmCourseExample {
   phone: string | null;
   note: string | null;
   sourceNote: string;
+  // 情報の出どころの種類。未指定なら sourceNote から place-sources.ts が判定する（新しいデータには source を付ける）。
+  source?: import('./place-sources').PlaceSource;
 }
 
 export const osmCoursesCheckedAt = "2026年9月";
