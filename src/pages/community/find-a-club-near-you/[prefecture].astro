@@ -4,6 +4,7 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { prefectures, getPrefectureBySlug, coursesCheckedAt } from '../../../data/prefectures';
 import { getOsmCoursesBySlug, osmCoursesCheckedAt } from '../../../data/osm-course-examples';
 import MunicipalPlaces from '../../../components/MunicipalPlaces.astro';
+import { sourceKind, sourceLabel, isOsm } from '../../../data/place-sources';
 
 export async function getStaticPaths() {
   return prefectures.map((pref) => ({
@@ -29,6 +30,8 @@ const nearbyPrefs = pref.nearbySlugs
   .filter((p): p is NonNullable<typeof p> => Boolean(p && p.courseCount > 0));
 
 const osmCourses = getOsmCoursesBySlug(pref.slug);
+// OpenStreetMap 由来の行がある県だけ、ODbL の表示を出す。
+const hasOsm = osmCourses.some((c) => isOsm(sourceKind(c)));
 const mapUrl = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
 ---
@@ -108,9 +111,9 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
 
       {osmCourses.length > 0 && (
         <>
-          <h2>{pref.name}で地図データから確認できる施設の例</h2>
+          <h2 id="verified-places">{pref.name}で住所・電話番号を個別に確認できた施設の例</h2>
           <p>
-            OpenStreetMap（地図の共同編集プロジェクト）に登録されている情報をもとに、住所・電話番号を個別に確認できた施設を掲載しています（{osmCoursesCheckedAt}確認）。JGGA認定コースとは別の情報源によるもので、網羅的な一覧ではありません。
+            JGGA認定コースや、上の市区町村の案内へのリンクとは別に、{pref.name}内の施設の住所・電話番号を、市区町村などのウェブサイトやWeb検索で個別に調べ、確認できたものを載せています（{osmCoursesCheckedAt}確認）。{hasOsm && '一部の施設は、地図の共同編集プロジェクト OpenStreetMap の情報を手がかりにしています。'}調べた範囲の例で、{pref.name}内の施設をすべて載せた一覧ではありません。営業状況や利用条件は変わることがあるため、訪問前に各施設へご確認ください。
           </p>
           <div class="not-prose mt-4 space-y-4">
             {osmCourses.map((course) => (
@@ -140,17 +143,19 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
                     </div>
                   )}
                 </dl>
-                <p class="mt-2 text-xs text-slate-400">出典：{course.sourceNote}</p>
+                <p class="mt-2 text-sm text-slate-600">出典：{sourceLabel(sourceKind(course))}</p>
               </div>
             ))}
           </div>
-          <p class="mt-4 text-sm text-slate-500">
-            地図データ出典：
-            <a href="https://www.openstreetmap.org/copyright" rel="nofollow noopener" target="_blank">
-              © OpenStreetMap contributors
-            </a>
-            （ODbLライセンス）。営業状況は変更される場合があるため、訪問前に各施設へご確認ください。
-          </p>
+          {hasOsm && (
+            <p class="mt-4 text-sm text-slate-600">
+              地図データ出典：
+              <a href="https://www.openstreetmap.org/copyright" rel="nofollow noopener" target="_blank">
+                © OpenStreetMap contributors
+              </a>
+              （ODbLライセンス）。
+            </p>
+          )}
         </>
       )}
 
