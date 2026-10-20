@@ -6,6 +6,7 @@ import { getOsmCoursesBySlug, osmCoursesCheckedAt } from '../../../data/osm-cour
 import MunicipalPlaces from '../../../components/MunicipalPlaces.astro';
 import { sourceKind, sourceLabel, isOsm } from '../../../data/place-sources';
 import { detailedFacilityKeys, normKey } from '../../../data/places';
+import { locationKey } from '../../../data/place-keys.mjs';
 
 export async function getStaticPaths() {
   return prefectures.map((pref) => ({
@@ -33,7 +34,10 @@ const nearbyPrefs = pref.nearbySlugs
 // 市区町村のページから住所・電話番号を取った施設は、上の節に載せているので、この節からは外す（同じ施設の重複を避ける）。
 const detailed = detailedFacilityKeys(pref.slug);
 const osmCourses = getOsmCoursesBySlug(pref.slug).filter((c) => {
-  for (const key of detailed) {
+  // 住所と電話番号が（表記の違いを除いて）同じなら、名前が違っても同じ場所として外す
+  const loc = locationKey(c.address, c.phone);
+  if (loc && detailed.locations.has(loc)) return false;
+  for (const key of detailed.names) {
     const [muni, name] = key.split('|');
     if (c.address.includes(muni) && normKey(c.name) === name) return false;
   }

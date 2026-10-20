@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-20T00:13:29.744Z",
-  "count": 476,
+  "generated_at": "2026-10-20T00:26:03.551Z",
+  "count": 475,
   "details": [
     {
       "municipality_code": "03215",
@@ -1992,17 +1992,6 @@
       "phone_is_contact": false,
       "source_url": "https://www.city.hakusan.lg.jp/shisetsu/park/1004534.html",
       "fetched_at": "2026-10-19T05:49:35Z"
-    },
-    {
-      "municipality_code": "17386",
-      "municipality": "宝達志水町",
-      "prefecture": "石川県",
-      "name": "2 指定管理者",
-      "address": "石川県羽咋郡宝達志水町今浜イ4番地1",
-      "phone": "0767-28-4749",
-      "phone_is_contact": false,
-      "source_url": "https://www.hodatsushimizu.jp/gyosei/kanko_bunka_supotsu/sports/1999.html",
-      "fetched_at": "2026-10-19T05:49:36Z"
     },
     {
       "municipality_code": "18201",

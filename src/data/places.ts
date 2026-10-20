@@ -6,6 +6,7 @@ import overridesRaw from '../../data/places/overrides.json';
 import detailsRaw from '../../data/places/details.json';
 import { prefectures } from './prefectures';
 import { jstDate } from './events';
+import { locationKey, mergeSameLocation } from './place-keys.mjs';
 
 // 市区町村コードの先頭2桁（JIS X 0401の都道府県番号）= この配列の位置 + 1。prefectures.ts は地方順で JIS 順ではないため別に持つ。
 const JIS_ORDER = ['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県'];
@@ -21,6 +22,7 @@ export interface PlaceItem {
   address?: string;
   phone?: string;
   phoneIsContact?: boolean; // 施設の電話ではなく、担当課などの問い合わせ先の電話
+  alsoNames?: string[]; // 住所・電話番号が同じで、名前だけ違う施設（1件にまとめたもの）
 }
 
 export interface PlaceGroup {
@@ -149,13 +151,15 @@ function load(): PlaceItem[] {
     out.push({ kind, name, municipality, code, url, surveyedAt: jstDate(surveyed) });
   }
   attachDetails(out, overrides, prefIndexOf);
-  cache = out;
+  const merged = mergeSameLocation(out) as PlaceItem[];
+  console.log(`[places] 住所・電話番号が同じ施設を ${out.length - merged.length}件まとめました`);
+  cache = merged;
   const oldest = out.map((p) => p.surveyedAt).sort()[0];
   if (oldest && (Date.now() - Date.parse(`${oldest}T00:00:00Z`)) / 86400e3 >= 180) {
     console.warn(`[places] 最も古い取得日（${oldest}）から180日以上たっています。再調査を検討してください。`);
   }
-  console.log(`[places] 掲載 ${out.length}件（印あり・除外 ${excludedCount}件は載せていません）`);
-  return out;
+  console.log(`[places] 掲載 ${merged.length}件（印あり・除外 ${excludedCount}件は載せていません）`);
+  return merged;
 }
 
 export function getPlacesBySlug(slug: string): PrefecturePlaces {
@@ -182,10 +186,18 @@ export function jaDate(iso: string): string {
   return `${y}年${m}月${d}日`;
 }
 
-/** 住所つきの施設の「市区町村名|施設名」（別の節で同じ施設を重複して出さないための照合用）。 */
-export function detailedFacilityKeys(slug: string): Set<string> {
+/** 住所つきの施設の照合キー。別の節で同じ施設を重複して出さないために使う。 */
+export function detailedFacilityKeys(slug: string): { names: Set<string>; locations: Set<string> } {
   const g = getPlacesBySlug(slug);
-  const keys = new Set<string>();
-  for (const m of g.groups) for (const f of m.facilities) if (f.address) keys.add(`${m.municipality}|${normKey(f.name!)}`);
-  return keys;
+  const names = new Set<string>();
+  const locations = new Set<string>();
+  for (const m of g.groups) {
+    for (const f of m.facilities) {
+      if (!f.address) continue;
+      for (const n of [f.name!, ...(f.alsoNames ?? [])]) names.add(`${m.municipality}|${normKey(n)}`);
+      const k = locationKey(f.address, f.phone);
+      if (k) locations.add(k);
+    }
+  }
+  return { names, locations };
 }
