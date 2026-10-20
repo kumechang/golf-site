@@ -1,12 +1,15 @@
 ---
 import { getPlacesBySlug, jaDate, type PlaceItem } from '../data/places';
+import VideoEmbed, { type VideoItem } from './VideoEmbed.astro';
 
 interface Props {
   prefName: string;
   slug: string;
+  videos?: VideoItem[]; // その施設のカードの中に載せる動画（facility に施設名の一部を書く）
 }
 
-const { prefName, slug } = Astro.props as Props;
+const { prefName, slug, videos = [] } = Astro.props as Props;
+const videoFor = (it: PlaceItem) => (it.kind === 'facility' ? videos.find((v) => it.name!.includes(v.facility!)) : undefined);
 const data = getPlacesBySlug(slug);
 const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
 const mapUrl = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -113,6 +116,11 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
                       </span>
                     )}
                   </span>
+                  {videoFor(it) && (
+                    <div class="mt-4 border-t border-slate-100 pt-4">
+                      <VideoEmbed video={videoFor(it)!} noticeId={`video-${videoFor(it)!.id}-notice`} showNotice />
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

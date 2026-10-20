@@ -5,7 +5,8 @@
 ## 仕組み
 - コンポーネント: `src/components/VideoGallery.astro`。**再生ボタンを押すまで YouTube には接続しない**（サムネイルも読み込まない）。押すと Cookie を使わない埋め込み（`youtube-nocookie.com`）を読み込む。各動画に「YouTubeで開く」のリンクも付く（JavaScript が使えなくても見られる）
 - 記事: フロントマターの `videos`（`id` `title` `channel` `note`）に書くと、記事の末尾（FAQの前）に「参考動画」として出る。スキーマは `src/content.config.ts`
-- 都道府県ページ: `src/data/place-videos.ts`（県の slug → 動画の配列）。「{県}の施設を紹介する動画」として出る
+- 都道府県ページ: `src/data/place-videos.ts`（県の slug → 動画の配列）。`facility`（施設名の一部）を書いた動画は、**その施設のカードの中**に載せる（市区町村の節のカード、なければ「住所・電話番号を個別に確認できた施設の例」のカード）。カードが載っていない動画だけ、「{県}の施設を紹介する動画」の節に出る（今は石川の戸室スポーツ広場・白山ろくテーマパークがこちら）
+- 部品: `VideoEmbed.astro`（1本）、`VideoGallery.astro`（一覧。節の見出しと注意つき）
 - プライバシー: `/privacy-policy/#youtube` に、再生時に Google へ情報が送られることを書いてある。動画を載せる節にも同じ説明を出す
 - 計測: 再生ボタンで GA4 の `video_play`（`video_id`）、「YouTubeで開く」は `data-gg-outbound="video-source"`
 

@@ -5,9 +5,10 @@ import { prefectures, getPrefectureBySlug, coursesCheckedAt } from '../../../dat
 import { getOsmCoursesBySlug, osmCoursesCheckedAt } from '../../../data/osm-course-examples';
 import MunicipalPlaces from '../../../components/MunicipalPlaces.astro';
 import VideoGallery from '../../../components/VideoGallery.astro';
+import VideoEmbed from '../../../components/VideoEmbed.astro';
 import { placeVideos } from '../../../data/place-videos';
 import { sourceKind, sourceLabel, isOsm } from '../../../data/place-sources';
-import { detailedFacilityKeys, normKey } from '../../../data/places';
+import { detailedFacilityKeys, getPlacesBySlug, normKey } from '../../../data/places';
 import { locationKey } from '../../../data/place-keys.mjs';
 
 export async function getStaticPaths() {
@@ -47,6 +48,14 @@ const osmCourses = getOsmCoursesBySlug(pref.slug).filter((c) => {
 });
 // OpenStreetMap 由来の行がある県だけ、ODbL の表示を出す。
 const hasOsm = osmCourses.some((c) => isOsm(sourceKind(c)));
+
+// 施設の動画は、その施設のカードが載っているなら、カードの中に載せる。載っていないものだけ、動画の節に載せる。
+const municipalFacilityNames = getPlacesBySlug(pref.slug).groups.flatMap((g) => g.facilities.map((f) => f.name ?? ''));
+const allVideos = placeVideos[pref.slug] ?? [];
+const inMunicipal = allVideos.filter((v) => v.facility && municipalFacilityNames.some((n) => n.includes(v.facility!)));
+const inVerified = allVideos.filter((v) => v.facility && !inMunicipal.includes(v) && osmCourses.some((c) => c.name.includes(v.facility!)));
+const galleryVideos = allVideos.filter((v) => !inMunicipal.includes(v) && !inVerified.includes(v));
+const verifiedVideo = (name: string) => inVerified.find((v) => name.includes(v.facility!));
 const mapUrl = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
 ---
@@ -122,7 +131,7 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
         </>
       )}
 
-      <MunicipalPlaces prefName={pref.name} slug={pref.slug} />
+      <MunicipalPlaces prefName={pref.name} slug={pref.slug} videos={inMunicipal} />
 
       {osmCourses.length > 0 && (
         <>
@@ -159,6 +168,11 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
                   )}
                 </dl>
                 <p class="mt-2 text-sm text-slate-600">出典：{sourceLabel(sourceKind(course))}</p>
+                {verifiedVideo(course.name) && (
+                  <div class="mt-4 border-t border-slate-100 pt-4">
+                    <VideoEmbed video={verifiedVideo(course.name)!} noticeId={`video-${verifiedVideo(course.name)!.id}-notice`} showNotice />
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -174,9 +188,9 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
         </>
       )}
 
-      {(placeVideos[pref.slug]?.length ?? 0) > 0 && (
+      {galleryVideos.length > 0 && (
         <VideoGallery
-          videos={placeVideos[pref.slug]}
+          videos={galleryVideos}
           heading={`${pref.name}の施設を紹介する動画`}
           intro="施設や自治体、地域の情報サイト、愛好者の方などが公開している動画です。題名や紹介の言葉は投稿者によるもので、動画の内容は、当サイトでは確認していません。公開された時期のもので、いまの利用方法や料金と異なる場合があります。利用の前に、施設や市区町村にご確認ください。"
           id="facility-videos"
