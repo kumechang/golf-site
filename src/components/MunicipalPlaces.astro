@@ -9,6 +9,8 @@ interface Props {
 const { prefName, slug } = Astro.props as Props;
 const data = getPlacesBySlug(slug);
 const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
+const mapUrl = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
 
 // 調べた日。1つの日ならその日、範囲なら「から」でつなぐ。
 const surveyed = !data.from ? null : data.from === data.to ? jaDate(data.from) : `${jaDate(data.from)}から${jaDate(data.to!).replace(/^\d{4}年/, '')}`;
@@ -16,6 +18,7 @@ const surveyed = !data.from ? null : data.from === data.to ? jaDate(data.from) :
 const collapse = data.total >= 20;
 // 絞り込み欄は、ある程度件数のある県だけ。JavaScript が使えるときだけ表示する（使えないときは何も出さない）。
 const filterable = data.total >= 10;
+const hasAddress = data.groups.some((g) => g.facilities.some((f) => f.address));
 const hasListing = data.groups.some((g) => g.listings.length > 0);
 const hasOtherSport = data.groups.some((g) => g.facilities.some((f) => /(野球場|サッカー場|球技場|庭球場|テニス)/.test(f.name ?? '')));
 // 一覧ページへのリンクが多い市区町村は、上位3件までにする（番号だけで見分けるリンクが並ぶのを避ける）。
@@ -44,7 +47,7 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
       <ul role="list" class="mt-2 list-disc space-y-2 pl-6 text-base leading-relaxed text-slate-800">
         <li>全国の市区町村をそろえて調べたものではありません。載っていない市区町村は、調べられていないか、記載を確認できなかったところで、施設がない、グラウンドゴルフができない、という意味ではありません。件数の多い少ないも、調べられた範囲の違いによることがあります。</li>
         <li>確認できたのは、「市区町村の案内に、グラウンドゴルフの記載がある」ところまでです。いま利用できるか、誰でも使えるかは、確認できていません。予約が要るか、料金、使える方（その市区町村の方だけ、団体のみ、個人は不可など）、休業や工事は、施設ごとに違うので、出かける前に、市区町村の担当窓口か施設に確認してください。</li>
-        <li>リンク先は市区町村のページで、施設の運営者のページとは限りません。{hasListing && '施設名がないものは、その市区町村の施設の案内ページへのリンクで、どの施設に記載があるかはリンク先でご覧いただけます。'}{hasOtherSport && '野球場など、別の競技の名前の施設も、案内にグラウンドゴルフの記載があったものとして載せています。'}</li>
+        <li>リンク先は市区町村のページで、施設の運営者のページとは限りません。{hasAddress && '住所・電話番号は、そのページに載っていたものです。電話番号は、施設ではなく担当課などの問い合わせ先のことがあります。'}{hasListing && '施設名がないものは、その市区町村の施設の案内ページへのリンクで、どの施設に記載があるかはリンク先でご覧いただけます。'}{hasOtherSport && '野球場など、別の競技の名前の施設も、案内にグラウンドゴルフの記載があったものとして載せています。'}</li>
       </ul>
 
       {filterable && (
@@ -71,8 +74,25 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
           const rows = (
             <ul role="list" class="mt-1 list-none pl-0">
               {items.map((it) => (
-                <li class="border-t border-slate-200 py-3" data-place-item data-search={`${it.municipality} ${it.name ?? ""}`}>
+                <li class="border-t border-slate-200 py-3" data-place-item data-search={`${it.municipality} ${it.name ?? ""} ${it.address ?? ""}`}>
                   <span class="block min-w-0 break-words text-base font-bold text-slate-900">{label(it, g)}</span>
+                  {it.address && (
+                    <dl class="mt-1 space-y-1 text-base text-slate-700">
+                      <div class="flex gap-2">
+                        <dt class="w-20 shrink-0 text-slate-700">所在地</dt>
+                        <dd class="min-w-0 break-words">
+                          {it.address}{' '}
+                          <a href={mapUrl(it.address)} rel="nofollow noopener" target="_blank" data-gg-outbound="place-map" class="tap-target inline-flex items-center whitespace-nowrap font-bold text-green-800 underline underline-offset-2">地図で見る<span class="sr-only">：{it.name}</span></a><span class="ml-1 text-slate-700">（新しいタブで開きます）</span>
+                        </dd>
+                      </div>
+                      {it.phone && (
+                        <div class="flex gap-2">
+                          <dt class="w-20 shrink-0 text-slate-700">{it.phoneIsContact ? '問い合わせ先' : '電話番号'}</dt>
+                          <dd><a href={telHref(it.phone)} class="tap-target inline-flex items-center px-2 font-bold text-green-800 underline underline-offset-2">{it.phone}<span class="sr-only">（{it.name}）</span></a></dd>
+                        </div>
+                      )}
+                    </dl>
+                  )}
                   <span class="mt-1 block">
                     <a
                       href={it.url}
@@ -81,6 +101,7 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
                       data-gg-outbound="place-source"
                       class={`tap-target inline-flex items-center text-base ${link}`}
                     >{it.municipality}の案内ページを見る<span class="sr-only">：{label(it, g)}</span></a><span class="ml-1 text-base text-slate-700">（新しいタブで開きます）</span>
+                    {it.address && <span class="mt-1 block text-sm text-slate-600">出典：市区町村のページに記載（{jaDate(it.surveyedAt)}取得）</span>}
                   </span>
                 </li>
               ))}

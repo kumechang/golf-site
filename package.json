@@ -13,7 +13,8 @@
     "crawl:events": "node scripts/crawl-events.mjs",
     "test:crawler": "node --test \"scripts/crawler/tests/*.test.mjs\"",
     "review:events": "node scripts/review-events.mjs",
-    "places:clean": "node scripts/places/clean-places.mjs"
+    "places:clean": "node scripts/places/clean-places.mjs",
+    "places:details": "node scripts/places/clean-details.mjs"
   },
   "repository": {
     "type": "git",

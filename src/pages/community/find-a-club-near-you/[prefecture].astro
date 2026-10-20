@@ -5,6 +5,7 @@ import { prefectures, getPrefectureBySlug, coursesCheckedAt } from '../../../dat
 import { getOsmCoursesBySlug, osmCoursesCheckedAt } from '../../../data/osm-course-examples';
 import MunicipalPlaces from '../../../components/MunicipalPlaces.astro';
 import { sourceKind, sourceLabel, isOsm } from '../../../data/place-sources';
+import { detailedFacilityKeys, normKey } from '../../../data/places';
 
 export async function getStaticPaths() {
   return prefectures.map((pref) => ({
@@ -29,7 +30,15 @@ const nearbyPrefs = pref.nearbySlugs
   .map((slug) => getPrefectureBySlug(slug))
   .filter((p): p is NonNullable<typeof p> => Boolean(p && p.courseCount > 0));
 
-const osmCourses = getOsmCoursesBySlug(pref.slug);
+// 市区町村のページから住所・電話番号を取った施設は、上の節に載せているので、この節からは外す（同じ施設の重複を避ける）。
+const detailed = detailedFacilityKeys(pref.slug);
+const osmCourses = getOsmCoursesBySlug(pref.slug).filter((c) => {
+  for (const key of detailed) {
+    const [muni, name] = key.split('|');
+    if (c.address.includes(muni) && normKey(c.name) === name) return false;
+  }
+  return true;
+});
 // OpenStreetMap 由来の行がある県だけ、ODbL の表示を出す。
 const hasOsm = osmCourses.some((c) => isOsm(sourceKind(c)));
 const mapUrl = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
