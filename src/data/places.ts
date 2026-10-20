@@ -21,6 +21,8 @@ export interface PlaceItem {
   // 市区町村のページに載っていた住所・電話番号（あるものだけ）
   address?: string;
   phone?: string;
+  // 住所・電話番号の出どころ。municipal=その市区町村のページに記載、web=元ページに載っておらず Web で補ったもの
+  detailSource?: 'municipal' | 'web';
   phoneIsContact?: boolean; // 施設の電話ではなく、担当課などの問い合わせ先の電話
   alsoNames?: string[]; // 住所・電話番号が同じで、名前だけ違う施設（1件にまとめたもの）
 }
@@ -66,7 +68,7 @@ export const normKey = (n: string) => n.normalize('NFKC').replace(/\s+/g, '').to
 const PHONE = /^0\d{1,4}-\d{1,4}-\d{3,4}$/;
 const prefIndexOf = (name: string) => JIS_ORDER.indexOf(name);
 
-interface Detail { municipality_code: string; municipality: string; prefecture: string; name: string; address: string; phone: string | null; phone_is_contact: boolean; source_url: string; fetched_at: string }
+interface Detail { municipality_code: string; municipality: string; prefecture: string; name: string; address: string | null; phone: string | null; phone_is_contact: boolean; source_kind?: 'municipal' | 'web'; source_url: string; fetched_at: string }
 
 // 住所・電話番号（data/places/details.json）を、同じ市区町村・同じ施設名の施設に足す。なければ、住所つきの施設として加える。
 function attachDetails(out: PlaceItem[], overrides: Map<string, Override>, idxOf: (n: string) => number) {
@@ -84,13 +86,14 @@ function attachDetails(out: PlaceItem[], overrides: Map<string, Override>, idxOf
     if (idx < 0 || !/^\d{5}$/.test(d.municipality_code) || Number(d.municipality_code.slice(0, 2)) !== idx + 1) fail(where, `市区町村コードが都道府県と合いません: ${d.municipality_code}`);
     if (!d.name || d.name.length > MAX_NAME) fail(where, `施設名が正しくありません: ${d.name}`);
     for (const re of NAME_LINT) if (re.test(d.name)) fail(where, `施設名に載せられない形が含まれています: ${d.name}`);
-    if (!d.address || d.address.length > 80 || /[@＠]|https?:/.test(d.address)) fail(where, `住所が正しくありません: ${d.address}`);
+    if (!d.address && !d.phone) fail(where, '住所も電話番号もありません');
+    if (d.address && (d.address.length > 80 || /[@＠]|https?:/.test(d.address))) fail(where, `住所が正しくありません: ${d.address}`);
     if (d.phone !== null && !PHONE.test(d.phone)) fail(where, `電話番号の形式が正しくありません: ${d.phone}`);
     if (Number.isNaN(Date.parse(d.fetched_at))) fail(where, `取得日時が正しくありません: ${d.fetched_at}`);
     const key = `${d.municipality_code}|${normKey(d.name)}`;
     const fetchedAt = jstDate(d.fetched_at);
     const hit = byKey.get(key);
-    const extra = { address: d.address, phone: d.phone ?? undefined, phoneIsContact: d.phone_is_contact || undefined, surveyedAt: fetchedAt };
+    const extra = { address: d.address ?? undefined, phone: d.phone ?? undefined, phoneIsContact: d.phone_is_contact || undefined, detailSource: d.source_kind ?? 'municipal', surveyedAt: fetchedAt };
     if (hit) { Object.assign(hit, extra, { url: d.source_url }); attached++; }
     else {
       const item: PlaceItem = { kind: 'facility', name: d.name, municipality: d.municipality, code: d.municipality_code, url: d.source_url, ...extra };
@@ -193,7 +196,7 @@ export function detailedFacilityKeys(slug: string): { names: Set<string>; locati
   const locations = new Set<string>();
   for (const m of g.groups) {
     for (const f of m.facilities) {
-      if (!f.address) continue;
+      if (!f.address && !f.phone) continue;
       for (const n of [f.name!, ...(f.alsoNames ?? [])]) names.add(`${m.municipality}|${normKey(n)}`);
       const k = locationKey(f.address, f.phone);
       if (k) locations.add(k);

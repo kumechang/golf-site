@@ -89,3 +89,33 @@ test('詳細：同じ市区町村・同じ名前で住所や電話が食い違�
   assert.equal(conflict.details.length, 0);
   assert.match(conflict.excluded[0].reason, /食い違う/);
 });
+
+import { enrichedToRows } from '../../places/lib.mjs';
+
+test('詳細：電話だけ（住所なし）でも載せる。住所も電話もないものは載せない', () => {
+  const { details, excluded } = buildDetails([drow({ address: '' }), drow({ facility_name: 'B広場', address: '', phone: '', page_url: 'https://example.invalid/b' })]);
+  assert.equal(details.length, 1);
+  assert.equal(details[0].address, null);
+  assert.match(excluded[0].reason, /住所も電話番号もない/);
+});
+
+test('詳細：同じ施設の行は、片方が空なら補い合い、両方にあって食い違うときだけ載せない', () => {
+  const merged = buildDetails([drow({ phone: '' }), drow({ address: '', page_url: 'https://example.invalid/2' })]).details;
+  assert.equal(merged.length, 1);
+  assert.equal(merged[0].address, '三島市南田町4-40');
+  assert.equal(merged[0].phone, '055-971-0001');
+});
+
+test('補完済みCSV：コードの補い・問い合わせ電話の転記・Web補完の区別', () => {
+  const csv = [
+    { 都道府県: '静岡県', 市区町村コード: '', 市区町村: '三島市', 施設名: '南田町広場', 住所: '南田町4-40', 電話番号: '055-971-9999', 問い合わせ先: '課', 問い合わせ電話: '055-971-9999', 元ページ: 'https://example.invalid/a', 情報補完: '問い合わせ電話を転記', 重複統合: 'はい' },
+    { 都道府県: '静岡県', 市区町村コード: '22206', 市区町村: '三島市', 施設名: '市の山広場', 住所: '塚原新田405-1', 電話番号: '055-971-0002', 問い合わせ先: '', 問い合わせ電話: '', 元ページ: 'https://example.invalid/b', 情報補完: 'Web補完', 重複統合: 'いいえ' },
+  ];
+  const rows = enrichedToRows(csv, new Map([['静岡県|三島市', '22206']]), '2026-10-20T00:00:00Z');
+  assert.equal(rows[0].municipality_code, '22206');
+  assert.equal(rows[0].phone_is_contact, true);
+  assert.equal(rows[1].source_kind, 'web');
+  const { details } = buildDetails(rows);
+  assert.equal(details.find((d) => d.name === '南田町広場').phone_is_contact, true);
+  assert.equal(details.find((d) => d.name === '市の山広場').source_kind, 'web');
+});
