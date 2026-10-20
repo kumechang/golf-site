@@ -1,0 +1,94 @@
+---
+// 参考動画の一覧。再生ボタンを押すまで YouTube には接続しない（クリックで読み込む方式）。
+// 再生するときは、Cookie を使わない youtube-nocookie.com の埋め込みを使う。
+export interface VideoItem {
+  id: string; // YouTube の動画ID（11文字）
+  title: string; // 動画の題名（YouTubeに公開されているとおり）
+  channel: string; // 投稿者
+  note?: string; // 当サイトからの一言（任意）
+}
+
+interface Props {
+  videos: VideoItem[];
+  heading: string;
+  intro?: string;
+  id?: string;
+}
+
+const { videos, heading, intro, id = 'videos' } = Astro.props as Props;
+for (const v of videos) {
+  if (!/^[\w-]{11}$/.test(v.id)) throw new Error(`[videos] 動画IDが正しくありません: ${v.id}`);
+}
+const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
+---
+
+<section aria-labelledby={`${id}-h`} id={id} class="mt-12">
+  <h2 id={`${id}-h`} class="text-2xl font-bold leading-snug text-slate-900">{heading}</h2>
+  {intro && <p class="mt-3 text-base leading-relaxed text-slate-800">{intro}</p>}
+  <p id={`${id}-notice`} class="mt-3 text-base leading-relaxed text-slate-700">
+    再生ボタンを押すと、YouTube（Google）のサーバーに接続し、閲覧の情報が送られます。くわしくは<a class={link} href="/privacy-policy/#youtube">プライバシーポリシー</a>をご覧ください。
+  </p>
+  <ul role="list" class="mt-5 list-none space-y-8 pl-0">
+    {videos.map((v) => (
+      <li class="list-none">
+        <figure>
+          <div class="relative aspect-video w-full overflow-hidden rounded-xl bg-slate-900" data-yt-frame>
+            <button
+              type="button"
+              data-yt-id={v.id}
+              data-yt-title={v.title}
+              aria-label={`動画を再生する：${v.title}`}
+              aria-describedby={`${id}-notice`}
+              hidden
+              class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white hover:bg-slate-800"
+            >
+              <span aria-hidden="true" class="flex h-16 w-16 items-center justify-center rounded-full bg-white text-slate-900">
+                <svg viewBox="0 0 24 24" class="ml-1 h-8 w-8" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
+              </span>
+              <span class="text-lg font-bold">動画を再生する</span>
+            </button>
+            <noscript>
+              <p class="absolute inset-0 flex items-center justify-center p-4 text-center text-base text-white">動画の再生には、JavaScriptが必要です。下の「YouTubeで開く」から見られます。</p>
+            </noscript>
+          </div>
+          <figcaption class="mt-2 text-base leading-relaxed text-slate-800">
+            <span class="block font-bold text-slate-900">{v.title}</span>
+            <span class="block text-slate-700">投稿者：{v.channel}</span>
+            {v.note && <span class="mt-1 block">{v.note}</span>}
+            <span class="mt-1 block">
+              <a
+                href={`https://www.youtube.com/watch?v=${v.id}`}
+                rel="nofollow noopener"
+                target="_blank"
+                data-gg-outbound="video-source"
+                class={`tap-target inline-flex items-center ${link}`}
+              >YouTubeで開く<span class="sr-only">：{v.title}</span></a><span class="ml-1 text-slate-700">（新しいタブで開きます）</span>
+            </span>
+          </figcaption>
+        </figure>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<script>
+  // 再生ボタンを押したときだけ、動画の埋め込み（youtube-nocookie.com）を読み込む。
+  // JavaScript が使えるときだけ、再生ボタンを出す（使えないときは、下の「YouTubeで開く」と案内を出す）。
+  document.querySelectorAll<HTMLButtonElement>('button[data-yt-id]').forEach((btn) => {
+    btn.hidden = false;
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.ytId!;
+      const frame = btn.closest<HTMLElement>('[data-yt-frame]')!;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1`;
+      iframe.title = btn.dataset.ytTitle ?? '動画';
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.allowFullscreen = true;
+      iframe.className = 'absolute inset-0 h-full w-full border-0';
+      frame.replaceChildren(iframe);
+      iframe.focus();
+      (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'video_play', { video_id: id });
+    });
+  });
+</script>
