@@ -5,6 +5,7 @@ import BaseLayout from './BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import AffiliateNotice from '../components/AffiliateNotice.astro';
 import FAQSection from '../components/FAQSection.astro';
+import VideoGallery, { type VideoItem } from '../components/VideoGallery.astro';
 import { getCategory } from '../data/categories';
 
 interface Props {
@@ -14,11 +15,12 @@ interface Props {
   pubDate: Date;
   updatedDate?: Date;
   faqItems?: { question: string; answer: string }[];
+  videos?: VideoItem[];
   showAffiliateNotice?: boolean;
   image?: { src: ImageMetadata; alt: string };
 }
 
-const { title, description, category, pubDate, updatedDate, faqItems, showAffiliateNotice = false, image } =
+const { title, description, category, pubDate, updatedDate, faqItems, videos, showAffiliateNotice = false, image } =
   Astro.props as Props;
 
 const cat = getCategory(category);
@@ -112,6 +114,14 @@ const faqJsonLd = faqItems
     <div class="prose-article mt-8 text-slate-800">
       <slot />
     </div>
+
+    {videos && videos.length > 0 && (
+      <VideoGallery
+        videos={videos}
+        heading="参考動画"
+        intro="この記事の内容に関連する動画を、YouTubeで公開している方々のものから選びました。動画の内容や考え方は投稿者のもので、当サイトが保証するものではありません。"
+      />
+    )}
 
     {faqItems && faqItems.length > 0 && <FAQSection items={faqItems} />}
   </article>

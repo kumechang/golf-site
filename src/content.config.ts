@@ -27,6 +27,10 @@ const articles = defineCollection({
         })
       )
       .optional(),
+    // 参考動画（YouTube）。記事の末尾に「参考動画」として並べる。再生ボタンを押すまで YouTube には接続しない
+    videos: z
+      .array(z.object({ id: z.string().regex(/^[\w-]{11}$/), title: z.string(), channel: z.string(), note: z.string().optional() }))
+      .optional(),
     // ヒーロー画像（未入稿の間はグラデーションのプレースホルダーで表示する。
     // 画像が用意でき次第、src/assets配下に配置しこのパスを更新する）
     heroImage: z.string().optional(),

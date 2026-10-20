@@ -4,6 +4,8 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { prefectures, getPrefectureBySlug, coursesCheckedAt } from '../../../data/prefectures';
 import { getOsmCoursesBySlug, osmCoursesCheckedAt } from '../../../data/osm-course-examples';
 import MunicipalPlaces from '../../../components/MunicipalPlaces.astro';
+import VideoGallery from '../../../components/VideoGallery.astro';
+import { placeVideos } from '../../../data/place-videos';
 import { sourceKind, sourceLabel, isOsm } from '../../../data/place-sources';
 import { detailedFacilityKeys, normKey } from '../../../data/places';
 import { locationKey } from '../../../data/place-keys.mjs';
@@ -170,6 +172,15 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
             </p>
           )}
         </>
+      )}
+
+      {(placeVideos[pref.slug]?.length ?? 0) > 0 && (
+        <VideoGallery
+          videos={placeVideos[pref.slug]}
+          heading={`${pref.name}の施設を紹介する動画`}
+          intro="施設や自治体などが公開している動画です。公開された時期のもので、いまの利用方法や料金と異なる場合があります。利用の前に、施設や市区町村にご確認ください。"
+          id="facility-videos"
+        />
       )}
 
       <h2>あわせて読みたい</h2>
