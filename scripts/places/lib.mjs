@@ -95,11 +95,11 @@ const HEAD_DATE = /^\s*(\d{4}[-\/]\d{1,2}[-\/]\d{1,2}|\d{4}年\d{1,2}月\d{1,2}�
 const NOISE_TAIL = /\s*([（(][^）)]*(施設情報|施設案内|地図|概要|ロケ地情報)[^）)]*[）)]|【[^】]*】|の概要)\s*$/;
 const DEPT_TAIL = /[（(][^）)]*(課|係|室|局|部|担当)[）)]\s*$/;
 const NAME_BAD = /(Q&A|の許可$|外観\)?$|周辺情報$|なります|。|令和|年度|周年|記念事業|動画|学級|ナイター|照明|できる|無料|有料|開放|町民向け|夏季|ゲートボール|マレットゴルフ|パークゴルフ場・|グラウンド・ゴルフ、|[(（][^)）]*$|の公園$|公園等|^(その他|自然・|公園・|スポーツ・|公園施設$|都市公園|施設のご案内|スポーツ公園$|(グラウンド|グランド)[・]?ゴルフ(場|コース)?(\(屋外\))?$)|申請|申込|できます|ください|ルール|マナー|について|お知らせ|ページへ|詳細ページ|はこちら|使用券|独占使用|愛護会|^各|利用するには|にあたって|遵守|概要|集い|ロケ地|仕事|贈呈式|学区内|課|支援センター|[ぁ-ん]$)/;
-export function tidyName(raw) {
+export function tidyName(raw, { requireFacilityWord = true } = {}) {
   let n = raw.normalize('NFKC').replace(EMOJI, '').replace(UI_TEXT, '').replace(DATE_IN_BRACKET, '').replace(DEPT_TAIL, '').replace(NOISE_TAIL, '');
   n = n.replace(/\s*(配信日|更新日|掲載日|公開日)[:：].*$/, '').replace(TAIL_DATE, '').replace(HEAD_DATE, '').replace(/\s+/g, ' ').trim();
   const parts = n.split(/[・、,]/).filter((seg) => FACILITY_WORD.test(seg)).length;
-  const demote = !n || n.length > 26 || NAME_BAD.test(n) || parts >= 3 || !FACILITY_WORD.test(n);
+  const demote = !n || n.length > 26 || NAME_BAD.test(n) || parts >= 3 || (requireFacilityWord && !FACILITY_WORD.test(n));
   return { name: n, demote };
 }
 
@@ -153,4 +153,61 @@ export function buildPlaces(rows) {
   const places = [...byKey.values()].map(({ _score, ...x }) => x)
     .sort((a, b) => a.municipality_code.localeCompare(b.municipality_code) || (a.name ?? '￿').localeCompare(b.name ?? '￿'));
   return { places, excluded };
+}
+
+// ---- 住所・電話番号（詳細CSV） ---------------------------------------------------
+// 運営者が自治体の1次情報から取った、施設ごとの住所・電話番号。載せるのは 施設名・住所・電話番号・元ページURL・取得日 だけ。
+// 抜き出した文（matched_text / keyword_evidence）や担当課名は使わない。
+
+// 住所のある行は施設そのものなので、施設を表す語は必須にしない。一覧・見出し・窓口・活動名だけのものは載せない。
+const DETAIL_BAD = /(所在地|使用時間|休場日|貸出時間|申し込み先|詳細情報|体力づくり|休憩所|町内の|クラブハウス|会議室|^施設$|スポーツ施設$|体育施設$|公社|基本情報|[、,])/;
+export const isGenericName = (n) => GENERIC.test(n) || NAME_BAD.test(n) || DETAIL_BAD.test(n) || PLAIN_NAME.test(n);
+const PHONE = /^0\d{1,4}-\d{1,4}-\d{3,4}$/;
+export const normKey = (n) => n.normalize('NFKC').replace(/\s+/g, '').toLowerCase();
+
+export function buildDetails(rows, extraMunicipalities = []) {
+  const excluded = [];
+  const muniNames = new Set([...rows.map((r) => r.municipality_name), ...extraMunicipalities]);
+  const cand = [];
+  for (const r of rows) {
+    const why = (reason) => excluded.push({ url: r.page_url, municipality: r.municipality_name, name: r.facility_name, reason });
+    if (!/^https:\/\//i.test(r.page_url)) { why('http（https で開けるか未確認）'); continue; }
+    const t = tidyName(r.facility_name, { requireFacilityWord: false });
+    if (t.demote || isGenericName(t.name)) { why('施設名として載せられない'); continue; }
+    let address = r.address.normalize('NFKC').replace(/\s+/g, ' ').trim();
+    // 住所が別の市区町村から始まるもの（隣の市の施設が載っているページなど）は、市区町村の見出しの下に置くと誤解を招くので載せない
+    const other = [...muniNames].find((m) => m !== r.municipality_name && address.startsWith(m) && !r.municipality_name.startsWith(m));
+    if (other) { why(`住所が別の市区町村（${other}）`); continue; }
+    // 市区町村名のない住所（「南田町4-40」「緑区川尻5841」）は、市区町村名を補う
+    if (address && !address.includes(r.municipality_name) && !address.includes(r.prefecture)) address = `${r.municipality_name}${address}`;
+    if (address.length < 6 || address.length > 80 || /[@＠]|https?:|〒/.test(address)) { why('住所が不自然'); continue; }
+    const phone = PHONE.test(r.phone.trim()) ? r.phone.trim() : null;
+    const inquiry = PHONE.test(r.inquiry_phone.trim()) ? r.inquiry_phone.trim() : null;
+    cand.push({
+      municipality_code: r.municipality_code,
+      municipality: r.municipality_name,
+      prefecture: r.prefecture,
+      name: t.name,
+      address,
+      phone,
+      // 施設の電話ではなく、担当課などの問い合わせ先の電話と同じ番号のとき
+      phone_is_contact: Boolean(phone && phone === inquiry),
+      source_url: r.page_url,
+      fetched_at: r.extracted_at,
+    });
+  }
+  // 同じ市区町村・同じ施設名で、住所か電話が食い違うものは載せない（同じ内容の重複は1件にまとめる）
+  const groups = new Map();
+  for (const c of cand) {
+    const k = `${c.municipality_code}|${normKey(c.name)}`;
+    (groups.get(k) ?? groups.set(k, []).get(k)).push(c);
+  }
+  const details = [];
+  for (const list of groups.values()) {
+    const distinct = new Set(list.map((c) => `${c.address}|${c.phone}`));
+    if (distinct.size > 1) { for (const c of list) excluded.push({ url: c.source_url, municipality: c.municipality, name: c.name, reason: '同名で住所・電話が食い違う' }); continue; }
+    details.push(list[0]);
+  }
+  details.sort((a, b) => a.municipality_code.localeCompare(b.municipality_code) || a.name.localeCompare(b.name));
+  return { details, excluded };
 }

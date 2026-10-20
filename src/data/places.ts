@@ -3,6 +3,7 @@
 // 載せるのは 施設名・市区町村・元ページのURL・取得日 だけ（自治体ページの本文は持たない）。
 import raw from '../../data/places/places.json';
 import overridesRaw from '../../data/places/overrides.json';
+import detailsRaw from '../../data/places/details.json';
 import { prefectures } from './prefectures';
 import { jstDate } from './events';
 
@@ -16,6 +17,10 @@ export interface PlaceItem {
   code: string;
   url: string;
   surveyedAt: string; // YYYY-MM-DD（日本時間）
+  // 市区町村のページに載っていた住所・電話番号（あるものだけ）
+  address?: string;
+  phone?: string;
+  phoneIsContact?: boolean; // 施設の電話ではなく、担当課などの問い合わせ先の電話
 }
 
 export interface PlaceGroup {
@@ -54,6 +59,44 @@ function fail(where: string, msg: string): never {
 
 let cache: PlaceItem[] | null = null;
 let excludedCount = 0;
+
+export const normKey = (n: string) => n.normalize('NFKC').replace(/\s+/g, '').toLowerCase();
+const PHONE = /^0\d{1,4}-\d{1,4}-\d{3,4}$/;
+const prefIndexOf = (name: string) => JIS_ORDER.indexOf(name);
+
+interface Detail { municipality_code: string; municipality: string; prefecture: string; name: string; address: string; phone: string | null; phone_is_contact: boolean; source_url: string; fetched_at: string }
+
+// 住所・電話番号（data/places/details.json）を、同じ市区町村・同じ施設名の施設に足す。なければ、住所つきの施設として加える。
+function attachDetails(out: PlaceItem[], overrides: Map<string, Override>, idxOf: (n: string) => number) {
+  const list = (detailsRaw as { details?: Detail[] }).details;
+  if (!Array.isArray(list)) throw new Error('[places] data/places/details.json に details がありません');
+  const byKey = new Map(out.filter((p) => p.kind === 'facility').map((p) => [`${p.code}|${normKey(p.name!)}`, p]));
+  let attached = 0, added = 0;
+  for (const d of list) {
+    const where = d.source_url;
+    let u: URL;
+    try { u = new URL(d.source_url); } catch { return fail(where, 'URLを解釈できません'); }
+    if (u.protocol !== 'https:' || u.username || u.password) fail(where, 'https でないか、URLにユーザー情報が含まれています');
+    if (overrides.get(d.source_url)?.exclude) continue;
+    const idx = idxOf(d.prefecture);
+    if (idx < 0 || !/^\d{5}$/.test(d.municipality_code) || Number(d.municipality_code.slice(0, 2)) !== idx + 1) fail(where, `市区町村コードが都道府県と合いません: ${d.municipality_code}`);
+    if (!d.name || d.name.length > MAX_NAME) fail(where, `施設名が正しくありません: ${d.name}`);
+    for (const re of NAME_LINT) if (re.test(d.name)) fail(where, `施設名に載せられない形が含まれています: ${d.name}`);
+    if (!d.address || d.address.length > 80 || /[@＠]|https?:/.test(d.address)) fail(where, `住所が正しくありません: ${d.address}`);
+    if (d.phone !== null && !PHONE.test(d.phone)) fail(where, `電話番号の形式が正しくありません: ${d.phone}`);
+    if (Number.isNaN(Date.parse(d.fetched_at))) fail(where, `取得日時が正しくありません: ${d.fetched_at}`);
+    const key = `${d.municipality_code}|${normKey(d.name)}`;
+    const fetchedAt = jstDate(d.fetched_at);
+    const hit = byKey.get(key);
+    const extra = { address: d.address, phone: d.phone ?? undefined, phoneIsContact: d.phone_is_contact || undefined, surveyedAt: fetchedAt };
+    if (hit) { Object.assign(hit, extra, { url: d.source_url }); attached++; }
+    else {
+      const item: PlaceItem = { kind: 'facility', name: d.name, municipality: d.municipality, code: d.municipality_code, url: d.source_url, ...extra };
+      out.push(item); byKey.set(key, item); added++;
+    }
+  }
+  console.log(`[places] 住所・電話番号: 既存の施設に ${attached}件、新しい施設として ${added}件`);
+}
 
 function load(): PlaceItem[] {
   if (cache) return cache;
@@ -105,6 +148,7 @@ function load(): PlaceItem[] {
     }
     out.push({ kind, name, municipality, code, url, surveyedAt: jstDate(surveyed) });
   }
+  attachDetails(out, overrides, prefIndexOf);
   cache = out;
   const oldest = out.map((p) => p.surveyedAt).sort()[0];
   if (oldest && (Date.now() - Date.parse(`${oldest}T00:00:00Z`)) / 86400e3 >= 180) {
@@ -136,4 +180,12 @@ export function getPlacesBySlug(slug: string): PrefecturePlaces {
 export function jaDate(iso: string): string {
   const [y, m, d] = iso.split('-').map(Number);
   return `${y}年${m}月${d}日`;
+}
+
+/** 住所つきの施設の「市区町村名|施設名」（別の節で同じ施設を重複して出さないための照合用）。 */
+export function detailedFacilityKeys(slug: string): Set<string> {
+  const g = getPlacesBySlug(slug);
+  const keys = new Set<string>();
+  for (const m of g.groups) for (const f of m.facilities) if (f.address) keys.add(`${m.municipality}|${normKey(f.name!)}`);
+  return keys;
 }
