@@ -229,6 +229,7 @@ export function enrichedToRows(csvRows, codeLookup, fetchedAt) {
     municipality_code: r['市区町村コード'] || codeLookup.get(`${r['都道府県']}|${r['市区町村']}`) || '',
     municipality_name: r['市区町村'],
     facility_name: r['施設名'],
+    original_name: r['施設名（元）'] ?? '', // 名前を直した行の、直す前の名前（前に載せていた同じ施設を置き換えるため）
     address: r['住所'],
     phone: r['電話番号'],
     inquiry_phone: r['問い合わせ電話'],

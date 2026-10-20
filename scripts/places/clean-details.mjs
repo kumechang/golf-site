@@ -38,7 +38,12 @@ if (enriched) {
   });
   // 今回のCSVに入っていない、すでに載せていた施設は残す（取り込みで減らさない）
   const have = new Set(details.map((d) => `${d.municipality_code}|${normKey(d.name)}`));
-  for (const o of previous) if (!have.has(`${o.municipality_code}|${normKey(o.name)}`) && !isGenericName(o.name)) details.push({ source_kind: 'municipal', ...o });
+  // 名前を直した行は、直す前の名前で載せていた施設を置き換える（古い名前を残さない）
+  const renamed = new Set(rows.filter((r) => r.original_name && r.original_name !== r.facility_name).map((r) => `${r.municipality_code}|${normKey(r.original_name)}`));
+  for (const o of previous) {
+    const k = `${o.municipality_code}|${normKey(o.name)}`;
+    if (!have.has(k) && !renamed.has(k) && !isGenericName(o.name)) details.push({ source_kind: 'municipal', ...o });
+  }
   details.sort((a, b) => a.municipality_code.localeCompare(b.municipality_code) || a.name.localeCompare(b.name));
 }
 const out = outPath;
