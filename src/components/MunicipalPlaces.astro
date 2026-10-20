@@ -74,7 +74,7 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
           const rows = (
             <ul role="list" class="mt-1 list-none pl-0">
               {items.map((it) => (
-                <li class="border-t border-slate-200 py-3" data-place-item data-search={`${it.municipality} ${it.name ?? ""} ${it.address ?? ""}`}>
+                <li class="border-t border-slate-200 py-3" data-place-item data-search={`${it.municipality} ${it.name ?? ""} ${(it.alsoNames ?? []).join(" ")} ${it.address ?? ""}`}>
                   <span class="block min-w-0 break-words text-base font-bold text-slate-900">{label(it, g)}</span>
                   {it.address && (
                     <dl class="mt-1 space-y-1 text-base text-slate-700">
@@ -92,6 +92,9 @@ const label = (it: PlaceItem, g: { listings: PlaceItem[] }) => {
                         </div>
                       )}
                     </dl>
+                  )}
+                  {it.alsoNames && it.alsoNames.length > 0 && (
+                    <span class="mt-1 block text-base text-slate-700">同じ所在地・電話番号の施設：{it.alsoNames.join('、')}</span>
                   )}
                   <span class="mt-1 block">
                     <a

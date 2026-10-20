@@ -160,7 +160,7 @@ export function buildPlaces(rows) {
 // 抜き出した文（matched_text / keyword_evidence）や担当課名は使わない。
 
 // 住所のある行は施設そのものなので、施設を表す語は必須にしない。一覧・見出し・窓口・活動名だけのものは載せない。
-const DETAIL_BAD = /(所在地|使用時間|休場日|貸出時間|申し込み先|詳細情報|体力づくり|休憩所|町内の|クラブハウス|会議室|^施設$|スポーツ施設$|体育施設$|公社|基本情報|[、,])/;
+const DETAIL_BAD = /(所在地|使用時間|休場日|貸出時間|申し込み先|詳細情報|体力づくり|休憩所|町内の|クラブハウス|会議室|^施設$|スポーツ施設$|体育施設$|公社|基本情報|指定管理者|^\d+[\s.．]|[、,])/;
 export const isGenericName = (n) => GENERIC.test(n) || NAME_BAD.test(n) || DETAIL_BAD.test(n) || PLAIN_NAME.test(n);
 const PHONE = /^0\d{1,4}-\d{1,4}-\d{3,4}$/;
 export const normKey = (n) => n.normalize('NFKC').replace(/\s+/g, '').toLowerCase();
