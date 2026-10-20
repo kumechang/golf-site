@@ -267,6 +267,10 @@
     {
       "source_url": "https://www.city.miyazaki.miyazaki.jp/culture/facilities/89165.html",
       "exclude": true
+    },
+    {
+      "source_url": "https://www.city.otsu.lg.jp/sc/s/sh/index.html",
+      "exclude": true
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-20T00:42:56.863Z",
-  "count": 735,
+  "generated_at": "2026-10-20T00:50:11.543Z",
+  "count": 757,
   "details": [
     {
       "municipality_code": "01205",
@@ -145,6 +145,18 @@
       "phone_is_contact": true,
       "source_url": "https://www.city.oshu.iwate.jp/kanko_bunka_sports/sports/2/2/9268.html",
       "fetched_at": "2026-10-19T05:48:43Z"
+    },
+    {
+      "municipality_code": "03303",
+      "municipality": "岩手町",
+      "prefecture": "岩手県",
+      "name": "岩手町多目的グラウンド",
+      "address": "岩手県岩手郡岩手町子抱第4地割12",
+      "phone": "0195-62-4835",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://town.iwate.iwate.jp/town/accessmap/tamokuteki/?v=cat-accessmap&w=culture-map&x=culture-map",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "03303",
@@ -1131,6 +1143,18 @@
       "fetched_at": "2026-10-19T05:50:05Z"
     },
     {
+      "municipality_code": "08233",
+      "municipality": "行方市",
+      "prefecture": "茨城県",
+      "name": "麻生運動場多目的グラウンド",
+      "address": null,
+      "phone": "0299-77-0791",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.namegata.ibaraki.jp/sports/sports-asoundou/page008580.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
       "municipality_code": "08310",
       "municipality": "城里町",
       "prefecture": "茨城県",
@@ -1549,6 +1573,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.numata.gunma.jp/shisetsu/kouen/1001674.html",
       "fetched_at": "2026-10-19T05:49:24Z"
+    },
+    {
+      "municipality_code": "10207",
+      "municipality": "館林市",
+      "prefecture": "群馬県",
+      "name": "ダノンスポーツパーク多目的広場",
+      "address": "館林市つつじ町14-1",
+      "phone": "0276-74-2611",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.tatebayashi.gunma.jp/s094/map/060/20201105170809.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "10207",
@@ -2175,6 +2211,7 @@
       "fetched_at": "2026-10-20T00:40:00Z"
     },
     {
+      "source_kind": "municipal",
       "municipality_code": "11218",
       "municipality": "深谷市",
       "prefecture": "埼玉県",
@@ -2182,7 +2219,6 @@
       "address": null,
       "phone": "048-583-3234",
       "phone_is_contact": false,
-      "source_kind": "municipal",
       "source_url": "https://www.city.fukaya.saitama.jp/kurashi/sports/sports/shisetsu/1545803280715.html",
       "fetched_at": "2026-10-20T00:40:00Z"
     },
@@ -2550,6 +2586,30 @@
       "municipality_code": "12208",
       "municipality": "野田市",
       "prefecture": "千葉県",
+      "name": "野田市営関宿スポーツパーク",
+      "address": "野田市古布内1943番地2",
+      "phone": "04-7198-8500",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.noda.chiba.jp/shisetsu/kouen/1050211.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
+      "municipality_code": "12208",
+      "municipality": "野田市",
+      "prefecture": "千葉県",
+      "name": "野田市総合公園",
+      "address": "野田市清水958番地",
+      "phone": "04-7125-1155",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.noda.chiba.jp/shisetsu/kouen/1001068.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
+      "municipality_code": "12208",
+      "municipality": "野田市",
+      "prefecture": "千葉県",
       "name": "関宿スポーツパークが4月1日から供用開始",
       "address": null,
       "phone": "04-7123-1367",
@@ -2557,6 +2617,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.noda.chiba.jp/kurashi/oshirase/kyoikubunka/1050189.html",
       "fetched_at": "2026-10-20T00:40:00Z"
+    },
+    {
+      "municipality_code": "12208",
+      "municipality": "野田市",
+      "prefecture": "千葉県",
+      "name": "関宿総合公園",
+      "address": "野田市平井401番地",
+      "phone": "04-7198-8500",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.noda.chiba.jp/shisetsu/kouen/1001069.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "12224",
@@ -2749,6 +2821,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.nerima.tokyo.jp/shisetsu/koen/undo/nerima.html",
       "fetched_at": "2026-10-20T00:40:00Z"
+    },
+    {
+      "municipality_code": "13121",
+      "municipality": "足立区",
+      "prefecture": "東京都",
+      "name": "高野スポーツパーク",
+      "address": null,
+      "phone": "03-3880-5989",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.adachi.tokyo.jp/sports/kouyaaishou.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "13122",
@@ -3663,6 +3747,18 @@
       "fetched_at": "2026-10-20T00:40:00Z"
     },
     {
+      "municipality_code": "19211",
+      "municipality": "笛吹市",
+      "prefecture": "山梨県",
+      "name": "笛吹市春日居スポーツ広場",
+      "address": "笛吹市春日居町鎮目1323",
+      "phone": "0553-26-3773",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.fuefuki.yamanashi.jp/shisetsu/sportsshisetsu/006.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
       "municipality_code": "19366",
       "municipality": "南部町",
       "prefecture": "山梨県",
@@ -3721,6 +3817,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.hashima.lg.jp/1685.html",
       "fetched_at": "2026-10-19T05:49:16Z"
+    },
+    {
+      "municipality_code": "21220",
+      "municipality": "下呂市",
+      "prefecture": "岐阜県",
+      "name": "飛騨川公園",
+      "address": "下呂市萩原町上呂2250番地1",
+      "phone": "0576-24-2222",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.gero.lg.jp/soshiki/59/1606.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "21221",
@@ -4297,6 +4405,18 @@
       "source_kind": "web",
       "source_url": "https://www.city.kikugawa.shizuoka.jp/shakaikyouiku/hasuikekouen.html",
       "fetched_at": "2026-10-20T00:40:00Z"
+    },
+    {
+      "municipality_code": "22225",
+      "municipality": "伊豆の国市",
+      "prefecture": "静岡県",
+      "name": "江間グラウンド",
+      "address": null,
+      "phone": "055-948-1461",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.izunokuni.shizuoka.jp/sports/manabi/kashidashi/ichiran/007.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "22305",
@@ -5307,6 +5427,18 @@
       "fetched_at": "2026-10-20T00:40:00Z"
     },
     {
+      "municipality_code": "23361",
+      "municipality": "大口町",
+      "prefecture": "愛知県",
+      "name": "大口町多目的広場",
+      "address": "大口町下小口六丁目150番地",
+      "phone": "0587-95-9033",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.town.oguchi.lg.jp/2698.htm",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
       "municipality_code": "23424",
       "municipality": "大治町",
       "prefecture": "愛知県",
@@ -5521,6 +5653,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.otsu.lg.jp/sc/s/sh/c/67776.html",
       "fetched_at": "2026-10-19T05:48:42Z"
+    },
+    {
+      "municipality_code": "25201",
+      "municipality": "大津市",
+      "prefecture": "滋賀県",
+      "name": "皇子が丘公園プール",
+      "address": null,
+      "phone": "077-523-1234",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.otsu.lg.jp/sc/s/sh/index.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "25202",
@@ -5905,6 +6049,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.settsu.osaka.jp/map/bunnka/suport/undoujyou/10119.html",
       "fetched_at": "2026-10-19T05:50:17Z"
+    },
+    {
+      "municipality_code": "27226",
+      "municipality": "藤井寺市",
+      "prefecture": "大阪府",
+      "name": "青少年運動広場Aグラウンド",
+      "address": "藤井寺市大井1丁目433番地の3",
+      "phone": "072-939-1111",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.fujiidera.lg.jp/shisetsuannaibasu/supotsu/1387252652372.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "27227",
@@ -6399,6 +6555,18 @@
       "fetched_at": "2026-10-19T05:50:36Z"
     },
     {
+      "municipality_code": "31302",
+      "municipality": "岩美町",
+      "prefecture": "鳥取県",
+      "name": "岩美町立グラウンド",
+      "address": null,
+      "phone": "0857-73-1411",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.iwami.gr.jp/3125.htm",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
       "municipality_code": "31325",
       "municipality": "若桜町",
       "prefecture": "鳥取県",
@@ -6702,13 +6870,13 @@
       "municipality_code": "33623",
       "municipality": "奈義町",
       "prefecture": "岡山県",
-      "name": "総合運動公園",
+      "name": "奈義町総合運動公園グラウンド・ゴルフ場",
       "address": null,
       "phone": "0868-36-3300",
       "phone_is_contact": false,
       "source_kind": "municipal",
       "source_url": "https://www.town.nagi.okayama.jp/kankou/kankou_spot/asobu/sougou_undoukouen.html",
-      "fetched_at": "2026-10-20T00:40:00Z"
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "33681",
@@ -6759,6 +6927,18 @@
       "fetched_at": "2026-10-19T05:50:01Z"
     },
     {
+      "municipality_code": "34205",
+      "municipality": "尾道市",
+      "prefecture": "広島県",
+      "name": "御調グラウンド・ゴルフ場",
+      "address": null,
+      "phone": "0848-38-9111",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.onomichi.hiroshima.jp/life/6/34/177/",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
       "source_kind": "municipal",
       "municipality_code": "34205",
       "municipality": "尾道市",
@@ -6805,6 +6985,18 @@
       "phone_is_contact": false,
       "source_url": "https://www.city.onomichi.hiroshima.jp/soshiki/61/29102.html",
       "fetched_at": "2026-10-19T05:50:01Z"
+    },
+    {
+      "municipality_code": "34207",
+      "municipality": "福山市",
+      "prefecture": "広島県",
+      "name": "ふくやまふれ愛ランド 第1グランド",
+      "address": null,
+      "phone": "084-952-1177",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.fukuyama.hiroshima.jp/site/fureailand/16.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "34207",
@@ -7899,6 +8091,30 @@
       "fetched_at": "2026-10-19T05:48:30Z"
     },
     {
+      "municipality_code": "41210",
+      "municipality": "神埼市",
+      "prefecture": "佐賀県",
+      "name": "神埼中央公園グラウンド",
+      "address": "神埼市神埼町尾崎4390番地2",
+      "phone": "0952-53-0011",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.kanzaki.saga.jp/main/457.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
+      "municipality_code": "41346",
+      "municipality": "みやき町",
+      "prefecture": "佐賀県",
+      "name": "中原公園多目的広場",
+      "address": null,
+      "phone": "0942-89-3163",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.town.miyaki.lg.jp/kanko/shisetsu/_1279.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
       "municipality_code": "41346",
       "municipality": "みやき町",
       "prefecture": "佐賀県",
@@ -7933,6 +8149,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.omura.nagasaki.jp/kouhou/shise/shokai/shisetsu/bunka/27.html",
       "fetched_at": "2026-10-19T05:48:35Z"
+    },
+    {
+      "municipality_code": "42210",
+      "municipality": "壱岐市",
+      "prefecture": "長崎県",
+      "name": "全天候型多目的施設",
+      "address": null,
+      "phone": "0920-45-3693",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.iki.nagasaki.jp/soshiki/bunkasportssinkou/sport_facility/4203.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "42214",
@@ -8199,6 +8427,18 @@
       "fetched_at": "2026-10-19T05:48:38Z"
     },
     {
+      "municipality_code": "44462",
+      "municipality": "玖珠町",
+      "prefecture": "大分県",
+      "name": "玖珠町総合運動公園多目的グラウンド",
+      "address": null,
+      "phone": "0973-72-6880",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.town.kusu.oita.jp/choseijoho/machinoshisetsuichiran/5/1741.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
+    },
+    {
       "municipality_code": "45201",
       "municipality": "宮崎市",
       "prefecture": "宮崎県",
@@ -8307,6 +8547,7 @@
       "fetched_at": "2026-10-19T05:49:38Z"
     },
     {
+      "source_kind": "municipal",
       "municipality_code": "46203",
       "municipality": "鹿屋市",
       "prefecture": "鹿児島県",
@@ -8314,7 +8555,6 @@
       "address": "鹿屋市田崎町450番地",
       "phone": "0994-42-3222",
       "phone_is_contact": false,
-      "source_kind": "municipal",
       "source_url": "https://www.city.kanoya.lg.jp/kouhou/shisetsu/sports/015.html",
       "fetched_at": "2026-10-19T05:49:50Z"
     },
@@ -8413,6 +8653,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.kanoya.lg.jp/shisupo/sport/shisetsu/index.html",
       "fetched_at": "2026-10-20T00:40:00Z"
+    },
+    {
+      "municipality_code": "46203",
+      "municipality": "鹿屋市",
+      "prefecture": "鹿児島県",
+      "name": "鹿屋中央公園サッカー場兼ソフトボール場",
+      "address": "鹿児島県鹿屋市向江町29番1号",
+      "phone": "0994-43-7221",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.kanoya.lg.jp/undou/bunka/sport/shisetsu/ground.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "46214",
@@ -8737,6 +8989,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city-kirishima.jp/ken-cho/shisetsu/kosodate-koen/115.html",
       "fetched_at": "2026-10-19T05:49:51Z"
+    },
+    {
+      "municipality_code": "46220",
+      "municipality": "南さつま市",
+      "prefecture": "鹿児島県",
+      "name": "南さつま市加世田運動公園",
+      "address": "南さつま市加世田武田18100番地",
+      "phone": "0993-52-2436",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.minamisatsuma.lg.jp/living/kyoiku-bunka-sports/taiku-kouen/e018055.html",
+      "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
       "municipality_code": "46220",
