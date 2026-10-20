@@ -25,6 +25,9 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
 <section aria-labelledby={`${id}-h`} id={id} class="mt-12">
   <h2 id={`${id}-h`} class="text-2xl font-bold leading-snug text-slate-900">{heading}</h2>
   {intro && <p class="mt-3 text-base leading-relaxed text-slate-800">{intro}</p>}
+  <p id={`${id}-notice`} class="mt-3 text-base leading-relaxed text-slate-700">
+    再生ボタンを押すと、YouTube（Google）のサーバーに接続し、閲覧の情報が送られます。くわしくは<a class={link} href="/privacy-policy/#youtube">プライバシーポリシー</a>をご覧ください。
+  </p>
   <ul role="list" class="mt-5 list-none space-y-8 pl-0">
     {videos.map((v) => (
       <li class="list-none">
@@ -35,6 +38,8 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
               data-yt-id={v.id}
               data-yt-title={v.title}
               aria-label={`動画を再生する：${v.title}`}
+              aria-describedby={`${id}-notice`}
+              hidden
               class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white hover:bg-slate-800"
             >
               <span aria-hidden="true" class="flex h-16 w-16 items-center justify-center rounded-full bg-white text-slate-900">
@@ -42,6 +47,9 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
               </span>
               <span class="text-lg font-bold">動画を再生する</span>
             </button>
+            <noscript>
+              <p class="absolute inset-0 flex items-center justify-center p-4 text-center text-base text-white">動画の再生には、JavaScriptが必要です。下の「YouTubeで開く」から見られます。</p>
+            </noscript>
           </div>
           <figcaption class="mt-2 text-base leading-relaxed text-slate-800">
             <span class="block font-bold text-slate-900">{v.title}</span>
@@ -61,14 +69,13 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
       </li>
     ))}
   </ul>
-  <p class="mt-5 text-base leading-relaxed text-slate-700">
-    再生ボタンを押すと、YouTube（Google）のサーバーに接続し、閲覧の情報が送られることがあります。くわしくは<a class={link} href="/privacy-policy/#youtube">プライバシーポリシー</a>をご覧ください。
-  </p>
 </section>
 
 <script>
   // 再生ボタンを押したときだけ、動画の埋め込み（youtube-nocookie.com）を読み込む。
+  // JavaScript が使えるときだけ、再生ボタンを出す（使えないときは、下の「YouTubeで開く」と案内を出す）。
   document.querySelectorAll<HTMLButtonElement>('button[data-yt-id]').forEach((btn) => {
+    btn.hidden = false;
     btn.addEventListener('click', () => {
       const id = btn.dataset.ytId!;
       const frame = btn.closest<HTMLElement>('[data-yt-frame]')!;
