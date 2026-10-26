@@ -19,10 +19,21 @@ const resolvedOgImage = ogImage
   ? new URL(ogImage, Astro.site).toString()
   : new URL('/ogp-default.png', Astro.site).toString();
 
+// 検索結果のサイト名の補助（トップページのみ）。別の書き方（グランドゴルフ入門ナビ）も同じサイトの名前と伝える。順位を上げる仕組みではない。
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  alternateName: 'グランドゴルフ入門ナビ',
+  url: Astro.site?.toString(),
+  inLanguage: 'ja',
+};
+
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: SITE_NAME,
+  alternateName: 'グランドゴルフ入門ナビ',
   url: Astro.site?.toString(),
   logo: new URL('/favicon.svg', Astro.site).toString(),
 };
@@ -54,6 +65,7 @@ const organizationJsonLd = {
     <meta name="twitter:image" content={resolvedOgImage} />
 
     <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+    {Astro.url.pathname === '/' && <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />}
 
     <slot name="head" />
     <Analytics />
