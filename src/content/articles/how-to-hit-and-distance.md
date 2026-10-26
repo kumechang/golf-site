@@ -63,7 +63,7 @@ videos:
 距離感をつかむ最初の一歩は、自分が回るコースの距離を知ることです。日本グラウンド・ゴルフ協会（JGGA）の標準コースは、50m・30m・25m・15mが各2ホールの、合計8ホールです（出典：[JGGA公式サイトのルール](https://www.groundgolf.or.jp/about/ground-golf-rules/)）。
 
 <figure class="diagram">
-  <img src="/diagrams/course-distances.svg" width="360" height="534" alt="標準コース8ホールの距離。50m・30m・25m・15mが各2ホール" loading="lazy" decoding="async" />
+  <img src="/diagrams/course-distances.svg" width="360" height="534" alt="標準コースの距離の図（50m・30m・25m・15mが各2ホール）" loading="lazy" decoding="async" />
   <figcaption>標準コースは50m・30m・25m・15mが各2ホール、計8ホールとされています。ホールの配置は会場により異なります。</figcaption>
 </figure>
 
