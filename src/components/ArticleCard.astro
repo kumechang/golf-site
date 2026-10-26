@@ -7,9 +7,12 @@ interface Props {
   href: string;
   category: string;
   pubDate: Date;
+  updatedDate?: Date; // 公開日より新しければ、更新日も出す
 }
 
-const { title, description, href, category, pubDate } = Astro.props as Props;
+const { title, description, href, category, pubDate, updatedDate } = Astro.props as Props;
+const fmt = (d: Date) => d.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+const showUpdated = Boolean(updatedDate && updatedDate.valueOf() > pubDate.valueOf());
 const cat = getCategory(category);
 ---
 
@@ -22,6 +25,9 @@ const cat = getCategory(category);
   <h3 class="mt-2 text-lg font-bold text-slate-900 group-hover:underline">{title}</h3>
   <p class="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-600">{description}</p>
   <time datetime={pubDate.toISOString()} class="mt-3 block text-xs text-slate-600">
-    {pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+    {fmt(pubDate)}
   </time>
+  {showUpdated && (
+    <time datetime={updatedDate!.toISOString()} class="mt-1 block text-xs text-slate-600">更新日: {fmt(updatedDate!)}</time>
+  )}
 </a>
