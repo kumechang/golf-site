@@ -51,7 +51,7 @@ videos:
 大会といっても、すべてが同じ規模、同じ顔ぶれではありません。お住まいの地域に近い集まりから、全国規模のものまであります。以下は範囲の目安で、名称や仕組みは地域によって異なります。前の範囲の大会に出ていないと次の大会に出られない、という意味ではありません。
 
 <figure class="diagram">
-  <img src="/diagrams/tournament-ranges.svg" width="640" height="356" alt="大会の範囲の目安。地域の集まり、市区町村・区、都道府県、ブロック、全国規模（順番や勝ち上がりを表すものではありません）" loading="lazy" decoding="async" />
+  <img src="/diagrams/tournament-ranges.svg" width="360" height="429" alt="大会の範囲の目安。地域の集まり、市区町村・区、都道府県、ブロック、全国規模（順番や勝ち上がりを表すものではありません）" loading="lazy" decoding="async" />
   <figcaption>大会の範囲の目安です。前の範囲の大会に出ていないと次に出られる、という意味ではなく、参加資格は大会ごとに異なります。</figcaption>
 </figure>
 

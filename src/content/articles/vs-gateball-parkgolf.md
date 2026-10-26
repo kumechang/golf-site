@@ -20,7 +20,7 @@ updatedDate: 2026-10-26
 | コース | 公園・広場・専用コースなど | 専用コート | 専用のパークゴルフ場 |
 
 <figure class="diagram">
-  <img src="/diagrams/compare-three.svg" width="640" height="703" alt="グラウンドゴルフ・ゲートボール・パークゴルフの比較（目的・形式・道具・コース）" loading="lazy" decoding="async" />
+  <img src="/diagrams/compare-three.svg" width="360" height="1055" alt="グラウンドゴルフ・ゲートボール・パークゴルフの比較（目的・形式・道具・コース）" loading="lazy" decoding="async" />
   <figcaption>3つの競技の違いを、目的・プレー形式・道具・コースで並べました。表と同じ内容です。ルールの細部は各協会や主催者の案内でご確認ください。</figcaption>
 </figure>
 

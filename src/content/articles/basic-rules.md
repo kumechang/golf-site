@@ -22,7 +22,7 @@ faqItems:
 5. 全ホールの合計打数の少なさを競います
 
 <figure class="diagram">
-  <img src="/diagrams/play-flow.svg" width="640" height="592" alt="プレーの流れ。スタートマットから1打目、止まった位置から打ちつづけ、輪の中で止まるとホールイン（トマリ）" loading="lazy" decoding="async" />
+  <img src="/diagrams/play-flow.svg" width="360" height="591" alt="プレーの流れ。スタートマットから1打目、止まった位置から打ちつづけ、輪の中で止まるとホールイン（トマリ）" loading="lazy" decoding="async" />
   <figcaption>プレーの流れの一例です。打つ順番は決められた順で、ゲーム中の打球練習はできません。</figcaption>
 </figure>
 
@@ -37,7 +37,7 @@ faqItems:
 ボールがホールポストの輪の中に入り、静止した状態になるとホールイン（公式には「トマリ」）となります。単に近づいただけでは完了とならない点に注意しましょう。
 
 <figure class="diagram">
-  <img src="/diagrams/hole-post.svg" width="640" height="494" alt="ホールポストの構造。地面の近くの低い輪（ホール）と、番号旗のついたポール" loading="lazy" decoding="async" />
+  <img src="/diagrams/hole-post.svg" width="360" height="500" alt="ホールポストの構造。地面の近くの低い輪（ホール）と、番号旗のついたポール" loading="lazy" decoding="async" />
   <figcaption>ホールポストは、地面に近い低い輪と、番号旗のポールでできています。ボールが輪の中で止まった状態を「トマリ」といいます。形のイメージで、大きさは示していません。</figcaption>
 </figure>
 
