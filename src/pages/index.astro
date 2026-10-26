@@ -5,11 +5,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CategoryCard from '../components/CategoryCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { categories } from '../data/categories';
+import { getPrefecturesByRegion } from '../data/prefectures';
 import heroCourseScene from '../assets/illustrations/hero-course-scene.jpg';
 
-const allArticles = (await getCollection('articles')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+// 新着・更新順（更新日があれば更新日、なければ公開日）。更新した記事も上に出して、Googleにも読者にも、動いているページが分かるようにする。
+const lastDate = (a: { data: { pubDate: Date; updatedDate?: Date } }) => (a.data.updatedDate ?? a.data.pubDate).valueOf();
+const allArticles = (await getCollection('articles')).sort((a, b) => lastDate(b) - lastDate(a));
+const regions = getPrefecturesByRegion();
 
 const latestArticles = allArticles.slice(0, 6);
 // 収益コアである比較記事（クラブセット比較・ギフトガイド）は、
@@ -166,7 +168,7 @@ const pageDescription =
 
   <section class="mx-auto max-w-5xl px-4 py-14">
     <div class="flex items-center justify-between">
-      <h2 class="text-2xl font-bold text-slate-900">新着記事</h2>
+      <h2 class="text-2xl font-bold text-slate-900">新着・更新記事</h2>
     </div>
     <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
@@ -177,9 +179,31 @@ const pageDescription =
             href={`/${article.data.category}/${article.id}/`}
             category={article.data.category}
             pubDate={article.data.pubDate}
+            updatedDate={article.data.updatedDate}
           />
         ))
       }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-14" aria-labelledby="by-region">
+    <h2 id="by-region" class="text-2xl font-bold text-slate-900">お住まいの地域から探す</h2>
+    <p class="mt-3 max-w-3xl text-base leading-relaxed text-slate-700">
+      都道府県ごとに、協会の窓口と、市区町村の案内にグラウンドゴルフの記載がある施設へのリンクをまとめています（全国をそろえたものではありません）。今後の大会は、<a href="/community/events/" class="font-bold text-green-800 underline underline-offset-2">地域別の大会カレンダー（一部地域）</a>で見られます。
+    </p>
+    <div class="mt-6 space-y-5">
+      {regions.map((r) => (
+        <div>
+          <h3 class="text-base font-bold text-slate-900">{r.region}</h3>
+          <ul role="list" class="mt-2 flex flex-wrap gap-2">
+            {r.prefectures.map((p) => (
+              <li>
+                <a href={`/community/find-a-club-near-you/${p.slug}/`} class="tap-target inline-flex items-center rounded-full border border-slate-300 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">{p.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   </section>
 
