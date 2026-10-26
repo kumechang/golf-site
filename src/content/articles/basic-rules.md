@@ -5,6 +5,7 @@ category: "rules"
 articleType: "intro"
 order: 1
 pubDate: 2026-09-17
+updatedDate: 2026-10-26
 faqItems:
   - question: "ルールは大会によって違いますか？"
     answer: "基本的な進め方は共通ですが、細かい規定は主催団体や大会ごとに異なる場合があります。大会に参加する際は、事前に配布されるルールを確認しておくと安心です。"
@@ -20,6 +21,11 @@ faqItems:
 4. 1ホールごとに打数を記録し、決められたホール数（一般的には8ホール）を回ります
 5. 全ホールの合計打数の少なさを競います
 
+<figure class="diagram">
+  <img src="/diagrams/play-flow.svg" width="360" height="591" alt="プレーの流れ。スタートマットから1打目、止まった位置から打ちつづけ、輪の中で止まるとホールイン（トマリ）" loading="lazy" decoding="async" />
+  <figcaption>プレーの流れの一例です。打つ順番は決められた順で、ゲーム中の打球練習はできません。</figcaption>
+</figure>
+
 ## 覚えておきたい基本ルール
 
 ### 打つ順番
@@ -29,6 +35,11 @@ faqItems:
 ### ホールポストへの入れ方
 
 ボールがホールポストの輪の中に入り、静止した状態になるとホールイン（公式には「トマリ」）となります。単に近づいただけでは完了とならない点に注意しましょう。
+
+<figure class="diagram">
+  <img src="/diagrams/hole-post.svg" width="360" height="500" alt="ホールポストの構造。地面の近くの低い輪（ホール）と、番号旗のついたポール" loading="lazy" decoding="async" />
+  <figcaption>ホールポストは、地面に近い低い輪と、番号旗のポールでできています。ボールが輪の中で止まった状態を「トマリ」といいます。形のイメージで、大きさは示していません。</figcaption>
+</figure>
 
 ### 打数の数え方
 

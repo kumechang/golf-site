@@ -5,6 +5,7 @@ category: "rules"
 articleType: "howto"
 order: 2
 pubDate: 2026-09-17
+updatedDate: 2026-10-26
 productIds:
   - "score-card-waterproof"
   - "hatachi-marker"
@@ -20,6 +21,11 @@ productsHeading: "スコア記入に便利なアイテム"
 - クラブでボールを打った場合は、1打として数えます
 - 空振り（ルール上は「から振り」。クラブがボールに当たらなかった場合）は、日本グラウンド・ゴルフ協会のルールで打数に数えないとされています
 - 素振り（構えの確認など）は、ボールを打たなければ打数に数えません
+
+<figure class="diagram">
+  <img src="/diagrams/scoring-flow.svg" width="360" height="663" alt="スコアの数え方の流れ図（1打ごとに数える、輪の中で止まったら終わり、全ホールの打数を合計する。反則とから振りの注意つき）" loading="lazy" decoding="async" />
+  <figcaption>スコアの数え方の一例です。細かな扱いは大会や主催者により異なる場合があります。</figcaption>
+</figure>
 
 ## スコア表への記入方法
 

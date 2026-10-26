@@ -5,7 +5,7 @@ category: "rules"
 articleType: "howto"
 order: 4
 pubDate: 2026-10-09
-updatedDate: 2026-10-20
+updatedDate: 2026-10-26
 faqItems:
   - question: "同じように打っているのに、ボールの止まる位置がばらつくのは普通ですか？"
     answer: "珍しいことではありません。地面の状態、風、ボールの転がり方といった状況に加え、打つときのわずかな違いでも、止まる位置はずれることがあります。ばらつき方を観察すること自体が、距離感をつかむ手がかりになることがあります。"
@@ -61,6 +61,11 @@ videos:
 ## 距離感をつかむには｜まずコースの距離を知る
 
 距離感をつかむ最初の一歩は、自分が回るコースの距離を知ることです。日本グラウンド・ゴルフ協会（JGGA）の標準コースは、50m・30m・25m・15mが各2ホールの、合計8ホールです（出典：[JGGA公式サイトのルール](https://www.groundgolf.or.jp/about/ground-golf-rules/)）。
+
+<figure class="diagram">
+  <img src="/diagrams/course-distances.svg" width="360" height="534" alt="標準コースの距離の図（50m・30m・25m・15mが各2ホール）" loading="lazy" decoding="async" />
+  <figcaption>標準コースは50m・30m・25m・15mが各2ホール、計8ホールとされています。ホールの配置は会場により異なります。</figcaption>
+</figure>
 
 1打でホールまで届かせる必要はありません。2打、3打と重ねて進めるホールとして考えて構いません。
 
