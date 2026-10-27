@@ -14,7 +14,8 @@
     "test:crawler": "node --test \"scripts/crawler/tests/*.test.mjs\"",
     "review:events": "node scripts/review-events.mjs",
     "places:clean": "node scripts/places/clean-places.mjs",
-    "places:details": "node scripts/places/clean-details.mjs"
+    "places:details": "node scripts/places/clean-details.mjs",
+    "indexnow": "node scripts/seo/indexnow.mjs"
   },
   "repository": {
     "type": "git",
