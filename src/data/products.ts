@@ -1,6 +1,7 @@
 // 商品データの一元管理（仕様書6.3）。
 // 2026-09-18に実際のAmazon.co.jp検索結果（保存HTML）から実在するASIN・商品名・価格を確認して登録している。
 // 2026-10-30にAmazon.co.jpの商品ページで価格・出品状況を再確認し、価格の更新・商品の追加・販売終了品の削除を行った。
+// ウエストポーチ（northway-waist-pouch）の価格は、商品ページではなくAmazonの検索結果に出ていた表示価格。
 // 価格はAmazon側で日々変動するため「確認時点の参考価格」として扱い、断定的な表記は避ける。
 // 月1回を目安に、価格・在庫・出品状況の変化を確認すること（仕様書6.3/7章）。
 // ブランドは公益社団法人日本グラウンド・ゴルフ協会（JGGA）用具公認制度の対象になり得る
@@ -157,7 +158,7 @@ export const products: Product[] = [
     material: '樹脂製（直径60mm±1mm、重さ75〜95gのJGGA規格に適合）',
     recommendedFor: '練習用・予備球を探している方、気軽なプレゼントを探している方',
     reasonSelected:
-      'JGGA公認マーク付きの樹脂製ボールで、価格も手頃なため予備球やちょっとした贈り物に選びやすい。',
+      '商品名に「公認ボール」と書かれた樹脂製ボールで、価格も手頃なため予備球やちょっとした贈り物に選びやすい。',
     tags: ['under-10000', 'gift', 'ball'],
   },
   {
@@ -338,8 +339,8 @@ export const products: Product[] = [
   {
     id: 'gokei-sun-visor',
     asin: 'B07BNBZVBG',
-    name: 'GOKEI（ゴケイ） サンバイザー つば広 UPF50+ アームカバー付き',
-    brand: 'GOKEI（ゴケイ）',
+    name: 'GOKEI サンバイザー つば広 UPF50+ アームカバー付き',
+    brand: 'GOKEI',
     priceYen: 2470,
     priceBand: 'entry',
     priceCheckedAt: '2026-10-30',
