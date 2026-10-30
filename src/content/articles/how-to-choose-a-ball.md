@@ -5,16 +5,19 @@ category: "gear"
 articleType: "howto"
 order: 3
 pubDate: 2026-09-17
-updatedDate: 2026-09-25
+updatedDate: 2026-10-30
 productIds:
   - "ground-golf-ball-resin"
+  - "hatachi-win4-ball"
+  - "hatachi-blade-ball"
+  - "hatachi-aero-ball"
   - "hatachi-ball-pouch"
-productsHeading: "おすすめのボール"
+productsHeading: "ボールとボールポーチの例"
 ---
 
 クラブと並んで欠かせない道具が「ボール」です。見た目はシンプルですが、実は規格や素材の違いがあります。この記事では、グラウンドゴルフのボールを選ぶときのポイントを紹介します。
 
-紹介する商品は、JGGA用具標準規則に適合していること、実績のあるメーカーの商品であることを基準に選定しています。
+紹介する商品は、実績のあるメーカーの商品であることを基準に選定しています。JGGAの認定に関する記載は商品によって異なり、商品ページに記載があるものとないものがあります。各カードで確認し、大会で使う場合は主催者の規定もあわせてご確認ください。
 
 ## ボールの規格
 
