@@ -104,7 +104,7 @@ export const products: Product[] = [
     name: 'asics（アシックス） グラウンドゴルフクラブ ストロングショット ハイパー',
     brand: 'asics（アシックス）',
     priceYen: 19350,
-    priceBand: 'standard',
+    priceBand: 'premium',
     priceCheckedAt: '2026-10-30',
     setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
     material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
