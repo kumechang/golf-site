@@ -16,8 +16,16 @@ import hatachiMarker from '../assets/products/B0DPVXVL1G.webp';
 import waterproofScoreCard from '../assets/products/B09FH8WQ1W.webp';
 import hatachiClubCase from '../assets/products/B07RXVTCP9.webp';
 import hatachiBallPouch from '../assets/products/B0CMXSC8S6.webp';
-import uvHatSenior from '../assets/products/B0FJ8PB9BH.webp';
 import nichiyoPracticeSet from '../assets/products/B0HFZBL1HH.webp';
+import dunlopRefinedShoes from '../assets/products/B09VNPYGGF.webp';
+import achillesWalkingShoes from '../assets/products/B0GT44W584.webp';
+import hatachiAeroBall from '../assets/products/B0FJRGRHDV.webp';
+import hatachiBladeBall from '../assets/products/B08WHWN7WT.webp';
+import hatachiWin4Ball from '../assets/products/B0D3DVDNC9.webp';
+import gokeiSunVisor from '../assets/products/B07BNBZVBG.webp';
+import hatachiBh8080Gloves from '../assets/products/B01ENUC6L8.webp';
+import asicsMagnetGloves from '../assets/products/B0BJD5777F.webp';
+import northwayWaistPouch from '../assets/products/B0CMTFDW6Y.webp';
 
 export const productImages: Record<string, ImageMetadata> = {
   B0CZ9BJ1W5: hatachiEntry,
@@ -34,6 +42,14 @@ export const productImages: Record<string, ImageMetadata> = {
   B09FH8WQ1W: waterproofScoreCard,
   B07RXVTCP9: hatachiClubCase,
   B0CMXSC8S6: hatachiBallPouch,
-  B0FJ8PB9BH: uvHatSenior,
   B0HFZBL1HH: nichiyoPracticeSet,
+  B09VNPYGGF: dunlopRefinedShoes,
+  B0GT44W584: achillesWalkingShoes,
+  B0FJRGRHDV: hatachiAeroBall,
+  B08WHWN7WT: hatachiBladeBall,
+  B0D3DVDNC9: hatachiWin4Ball,
+  B07BNBZVBG: gokeiSunVisor,
+  B01ENUC6L8: hatachiBh8080Gloves,
+  B0BJD5777F: asicsMagnetGloves,
+  B0CMTFDW6Y: northwayWaistPouch,
 };

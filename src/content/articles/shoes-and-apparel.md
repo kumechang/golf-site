@@ -5,17 +5,19 @@ category: "gear"
 articleType: "howto"
 order: 4
 pubDate: 2026-09-17
-updatedDate: 2026-09-25
+updatedDate: 2026-10-30
 productIds:
+  - "dunlop-refined-shoes"
+  - "achilles-walking-shoes"
   - "lezax-gloves"
   - "hatachi-stretch-gloves"
-  - "uv-hat-senior"
-productsHeading: "手袋・帽子のおすすめ"
+  - "gokei-sun-visor"
+productsHeading: "シューズ・手袋・日よけの例"
 ---
 
 グラウンドゴルフはクラブとボールがあれば始められますが、長く楽しむためにはシューズやウェア選びも大切なポイントです。この記事では、快適にプレーするためのシューズ・ウェアの選び方を紹介します。
 
-紹介している手袋・帽子は、屋外でのプレーに実用的なものを基準に選定しています。
+紹介しているシューズ・手袋・日よけは、商品ページや商品名の記載をもとに選んだ例です。シューズのソールの滑りにくさなど、商品ページで確認できなかった点は各カードに明記しているので、購入前に商品ページでご確認ください。
 
 ## シューズの選び方
 

@@ -5,11 +5,15 @@ category: "gear"
 articleType: "comparison"
 order: 5
 pubDate: 2026-09-17
-updatedDate: 2026-09-25
+updatedDate: 2026-10-30
 productIds:
   - "ground-golf-ball-resin"
-  - "lezax-gloves"
+  - "hatachi-win4-ball"
   - "hatachi-ball-pouch"
+  - "lezax-gloves"
+  - "asics-magnet-gloves"
+  - "hatachi-bh8080-gloves"
+  - "northway-waist-pouch"
   - "aruka-entry-club"
   - "hatachi-entry-set"
   - "marushin-premium-club"
@@ -28,7 +32,7 @@ faqItems:
 
 「親の誕生日に」「お世話になった上司へ」——グラウンドゴルフ用品は、贈り物としても選ばれています。ただし、クラブは体格や好みに合わせて選ぶ道具のため、プレゼント選びには少しコツが必要です。この記事では、予算別におすすめの選び方を紹介します。
 
-紹介する商品は、サイズ・利き手を気にせず贈りやすいもの、または両面打ちなど利き手を選ばないものを中心に選定しています。実際の使用感が気になる場合は、Amazonの商品ページに寄せられているレビューもあわせてご確認ください。
+紹介する商品は、サイズ・利き手を気にせず贈りやすいもの、または両面打ちなど利き手を選ばないものを中心に選定しています。実際の使用感が気になる場合は、Amazonの商品ページに寄せられているレビューもあわせてご確認ください。なお、グローブのうちHATACHIのBH8080とasicsの磁石付きグローブは、手の向き（右用・左用）を確認できていないため、贈る前に商品ページでご確認ください。ウエストポーチは3,000円台で、小物の節で挙げた価格より少し上になります。
 
 ## プレゼント選びで気をつけたいこと
 
