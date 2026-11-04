@@ -246,6 +246,8 @@ npm run review:events -- build               # data/events/approved.json を更�
 | `docs/handover/briefs/places-page-brief.md` | 市区町村の施設の節の設計ブリーフ |
 | `docs/diagrams/README.md` | 記事の図解SVG（置き場所・根拠・作るときの約束。スマホ基準 viewBox 360） |
 | `docs/seo/bing.md` | Bing の SEO Recommendations 対応（IndexNow の運用・メタディスクリプション・リンク） |
+| `docs/events/municipal.md` | 都道府県別の予定表（市区町村の大会・教室）の更新手順・通す条件・index/noindex の基準 |
+| `docs/handover/briefs/pref-events-seo.md` / `pref-events-ux.md` | 県別予定表のSEOブリーフ・UXブリーフ |
 | `docs/places/README.md` | 施設データの更新手順・overrides・整形ルール・書き方の約束 |
 | `docs/design/gemini-image-prompts.md` | 画像生成用のプロンプト案 |
 | `data/crawler/sources.json` | 情報源の台帳（取得可否・理由・カバレッジ） |

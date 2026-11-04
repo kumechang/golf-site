@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import PrefEventCard from '../../../components/PrefEventCard.astro';
+import { loadPrefEvents, type PrefSummary } from '../../../data/pref-events';
+import { todayJst } from '../../../data/events';
+
+export function getStaticPaths() {
+  const today = todayJst();
+  const all = loadPrefEvents(today);
+  return [...all.values()]
+    .filter((s) => s.hasPage)
+    .map((s) => ({ params: { prefecture: s.slug }, props: { summary: s, today } }));
+}
+
+interface Props {
+  summary: PrefSummary;
+  today: string;
+}
+const { summary: s, today } = Astro.props as Props;
+
+const ymd = (iso: string) => `${Number(iso.slice(0, 4))}年${Number(iso.slice(5, 7))}月${Number(iso.slice(8, 10))}日`;
+const title = `${s.name}のグラウンドゴルフ予定表｜今後の大会・教室の日程`;
+const description = s.up.length
+  ? `${s.name}で、市区町村の公式ページなどに載っていたグラウンドゴルフの大会・教室の日程をまとめました。今後の予定${s.up.length}件、終了した予定も掲載。各ページへのリンク付きです。`
+  : `${s.name}で、市区町村の公式ページなどに載っていたグラウンドゴルフの大会・教室を、まとめました。いま日程の分かる今後の予定はありませんが、終了した予定や元のページへのリンクを掲載しています。`;
+
+const months: { label: string; events: typeof s.up }[] = [];
+if (s.up.length >= 9) {
+  for (const e of s.up) {
+    const label = `${Number(e.start!.slice(0, 4))}年${Number(e.start!.slice(5, 7))}月`;
+    const last = months.at(-1);
+    if (last && last.label === label) last.events.push(e);
+    else months.push({ label, events: [e] });
+  }
+}
+
+const perMunicipality = new Map<string, { up: number; undated: number; past: number }>();
+for (const [k, list] of [['up', s.up], ['undated', s.undated], ['past', s.past]] as const) {
+  for (const e of list) {
+    const name = e.municipality ?? '（市区町村の記載なし）';
+    const row = perMunicipality.get(name) ?? { up: 0, undated: 0, past: 0 };
+    row[k]++;
+    perMunicipality.set(name, row);
+  }
+}
+const municipalityRows = [...perMunicipality.entries()].sort((a, b) => b[1].up + b[1].undated + b[1].past - (a[1].up + a[1].undated + a[1].past) || a[0].localeCompare(b[0]));
+const hasAssociation = [...s.up, ...s.past].some((e) => e.source === 'association');
+
+if (s.oldestReadAt) {
+  const days = Math.round((Date.parse(`${today}T00:00:00Z`) - Date.parse(`${s.oldestReadAt}T00:00:00Z`)) / 86400e3);
+  if (days >= 90) console.warn(`[pref-events] ${s.name}: 読み取り日（${s.oldestReadAt}）から${days}日たっています。データを取り直してください。`);
+}
+
+const breadcrumbItems = [
+  { name: 'トップ', href: '/' },
+  { name: '大会・コミュニティ情報', href: '/community/' },
+  { name: '地域別の大会カレンダー', href: '/community/events/' },
+  { name: s.name, href: Astro.url.pathname },
+];
+const h2 = 'mt-12 text-2xl font-bold leading-snug text-slate-900';
+const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
+---
+
+<BaseLayout title={title} description={description} noindex={!s.indexable}>
+  <Breadcrumb items={breadcrumbItems} />
+
+  <div id="pref-events-page" class="mx-auto max-w-3xl px-4 pb-20 pt-6">
+    <header>
+      <a href="/community/events/" class="inline-block rounded-full bg-indigo-50 px-3 py-1 text-sm font-bold text-indigo-700">地域別の大会カレンダー</a>
+      <h1 class="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">{s.name}のグラウンドゴルフ予定表（大会・教室）</h1>
+      <p class="mt-4 text-base leading-relaxed text-slate-800">
+        {s.name}のグラウンドゴルフ（「グランドゴルフ」と書かれることもあります）の大会や催しを、市区町村の公式サイトなどから集めました。参加できる人や申込方法は大会ごとに違います。気になるものは、元のページか問い合わせ先で確かめてください。
+      </p>
+      {s.oldestReadAt && (
+        <p class="mt-3 text-base leading-relaxed text-slate-800">
+          元のページを読み取った日：<time datetime={s.oldestReadAt}>{ymd(s.oldestReadAt)}</time>。その後に変わっていることがあります。このページを作った日：<time datetime={today}>{ymd(today)}</time>。
+        </p>
+      )}
+      <p class="mt-3 text-base leading-relaxed text-slate-800">
+        今後の予定 {s.up.length}件
+        {s.undated.length > 0 && <>／日程は元のページで確認するもの {s.undated.length}件</>}
+        {s.past.length > 0 && <>／終了した予定 {s.past.length}件（直近12か月）</>}
+        ／掲載している市区町村 {s.municipalityCount}か所
+      </p>
+    </header>
+
+    {s.up.length > 0 ? (
+      <section aria-labelledby="upcoming">
+        <h2 id="upcoming" class={h2}>これからの予定</h2>
+        {months.length > 0 ? (
+          months.map((m) => (
+            <>
+              <h3 class="mt-8 text-xl font-bold text-slate-900">{m.label}</h3>
+              <ul role="list" class="mt-3 space-y-4">{m.events.map((e) => <PrefEventCard event={e} variant="upcoming" />)}</ul>
+            </>
+          ))
+        ) : (
+          <ul role="list" class="mt-4 space-y-4">{s.up.map((e) => <PrefEventCard event={e} variant="upcoming" />)}</ul>
+        )}
+        <p class="mt-4 text-base leading-relaxed text-slate-700">読み取りの際、誤りが残ることがあります。出かける前に、元のページで日程と会場をご確認ください。</p>
+      </section>
+    ) : (
+      <p class="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-5 text-base leading-relaxed text-slate-800">
+        いま、日程が分かる今後の予定は載せていません。予定がないという意味ではありません。市区町村の窓口やクラブへお問い合わせください。
+      </p>
+    )}
+
+    {s.undated.length > 0 && (
+      <section aria-labelledby="undated">
+        <h2 id="undated" class={h2}>日程は元のページで</h2>
+        <p class="mt-3 text-base leading-relaxed text-slate-800">元のページに日付が書かれていない、または読み取れなかったものです。日程は元のページで確かめてください。</p>
+        <ul role="list" class="mt-4 space-y-4">{s.undated.map((e) => <PrefEventCard event={e} variant="undated" />)}</ul>
+      </section>
+    )}
+
+    {s.past.length > 0 && (
+      <section aria-labelledby="past">
+        <h2 id="past" class={h2}>終了した大会</h2>
+        <p class="mt-3 text-base leading-relaxed text-slate-800">過去に載せていた大会です。毎年開かれる大会の様子をつかむ参考にしてください。</p>
+        <details class="mt-4 rounded-xl border border-slate-300 bg-white" data-past-details>
+          <summary class="tap-target cursor-pointer list-none px-4 py-3 text-base font-bold text-slate-900 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">
+            終了した大会（{s.past.length}件）を見る
+          </summary>
+          <ul role="list" class="space-y-3 p-4 pt-0">{s.past.map((e) => <PrefEventCard event={e} variant="past" />)}</ul>
+        </details>
+      </section>
+    )}
+
+    <section aria-labelledby="municipalities">
+      <h2 id="municipalities" class={h2}>市区町村ごとの掲載数</h2>
+      <div class="mt-4 overflow-x-auto">
+        <table class="w-full border-collapse text-left text-base text-slate-800">
+          <caption class="sr-only">{s.name}の市区町村ごとの、予定の掲載数</caption>
+          <thead>
+            <tr class="border-b-2 border-slate-300">
+              <th scope="col" class="py-2 pr-3 font-bold">市区町村</th>
+              <th scope="col" class="px-3 py-2 font-bold">今後</th>
+              <th scope="col" class="px-3 py-2 font-bold">日程は元のページで</th>
+              <th scope="col" class="px-3 py-2 font-bold">終了</th>
+            </tr>
+          </thead>
+          <tbody>
+            {municipalityRows.map(([name, r]) => (
+              <tr class="border-b border-slate-200">
+                <th scope="row" class="py-2 pr-3 font-normal">{name}</th>
+                <td class="px-3 py-2">{r.up}件</td>
+                <td class="px-3 py-2">{r.undated}件</td>
+                <td class="px-3 py-2">{r.past}件</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="about-list">
+      <h2 id="about-list" class={h2}>この予定表の見方</h2>
+      <ul role="list" class="mt-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-slate-800">
+        <li>当サイトは、各自治体・協会とは関係のない個人運営の情報サイトです。この予定表は、各団体の公式の案内ではありません。</li>
+        <li>市区町村の公式ページなどに載っていた情報を、<a class={link} href="/about/#municipal-events">機械的に読み取って整理</a>しています。載せているのは、大会名、日程、場所、対象、参加費、申込期限、問い合わせ先の課名と電話番号などの事実と、元のページへのリンクです。ページの本文や画像は転載していません。電話番号は、課や施設の窓口のものです。</li>
+        <li>読み取りの際、誤りが残ることがあります。中止や延期になることもあります。出かける前に、元のページで日程と会場をご確認ください。</li>
+        {hasAssociation && <li>「掲載元」と書いたものは、協会などの予定表に載っていた大会です。<a class={link} href="/community/events/">地域別の大会カレンダー</a>と同じ情報です。</li>}
+        <li>掲載内容に誤りがある場合や、掲載を望まれない場合は、<a class={link} href="/about/">サイトについて／運営者情報</a>のお問い合わせ先までご連絡ください。</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="related">
+      <h2 id="related" class={h2}>次に読む</h2>
+      <ul role="list" class="mt-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-slate-800">
+        <li><a class={link} href={`/community/find-a-club-near-you/${s.slug}/`}>{s.name}のグラウンドゴルフクラブ・コースの探し方</a>（市区町村の施設・協会の窓口）</li>
+        <li><a class={link} href="/community/entering-a-tournament/">グラウンドゴルフの大会に出てみたい人向けガイド</a></li>
+        <li><a class={link} href="/start/find-a-class/">初めてのグラウンドゴルフ体験教室の探し方</a></li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  // 再ビルドされるまで日付が古くなるため、過ぎた「これからの予定」に「終了」の文字を出す。
+  // JavaScript が無効でも、全件が年つきの日付で読める。
+  const jst = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  document.querySelectorAll<HTMLElement>('[data-event][data-end]').forEach((el) => {
+    if ((el.dataset.end ?? '') < jst) el.querySelector('[data-ended]')?.removeAttribute('hidden');
+  });
+</script>
