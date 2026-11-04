@@ -5,12 +5,13 @@
 
 ## 更新の手順
 1. 運営者から、イベントのCSV（列: prefecture, municipality_code, municipality_name, event_name, event_kind, date_text, date_basis, date_start, date_end, venue, organizer, target, fee, deadline, contact_dept, contact_phone, evidence, page_url, extracted_at など）を受け取る。**CSVはリポジトリに入れない**（市区町村のページの文字を含むため。`docs/places/README.md` と同じ扱い）。
-2. `node scripts/events/clean-municipal.mjs <CSV>... --review=<確認用CSV>` で `data/events/municipal.json` を作り直す。標準出力に、残した件数と、除いた理由の内訳が出る。確認用CSVに、除いたものの一覧（理由つき）が出る。
-3. `npm run build` と `npm run test:crawler`。
-4. 県ごとの件数・noindex の様子を確認してから、PR。
+2. 元ページが http のものがあれば、先に `node scripts/events/check-https.mjs <CSV>...` で、https で開けるかを確かめる（開けたものだけ `data/events/https-upgrades.json` に残る。TLS検証は外さず、1.5秒おきに1件ずつ取得する）。
+3. `node scripts/events/clean-municipal.mjs <CSV>... --review=<確認用CSV>` で `data/events/municipal.json` を作り直す。標準出力に、残した件数と、除いた理由の内訳が出る。確認用CSVに、除いたものの一覧（理由つき）が出る。
+4. `npm run build` と `npm run test:crawler`。
+5. 県ごとの件数・noindex の様子を確認してから、PR。
 
 ## 通す条件（`scripts/events/municipal-lib.mjs`）
-- 元ページが https。市区町村コードがある。
+- 元ページが https（http のものは、https で開けると確かめたものに置き換える）。市区町村コードがある。
 - 名前に「グラウンドゴルフ」がある（専用の大会）、または複数競技の大会で、根拠の文にグラウンドゴルフがある（「複数競技の大会（グラウンドゴルフを含む）」と表示）。選定・ネーミングライツ・結団式・結果の記録集などは除く。
 - 日付は、日付の文章に開催日の月日が書かれているものだけ。本文からの推定は、日付が1つに決まるものだけ。確かでなければ「日程は元のページで」に回す。結果ページの投稿日を開催日と取り違えないよう、名前の年度と合わないものは除く。
 - 開催が10日を超える期間は「期間のある催し」として、開催日は元のページで確認と表示する。
@@ -29,7 +30,9 @@
 - 表示の「読み取った日」は、今後・日程不明の予定のうち最も古い読み取り日。90日を超えるとビルドに警告が出る。
 - Event の構造化データ（JSON-LD）は付けない。掲載元と主催が違う、会場の欠けが多い、中止・延期を静的サイトで検知できない、が理由。付ける場合の条件は `docs/handover/briefs/pref-events-seo.md`。
 
-## 運営者に確認してほしいこと
-- 集め方が、各サイトの規約・robots の確認を経ているか（`/about/#municipal-events` に「取得が認められていないものは対象にしない方針」と書いた）。
-- http のURL56件は除いている。https で開けるものは、足せる。
+## 運営者の確認（2026-11-04）
+- 集めたデータは、すべて地方自治体の一次情報から。robots.txt は集めるときに確認済み。すべて掲載してよい、との確認を受けた（`/about/#municipal-events` に記載）。
+- 元ページが http だった予定は、https で開けるものを足した（候補11件がすべて開けた）。
+
+## 注意
 - 自動の整理なので、誤りが残る。気づいた点は、確認用CSVとあわせて知らせてもらえれば、ルールを直す。
