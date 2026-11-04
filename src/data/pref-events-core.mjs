@@ -5,6 +5,7 @@
 export const PAST_DAYS = 365; // 終了した予定を載せる期間（日）
 export const MIN_DATED_FOR_INDEX = 5; // 検索に載せる（index）ための、日付の分かる予定の最低件数（終了分を含む）
 export const MIN_MUNICIPALITIES_FOR_INDEX = 2;
+export const STALE_INDEX_DAYS = 180; // 今後の予定が0のまま、直近の開催からこの日数がたったら検索に載せない
 
 export const JIS_PREFECTURES = [
   ['北海道', 'hokkaido'], ['青森県', 'aomori'], ['岩手県', 'iwate'], ['宮城県', 'miyagi'], ['秋田県', 'akita'], ['山形県', 'yamagata'], ['福島県', 'fukushima'],
@@ -70,7 +71,7 @@ export function normalizeAll(approved, municipal) {
   // 承認済みの大会と市区町村の予定が同じ大会なら、承認済みのほうを残し、足りない項目を補う
   const merged = [];
   for (const e of out) {
-    const twin = e.source === 'municipal' && e.start ? out.find((a) => a.source === 'association' && a.prefecture === e.prefecture && a.start === e.start && similar(a.name, e.name)) : null;
+    const twin = e.source === 'municipal' && e.start ? out.find((a) => a.source === 'association' && a.prefecture === e.prefecture && a.start === e.start && (!a.municipality || !e.municipality || a.municipality === e.municipality) && similar(a.name, e.name)) : null;
     if (twin) {
       for (const f of ['venue', 'organizer', 'target', 'fee', 'deadline', 'contactDept', 'contactPhone']) if (!twin[f] && e[f]) twin[f] = e[f];
       continue;
@@ -111,7 +112,10 @@ export function summarize(events, today) {
       name, slug, up, undated, past,
       municipalityCount: municipalities.size,
       hasPage: shown.length > 0,
-      indexable: dated >= MIN_DATED_FOR_INDEX && municipalities.size >= MIN_MUNICIPALITIES_FOR_INDEX,
+      indexable:
+        dated >= MIN_DATED_FOR_INDEX &&
+        municipalities.size >= MIN_MUNICIPALITIES_FOR_INDEX &&
+        (up.length > 0 || past.some((e) => e.end >= addDays(today, -STALE_INDEX_DAYS))),
       latestReadAt: readAts.at(-1) ?? null,
       oldestReadAt: [...up, ...undated].map((e) => e.readAt).sort()[0] ?? readAts[0] ?? null,
     });

@@ -13,6 +13,8 @@ test('名前から募集の飾りと状態を取り除く', () => {
   assert.equal(tidyEventName('【中止】令和8年度 第33回沼田市民グラウンド・ゴルフ大会').cancelled, true);
   assert.equal(tidyEventName('第11回グラウンドゴルフ大会参加者募集中').name, '第11回グラウンドゴルフ大会');
   assert.equal(tidyEventName('第30回市民グラウンドゴルフ大会の参加者を募集しています').name, '第30回市民グラウンドゴルフ大会');
+  assert.equal(tidyEventName('青葉区民グラウンドゴルフ大会 参加者を募集します!').name, '青葉区民グラウンドゴルフ大会');
+  assert.equal(tidyEventName('第30回市民グラウンドゴルフ大会の参加者を募集しています[').name.includes('しています'), false);
   assert.equal(tidyEventName('目黒区体育祭 グラウンド・ゴルフ大会 2026年11月7日(土曜日)').name, '目黒区体育祭 グラウンド・ゴルフ大会');
 });
 

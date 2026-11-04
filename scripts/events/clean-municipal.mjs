@@ -15,7 +15,12 @@ if (!inputs.length) { console.error('使い方: node scripts/events/clean-munici
 const rows = inputs.flatMap((f) => parseCsv(readFileSync(f, 'utf8').replace(/^﻿/, '')));
 const places = JSON.parse(readFileSync(join(root, 'data', 'places', 'places.json'), 'utf8')).places;
 const knownPrefectures = [...new Set(places.map((p) => p.prefecture))];
-const { events, excluded, stats } = buildMunicipalEvents(rows, { knownPrefectures });
+const built = buildMunicipalEvents(rows, { knownPrefectures });
+// 運営者の判断で載せないもの（理由つき）
+const overrides = JSON.parse(readFileSync(join(root, 'data', 'events', 'municipal-overrides.json'), 'utf8')).exclude ?? {};
+const events = built.events.filter((e) => !(e.id in overrides));
+const excluded = [...built.excluded, ...built.events.filter((e) => e.id in overrides).map((e) => ({ reason: `運営者の判断: ${overrides[e.id]}`, prefecture: e.prefecture, municipality: e.municipality, name: e.name, date_text: e.start ?? '', url: e.source_url }))];
+const stats = { ...built.stats, kept: events.length, dated: events.filter((e) => e.start).length, undated: events.filter((e) => !e.start).length, excluded: excluded.length };
 const extracted = rows.map((r) => r.extracted_at).filter(Boolean).sort();
 const out = { generated_at: new Date().toISOString(), source_extracted_from: extracted[0] ?? null, source_extracted_to: extracted.at(-1) ?? null, events };
 writeFileSync(flag('out') || join(root, 'data', 'events', 'municipal.json'), JSON.stringify(out, null, 2) + '\n');

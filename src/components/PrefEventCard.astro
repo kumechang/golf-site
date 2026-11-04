@@ -5,9 +5,12 @@ import type { PrefEvent } from '../data/pref-events';
 interface Props {
   event: PrefEvent;
   variant: 'upcoming' | 'undated' | 'past';
+  /** 見出しの高さ。月の見出し（h3）の下に置くときは h4 */
+  headingLevel?: 'h3' | 'h4';
 }
 
-const { event: e, variant } = Astro.props as Props;
+const { event: e, variant, headingLevel = 'h3' } = Astro.props as Props;
+const Heading = headingLevel;
 
 // 曜日の括弧の途中で折り返さない。値は formatDate が作る固定形式。
 const nowrap = (t: string) => t.replace(/（([^）]+)）/g, '<span class="whitespace-nowrap">（$1）</span>');
@@ -23,7 +26,7 @@ const telHref = e.contactPhone ? `tel:${e.contactPhone.replace(/-/g, '')}` : nul
 ---
 
 <li class={`break-inside-avoid rounded-xl border p-4 sm:p-5 ${wrap}`} data-event data-end={variant === 'upcoming' ? e.end ?? undefined : undefined}>
-  <h3 class="text-lg font-bold leading-snug text-slate-900">{e.name}</h3>
+  <Heading class="text-lg font-bold leading-snug text-slate-900">{e.name}</Heading>
 
   <div class="mt-2 flex flex-wrap gap-2">
     {isPast && <span class={`${pill} border-slate-500 bg-white text-slate-800`}>終了</span>}
@@ -71,7 +74,7 @@ const telHref = e.contactPhone ? `tel:${e.contactPhone.replace(/-/g, '')}` : nul
           <dd class="min-w-0 break-words">
             {e.contactDept}
             {telHref && (
-              <a href={telHref} class="tap-target mt-1 flex items-center whitespace-nowrap font-bold text-green-800 underline underline-offset-2 hover:text-green-900">電話 {e.contactPhone}<span class="sr-only">（{e.contactDept}）</span></a>
+              <a href={telHref} class="tap-target mt-1 flex items-center whitespace-nowrap font-bold text-green-800 underline underline-offset-2 hover:text-green-900">電話 {e.contactPhone}<span class="sr-only">（{e.municipality ? `${e.municipality} ` : ''}{e.contactDept}）</span></a>
             )}
           </dd>
         </div>
@@ -87,7 +90,7 @@ const telHref = e.contactPhone ? `tel:${e.contactPhone.replace(/-/g, '')}` : nul
   )}
 
   {variant === 'upcoming' && e.contactPhone && e.contactDept && (
-    <p class="mt-2 text-base leading-relaxed text-slate-700">「初心者ですが見学できますか」と聞いても大丈夫です。</p>
+    <p class="mt-2 text-base leading-relaxed text-slate-700">参加や見学ができるかどうかは、大会ごとに違います。問い合わせ先で確かめてください。</p>
   )}
 
   <p class="mt-3 flex flex-wrap items-center gap-x-1">

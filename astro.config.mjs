@@ -102,7 +102,7 @@ function getPrefEventPages() {
   const root = path.dirname(fileURLToPath(import.meta.url));
   /** @param {string} rel */
   const readJson = (rel) => JSON.parse(readFileSync(path.join(root, rel), 'utf-8'));
-  const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  const today = process.env.EVENTS_TODAY || new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const summary = summarize(normalizeAll(readJson('data/events/approved.json'), readJson('data/events/municipal.json')), today);
   /** @type {Map<string, {indexable: boolean, lastmod: string | null}>} */
   const pages = new Map();
