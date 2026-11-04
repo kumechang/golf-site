@@ -5,7 +5,7 @@ category: "community"
 articleType: "community"
 order: 2
 pubDate: 2026-10-14
-updatedDate: 2026-10-26
+updatedDate: 2026-11-04
 faqItems:
   - question: "グラウンドゴルフの大会には、どんな種類がありますか？"
     answer: "地域の集まり、市区町村・区の大会、都道府県の大会、ブロック大会、全国規模の大会など、範囲の違いがあります。日本グラウンド・ゴルフ協会（JGGA）の大会情報ページには、全国交歓大会、全国レディス交歓大会、各地のブロック大会などが主催大会として掲載されています。参加できる方の条件は大会ごとに異なり、名称だけでは判断できません。"
@@ -148,6 +148,7 @@ videos:
 
 - [JGGA公式サイトの「今年度の大会」ページ](https://www.groundgolf.or.jp/tournaments/thisyear-tournaments/)
 - [JGGA公式サイトの「今後の大会予定」ページ](https://www.groundgolf.or.jp/tournaments/upcoming-tournaments/)
+- [地域別の大会カレンダー](/community/events/)：市区町村の公式ページなどに載っていた大会や教室を、都道府県ごとの予定表で見られます
 
 当サイトでは、一部の地域の今後の大会を、日程と開催地で見られるようにしています。[地域別の今後の大会（一部地域）を見る](/community/events/)。載っているのは一部の地域と大会だけで、掲載元の団体は主催者とは限りません。日程は変わることがあります。参加資格や申込、見学できるかどうかは、それぞれの主催者の案内で確認してください。
 

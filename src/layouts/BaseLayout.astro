@@ -8,9 +8,11 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  /** 検索結果に載せないページ（データが少ない都道府県ページなど）には true */
+  noindex?: boolean;
 }
 
-const { title, description, ogImage } = Astro.props as Props;
+const { title, description, ogImage, noindex } = Astro.props as Props;
 
 const SITE_NAME = 'グラウンドゴルフ入門ナビ';
 const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
@@ -47,6 +49,7 @@ const organizationJsonLd = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
     <meta name="generator" content={Astro.generator} />
 
     <title>{fullTitle}</title>

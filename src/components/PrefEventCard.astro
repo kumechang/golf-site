@@ -1,0 +1,105 @@
+---
+import { formatDate, formatRange } from '../data/events';
+import type { PrefEvent } from '../data/pref-events';
+
+interface Props {
+  event: PrefEvent;
+  variant: 'upcoming' | 'undated' | 'past';
+  /** 見出しの高さ。月の見出し（h3）の下に置くときは h4 */
+  headingLevel?: 'h3' | 'h4';
+}
+
+const { event: e, variant, headingLevel = 'h3' } = Astro.props as Props;
+const Heading = headingLevel;
+
+// 曜日の括弧の途中で折り返さない。値は formatDate が作る固定形式。
+const nowrap = (t: string) => t.replace(/（([^）]+)）/g, '<span class="whitespace-nowrap">（$1）</span>');
+const place = [e.municipality, e.venue].filter(Boolean).join('　');
+const unknown = '元ページで確認';
+const pill = 'inline-flex items-center rounded-full border px-3 py-1 text-sm font-bold';
+const dt = 'w-24 max-w-[40%] shrink-0 font-bold text-slate-900';
+const isPast = variant === 'past';
+const wrap = isPast ? 'border-slate-200 bg-slate-50' : 'border-slate-300 bg-white';
+const dateHtml = e.start ? nowrap(e.start === e.end ? formatDate(e.start) : formatRange(e.start!, e.end!)) : '';
+const pastDate = e.start ? `${e.start.slice(0, 4)}年${Number(e.start.slice(5, 7))}月${Number(e.start.slice(8, 10))}日` : '';
+const telHref = e.contactPhone ? `tel:${e.contactPhone.replace(/-/g, '')}` : null;
+---
+
+<li class={`break-inside-avoid rounded-xl border p-4 sm:p-5 ${wrap}`} data-event data-end={variant === 'upcoming' ? e.end ?? undefined : undefined}>
+  <Heading class="text-lg font-bold leading-snug text-slate-900">{e.name}</Heading>
+
+  <div class="mt-2 flex flex-wrap gap-2">
+    {isPast && <span class={`${pill} border-slate-500 bg-white text-slate-800`}>終了</span>}
+    {variant === 'upcoming' && <span class={`${pill} border-slate-500 bg-white text-slate-800`} data-ended hidden>終了</span>}
+    {e.cancelled && <span class={`${pill} border-red-400 bg-red-50 text-red-900`}>中止（元のページの記載）</span>}
+    {e.postponed && !e.cancelled && <span class={`${pill} border-amber-400 bg-amber-50 text-amber-900`}>延期（元のページの記載）</span>}
+    {e.kind === 'multi' && <span class={`${pill} border-indigo-300 bg-indigo-50 text-indigo-900`}>複数競技の大会（グラウンドゴルフを含む）</span>}
+    {e.dateKind === 'range' && !isPast && <span class={`${pill} border-slate-400 bg-white text-slate-800`}>期間のある催し</span>}
+  </div>
+
+  {variant === 'undated' && (
+    <dl class="mt-3 space-y-2 text-base leading-relaxed text-slate-700">
+      {place && (<div class="flex gap-3"><dt class={dt}>場所</dt><dd class="min-w-0 break-words">{place}</dd></div>)}
+      <div class="flex gap-3"><dt class={dt}>日程</dt><dd class="min-w-0 break-words">元のページで確認してください</dd></div>
+    </dl>
+  )}
+
+  {variant === 'upcoming' && (
+    <dl class="mt-3 space-y-2 text-base leading-relaxed text-slate-700">
+      <div class="flex gap-3">
+        <dt class={dt}>日程</dt>
+        <dd class="min-w-0 break-words text-lg font-bold text-slate-900">
+          <time datetime={e.start!} set:html={dateHtml} />
+          {e.dateKind === 'range' && <span class="mt-1 block text-base font-normal text-slate-700">期間のうち開催される日は、元のページで確認してください。</span>}
+        </dd>
+      </div>
+      <div class="flex gap-3"><dt class={dt}>場所</dt><dd class="min-w-0 break-words">{place || unknown}</dd></div>
+      <div class="flex gap-3"><dt class={dt}>対象</dt><dd class="min-w-0 break-words">{e.target ?? unknown}</dd></div>
+      <div class="flex gap-3"><dt class={dt}>参加費</dt><dd class="min-w-0 break-words">{e.fee ?? unknown}</dd></div>
+      <div class="flex gap-3">
+        <dt class={dt}>申込期限</dt>
+        <dd class="min-w-0 break-words">
+          {e.deadline ? <time datetime={e.deadline} set:html={nowrap(formatDate(e.deadline))} /> : unknown}
+        </dd>
+      </div>
+      {(e.organizer || e.listedBy) && (
+        <div class="flex gap-3">
+          <dt class={dt}>{e.organizer ? '主催' : '掲載元'}</dt>
+          <dd class="min-w-0 break-words">{e.organizer ?? e.listedBy}</dd>
+        </div>
+      )}
+      {e.contactDept && (
+        <div class="flex gap-3">
+          <dt class={dt}>問い合わせ先</dt>
+          <dd class="min-w-0 break-words">
+            {e.contactDept}
+            {telHref && (
+              <a href={telHref} class="tap-target mt-1 flex items-center whitespace-nowrap font-bold text-green-800 underline underline-offset-2 hover:text-green-900">電話 {e.contactPhone}<span class="sr-only">（{e.municipality ? `${e.municipality} ` : ''}{e.contactDept}）</span></a>
+            )}
+          </dd>
+        </div>
+      )}
+    </dl>
+  )}
+
+  {isPast && (
+    <dl class="mt-3 space-y-2 text-base leading-relaxed text-slate-700">
+      <div class="flex gap-3"><dt class={dt}>開催日</dt><dd class="min-w-0 break-words font-bold text-slate-900"><time datetime={e.start!}>{pastDate}</time>{e.start !== e.end && e.end ? <span class="font-normal">から{Number(e.end.slice(5, 7))}月{Number(e.end.slice(8, 10))}日まで</span> : null}</dd></div>
+      {place && (<div class="flex gap-3"><dt class={dt}>場所</dt><dd class="min-w-0 break-words">{place}</dd></div>)}
+    </dl>
+  )}
+
+  {variant === 'upcoming' && e.contactPhone && e.contactDept && (
+    <p class="mt-2 text-base leading-relaxed text-slate-700">参加や見学ができるかどうかは、大会ごとに違います。問い合わせ先で確かめてください。</p>
+  )}
+
+  <p class="mt-3 flex flex-wrap items-center gap-x-1">
+    <a
+      href={e.sourceUrl}
+      rel="nofollow noopener"
+      target="_blank"
+      data-gg-outbound="pref-event-source"
+      class="tap-target inline-flex items-center text-base font-bold text-green-800 underline underline-offset-2 hover:text-green-900"
+    >{isPast ? '元のページを見る' : '元のページで日程を見る'}<span class="sr-only">：{e.name}</span></a><span class="text-base text-slate-700">（新しいタブで開きます）</span>
+  </p>
+</li>

@@ -5,6 +5,7 @@ import path from 'node:path';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import { normalizeAll, summarize } from './src/data/pref-events-core.mjs';
 
 const SITE_URL = 'https://ground-golf-navi.com';
 
@@ -93,6 +94,25 @@ function getArticleLastmods() {
 const { pathLastmods, categoryLastmods, siteLastmod } = getArticleLastmods();
 const dataLastmods = getDataLastmods();
 
+/**
+ * 都道府県別の予定表（/community/events/<県>/）。データが少ないページは検索に載せない（noindex）ので、サイトマップにも入れない。
+ * lastmod は、その県の予定を読み取った日のうち最も新しいもの（データの日付）。
+ */
+function getPrefEventPages() {
+  const root = path.dirname(fileURLToPath(import.meta.url));
+  /** @param {string} rel */
+  const readJson = (rel) => JSON.parse(readFileSync(path.join(root, rel), 'utf-8'));
+  const today = process.env.EVENTS_TODAY || new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  const summary = summarize(normalizeAll(readJson('data/events/approved.json'), readJson('data/events/municipal.json')), today);
+  /** @type {Map<string, {indexable: boolean, lastmod: string | null}>} */
+  const pages = new Map();
+  for (const s of summary.values()) {
+    if (s.hasPage) pages.set(`/community/events/${s.slug}/`, { indexable: s.indexable, lastmod: s.latestReadAt });
+  }
+  return pages;
+}
+const prefEventPages = getPrefEventPages();
+
 export default defineConfig({
   site: SITE_URL,
   trailingSlash: 'always',
@@ -101,8 +121,17 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      filter(page) {
+        const info = prefEventPages.get(new URL(page).pathname);
+        return !info || info.indexable;
+      },
       serialize(item) {
         const pathname = new URL(item.url).pathname;
+
+        const prefEvent = prefEventPages.get(pathname);
+        if (prefEvent?.lastmod) {
+          return { ...item, lastmod: new Date(prefEvent.lastmod).toISOString() };
+        }
 
         if (pathname === '/' && siteLastmod) {
           return { ...item, lastmod: siteLastmod.toISOString() };
