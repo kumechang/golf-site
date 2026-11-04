@@ -1,6 +1,6 @@
 // 使い方: node scripts/events/clean-municipal.mjs <CSV> [<CSV>...] [--out=<出力JSON>] [--review=<除いたものの確認用CSV>]
 // 市区町村のイベントCSVから、載せてよい項目だけを data/events/municipal.json に書く。元のCSV（市区町村のページの文字を含む）はリポジトリに入れない。
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseCsv } from '../places/lib.mjs';
@@ -15,7 +15,10 @@ if (!inputs.length) { console.error('使い方: node scripts/events/clean-munici
 const rows = inputs.flatMap((f) => parseCsv(readFileSync(f, 'utf8').replace(/^﻿/, '')));
 const places = JSON.parse(readFileSync(join(root, 'data', 'places', 'places.json'), 'utf8')).places;
 const knownPrefectures = [...new Set(places.map((p) => p.prefecture))];
-const built = buildMunicipalEvents(rows, { knownPrefectures });
+// 元ページが http のものは、https で開けると確かめたもの（check-https.mjs が作る）だけ置き換えて載せる
+const httpsPath = join(root, 'data', 'events', 'https-upgrades.json');
+const httpsMap = existsSync(httpsPath) ? JSON.parse(readFileSync(httpsPath, 'utf8')).upgrades ?? {} : {};
+const built = buildMunicipalEvents(rows, { knownPrefectures, httpsMap });
 // 運営者の判断で載せないもの（理由つき）
 const overrides = JSON.parse(readFileSync(join(root, 'data', 'events', 'municipal-overrides.json'), 'utf8')).exclude ?? {};
 const events = built.events.filter((e) => !(e.id in overrides));

@@ -40,6 +40,8 @@ export function tidyEventName(raw) {
   if (/中止/.test(s)) flags.cancelled = true;
   if (/延期/.test(s)) flags.postponed = true;
   if (/終了しました|開催しました|結果|成績/.test(s)) flags.finished = true;
+  // 【塩道】のように地区名などを表す短い見出しは、名前の後ろに（ ）で残す。募集・中止などの状態の見出しは取り除く
+  const tags = [...s.matchAll(/【([^】]*)】/g)].map((m) => m[1].trim()).filter((x) => x && x.length <= 8 && !/募集|中止|延期|終了|締切|〆切|受付|雨天|開催|お知らせ|参加|結果|新着|重要|NEW/i.test(x));
   s = s.replace(/【[^】]*】/g, ' ').replace(/^\s*[★☆◆◇■□●○▼▲※]+\s*/, '').replace(/^\s*[（(]\s*\d{1,2}月\d{1,2}日更新\s*[)）]\s*/, '').replace(/(の)?ご案内\s*$/, '');
   s = s.replace(/[（(]\s*(結果|成績|報告)\s*[）)]/g, '');
   s = s.replace(/(参加者|参加チーム|チーム)?(を)?(募集しています|募集します|募集中?)[!！]?(\s*[（(][^）)]*[）)])?/g, '');
@@ -47,6 +49,7 @@ export function tidyEventName(raw) {
   s = s.replace(/[（(]\s*(令和|20)\d+年\d+月\d+日[^）)]*[）)]/g, '');
   s = s.replace(/\d{4}年\d{1,2}月\d{1,2}日.*$/, '').replace(/[!！。\s]+$/, '').replace(/\s*(参加無料|出場者|のしています|します|しています|について)\s*$/, '');
   s = s.replace(/\s+/g, ' ').replace(/[!！。\s]+$/, '').replace(/(大会|教室|講座|祭|会)[のをは]$/, '$1').trim();
+  if (tags.length && s && !tags.some((t) => s.includes(t))) s = `${s}（${tags[0]}）`;
   return { name: s, ...flags };
 }
 
@@ -118,18 +121,20 @@ const hash8 = (s) => createHash('sha1').update(s).digest('hex').slice(0, 8);
  * rows: parseCsv() した配列（見出しをキーにしたオブジェクト）
  * 戻り値: { events, excluded:[{reason,row}], stats }
  */
-export function buildMunicipalEvents(rows, { minStart = '2025-04-01', maxStart = '2027-06-30', knownPrefectures } = {}) {
+export function buildMunicipalEvents(rows, { minStart = '2025-04-01', maxStart = '2027-06-30', knownPrefectures, httpsMap = {}, allowHttp = false } = {}) {
   const excluded = [];
   const drop = (reason, r) => excluded.push({ reason, prefecture: r.prefecture, municipality: r.municipality_name, name: r.event_name, date_text: clean(r.date_text).slice(0, 40), url: r.page_url });
   const seen = new Set();
   const out = [];
 
-  for (const r of rows) {
+  for (let r of rows) {
     const key = `${r.page_url}|${r.event_name}|${r.date_start}`;
     if (seen.has(key)) continue;
     seen.add(key);
 
-    if (!/^https:\/\//.test(r.page_url || '')) { drop('元ページが https ではない', r); continue; }
+    // http のページは、https で開けると確かめたもの（httpsMap）に置き換える。確かめていないものは載せない
+    if (/^http:\/\//.test(r.page_url || '') && httpsMap[r.page_url]) r = { ...r, page_url: httpsMap[r.page_url] };
+    if (!allowHttp && !/^https:\/\//.test(r.page_url || '')) { drop('元ページが https ではない', r); continue; }
     if (knownPrefectures && !knownPrefectures.includes(r.prefecture)) { drop('都道府県名が不明', r); continue; }
     if (!/^\d{5}$/.test(r.municipality_code || '')) { drop('市区町村コードがない', r); continue; }
 
