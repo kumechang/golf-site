@@ -19,6 +19,18 @@ npm run places:clean -- <再調査CSV> --review=<確認用CSV>
 2. **印のあるものは載せない**（`places.ts` が黙って除外する）。施設名を通読して、おかしいものは `data/places/overrides.json` で直す
 3. `npm run build`（検証・施設名の検査が通ること）→ 通常の手順（コミット → push → PR → squash）
 
+### 追加の調査CSVを足すとき（2026-11-05 に実施）
+運営者が、あとから見つけた施設ページのCSV（列: prefecture, municipality_code, municipality_name, page_title, page_url, matched_text, found_via, page_kind, facility_like_title, …。`match_count`・`surveyed_at` の列はない）を足すときは、今ある places.json を消さずに足す。
+```
+node scripts/places/check-https.mjs <追加CSV>          # http のURLが https で開けるか（開けたものだけ data/places/https-upgrades.json に残る）
+node scripts/places/clean-places.mjs <追加CSV> --append --surveyed=<CSVの取得日> --review=<確認用CSV>
+```
+- この形式の `found_via=event` は「イベントのページを調べていて見つけた」の意味なので、イベント扱いで除外せず、`page_kind=facility` のものを施設ページとして読む（`--append` が読み替える）
+- すでに載せているもの（同じ元ページ、同じ市区町村の同じ施設名）は足さない
+- **メニューなどに出る語を除く**: 同じ市区町村で、同じ抜き出し文が5ページ以上に出るときは、サイドメニューの語の可能性が高いので載せない（海津市・垂水市・岩美町で実際に起きた）
+- 追加後に、確認用CSVの「今回追加」の列で施設名を通読し、おかしいものは `overrides.json` に足す（手順の例は下）
+- 実績: 320行 → 250件追加（施設112・一覧ページ138、39県）。http の9件は、すべて https で開けたので追加
+
 ### overrides.json
 `source_url` をキーに、次のいずれかを指定する。再生成しても消えない。
 ```json
