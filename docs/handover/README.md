@@ -248,6 +248,7 @@ npm run review:events -- build               # data/events/approved.json を更�
 | `docs/seo/bing.md` | Bing の SEO Recommendations 対応（IndexNow の運用・メタディスクリプション・リンク） |
 | `docs/events/municipal.md` | 都道府県別の予定表（市区町村の大会・教室）の更新手順・通す条件・index/noindex の基準 |
 | `docs/handover/briefs/pref-events-seo.md` / `pref-events-ux.md` | 県別予定表のSEOブリーフ・UXブリーフ |
+| `docs/seo/performance-2026-11-05.md` | Search Console の中間確認（9/16〜11/02）と、次にやること |
 | `docs/places/README.md` | 施設データの更新手順・overrides・整形ルール・書き方の約束 |
 | `docs/design/gemini-image-prompts.md` | 画像生成用のプロンプト案 |
 | `data/crawler/sources.json` | 情報源の台帳（取得可否・理由・カバレッジ） |
