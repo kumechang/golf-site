@@ -271,6 +271,134 @@
     {
       "source_url": "https://www.city.otsu.lg.jp/sc/s/sh/index.html",
       "exclude": true
+    },
+    {
+      "source_url": "https://www.city.yokote.lg.jp/shisei/1001176/1001445/1001538/1003411.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.yokote.lg.jp/shisei/1001176/1001445/1001545/1002739.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.tsuruoka.lg.jp/seibi/koen-ryokuti/koen/04_tsuruokananbu_1.html",
+      "name": "鶴岡南部公園"
+    },
+    {
+      "source_url": "https://www.city.tsuruoka.lg.jp/seibi/koen-ryokuti/koen/03_tsuruokahigashi_1.html",
+      "name": "鶴岡東公園"
+    },
+    {
+      "source_url": "https://www.city.sukagawa.fukushima.jp/bunka_sports/gyousei-community/komisenmatome/1001445/1008899/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.takasaki.gunma.jp/life/1/6/34/",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.ayase.kanagawa.jp/kurashi_tetsuzuki/koen/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.hashimoto.lg.jp/shisei/hashimotoshinitsuite/sisetuguide/kouen/toshipark/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.hidaka.lg.jp/health_welfare/10/sougouhukusi/3512.html",
+      "name": "総合福祉センター「高麗の郷」"
+    },
+    {
+      "source_url": "https://www.city.tateyama.chiba.jp/tosikeikaku/page100152.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.kokubunji.tokyo.jp/culture-sports-tourism/sports/1011397/1016245/1025879/1025880.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.toyota.aichi.jp/event/event/1080032.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.hikone.lg.jp/kakuka/kanko_bunka/sports/hikonesposui/event/hureaigroudgolf/index.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.fukuyama.hiroshima.jp/koho-detail02/koho-202611/410930.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.takaoka.toyama.jp/gyosei/kanko_bunka_sports/sports/5/3/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.atsugi.kanagawa.jp/soshiki/sportssuishinka/3/1/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.shimada.shizuoka.jp/kanko-docs/2080.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.toyohashi.lg.jp/5012.htm",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.nagahama.lg.jp/0000001754.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.sakai.lg.jp/kurashi/koen/shokai/index.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.sakai.lg.jp/kurashi/koen/shokai/baraike.html",
+      "name": "原池公園"
+    },
+    {
+      "source_url": "https://www.town.hyogo-inami.lg.jp/soshiki/4-2-0-0-0_11.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.saijo.ehime.jp/soshiki/toshi/koen10.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.nichinan.lg.jp/soshikikarasagasu/shogaigakushuka/7/5/2/719.html",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.town.yosano.lg.jp/facility-info/leisure-sightseeing-hotel/leisure-facilities/165076/",
+      "name": "阿蘇シーサイドパークグラウンド・ゴルフ場"
+    },
+    {
+      "source_url": "https://www.city.osaka.lg.jp/kensetsu/page/0000010427.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.town.kumatori.lg.jp/soshiki/shogaigakushu/gyomu/shisetsu/taiikukan/shisetsu_annai/15283.html",
+      "name": "町民グラウンド"
+    },
+    {
+      "source_url": "https://www.city.chita.lg.jp/docs/2014012300575/",
+      "as_listing": true
+    },
+    {
+      "source_url": "https://www.city.tenri.nara.jp/shisetsu/toshikouen/1390888487069.html",
+      "name": "馬田池公園"
+    },
+    {
+      "source_url": "https://www.city.kawagoe.saitama.jp/kurashi/sports/1003258/1003275/1003291.html",
+      "name": "高階運動広場"
+    },
+    {
+      "source_url": "https://www.city.higashiomi.shiga.jp/kids/shigashiomittedonnamachi/1006833/1006840.html",
+      "name": "五個荘中央公園"
+    },
+    {
+      "source_url": "https://www.town.fukuchi.lg.jp/life/shisetsu/sport/1077.html",
+      "exclude": true
     }
   ]
 }
