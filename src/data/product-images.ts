@@ -26,6 +26,14 @@ import gokeiSunVisor from '../assets/products/B07BNBZVBG.webp';
 import hatachiBh8080Gloves from '../assets/products/B01ENUC6L8.webp';
 import asicsMagnetGloves from '../assets/products/B0BJD5777F.webp';
 import northwayWaistPouch from '../assets/products/B0CMTFDW6Y.webp';
+import moonstarM196 from '../assets/products/B07PYV39B4.webp';
+import moonstarL171 from '../assets/products/B07PJPYCBF.webp';
+import achillesLjm9030 from '../assets/products/B0DWF6Y8R2.webp';
+import dunlopDm287 from '../assets/products/B09TDL9GCF.webp';
+import mizunoFreeride2 from '../assets/products/B0D5XXBJ4S.webp';
+import mizunoFrdWp from '../assets/products/B0F18J3NQZ.webp';
+import mizunoMe05Gtx from '../assets/products/B0DPFLDP3Q.webp';
+import mizunoLd40Gtx from '../assets/products/B0CQ6WYMBK.webp';
 
 export const productImages: Record<string, ImageMetadata> = {
   B0CZ9BJ1W5: hatachiEntry,
@@ -52,4 +60,12 @@ export const productImages: Record<string, ImageMetadata> = {
   B01ENUC6L8: hatachiBh8080Gloves,
   B0BJD5777F: asicsMagnetGloves,
   B0CMTFDW6Y: northwayWaistPouch,
+  B07PYV39B4: moonstarM196,
+  B07PJPYCBF: moonstarL171,
+  B0DWF6Y8R2: achillesLjm9030,
+  B09TDL9GCF: dunlopDm287,
+  B0D5XXBJ4S: mizunoFreeride2,
+  B0F18J3NQZ: mizunoFrdWp,
+  B0DPFLDP3Q: mizunoMe05Gtx,
+  B0CQ6WYMBK: mizunoLd40Gtx,
 };
