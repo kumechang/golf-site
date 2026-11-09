@@ -35,6 +35,7 @@ const flags = (p: Product) => ({
   'data-velcro': p.shoe!.velcro ? '1' : '0',
   'data-water': p.shoe!.waterStated ? '1' : '0',
   'data-low': p.priceYen <= UNDER ? '1' : '0',
+  'data-women': /女性向け|男女共用/.test(p.shoe!.target) ? '1' : '0',
 });
 const dates = [...new Set(shoes.map((p) => p.priceCheckedAt))].sort();
 const dateText = dates.map((d) => `${Number(d.slice(5, 7))}月${Number(d.slice(8, 10))}日`).join('・');
@@ -43,6 +44,7 @@ const filters = [
   { key: 'velcro', label: '面ファスナー（マジックテープ）' },
   { key: 'water', label: '防水の記載あり' },
   { key: 'low', label: '5,000円以下' },
+  { key: 'women', label: '女性向け・男女共用の記載' },
 ];
 const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 border-slate-500 bg-white px-4 text-base font-bold text-slate-900 hover:bg-slate-50 aria-pressed:border-green-800 aria-pressed:bg-green-50 aria-pressed:text-green-900';
 ---
@@ -113,21 +115,21 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
     </tbody>
   </table>
   <p class="mt-3 text-base leading-relaxed text-slate-800">
-    足幅の「E」は幅の目安で、数が大きいほど幅広の表記です。「確認できていません」は、当サイトが商品ページで見つけられなかった項目で、実際は書かれていることがあります。商品ページで確かめてください。「Amazonで見る」にはアフィリエイト広告を含み、商品ページは新しい画面で開きます。
+    足幅の「E」は幅の目安で、数が大きいほど幅広の表記です。「撥水」は水をはじく加工、「防水」は水が入りにくい作りを指すのが一般的です。返品・交換は、下の「買う前に確かめること」を見てください。「確認できていません」は、当サイトが商品ページで見つけられなかった項目で、実際は書かれていることがあります。商品ページで確かめてください。「Amazonで見る」にはアフィリエイト広告を含み、商品ページは新しい画面で開きます。
   </p>
   <p class="mt-3 text-base leading-relaxed text-slate-800">
     防水や滑りにくさの効果は確認していません。グラウンドゴルフ専用品ではなく、一般のウォーキングシューズです。価格は{dateText}に確認した参考価格で、変わることがあります。購入前に商品ページをご確認ください。
   </p>
 
   <h3 class="mt-8 text-xl font-bold text-slate-900">買う前に確かめること</h3>
-  <p class="mt-2 text-base leading-relaxed text-slate-800">足幅の一般的な目安です（医学的な助言ではありません）。今の靴で、横から押されて痛い、指が窮屈と感じるなら、幅広めの靴を見る目安になります。迷ったら、少しゆとりのある幅広めから試し、かかとが浮かないかも見てください。「4E」などの基準は商品ごとに違うので、履いて確かめましょう。痛みが続くときは、靴の専門店などに相談してください。</p>
+  <p class="mt-2 text-base leading-relaxed text-slate-800">足幅の一般的な目安です（医学的な助言ではありません）。今の靴で、横から押されて痛い、指が窮屈と感じるなら、幅広めの靴を見る目安になります。迷ったら、少しゆとりのある幅広めから試し、かかとが浮かないかも見てください。「4E」などの基準は商品ごとに違うので、履いて確かめましょう。膝や足に不安があるとき、痛みが続くときは、医師や靴の専門店などに相談してください。</p>
   <p class="mt-2 text-base leading-relaxed text-slate-800"><span class="font-bold">返品・交換：</span>条件は商品ごとに違います。サイズが合わないときの可否、期限、送料の負担、使ったあとの扱いを、購入前に商品ページで確認してください。</p>
 
   <details open class="mt-6 rounded-xl border border-slate-300 bg-white" data-shoe-more>
     <summary class="tap-target cursor-pointer px-4 py-2 text-base font-bold text-green-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">写真と説明つきのカードを見る（{shoes.length}足）</summary>
     <div class="grid gap-5 p-4 sm:grid-cols-2" data-shoe-cards>
       {shoes.map((p) => (
-        <div id={`product-${p.id}`} data-shoe-card {...flags(p)}><ProductCard product={p} /></div>
+        <div id={`product-${p.id}`} data-shoe-card {...flags(p)}><ProductCard product={p} large /></div>
       ))}
     </div>
   </details>
@@ -137,7 +139,7 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
       <h3 class="mt-10 text-xl font-bold text-slate-900">靴以外（手袋・日よけ）</h3>
       <p class="mt-2 text-base leading-relaxed text-slate-800">絞り込みは靴だけです。商品名の「UPF50+」などは商品名の記載で、効果は確認していません。</p>
       <div class="mt-3 grid gap-5 sm:grid-cols-2">
-        {others.map((p) => <ProductCard product={p} />)}
+        {others.map((p) => <ProductCard product={p} large />)}
       </div>
     </>
   )}
