@@ -18,6 +18,10 @@ const articles = defineCollection({
     productIds: z.array(z.string()).optional(),
     // 商品一覧セクションの見出し（未指定時は「おすすめクラブセット比較」を使用）
     productsHeading: z.string().optional(),
+    // true なら、見出しへ移る目次を記事の冒頭に出す（長い記事向け）
+    showToc: z.boolean().optional(),
+    // true なら、商品を「比較表＋絞り込み＋折りたたみのカード」で見せる（シューズ記事向け。Product.shoe のある商品が対象）
+    productFilter: z.boolean().optional(),
     // FAQ（あれば FAQPage JSON-LD を自動生成）
     faqItems: z
       .array(

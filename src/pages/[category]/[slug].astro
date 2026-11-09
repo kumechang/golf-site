@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import ProductComparisonList from '../../components/ProductComparisonList.astro';
 import ProductComparisonTable from '../../components/ProductComparisonTable.astro';
+import ShoeCompare from '../../components/ShoeCompare.astro';
 import { getProductsByIds } from '../../data/products';
 import { articleImages } from '../../data/article-images';
 import { getPrefecturesByRegion } from '../../data/prefectures';
@@ -16,9 +17,17 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
-const { Content } = await render(article);
+const { Content, headings } = await render(article);
 
 const relatedProducts = article.data.productIds ? getProductsByIds(article.data.productIds) : [];
+// 目次（showToc のある記事）。本文の h2 に、商品の節と FAQ を足す
+const toc = article.data.showToc
+  ? [
+      ...headings.filter((h) => h.depth === 2).map((h) => ({ text: h.text, id: h.slug })),
+      ...(relatedProducts.length > 0 ? [{ text: article.data.productFilter ? `シューズ${relatedProducts.filter((p) => p.shoe).length}点の比較` : (article.data.productsHeading ?? '商品の例'), id: 'article-products' }] : []),
+      ...(article.data.faqItems && article.data.faqItems.length > 0 ? [{ text: 'よくある質問', id: 'faq-heading' }] : []),
+    ]
+  : undefined;
 const prefectureRegions = article.id === 'find-a-club-near-you' ? getPrefecturesByRegion() : null;
 ---
 
@@ -32,12 +41,17 @@ const prefectureRegions = article.id === 'find-a-club-near-you' ? getPrefectures
   videos={article.data.videos}
   showAffiliateNotice={relatedProducts.length > 0}
   image={articleImages[article.id]}
+  toc={toc}
 >
   <Content />
 
-  {relatedProducts.length > 0 && (
+  {relatedProducts.length > 0 && article.data.productFilter && (
+    <ShoeCompare heading={article.data.productsHeading ?? '商品の例'} products={relatedProducts} />
+  )}
+
+  {relatedProducts.length > 0 && !article.data.productFilter && (
     <div class="not-prose mt-10">
-      <h2 class="text-2xl font-bold text-slate-900">{article.data.productsHeading ?? 'おすすめクラブセット比較'}</h2>
+      <h2 id="article-products" class="text-2xl font-bold text-slate-900">{article.data.productsHeading ?? 'おすすめクラブセット比較'}</h2>
       {article.data.articleType === 'comparison' && relatedProducts.length > 2 && (
         <div class="mt-5">
           <ProductComparisonTable products={relatedProducts} />

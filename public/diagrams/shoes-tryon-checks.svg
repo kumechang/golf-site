@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" role="img" aria-labelledby="shoes-tryon-checks-t shoes-tryon-checks-d" font-family='"Hiragino Sans","Noto Sans JP","Yu Gothic",system-ui,sans-serif'>
+<title id="shoes-tryon-checks-t">試し履きのチェック</title>
+<desc id="shoes-tryon-checks-d">試し履きで確かめることを4つの枠にチェック記号を付けて示した図です。靴下はプレーのときと同じものを履く。立ったり少し歩いたりして、痛いところがないか確かめる。かかとが浮かないか見る。つま先に余裕があるか見る。あくまで一般的な目安です。</desc>
+<defs><marker id="shoes-tryon-checks-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+<rect x="8" y="8" width="344" height="66" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+<text x="20" y="35" font-size="18" font-weight="700" fill="#0f172a" text-anchor="start">試し履きのチェック</text>
+<text x="20" y="60" font-size="15" font-weight="400" fill="#334155" text-anchor="start">店頭で、次のことを確かめてみましょう</text>
+<rect x="8" y="84" width="344" height="102" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="3"/>
+<circle cx="34" cy="112" r="18" fill="#dcfce7" stroke="#15803d" stroke-width="3"/><path d="M26 113 L32 120 L43 104" fill="none" stroke="#15803d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="62" y="119" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">靴下はプレーと同じもの</text>
+<text x="62" y="148" font-size="15" font-weight="400" fill="#334155" text-anchor="start">プレーで履く靴下を合わせて試し、</text>
+<text x="62" y="170" font-size="15" font-weight="400" fill="#334155" text-anchor="start">サイズが合うか確かめる</text>
+<rect x="8" y="196" width="344" height="80" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="3"/>
+<circle cx="34" cy="224" r="18" fill="#dcfce7" stroke="#15803d" stroke-width="3"/><path d="M26 225 L32 232 L43 216" fill="none" stroke="#15803d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="62" y="231" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">立って、少し歩いてみる</text>
+<text x="62" y="260" font-size="15" font-weight="400" fill="#334155" text-anchor="start">痛いところがないか確かめる</text>
+<rect x="8" y="286" width="344" height="80" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="3"/>
+<circle cx="34" cy="314" r="18" fill="#dcfce7" stroke="#15803d" stroke-width="3"/><path d="M26 315 L32 322 L43 306" fill="none" stroke="#15803d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="62" y="321" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">かかとが浮かないか</text>
+<text x="62" y="350" font-size="15" font-weight="400" fill="#334155" text-anchor="start">ぱかぱか動かないかも見る</text>
+<rect x="8" y="376" width="344" height="80" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="3"/>
+<circle cx="34" cy="404" r="18" fill="#dcfce7" stroke="#15803d" stroke-width="3"/><path d="M26 405 L32 412 L43 396" fill="none" stroke="#15803d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="62" y="411" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">つま先に余裕があるか</text>
+<text x="62" y="440" font-size="15" font-weight="400" fill="#334155" text-anchor="start">窮屈すぎないか見る</text>
+<rect x="8" y="466" width="344" height="44" rx="8" fill="#fef3c7" stroke="#92400e" stroke-width="2"/>
+<rect x="20" y="485" width="7" height="7" rx="1" fill="#92400e" stroke="none" stroke-width="0"/>
+<text x="34" y="493" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">あくまで一般的な目安です。</text>
+</svg>

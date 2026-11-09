@@ -239,3 +239,31 @@ button {
   line-height: 1.7;
   color: #475569;
 }
+
+/* 記事の冒頭の「先に結論」の囲み */
+.prose-article .key-points {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border: 2px solid #166534;
+  border-radius: 0.75rem;
+  background: #f0fdf4;
+}
+.prose-article .key-points-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #14532d;
+}
+.prose-article .key-points ol {
+  margin: 0;
+  padding-left: 1.5em;
+}
+.prose-article .key-points li {
+  margin: 0.4em 0;
+  font-weight: 700;
+}
+.prose-article .key-points-note {
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  color: #334155;
+}

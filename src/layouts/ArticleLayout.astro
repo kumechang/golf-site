@@ -19,9 +19,11 @@ interface Props {
   videos?: VideoItem[];
   showAffiliateNotice?: boolean;
   image?: { src: ImageMetadata; alt: string };
+  /** 記事の冒頭に出す目次（見出しへ移るボタン）。長い記事向け */
+  toc?: { text: string; id: string }[];
 }
 
-const { title, description, category, pubDate, updatedDate, faqItems, videos, showAffiliateNotice = false, image } =
+const { title, description, category, pubDate, updatedDate, faqItems, videos, showAffiliateNotice = false, image, toc } =
   Astro.props as Props;
 
 const cat = getCategory(category);
@@ -110,6 +112,19 @@ const faqJsonLd = faqItems
         height={500}
         class="mt-6 h-auto w-full rounded-2xl object-cover"
       />
+    )}
+
+    {toc && toc.length > 0 && (
+      <nav aria-label="この記事の内容" class="mt-6" data-article-toc>
+        <p class="text-base font-bold text-slate-900">この記事の内容</p>
+        <ul role="list" class="mt-2 flex flex-wrap gap-2">
+          {toc.map((t) => (
+            <li>
+              <a href={`#${t.id}`} class="tap-target inline-flex items-center rounded-full border border-slate-400 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">{t.text}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     )}
 
     <div class="prose-article mt-8 text-slate-800">

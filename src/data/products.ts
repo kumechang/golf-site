@@ -32,6 +32,15 @@ export interface Product {
   recommendedFor: string;
   reasonSelected: string;
   tags: string[]; // gift-guide等での絞り込みに使用
+  // シューズの比較表・絞り込み用。商品名・商品ページの記載のとおりに書く（効果は確認していない）
+  shoe?: {
+    width: string; // 足幅の表記（例: 4E）
+    closure: string; // 着脱（紐／面ファスナー／未確認 など。確認できない点は「未確認」「要確認」と書く）
+    water: string; // 防水・撥水の記載（例: 防水（商品ページの記載））
+    widthE: number; // 絞り込み用。表記のうち最も広いE（3E→3、4E→4、6E→6）
+    velcro: boolean; // 面ファスナーの記載がある
+    waterStated: boolean; // 「防水」の記載がある（撥水のみは false）
+  };
 }
 
 export const products: Product[] = [
@@ -276,6 +285,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「幅広4E」「撥水」「軽量」と書かれたウォーキングシューズ。Amazonの評価は4.1（1,494件）。撥水・軽量の程度やソールの滑りにくさは確認できていないため、購入前に商品ページでご確認ください。',
     tags: ['under-10000', 'shoes'],
+    shoe: { width: '4E', closure: '未確認', water: '撥水（商品名の記載。防水の記載は未確認）', widthE: 4, velcro: false, waterStated: false },
   },
   {
     id: 'achilles-walking-shoes',
@@ -291,6 +301,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「防水」「幅広」「軽量」「男性4E・女性3E」と書かれたウォーキングシューズ。Amazonの評価は4.3（99件）。防水・軽量の程度やソールの滑りにくさは確認できていないため、購入前に商品ページでご確認ください。',
     tags: ['under-10000', 'shoes'],
+    shoe: { width: '男性4E・女性3E', closure: '未確認', water: '防水（商品名の記載）', widthE: 4, velcro: false, waterStated: true },
   },
   {
     id: 'moonstar-m196',
@@ -306,6 +317,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「晴雨兼用」「防水」「幅広」と書かれたメンズのウォーキングシューズで、サイズ表記は4E、着脱は紐。Amazonの評価は4.0（3,310件）と件数が多い。商品ページにはソールが路面をグリップする意匠だという記載がある。防水の程度や滑りにくさの効果は確認できていないため、購入前に商品ページでご確認ください。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['under-10000', 'shoes'],
+    shoe: { width: '4E', closure: '紐', water: '防水（商品ページの記載）', widthE: 4, velcro: false, waterStated: true },
   },
   {
     id: 'moonstar-l171',
@@ -321,6 +333,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「晴雨兼用」「防水」「4E」と書かれたレディース（22〜25cm）のウォーキングシューズ。Amazonの評価は4.1（290件）。仕様欄の着脱は紐だが、説明に「マジックテープ」「開口部が広い」という語もあるため、着脱の方式は商品ページで確認したい。商品ページには防滑を考慮したソール設計だという記載がある。防水の程度や滑りにくさの効果は確認できていない。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['under-10000', 'shoes'],
+    shoe: { width: '4E', closure: '紐（要確認）', water: '防水（商品ページの記載）', widthE: 4, velcro: false, waterStated: true },
   },
   {
     id: 'achilles-ljm9030',
@@ -336,6 +349,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「防水」「超幅広」「軽量」「6E」と書かれたメンズの靴で、着脱は紐。マジックテープ版は別にあるという記載が商品ページにある。Amazonの評価は4.0（43件）と件数は少なめ。商品ページにはソールが防滑に配慮した意匠だという記載がある。防水・軽量の程度や滑りにくさの効果は確認できていないため、購入前に商品ページでご確認ください。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['under-10000', 'shoes'],
+    shoe: { width: '6E', closure: '紐', water: '防水（商品ページの記載）', widthE: 6, velcro: false, waterStated: true },
   },
   {
     id: 'dunlop-dm287',
@@ -351,6 +365,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「防水」「幅広」「4E」「面ファスナー」と書かれたウォーキングシューズ。Amazonの評価は4.2（583件）で、販売元はAmazon.co.jpと表示されている。商品ページには滑り止めソールだという記載がある。防水の程度や滑りにくさの効果は確認できていないため、購入前に商品ページでご確認ください。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['under-10000', 'shoes'],
+    shoe: { width: '4E', closure: '面ファスナー', water: '防水（商品ページの記載）', widthE: 4, velcro: true, waterStated: true },
   },
   {
     id: 'mizuno-freeride2',
@@ -366,6 +381,7 @@ export const products: Product[] = [
     reasonSelected:
       'MIZUNOのウォーキングシューズで、足幅の表記は4E。耐水レベルの欄には非防水とある（商品ページの記載）。着脱は紐だが、ページに内甲ファスナーの記載もあり、この型番のものかは商品ページで確認したい。ソールは説明欄にX10ラバーとあるが、滑りにくさは確認できていない。Amazonの評価は4.2（261件）。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['under-10000', 'shoes'],
+    shoe: { width: '4E', closure: '紐（要確認）', water: '非防水と記載（商品ページ）', widthE: 4, velcro: false, waterStated: false },
   },
   {
     id: 'mizuno-frd-wp',
@@ -381,6 +397,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「WP」「防水」「幅広」「厚底」「Amazon.co.jp限定」と書かれたMIZUNOのウォーキングシューズで、足幅の表記は3E、着脱は紐。Amazonの評価は4.0（86件）。防水の程度は確認できていない。ソールの滑りにくさについては、確認できた記載がない。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['under-10000', 'shoes'],
+    shoe: { width: '3E', closure: '紐', water: '防水（商品名の記載）', widthE: 3, velcro: false, waterStated: true },
   },
   {
     id: 'mizuno-me05-gtx',
@@ -396,6 +413,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品ページに防水（ゴアテックス）の記載があるMIZUNOのユニセックスのウォーキングシューズで、足幅の表記は3E、着脱は紐。商品ページには濡れた路面で滑りにくいとされる「Wgrip」の記載がある。Amazonの評価は4.0（82件）。防水や滑りにくさの効果は確認できていないため、購入前に商品ページでご確認ください。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['under-15000', 'shoes'],
+    shoe: { width: '3E', closure: '紐', water: '防水（ゴアテックス・商品ページの記載）', widthE: 3, velcro: false, waterStated: true },
   },
   {
     id: 'mizuno-ld40-gtx',
@@ -411,6 +429,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「防水」「ゴアテックス」「軽量」「幅広」「内甲ファスナー」と書かれたMIZUNOのメンズのウォーキングシューズ。足幅のサイズ表記は3E・4E、着脱は紐に加えて内甲ファスナー（商品名の記載）。商品ページには濡れた路面で滑りにくいとされる「Wgrip」の記載がある。Amazonの評価は4.1（142件）。防水・軽量の程度や滑りにくさの効果は確認できていない。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['15000-20000', 'shoes'],
+    shoe: { width: '3E・4E', closure: '紐＋内甲ファスナー（商品名の記載）', water: '防水（ゴアテックス・商品ページの記載）', widthE: 4, velcro: false, waterStated: true },
   },
   {
     id: 'hatachi-aero-ball',
