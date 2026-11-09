@@ -37,9 +37,10 @@ const bandColor: Record<Product['priceBand'], string> = {
       <Image
         src={productImages[product.asin]}
         alt={product.name}
-        width={200}
-        height={200}
-        class="h-full w-full object-contain p-2"
+        width={480}
+        height={480}
+        fit="inside"
+        class="h-full w-full object-contain mix-blend-multiply p-2"
       />
     </div>
   )}
