@@ -24,7 +24,7 @@ const relatedProducts = article.data.productIds ? getProductsByIds(article.data.
 const toc = article.data.showToc
   ? [
       ...headings.filter((h) => h.depth === 2).map((h) => ({ text: h.text, id: h.slug })),
-      ...(relatedProducts.length > 0 ? [{ text: article.data.productFilter ? 'シューズ10点の比較' : (article.data.productsHeading ?? '商品の例'), id: 'article-products' }] : []),
+      ...(relatedProducts.length > 0 ? [{ text: article.data.productFilter ? `シューズ${relatedProducts.filter((p) => p.shoe).length}点の比較` : (article.data.productsHeading ?? '商品の例'), id: 'article-products' }] : []),
       ...(article.data.faqItems && article.data.faqItems.length > 0 ? [{ text: 'よくある質問', id: 'faq-heading' }] : []),
     ]
   : undefined;

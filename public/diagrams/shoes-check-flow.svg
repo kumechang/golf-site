@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 468" role="img" aria-labelledby="shoes-check-flow-t shoes-check-flow-d" font-family='"Hiragino Sans","Noto Sans JP","Yu Gothic",system-ui,sans-serif'>
 <title id="shoes-check-flow-t">会場への確認の流れ</title>
-<desc id="shoes-check-flow-d">会場や大会の案内に靴の記載があるかで分かれる流れ図です。ある場合は、その案内に従う。ない場合は、主催者や施設の窓口に聞く。JGGAのルールなど、確認した公式ページには靴の規定の記載は見当たりませんでした（2026年11月時点）。</desc>
+<desc id="shoes-check-flow-d">会場や大会の案内に靴の記載があるかで分かれる流れ図です。ある場合は、その案内に従う。ない場合は、主催者や施設の窓口に聞く。JGGAのルールなど、確認したページには靴の規定の記載は見当たりませんでした（2026年11月時点）。</desc>
 <defs><marker id="shoes-check-flow-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
 <rect x="8" y="8" width="344" height="40" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
 <text x="20" y="35" font-size="18" font-weight="700" fill="#0f172a" text-anchor="start">会場への確認の流れ</text>
@@ -24,7 +24,7 @@
 <rect x="8" y="352" width="344" height="106" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
 <rect x="20" y="371" width="7" height="7" rx="1" fill="#475569" stroke="none" stroke-width="0"/>
 <text x="34" y="379" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">JGGAのルールなど、確認した</text>
-<text x="34" y="401" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">公式ページには靴の規定の記載は</text>
+<text x="34" y="401" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">ページには靴の規定の記載は</text>
 <text x="34" y="423" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">見当たりませんでした</text>
 <text x="34" y="445" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">（2026年11月時点）</text>
 </svg>

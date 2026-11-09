@@ -47,6 +47,7 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
 
 <div class="not-prose mt-10" id="article-products" data-shoe-compare>
   <h2 class="text-2xl font-bold text-slate-900">{heading}</h2>
+  <p class="mt-2 text-base font-bold leading-relaxed text-slate-900">価格の安い順の例。防水・滑りにくさの効果は未確認</p>
 
   <h3 class="mt-6 text-xl font-bold text-slate-900">シューズ{shoes.length}足の比較</h3>
   <p class="mt-2 text-base leading-relaxed text-slate-800">{shoes.length}足を価格の安い順に並べました。足幅・着脱・防水は、商品ページや商品名の記載です。</p>
@@ -93,7 +94,6 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
   <p class="mt-3 text-base leading-relaxed text-slate-800">
     防水や滑りにくさの効果は確認していません。グラウンドゴルフ専用品ではなく、一般のウォーキングシューズです。価格は{dateText}に確認した参考価格で、変わることがあります。購入前に商品ページをご確認ください。
   </p>
-  <p role="status" id="shoe-empty" hidden class="mt-3 rounded-xl border border-slate-300 bg-slate-50 p-4 text-base text-slate-800">条件に合う靴は見つかりませんでした。条件を1つ外してみてください。</p>
 
   <h3 class="mt-8 text-xl font-bold text-slate-900">シューズのカード</h3>
   <div class="mt-3 grid gap-5 sm:grid-cols-2" data-shoe-cards>
@@ -102,7 +102,7 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
     ))}
   </div>
   {shoes.length > SHOW && (
-    <details class="mt-5 rounded-xl border border-slate-300 bg-white" data-shoe-more>
+    <details open class="mt-5 rounded-xl border border-slate-300 bg-white" data-shoe-more>
       <summary class="tap-target cursor-pointer px-4 py-2 text-base font-bold text-green-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">ほかの{shoes.length - SHOW}足のカードを見る</summary>
       <div class="grid gap-5 p-4 sm:grid-cols-2" data-shoe-cards>
         {shoes.slice(SHOW).map((p) => (
@@ -125,22 +125,22 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
 
 <style is:global>
   /* 記事本文用の表の設定（横スクロール・案内文・最小幅）を、この表では使わない */
-  .shoe-table { display: table; width: 100%; margin: 1rem 0 0; overflow: visible; border: 0; border-radius: 0; font-size: 1rem; line-height: 1.6; }
-  .shoe-table::before { content: none; display: none; }
-  .shoe-table thead { background: transparent; }
-  .shoe-table th, .shoe-table td { min-width: 0; padding: 0.5rem 0.6rem; vertical-align: top; text-align: left; white-space: normal; border-bottom: 1px solid #e2e8f0; color: #1e293b; }
-  .shoe-table thead th { color: #0f172a; border-bottom: 2px solid #cbd5e1; }
-  .shoe-table tbody tr:last-child td { border-bottom: 1px solid #e2e8f0; }
-  .shoe-table td[data-label="価格"] { white-space: nowrap; }
+  table.shoe-table { display: table; width: 100%; margin: 1rem 0 0; overflow: visible; border: 0; border-radius: 0; font-size: 1rem; line-height: 1.6; }
+  table.shoe-table::before { content: none; display: none; }
+  table.shoe-table thead { background: transparent; }
+  table.shoe-table th, table.shoe-table td { min-width: 0; padding: 0.5rem 0.6rem; vertical-align: top; text-align: left; white-space: normal; border-bottom: 1px solid #e2e8f0; color: #1e293b; }
+  table.shoe-table thead th { color: #0f172a; border-bottom: 2px solid #cbd5e1; }
+  table.shoe-table tbody tr:last-child td { border-bottom: 1px solid #e2e8f0; }
+  table.shoe-table td[data-label="価格"] { white-space: nowrap; }
   @media (max-width: 639px) {
-    .shoe-table, .shoe-table tbody, .shoe-table tr, .shoe-table th, .shoe-table td { display: block; width: 100%; }
-    .shoe-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-    .shoe-table tr { margin-top: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.75rem; padding: 0.5rem 0.75rem; background: #fff; }
-    .shoe-table th, .shoe-table td { border-bottom: 0; padding-left: 0; padding-right: 0; }
-    .shoe-table td { border-top: 1px solid #f1f5f9; }
-    .shoe-table tbody th { padding: 0 0 0.25rem 0; font-size: 1.0625rem; }
-    .shoe-table td { display: grid; grid-template-columns: 7rem 1fr; gap: 0.5rem; padding: 0.15rem 0; white-space: normal; }
-    .shoe-table td::before { content: attr(data-label); font-weight: 700; color: #0f172a; }
+    table.shoe-table, table.shoe-table tbody, table.shoe-table tr, table.shoe-table th, table.shoe-table td { display: block; width: 100%; }
+    table.shoe-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    table.shoe-table tr { margin-top: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.75rem; padding: 0.5rem 0.75rem; background: #fff; }
+    table.shoe-table th, table.shoe-table td { border-bottom: 0; padding-left: 0; padding-right: 0; }
+    table.shoe-table td { border-top: 1px solid #f1f5f9; }
+    table.shoe-table tbody th { padding: 0 0 0.25rem 0; font-size: 1.0625rem; }
+    table.shoe-table td { display: grid; grid-template-columns: 7rem 1fr; gap: 0.5rem; padding: 0.15rem 0; white-space: normal; }
+    table.shoe-table td::before { content: attr(data-label); font-weight: 700; color: #0f172a; }
   }
   [data-shoe-card]:target { outline: 4px solid #166534; outline-offset: 3px; }
 </style>
@@ -154,10 +154,11 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
     const buttons = [...root.querySelectorAll<HTMLButtonElement>('[data-shoe-btn]')];
     const clear = root.querySelector<HTMLButtonElement>('[data-shoe-clear]')!;
     const status = root.querySelector<HTMLElement>('#shoe-status')!;
-    const empty = root.querySelector<HTMLElement>('#shoe-empty')!;
     const rows = [...root.querySelectorAll<HTMLElement>('[data-shoe-row]')];
     const cards = [...root.querySelectorAll<HTMLElement>('[data-shoe-card]')];
     const more = root.querySelector<HTMLDetailsElement>('[data-shoe-more]');
+    // JSなしでは全カードを見せるため、markupは開いた状態。JSがあるときは、表のリンクで開かれた場合を除き閉じる
+    if (more && !location.hash.startsWith('#product-')) more.open = false;
     let saved: boolean | null = null;
     const apply = () => {
       const on = buttons.filter((b) => b.getAttribute('aria-pressed') === 'true').map((b) => b.dataset.shoeBtn!);
@@ -166,7 +167,6 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
       for (const r of rows) { const ok = match(r); r.hidden = !ok; if (ok) n++; }
       for (const c of cards) c.hidden = !match(c);
       clear.hidden = on.length === 0;
-      empty.hidden = !(on.length > 0 && n === 0);
       if (more) {
         if (on.length > 0 && saved === null) saved = more.open;
         const any = Boolean(more.querySelector('[data-shoe-card]:not([hidden])'));
@@ -174,7 +174,7 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
         if (on.length > 0) more.open = any;
         else if (saved !== null) { more.open = saved; saved = null; }
       }
-      status.textContent = on.length > 0 ? `${rows.length}足中${n}足を表示中` : '';
+      status.textContent = on.length === 0 ? '' : n === 0 ? `${rows.length}足中0足を表示中。条件に合う靴は見つかりませんでした。条件を1つ外してみてください。` : `${rows.length}足中${n}足を表示中`;
     };
     for (const b of buttons) b.addEventListener('click', () => { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); apply(); });
     clear.addEventListener('click', () => { buttons.forEach((b) => b.setAttribute('aria-pressed', 'false')); apply(); buttons[0]?.focus(); });

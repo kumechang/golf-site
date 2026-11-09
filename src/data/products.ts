@@ -35,11 +35,11 @@ export interface Product {
   // シューズの比較表・絞り込み用。商品名・商品ページの記載のとおりに書く（効果は確認していない）
   shoe?: {
     width: string; // 足幅の表記（例: 4E）
-    closure: string; // 着脱（紐／面ファスナー／商品ページで確認 など）
+    closure: string; // 着脱（紐／面ファスナー／未確認 など。確認できない点は「未確認」「要確認」と書く）
     water: string; // 防水・撥水の記載（例: 防水（商品ページの記載））
     widthE: number; // 絞り込み用。表記のうち最も広いE（3E→3、4E→4、6E→6）
     velcro: boolean; // 面ファスナーの記載がある
-    waterStated: boolean; // 防水・撥水の記載がある
+    waterStated: boolean; // 「防水」の記載がある（撥水のみは false）
   };
 }
 
