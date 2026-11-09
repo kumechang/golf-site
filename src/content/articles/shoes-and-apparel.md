@@ -21,6 +21,7 @@ productIds:
   - "hatachi-stretch-gloves"
   - "gokei-sun-visor"
 productsHeading: "シューズ・手袋・日よけの例"
+showToc: true
 faqItems:
   - question: "グラウンドゴルフには専用のシューズが必要ですか？"
     answer: "JGGAのルールなど、確認した公式ページには靴の規定の記載は見当たりませんでした（2026年11月時点）。専用シューズが必須かどうかも、確認できた範囲では分かりません。参加する会場や大会の案内で確かめてください。"
