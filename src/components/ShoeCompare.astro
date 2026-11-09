@@ -1,8 +1,11 @@
 ---
-// シューズ記事の商品欄。シューズは「比較表＋絞り込み＋先頭の数枚だけ見せるカード」、手袋・日よけは別枠。
+// シューズ記事の商品欄。シューズは「写真と購入ボタンつきの比較表＋絞り込み＋折りたたみのカード」、手袋・日よけは別枠。
 // 表の値は products.ts の shoe（商品名・商品ページの記載のとおり。効果は確認していない）。
 import type { Product } from '../data/products';
+import { Image } from 'astro:assets';
 import ProductCard from './ProductCard.astro';
+import { productImages } from '../data/product-images';
+import { buildAmazonProductUrl } from '../lib/amazon';
 
 interface Props {
   heading: string;
@@ -13,34 +16,35 @@ const { heading, products } = Astro.props as Props;
 const shoes = products.filter((p) => p.shoe);
 const others = products.filter((p) => !p.shoe);
 const fmt = new Intl.NumberFormat('ja-JP');
-const SHOW = 3; // 先頭に見せるカードの数
 const UNDER = 5000;
 // 表の商品名（短く）。カードの名前と同じ商品だと分かる程度に縮める
 const SHORT: Record<string, string> = {
   'dunlop-refined-shoes': 'ダンロップ DM2001',
   'achilles-walking-shoes': 'アキレス LJM 9020',
-  'moonstar-m196': 'ムーンスター M196（メンズ）',
-  'moonstar-l171': 'ムーンスター L171（レディース）',
-  'achilles-ljm9030': 'アキレス LJM 9030（メンズ）',
+  'moonstar-m196': 'ムーンスター M196',
+  'moonstar-l171': 'ムーンスター L171',
+  'achilles-ljm9030': 'アキレス LJM 9030',
   'dunlop-dm287': 'ダンロップ DM287',
   'mizuno-freeride2': 'ミズノ ウエーブフリーライド2',
   'mizuno-frd-wp': 'ミズノ WAVE FRD WP',
   'mizuno-me05-gtx': 'ミズノ ME-05 GTX3',
-  'mizuno-ld40-gtx': 'ミズノ LD40 VII GTX（メンズ）',
+  'mizuno-ld40-gtx': 'ミズノ LD40 VII GTX',
 };
 const flags = (p: Product) => ({
   'data-e4': p.shoe!.widthE >= 4 ? '1' : '0',
   'data-velcro': p.shoe!.velcro ? '1' : '0',
   'data-water': p.shoe!.waterStated ? '1' : '0',
   'data-low': p.priceYen <= UNDER ? '1' : '0',
+  'data-women': /女性向け|男女共用/.test(p.shoe!.target) ? '1' : '0',
 });
 const dates = [...new Set(shoes.map((p) => p.priceCheckedAt))].sort();
 const dateText = dates.map((d) => `${Number(d.slice(5, 7))}月${Number(d.slice(8, 10))}日`).join('・');
 const filters = [
-  { key: 'e4', label: '足幅4E以上の表記' },
-  { key: 'velcro', label: '面ファスナー' },
+  { key: 'e4', label: '足幅が広め（4E以上の表記）' },
+  { key: 'velcro', label: '面ファスナー（マジックテープ）' },
   { key: 'water', label: '防水の記載あり' },
   { key: 'low', label: '5,000円以下' },
+  { key: 'women', label: '女性向け・男女共用の記載' },
 ];
 const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 border-slate-500 bg-white px-4 text-base font-bold text-slate-900 hover:bg-slate-50 aria-pressed:border-green-800 aria-pressed:bg-green-50 aria-pressed:text-green-900';
 ---
@@ -50,7 +54,7 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
   <p class="mt-2 text-base font-bold leading-relaxed text-slate-900">価格の安い順の例。防水・滑りにくさの効果は未確認</p>
 
   <h3 class="mt-6 text-xl font-bold text-slate-900">シューズ{shoes.length}足の比較</h3>
-  <p class="mt-2 text-base leading-relaxed text-slate-800">{shoes.length}足を価格の安い順に並べました。足幅・着脱・防水は、商品ページや商品名の記載です。</p>
+  <p class="mt-2 text-base leading-relaxed text-slate-800">{shoes.length}足を価格の安い順に並べました。対象・足幅・着脱・防水は、商品ページや商品名の記載です。表の「Amazonで見る」には、アフィリエイト広告を含みます。</p>
 
   <div class="mt-4 rounded-xl border border-slate-300 bg-slate-50 p-4" data-shoe-filter hidden>
     <p class="text-base font-bold text-slate-900" id="shoe-filter-label">条件で絞り込む</p>
@@ -62,62 +66,80 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
       ))}
       <button type="button" data-shoe-clear hidden class="tap-target inline-flex items-center rounded-full border-2 border-slate-500 bg-white px-4 text-base font-bold text-slate-900 hover:bg-slate-50">条件をクリア</button>
     </div>
-    <p class="mt-2 text-base text-slate-800">複数選ぶと、すべてに当てはまる靴だけ表示します。「足幅4E以上」は、足幅の表記が4E以上のものです。表記の基準は商品ごとに違うことがあります。</p>
+    <p class="mt-2 text-base text-slate-800">複数選ぶと、すべてに当てはまる靴だけ表示します。「足幅が広め」は、足幅の表記が4E以上のものです。表記の基準は商品ごとに違うことがあります。</p>
     <p role="status" id="shoe-status" class="mt-2 min-h-[1.5rem] text-base font-bold text-slate-900"></p>
   </div>
 
   <table class="shoe-table mt-4 w-full border-collapse text-left text-base text-slate-800" role="table">
-    <caption class="sr-only">シューズ{shoes.length}足の、価格・足幅・着脱・防水の記載の比較</caption>
+    <caption class="sr-only">シューズ{shoes.length}足の、対象・価格・足幅・着脱・防水の記載の比較と、Amazonへのリンク</caption>
     <thead role="rowgroup">
       <tr role="row" class="border-b-2 border-slate-300">
-        <th role="columnheader" scope="col" class="py-2 pr-3 font-bold">商品名</th>
+        <th role="columnheader" scope="col" class="py-2 pr-3 font-bold">商品（対象）</th>
         <th role="columnheader" scope="col" class="px-3 py-2 font-bold">価格</th>
         <th role="columnheader" scope="col" class="px-3 py-2 font-bold">足幅</th>
         <th role="columnheader" scope="col" class="px-3 py-2 font-bold">着脱</th>
         <th role="columnheader" scope="col" class="px-3 py-2 font-bold">防水の記載</th>
+        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">購入</th>
       </tr>
     </thead>
     <tbody role="rowgroup">
-      {shoes.map((p) => (
-        <tr role="row" class="border-b border-slate-200 align-top" data-shoe-row data-id={p.id} {...flags(p)}>
-          <th role="rowheader" scope="row" class="py-2 pr-3 font-bold">
-            <a href={`#product-${p.id}`} class="font-bold text-green-800 underline underline-offset-2 hover:text-green-900" data-shoe-link>{SHORT[p.id] ?? p.name}<span class="sr-only">のカードへ</span></a>
-          </th>
-          <td role="cell" data-label="価格" class="whitespace-nowrap px-3 py-2">¥{fmt.format(p.priceYen)}</td>
-          <td role="cell" data-label="足幅" class="px-3 py-2">{p.shoe!.width}</td>
-          <td role="cell" data-label="着脱" class="px-3 py-2">{p.shoe!.closure}</td>
-          <td role="cell" data-label="防水の記載" class="px-3 py-2">{p.shoe!.water}</td>
-        </tr>
-      ))}
+      {shoes.map((p) => {
+        const name = SHORT[p.id] ?? p.name;
+        return (
+          <tr role="row" id={`shoe-row-${p.id}`} class="border-b border-slate-200 align-top" data-shoe-row data-id={p.id} {...flags(p)}>
+            <th role="rowheader" scope="row" class="py-2 pr-3 font-bold">
+              <div class="shoe-name">
+                {productImages[p.asin] && (
+                  <span class="shoe-thumb">
+                    <Image src={productImages[p.asin]} alt="" width={160} height={160} fit="inside" loading="lazy" class="h-full w-full object-contain mix-blend-multiply" />
+                  </span>
+                )}
+                <span class="shoe-title">
+                  <span class="block font-bold text-slate-900">{name}</span>
+                  <span class="block text-base font-normal text-slate-700">{p.shoe!.target}</span>
+                </span>
+              </div>
+            </th>
+            <td role="cell" data-label="価格" class="whitespace-nowrap px-3 py-2">¥{fmt.format(p.priceYen)}</td>
+            <td role="cell" data-label="足幅" class="px-3 py-2">{p.shoe!.width}</td>
+            <td role="cell" data-label="着脱" class="px-3 py-2">{p.shoe!.closure}</td>
+            <td role="cell" data-label="防水の記載" class="px-3 py-2">{p.shoe!.water}</td>
+            <td role="cell" class="shoe-buy px-3 py-2">
+              <a href={buildAmazonProductUrl(p.asin)} target="_blank" rel="nofollow sponsored noopener" data-gg-outbound="amazon" data-gg-product={p.id} class="shoe-buy-btn">
+                Amazonで見る<span class="sr-only">（{name}・新しい画面）</span>
+              </a>
+            </td>
+          </tr>
+        );
+      })}
     </tbody>
   </table>
+  <p class="mt-3 text-base leading-relaxed text-slate-800">
+    足幅の「E」は幅の目安で、数が大きいほど幅広の表記です。「撥水」は水をはじく加工、「防水」は水が入りにくい作りを指すのが一般的です。返品・交換は、下の「買う前に確かめること」を見てください。「確認できていません」は、当サイトが商品ページで見つけられなかった項目で、実際は書かれていることがあります。商品ページで確かめてください。「Amazonで見る」にはアフィリエイト広告を含み、商品ページは新しい画面で開きます。
+  </p>
   <p class="mt-3 text-base leading-relaxed text-slate-800">
     防水や滑りにくさの効果は確認していません。グラウンドゴルフ専用品ではなく、一般のウォーキングシューズです。価格は{dateText}に確認した参考価格で、変わることがあります。購入前に商品ページをご確認ください。
   </p>
 
-  <h3 class="mt-8 text-xl font-bold text-slate-900">シューズのカード</h3>
-  <div class="mt-3 grid gap-5 sm:grid-cols-2" data-shoe-cards>
-    {shoes.slice(0, SHOW).map((p) => (
-      <div id={`product-${p.id}`} data-shoe-card {...flags(p)}><ProductCard product={p} /></div>
-    ))}
-  </div>
-  {shoes.length > SHOW && (
-    <details open class="mt-5 rounded-xl border border-slate-300 bg-white" data-shoe-more>
-      <summary class="tap-target cursor-pointer px-4 py-2 text-base font-bold text-green-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">ほかの{shoes.length - SHOW}足のカードを見る</summary>
-      <div class="grid gap-5 p-4 sm:grid-cols-2" data-shoe-cards>
-        {shoes.slice(SHOW).map((p) => (
-          <div id={`product-${p.id}`} data-shoe-card {...flags(p)}><ProductCard product={p} /></div>
-        ))}
-      </div>
-    </details>
-  )}
+  <h3 class="mt-8 text-xl font-bold text-slate-900">買う前に確かめること</h3>
+  <p class="mt-2 text-base leading-relaxed text-slate-800">足幅の一般的な目安です（医学的な助言ではありません）。今の靴で、横から押されて痛い、指が窮屈と感じるなら、幅広めの靴を見る目安になります。迷ったら、少しゆとりのある幅広めから試し、かかとが浮かないかも見てください。「4E」などの基準は商品ごとに違うので、履いて確かめましょう。膝や足に不安があるとき、痛みが続くときは、医師や靴の専門店などに相談してください。</p>
+  <p class="mt-2 text-base leading-relaxed text-slate-800"><span class="font-bold">返品・交換：</span>条件は商品ごとに違います。サイズが合わないときの可否、期限、送料の負担、使ったあとの扱いを、購入前に商品ページで確認してください。</p>
+
+  <details open class="mt-6 rounded-xl border border-slate-300 bg-white" data-shoe-more>
+    <summary class="tap-target cursor-pointer px-4 py-2 text-base font-bold text-green-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">写真と説明つきのカードを見る（{shoes.length}足）</summary>
+    <div class="grid gap-5 p-4 sm:grid-cols-2" data-shoe-cards>
+      {shoes.map((p) => (
+        <div id={`product-${p.id}`} data-shoe-card {...flags(p)}><ProductCard product={p} large /></div>
+      ))}
+    </div>
+  </details>
 
   {others.length > 0 && (
     <>
       <h3 class="mt-10 text-xl font-bold text-slate-900">靴以外（手袋・日よけ）</h3>
       <p class="mt-2 text-base leading-relaxed text-slate-800">絞り込みは靴だけです。商品名の「UPF50+」などは商品名の記載で、効果は確認していません。</p>
       <div class="mt-3 grid gap-5 sm:grid-cols-2">
-        {others.map((p) => <ProductCard product={p} />)}
+        {others.map((p) => <ProductCard product={p} large />)}
       </div>
     </>
   )}
@@ -132,21 +154,29 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
   table.shoe-table thead th { color: #0f172a; border-bottom: 2px solid #cbd5e1; }
   table.shoe-table tbody tr:last-child td { border-bottom: 1px solid #e2e8f0; }
   table.shoe-table td[data-label="価格"] { white-space: nowrap; }
-  @media (max-width: 639px) {
+  table.shoe-table .shoe-name { display: flex; align-items: center; gap: 0.6rem; }
+  table.shoe-table .shoe-thumb { flex: none; width: 3.5rem; height: 3.5rem; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem; background: #f8fafc; }
+  table.shoe-table .shoe-buy-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.5rem 1rem; border-radius: 0.5rem; background: #f59e0b; color: #0f172a; font-weight: 700; font-size: 1rem; line-height: 1.3; text-align: center; text-decoration: none; white-space: nowrap; }
+  table.shoe-table .shoe-buy-btn:hover { background: #fbbf24; }
+  @media (max-width: 767px) {
     table.shoe-table, table.shoe-table tbody, table.shoe-table tr, table.shoe-table th, table.shoe-table td { display: block; width: 100%; }
     table.shoe-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     table.shoe-table tr { margin-top: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.75rem; padding: 0.5rem 0.75rem; background: #fff; }
     table.shoe-table th, table.shoe-table td { border-bottom: 0; padding-left: 0; padding-right: 0; }
     table.shoe-table td { border-top: 1px solid #f1f5f9; }
-    table.shoe-table tbody th { padding: 0 0 0.25rem 0; font-size: 1.0625rem; }
+    table.shoe-table tbody th { padding: 0 0 0.5rem 0; font-size: 1.0625rem; }
+    table.shoe-table .shoe-thumb { width: 4.5rem; height: 4.5rem; }
     table.shoe-table td { display: grid; grid-template-columns: 7rem 1fr; gap: 0.5rem; padding: 0.15rem 0; white-space: normal; }
     table.shoe-table td::before { content: attr(data-label); font-weight: 700; color: #0f172a; }
+    table.shoe-table td.shoe-buy { display: block; border-top: 0; padding-top: 0.5rem; }
+    table.shoe-table td.shoe-buy::before { content: none; }
+    table.shoe-table .shoe-buy-btn { display: flex; width: 100%; }
   }
-  [data-shoe-card]:target { outline: 4px solid #166534; outline-offset: 3px; }
+  [data-shoe-card]:target, table.shoe-table tr:target { outline: 4px solid #166534; outline-offset: 3px; }
 </style>
 
 <script>
-  // 絞り込み（複数選んだらすべてに当てはまるものだけ）。カードの折りたたみは、絞り込み中は開き、クリアで元に戻す。
+  // 絞り込み（複数選んだらすべてに当てはまるものだけ）。購入ボタンは表にあるため、カードの折りたたみは絞り込みで動かさない。
   const root = document.querySelector<HTMLElement>('[data-shoe-compare]');
   if (root) {
     const box = root.querySelector<HTMLElement>('[data-shoe-filter]')!;
@@ -157,9 +187,8 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
     const rows = [...root.querySelectorAll<HTMLElement>('[data-shoe-row]')];
     const cards = [...root.querySelectorAll<HTMLElement>('[data-shoe-card]')];
     const more = root.querySelector<HTMLDetailsElement>('[data-shoe-more]');
-    // JSなしでは全カードを見せるため、markupは開いた状態。JSがあるときは、表のリンクで開かれた場合を除き閉じる
+    // JSなしでは全カードを見せるため、markupは開いた状態。JSがあるときは、カードへのリンクで開かれた場合を除き閉じる
     if (more && !location.hash.startsWith('#product-')) more.open = false;
-    let saved: boolean | null = null;
     const apply = () => {
       const on = buttons.filter((b) => b.getAttribute('aria-pressed') === 'true').map((b) => b.dataset.shoeBtn!);
       const match = (el: HTMLElement) => on.every((k) => el.dataset[k] === '1');
@@ -167,24 +196,17 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
       for (const r of rows) { const ok = match(r); r.hidden = !ok; if (ok) n++; }
       for (const c of cards) c.hidden = !match(c);
       clear.hidden = on.length === 0;
-      if (more) {
-        if (on.length > 0 && saved === null) saved = more.open;
-        const any = Boolean(more.querySelector('[data-shoe-card]:not([hidden])'));
-        more.hidden = on.length > 0 && !any;
-        if (on.length > 0) more.open = any;
-        else if (saved !== null) { more.open = saved; saved = null; }
-      }
+      if (more) more.hidden = on.length > 0 && n === 0;
       status.textContent = on.length === 0 ? '' : n === 0 ? `${rows.length}足中0足を表示中。条件に合う靴は見つかりませんでした。条件を1つ外してみてください。` : `${rows.length}足中${n}足を表示中`;
     };
     for (const b of buttons) b.addEventListener('click', () => { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); apply(); });
     clear.addEventListener('click', () => { buttons.forEach((b) => b.setAttribute('aria-pressed', 'false')); apply(); buttons[0]?.focus(); });
-    // 表の商品名から、折りたたみの中のカードへ移るときは、先に開く
-    root.addEventListener('click', (e) => {
-      const a = (e.target as Element).closest<HTMLAnchorElement>('a[data-shoe-link]');
+    // 記事の上の「場面別の目安」から表の行へ移るとき、その行が絞り込みで隠れていたら、条件をクリアしてから移る
+    document.addEventListener('click', (e) => {
+      const a = (e.target as Element).closest<HTMLAnchorElement>('a[href^="#shoe-row-"]');
       if (!a) return;
-      const el = document.getElementById(a.getAttribute('href')!.slice(1));
-      const d = el?.closest('details');
-      if (el && d && !d.open) { d.open = true; el.scrollIntoView(); }
+      const row = document.getElementById(a.getAttribute('href')!.slice(1));
+      if (row && row.hidden) { buttons.forEach((b) => b.setAttribute('aria-pressed', 'false')); apply(); }
     });
   }
 </script>

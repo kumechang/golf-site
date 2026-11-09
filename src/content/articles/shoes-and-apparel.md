@@ -38,6 +38,17 @@ faqItems:
 
 「自分の靴で大丈夫？」「スパイクは使えるの？」「雨の日はどうするの？」。グラウンドゴルフを始めるとき、靴は気になるポイントです。この記事では、確認できた情報をもとに、靴に決まりがあるのか、選ぶときの見方、服装や小物の考え方をまとめました。情報は2026年11月時点のものです。
 
+<section class="key-points scene-picks" aria-labelledby="scene-picks-h">
+<p id="scene-picks-h" class="key-points-title">サイト管理者のおすすめ：場面別の目安</p>
+<ul>
+<li>女性向けで、足幅が広め（4E）・防水の記載があり、5,000円以下の靴：<a href="#shoe-row-moonstar-l171">ムーンスター L171（女性向け）<span class="sr-only">の表の行へ</span></a></li>
+<li>男性向けで、足幅が広め（4E）・防水の記載があり、5,000円以下の靴：<a href="#shoe-row-moonstar-m196">ムーンスター M196（男性向け）<span class="sr-only">の表の行へ</span></a></li>
+<li>贈り物で足幅が分からないとき、男女の足幅の記載がある靴：<a href="#shoe-row-achilles-walking-shoes">アキレス LJM 9020（男性4E・女性3E）<span class="sr-only">の表の行へ</span></a></li>
+<li>着脱が面ファスナー（マジックテープ）の記載がある靴：<a href="#shoe-row-dunlop-dm287">ダンロップ DM287<span class="sr-only">の表の行へ</span></a></li>
+</ul>
+<p class="key-points-note">商品名・商品ページの記載だけで選びました。履き心地や効果は確認していません。ほかの靴は<a href="#article-products">表で比べられます</a>。</p>
+</section>
+
 <aside class="key-points" aria-labelledby="key-points-h">
 <p id="key-points-h" class="key-points-title">先に結論3つ</p>
 <ol>
@@ -160,7 +171,7 @@ faqItems:
 
 濡れた地面は滑りやすいことがあります。足元に気をつけて、急がずゆっくり歩きましょう。無理だと感じたら、参加を見合わせる判断も大切です。
 
-雨の日の靴については、確認できた情報がありません。防水の靴がよいのか、どんな底がよいのかは分かりません。
+雨の日の靴の効果は確認できていません。防水の記載がある靴は、[比較表](#article-products)で絞り込めます。「撥水」は水をはじく加工、「防水」は水が入りにくい作りを指すのが一般的です。程度は商品ページで確かめてください。
 
 地面の違いにも注意が必要です。グラウンドゴルフは、芝生、土、人工芝などさまざまな場所で行われます。芝生を守るためにスパイクを禁止する会場もありました。会場の地面と決まりを、事前に確認しておくと安心です。
 
