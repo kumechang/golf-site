@@ -1,0 +1,17 @@
+---
+// 施設名が載っていない案内ページの1行（市区町村ごと。県ページの「施設を探す」節）。
+import type { ListingRow } from '../data/places-view';
+
+interface Props { r: ListingRow }
+const { r } = Astro.props as Props;
+const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
+---
+
+<li id={r.anchor} class="list-none px-4 py-2" data-place-item data-code={r.code} data-search={r.search}>
+  <span class="block text-base font-bold text-slate-900">{r.municipality}の案内ページ（{r.links.length}件）</span>
+  <span class="flex flex-wrap items-center gap-x-4">
+    {r.links.map((l, i) => (
+      <a href={l.url} rel="nofollow noopener" target="_blank" data-gg-outbound="place-source" class={`tap-target inline-flex items-center text-base ${link}`}>案内ページ{r.links.length > 1 ? i + 1 : ''}を見る<span class="sr-only">：{r.municipality}</span></a>
+    ))}
+  </span>
+</li>

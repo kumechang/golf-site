@@ -15,6 +15,7 @@
     "review:events": "node scripts/review-events.mjs",
     "places:clean": "node scripts/places/clean-places.mjs",
     "places:details": "node scripts/places/clean-details.mjs",
+    "maps:build": "node scripts/maps/build-pref-maps.mjs",
     "indexnow": "node scripts/seo/indexnow.mjs"
   },
   "repository": {
@@ -35,6 +36,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "d3-geo": "^3.1.2",
+    "topojson-client": "^3.1.0",
     "typescript": "^6.0.3"
   }
 }

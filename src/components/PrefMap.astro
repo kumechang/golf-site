@@ -1,0 +1,118 @@
+---
+// 県の形をデフォルメした地図。市区町村ごとに、施設の記載があるかを、濃さと模様で見せる（色だけに頼らない）。
+// 地図は補助で、同じ内容は市区町村の目次のリンクで得られる。
+import type { PrefMapData } from '../data/pref-map';
+import type { MunicipalityState } from '../data/places-view';
+
+interface Props {
+  map: PrefMapData;
+  prefName: string;
+  states: Map<string, MunicipalityState>;
+  counts: Map<string, number>;
+  targets: Map<string, string>;
+}
+
+const { map, prefName, states, counts, targets } = Astro.props as Props;
+const stateOf = (code: string): MunicipalityState => states.get(code) ?? 'none';
+const fill: Record<MunicipalityState, string> = { detail: '#166534', link: 'url(#pref-map-hatch)', none: '#f1f5f9' };
+const stroke: Record<MunicipalityState, string> = { detail: '#ffffff', link: '#ffffff', none: '#94a3b8' };
+const stateText: Record<MunicipalityState, string> = {
+  detail: '住所・電話番号が載っていた施設がある',
+  link: '市区町村の案内に記載がある',
+  none: '調べられていない、または記載を確認できなかった',
+};
+const nameOf = new Map(map.municipalities.map((m) => [m.code, m.name]));
+for (const t of map.tiles) nameOf.set(t.code, t.name);
+const labelText = (code: string) => `${nameOf.get(code) ?? code}（${stateText[stateOf(code)]}${counts.get(code) ? `。${counts.get(code)}件` : ''}）`;
+const tileClass: Record<MunicipalityState, string> = {
+  detail: 'border-green-900 bg-green-800 text-white',
+  link: 'pref-map-tile-hatch border-green-700 text-slate-900',
+  none: 'border-slate-400 bg-slate-100 text-slate-700',
+};
+const marked = (code: string) => stateOf(code) !== 'none' && targets.has(code);
+---
+
+<figure class="mt-6" data-pref-map>
+  <p class="text-base font-bold text-slate-900">{prefName}の地図（補助）</p>
+  <ul role="list" class="mt-2 space-y-1 text-base leading-relaxed text-slate-800">
+    <li class="flex items-start gap-2">
+      <svg aria-hidden="true" viewBox="0 0 24 16" class="mt-1 h-4 w-6 shrink-0"><rect width="24" height="16" fill="#166534" /></svg>
+      <span>濃い緑：住所・電話番号が載っていた施設がある</span>
+    </li>
+    <li class="flex items-start gap-2">
+      <svg aria-hidden="true" viewBox="0 0 24 16" class="mt-1 h-4 w-6 shrink-0"><rect width="24" height="16" fill="url(#pref-map-hatch)" stroke="#15803d" stroke-width="1" /></svg>
+      <span>斜線：市区町村の案内に記載がある（リンク）</span>
+    </li>
+    <li class="flex items-start gap-2">
+      <svg aria-hidden="true" viewBox="0 0 24 16" class="mt-1 h-4 w-6 shrink-0"><rect x="0.5" y="0.5" width="23" height="15" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" /></svg>
+      <span>灰色：調べられていない、または記載を確認できなかった（「ない」という意味ではありません）</span>
+    </li>
+  </ul>
+
+  <svg
+    viewBox={`0 0 ${map.width} ${map.height}`}
+    role="img"
+    aria-labelledby="pref-map-title pref-map-desc"
+    class="mx-auto mt-3 block h-auto max-h-[320px] w-full rounded-lg bg-slate-50 sm:max-h-[420px]"
+  >
+    <title id="pref-map-title">{prefName}の地図（補助）。同じ内容は下の市区町村の目次にあります</title>
+    <desc id="pref-map-desc">{prefName}を市区町村ごとに簡略に描いた図です。濃い緑は住所・電話番号が載っていた施設がある市区町村、斜線は市区町村の案内に記載がある市区町村、灰色は調べられていない、または記載を確認できなかった市区町村です。</desc>
+    <defs>
+      <pattern id="pref-map-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="6" height="6" fill="#bbf7d0" />
+        <line x1="0" y1="0" x2="0" y2="6" stroke="#15803d" stroke-width="1.8" />
+      </pattern>
+    </defs>
+    {map.municipalities.map((m) => {
+      const st = stateOf(m.code);
+      const shape = <path d={m.d} fill={fill[st]} stroke={stroke[st]} stroke-width={st === 'none' ? 0.6 : 0.8} stroke-linejoin="round" />;
+      return marked(m.code) ? (
+        <a href={`#${targets.get(m.code)}`} tabindex="-1" aria-label={labelText(m.code)} data-pref-map-link>
+          {shape}
+          {/* 指で押しやすいように、透明な太い輪郭で当たりを広げる */}
+          <path d={m.d} fill="none" stroke="transparent" stroke-width="10" pointer-events="stroke" />
+        </a>
+      ) : shape;
+    })}
+    {map.municipalities.filter((m) => marked(m.code) && m.label[2] >= 26 && m.label[3] >= 20).map((m) => {
+      const st = stateOf(m.code);
+      return (
+        <text x={m.label[0]} y={m.label[1]} text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="700" fill={st === 'detail' ? '#ffffff' : '#052e16'} stroke={st === 'detail' ? 'none' : '#ffffff'} stroke-width="3" paint-order="stroke" pointer-events="none">{counts.get(m.code)}</text>
+      );
+    })}
+  </svg>
+
+  {map.tiles.length > 0 && (
+    <div class="mt-3">
+      <p class="text-base font-bold text-slate-900">離島など（図には描いていません）</p>
+      <ul role="list" class="mt-2 flex flex-wrap gap-2">
+        {map.tiles.map((t) => {
+          const st = stateOf(t.code);
+          const cls = `inline-flex min-h-[44px] items-center rounded-lg border-2 px-3 text-base font-bold ${tileClass[st]}`;
+          return (
+            <li>
+              {marked(t.code)
+                ? <a href={`#${targets.get(t.code)}`} class={`${cls} underline underline-offset-2`}>{t.name}（{counts.get(t.code)}件）</a>
+                : <span class={cls}>{t.name}</span>}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  )}
+
+  <figcaption class="mt-3 text-base leading-relaxed text-slate-800">
+    <p>色のない地域に施設がない、という意味ではありません。図の数字は、その市区町村の掲載件数です（広い市区町村だけに出しています）。</p>
+    <p class="mt-2 text-base text-slate-700">出典：国土交通省 国土数値情報（行政区域データ）を加工して作成。形を簡略にしており、境界は正確ではありません。</p>
+  </figcaption>
+</figure>
+
+<style is:global>
+  .pref-map-tile-hatch {
+    background-image: repeating-linear-gradient(45deg, #bbf7d0 0 6px, #86efac 6px 8px);
+  }
+  [data-place-item]:target {
+    outline: 4px solid #166534;
+    outline-offset: 3px;
+  }
+</style>

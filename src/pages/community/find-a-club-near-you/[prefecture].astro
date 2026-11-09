@@ -2,12 +2,10 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { prefectures, getPrefectureBySlug, coursesCheckedAt } from '../../../data/prefectures';
-import { getOsmCoursesBySlug, osmCoursesCheckedAt } from '../../../data/osm-course-examples';
+import { getOsmCoursesBySlug } from '../../../data/osm-course-examples';
 import MunicipalPlaces from '../../../components/MunicipalPlaces.astro';
 import VideoGallery from '../../../components/VideoGallery.astro';
-import VideoEmbed from '../../../components/VideoEmbed.astro';
 import { placeVideos } from '../../../data/place-videos';
-import { sourceKind, sourceLabel, isOsm } from '../../../data/place-sources';
 import { detailedFacilityKeys, getPlacesBySlug, normKey } from '../../../data/places';
 import { locationKey } from '../../../data/place-keys.mjs';
 import { loadPrefEvents } from '../../../data/pref-events';
@@ -49,8 +47,6 @@ const osmCourses = getOsmCoursesBySlug(pref.slug).filter((c) => {
   }
   return true;
 });
-// OpenStreetMap 由来の行がある県だけ、ODbL の表示を出す。
-const hasOsm = osmCourses.some((c) => isOsm(sourceKind(c)));
 
 // 施設の動画は、その施設のカードが載っているなら、カードの中に載せる。載っていないものだけ、動画の節に載せる。
 const municipalFacilityNames = getPlacesBySlug(pref.slug).groups.flatMap((g) => g.facilities.map((f) => f.name ?? ''));
@@ -58,9 +54,6 @@ const allVideos = placeVideos[pref.slug] ?? [];
 const inMunicipal = allVideos.filter((v) => v.facility && municipalFacilityNames.some((n) => n.includes(v.facility!)));
 const inVerified = allVideos.filter((v) => v.facility && !inMunicipal.includes(v) && osmCourses.some((c) => c.name.includes(v.facility!)));
 const galleryVideos = allVideos.filter((v) => !inMunicipal.includes(v) && !inVerified.includes(v));
-const verifiedVideo = (name: string) => inVerified.find((v) => name.includes(v.facility!));
-const mapUrl = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -77,14 +70,23 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
       <h1 class="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">{title}</h1>
       <p class="mt-3 text-base leading-relaxed text-slate-600">{description}</p>
     </header>
-    {eventPage?.hasPage && (
-      <p class="mt-4 text-base leading-relaxed text-slate-800">
-        {pref.name}の大会や教室の日程は、<a class="font-bold text-green-800 underline underline-offset-2 hover:text-green-900" href={`/community/events/${pref.slug}/`}>{pref.name}のグラウンドゴルフ予定表</a>にまとめています。
-      </p>
-    )}
+    <nav aria-label="このページの内容" class="mt-5">
+      <ul role="list" class="flex flex-wrap gap-2">
+        {[
+          { href: '#association', text: `${pref.name}グラウンド・ゴルフ協会の窓口` },
+          { href: '#jgga-courses', text: 'JGGA認定コース' },
+          { href: '#municipal-places', text: '市区町村の案内にある施設' },
+          ...(eventPage?.hasPage ? [{ href: `/community/events/${pref.slug}/`, text: `${pref.name}のグラウンドゴルフ予定表` }] : []),
+        ].map((b) => (
+          <li>
+            <a href={b.href} class="tap-target inline-flex items-center rounded-full border-2 border-green-800 bg-white px-4 text-base font-bold text-green-900 hover:bg-green-50">{b.text}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
 
     <div class="prose-article mt-8 text-slate-800">
-      <h2>{pref.name}グラウンド・ゴルフ協会の窓口</h2>
+      <h2 id="association">{pref.name}グラウンド・ゴルフ協会の窓口</h2>
       {pref.association.url ? (
         <p>
           {pref.name}には、グラウンドゴルフに関する問い合わせ先として次の窓口があります。
@@ -105,7 +107,7 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
         </p>
       )}
 
-      <h2>{pref.name}のJGGA認定コースについて</h2>
+      <h2 id="jgga-courses">{pref.name}のJGGA認定コースについて</h2>
       {pref.courseCount > 0 ? (
         <p>
           公益社団法人日本グラウンド・ゴルフ協会（JGGA）公式サイトの「認定コース」ページには、{pref.name}内の認定コースが掲載されています（{coursesCheckedAt}時点で{pref.courseCount}件確認）。施設名・所在地・電話番号など詳しい情報は、JGGA公式サイトでご確認ください。
@@ -139,62 +141,12 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
         </>
       )}
 
-      <MunicipalPlaces prefName={pref.name} slug={pref.slug} videos={inMunicipal} />
+    </div>
 
-      {osmCourses.length > 0 && (
-        <>
-          <h2 id="verified-places">{pref.name}で住所・電話番号を個別に確認できた施設の例</h2>
-          <p>
-            JGGA認定コースや、上の市区町村の案内へのリンクとは別に、{pref.name}内の施設の住所・電話番号を、市区町村などのウェブサイトやWeb検索で個別に調べ、確認できたものを載せています（{osmCoursesCheckedAt}確認）。{hasOsm && '一部の施設は、地図の共同編集プロジェクト OpenStreetMap の情報を手がかりにしています。'}調べた範囲の例で、{pref.name}内の施設をすべて載せた一覧ではありません。営業状況や利用条件は変わることがあるため、訪問前に各施設へご確認ください。
-          </p>
-          <div class="not-prose mt-4 space-y-4">
-            {osmCourses.map((course) => (
-              <div class="rounded-xl border border-slate-200 p-4 shadow-sm">
-                <h3 class="text-lg font-bold text-slate-900">{course.name}</h3>
-                <dl class="mt-2 space-y-1 text-sm text-slate-700">
-                  <div class="flex gap-2">
-                    <dt class="w-20 shrink-0 text-slate-500">所在地</dt>
-                    <dd>
-                      {course.address}
-                      {' '}
-                      <a href={mapUrl(course.address)} rel="nofollow noopener" target="_blank" class="tap-target inline-flex items-center whitespace-nowrap px-2 text-green-700 hover:underline">
-                        地図で見る
-                      </a>
-                    </dd>
-                  </div>
-                  {course.phone && (
-                    <div class="flex gap-2">
-                      <dt class="w-20 shrink-0 text-slate-500">電話番号</dt>
-                      <dd><a href={telHref(course.phone)} class="tap-target inline-flex items-center px-2 text-green-700 hover:underline">{course.phone}</a></dd>
-                    </div>
-                  )}
-                  {course.note && (
-                    <div class="flex gap-2">
-                      <dt class="w-20 shrink-0 text-slate-500">備考</dt>
-                      <dd>{course.note}</dd>
-                    </div>
-                  )}
-                </dl>
-                <p class="mt-2 text-sm text-slate-600">出典：{sourceLabel(sourceKind(course))}</p>
-                {verifiedVideo(course.name) && (
-                  <div class="mt-4 border-t border-slate-100 pt-4">
-                    <VideoEmbed video={verifiedVideo(course.name)!} noticeId={`video-${verifiedVideo(course.name)!.id}-notice`} showNotice />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-          {hasOsm && (
-            <p class="mt-4 text-sm text-slate-600">
-              地図データ出典：
-              <a href="https://www.openstreetmap.org/copyright" rel="nofollow noopener" target="_blank">
-                © OpenStreetMap contributors
-              </a>
-              （ODbLライセンス）。
-            </p>
-          )}
-        </>
-      )}
+    {/* 施設を探す節は、本文用の余白・リストの記号の設定（prose-article）を受けないよう、本文の外に置く */}
+    <MunicipalPlaces prefName={pref.name} slug={pref.slug} verified={osmCourses} videos={inMunicipal} verifiedVideos={inVerified} />
+
+    <div class="prose-article text-slate-800">
 
       {galleryVideos.length > 0 && (
         <VideoGallery

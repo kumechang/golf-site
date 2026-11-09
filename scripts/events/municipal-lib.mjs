@@ -10,7 +10,6 @@ const NOT_EVENT = /申込書|提出|結団式|解団式|選手団|行われま�
 const REPORT = /結果|成績|報告|を開催しました|開催しました|終了しました|記録/;
 const MULTI_OK = /大会|祭|まつり|フェスタ|体育|スポーツ|スポレク|レクリエーション|フェスティバル|運動会/;
 
-const HW = 'ー０１２３４５６７８９'; // 全角数字の変換用
 const half = (s) => s.normalize('NFKC');
 const clean = (s) => half(String(s ?? '')).replace(/\s+/g, ' ').trim();
 

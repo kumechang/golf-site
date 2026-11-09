@@ -1,0 +1,13 @@
+---
+// 住所・電話番号が載っていない施設の1行（県ページの「施設を探す」節）。
+import type { PlainRow } from '../data/places-view';
+
+interface Props { r: PlainRow }
+const { r } = Astro.props as Props;
+const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
+---
+
+<li id={r.anchor} class="list-none px-4 py-2" data-place-item data-code={r.place.code} data-search={r.search}>
+  <span class="block min-w-0 break-words text-base font-bold text-slate-900">{r.place.name}<span class="ml-2 font-normal text-slate-700">（{r.place.municipality}）</span></span>
+  <a href={r.place.url} rel="nofollow noopener" target="_blank" data-gg-outbound="place-source" class={`tap-target inline-flex items-center text-base ${link}`}>{r.place.municipality}の案内ページを見る<span class="sr-only">：{r.place.name}</span></a>
+</li>
