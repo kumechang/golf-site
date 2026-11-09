@@ -36,7 +36,7 @@ export interface Product {
   shoe?: {
     target: string; // 対象（男性向け／女性向け／男女共用／記載なし）。商品名・商品ページの記載だけを根拠にする
     width: string; // 足幅の表記（例: 幅広（4E））
-    closure: string; // 着脱（紐／面ファスナー（マジックテープ）／確認できていません など）
+    closure: string; // 着脱（紐／面ファスナー（マジックテープ） など。確認できない場合は「確認できていません」）
     water: string; // 防水・撥水の記載（例: 防水（商品ページの記載））
     widthE: number; // 絞り込み用。表記のうち最も広いE（3E→3、4E→4、6E→6）
     velcro: boolean; // 面ファスナーの記載がある
@@ -284,9 +284,9 @@ export const products: Product[] = [
     material: '商品ページで要確認',
     recommendedFor: '足幅が広めで、幅4E表記のウォーキングシューズを探している方',
     reasonSelected:
-      '商品名に「幅広4E」「撥水」「軽量」と書かれたウォーキングシューズ。Amazonの評価は4.1（1,494件）。撥水・軽量の程度やソールの滑りにくさは確認できていないため、購入前に商品ページでご確認ください。',
+      '商品名に「幅広4E」「撥水」「軽量」と書かれたウォーキングシューズで、着脱は紐。Amazonの評価は4.1（1,494件）。撥水・軽量の程度やソールの滑りにくさは確認できていないため、購入前に商品ページでご確認ください。',
     tags: ['under-10000', 'shoes'],
-    shoe: { target: '記載なし', width: '幅広（4E）', closure: '確認できていません', water: '撥水（商品名の記載）。防水の記載は見つけられていません', widthE: 4, velcro: false, waterStated: false },
+    shoe: { target: '記載なし', width: '幅広（4E）', closure: '紐', water: '撥水（商品名の記載）。防水の記載は見つけられていません', widthE: 4, velcro: false, waterStated: false },
   },
   {
     id: 'achilles-walking-shoes',
@@ -300,9 +300,9 @@ export const products: Product[] = [
     material: '商品ページで要確認',
     recommendedFor: '足幅が広めで、幅広表記のウォーキングシューズを探している方',
     reasonSelected:
-      '商品名に「防水」「幅広」「軽量」「男性4E・女性3E」と書かれたウォーキングシューズ。Amazonの評価は4.3（99件）。防水・軽量の程度やソールの滑りにくさは確認できていないため、購入前に商品ページでご確認ください。',
+      '商品名に「防水」「幅広」「軽量」「男性4E・女性3E」と書かれたウォーキングシューズで、着脱は紐。Amazonの評価は4.3（99件）。防水・軽量の程度やソールの滑りにくさは確認できていないため、購入前に商品ページでご確認ください。',
     tags: ['under-10000', 'shoes'],
-    shoe: { target: '男女共用（男性4E・女性3Eの記載）', width: '幅広（男性4E・女性3E）', closure: '確認できていません', water: '防水（商品名の記載）', widthE: 4, velcro: false, waterStated: true },
+    shoe: { target: '男女共用（男性4E・女性3Eの記載）', width: '幅広（男性4E・女性3E）', closure: '紐', water: '防水（商品名の記載）', widthE: 4, velcro: false, waterStated: true },
   },
   {
     id: 'moonstar-m196',
