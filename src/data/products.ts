@@ -286,7 +286,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「幅広4E」「撥水」「軽量」と書かれたウォーキングシューズで、着脱は紐。Amazonの評価は4.1（1,494件）。撥水・軽量の程度やソールの滑りにくさは確認できていないため、購入前に商品ページでご確認ください。',
     tags: ['under-10000', 'shoes'],
-    shoe: { target: '記載なし', width: '幅広（4E）', closure: '紐', water: '撥水（商品名の記載）。防水の記載は見つけられていません', widthE: 4, velcro: false, waterStated: false },
+    shoe: { target: '記載なし', width: '幅広（4E）', closure: '紐', water: '撥水（商品名の記載）', widthE: 4, velcro: false, waterStated: false },
   },
   {
     id: 'achilles-walking-shoes',
