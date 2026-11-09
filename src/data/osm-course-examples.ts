@@ -62,7 +62,7 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       name: "都立舎人公園（舎人プレイグラウンド）",
       address: "東京都足立区舎人公園1-1",
       phone: "03-3880-5826",
-      note: "「舎人プレイグラウンド」が少年サッカー・グラウンドゴルフ・ゲートボール等の多目的広場として公式案内。電話は足立区スポーツ振興課",
+      note: "「舎人プレイグラウンド」が少年サッカー・グラウンドゴルフ・ゲートボール等の多目的広場として案内されている。電話は足立区スポーツ振興課",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
@@ -90,7 +90,7 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       name: "足立区 宮城ファミリー公園（屋上多目的広場）",
       address: "東京都足立区宮城1丁目1-1",
       phone: "03-3880-5111",
-      note: "水再生センター屋上の多目的広場がグラウンドゴルフ・ゲートボールに利用できる砂グラウンド。電話は足立区役所代表",
+      note: "水再生センター屋上の多目的広場で、グラウンドゴルフ・ゲートボールの利用の記載がある砂グラウンド。電話は足立区役所代表",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
@@ -1837,14 +1837,14 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       name: "高槻市立青少年運動広場",
       address: "大阪府高槻市八丁畷町12",
       phone: "072-674-7649",
-      note: "高槻市グラウンド・ゴルフ協会主催の市長杯や市民交流大会など年間30回以上の公式大会",
+      note: "高槻市グラウンド・ゴルフ協会主催の市長杯や市民交流大会など年間30回以上の大会",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
       name: "旭運動場",
       address: "大阪府大阪市旭区高殿5丁目7（旭公園内）",
       phone: "06-6912-0650",
-      note: "グラウンドゴルフなどのスポーツ施設として利用できる多目的運動場",
+      note: "グラウンドゴルフなどのスポーツ施設として記載のある多目的運動場",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
@@ -2057,7 +2057,7 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       name: "大塚原運動広場",
       address: "宮崎県小林市野尻町三ヶ野山4336",
       phone: "0984-44-1100",
-      note: "人工芝グラウンドで公式にグラウンド・ゴルフでの利用が認められている",
+      note: "人工芝グラウンド。グラウンド・ゴルフでの利用が認められていると記載がある",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
@@ -2078,7 +2078,7 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       name: "高城運動公園（多目的広場）",
       address: "宮崎県都城市高城町穂満坊2492",
       phone: "0986-58-5514",
-      note: "全面天然芝（洋芝）の多目的広場。利用可能種目にグラウンド・ゴルフが公式指定",
+      note: "全面天然芝（洋芝）の多目的広場。利用可能種目にグラウンド・ゴルフが挙げられている",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
@@ -2482,7 +2482,7 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       name: "砺波総合運動公園 多目的競技場",
       address: "富山県砺波市柳瀬241",
       phone: "0763-33-4444",
-      note: "富山県年金受給者協会砺波支部大会等、シニア向けグラウンド・ゴルフ公式戦が定期開催",
+      note: "富山県年金受給者協会砺波支部大会等、シニア向けグラウンド・ゴルフ大会が定期開催",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
@@ -2686,7 +2686,7 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       name: "奈良県第二浄化センター スポーツ広場（運動場）",
       address: "奈良県北葛城郡広陵町大字萱野100-1",
       phone: "0745-56-6011",
-      note: "野球場2面分（約2ha）の広大な公共グラウンド。グラウンド・ゴルフでの利用も公式に歓迎",
+      note: "野球場2面分（約2ha）の広大な公共グラウンド。グラウンド・ゴルフでの利用も歓迎と記載がある",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {
@@ -2802,7 +2802,7 @@ export const osmCourseExamples: Record<string, OsmCourseExample[]> = {
       name: "おらんどーむ",
       address: "青森県十和田市洞内字井戸頭56番1号",
       phone: "0176-27-3277",
-      note: "全天候型ドーム。グラウンドゴルフ利用が公式に明記",
+      note: "全天候型ドーム。グラウンドゴルフ利用が明記されている",
       sourceNote: "自治体公式サイト等をもとにWeb検索で確認",
     },
     {

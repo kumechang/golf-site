@@ -1,7 +1,7 @@
 // 県ページの「施設を探す」節の表示用データ。places.ts の施設（市区町村の案内ページ）と、
 // 住所・電話番号を個別に確認した施設（osm-course-examples.ts）を、1つの見方（3つの区分）にまとめる。
 //   ① 住所・電話番号が載っていた施設（カード）  ② 住所・電話番号が載っていない施設（1行）  ③ 施設名が載っていない案内ページ（市区町村ごとに1行）
-import { getPlacesBySlug, type PlaceItem } from './places';
+import { getPlacesBySlug, normKey, type PlaceItem } from './places';
 import { getPrefMap } from './pref-map';
 import type { OsmCourseExample } from './osm-course-examples';
 import { sourceKind, sourceLabel, isOsm } from './place-sources';
@@ -59,7 +59,8 @@ export function buildPlacesView(slug: string, prefName: string, verified: OsmCou
   const codeToName = new Map<string, string>();
   for (const [n, c] of nameToCode) codeToName.set(c, n);
   const muniOf = (address: string): { code: string; name: string } | null => {
-    const rest = address.replace(/^日本[、,]?\s*/, '').replace(prefName, '');
+    // 「◯◯郡◯◯町」の住所は、郡を除いて町村名を探す
+    const rest = address.replace(/^日本[、,]?\s*/, '').replace(prefName, '').replace(/^[^市区町村郡]{1,6}郡/, '');
     let best: string | null = null;
     for (const n of nameToCode.keys()) if (rest.startsWith(n) && (!best || n.length > best.length)) best = n;
     return best ? { code: nameToCode.get(best)!, name: best } : null;
@@ -82,9 +83,16 @@ export function buildPlacesView(slug: string, prefName: string, verified: OsmCou
   for (const c of verified) {
     const m = muniOf(c.address);
     cards.push({
-      id: '', name: c.name, municipality: m?.name ?? null, code: m?.code ?? null, address: c.address, phone: c.phone, phoneIsContact: false, note: c.note, alsoNames: [], url: null,
+      id: '', name: c.name, municipality: m?.name ?? null, code: m?.code ?? null, address: c.address, phone: c.phone, phoneIsContact: Boolean(c.phone && c.note && /^電話は/.test(c.note)), note: c.note, alsoNames: [], url: null,
       sourceText: sourceLabel(sourceKind(c)), search: `${m?.name ?? ''} ${c.name} ${c.address}`, place: null, verified: c,
     });
+  }
+  // 個別に調べた施設と、市区町村の案内に施設名だけが載っていた施設が同じなら、案内ページのリンクを個別に調べた施設のカードに付けて、1行のほうは外す
+  const baseName = (n: string) => normKey(n).replace(/[（(][^）)]*[）)]/g, '').replace(/グラウンド[・･]?ゴルフ場?|グランド[・･]?ゴルフ場?/g, '');
+  for (const c of cards) {
+    if (c.place || !c.code) continue;
+    const i = plain.findIndex((r) => r.place.code === c.code && (() => { const a = baseName(r.place.name ?? ''), b = baseName(c.name); return a.length >= 3 && b.length >= 3 && (a.includes(b) || b.includes(a)); })());
+    if (i >= 0) { c.url = plain[i].place.url; plain.splice(i, 1); }
   }
   cards.sort((a, b) => (a.code ?? '99999').localeCompare(b.code ?? '99999') || a.name.localeCompare(b.name));
   plain.sort((a, b) => a.place.code.localeCompare(b.place.code) || (a.place.name ?? '').localeCompare(b.place.name ?? ''));

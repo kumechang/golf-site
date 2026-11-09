@@ -42,7 +42,9 @@ const gapKm = (a, b) => geoDistance(a.c, b.c) * EARTH_KM - a.r - b.r;
 mkdirSync(outDir, { recursive: true });
 let total = 0;
 for (const [prefName, slug] of JIS_PREFECTURES) {
-  const feats = fc.features.filter((f) => f.properties.N03_001 === prefName && f.properties.N03_007);
+  // 北方領土の6村（色丹村・泊村（国後島）・留夜別村・留別村・紗那村・蘂取村）は、現在は訪れられず、図が小さくなるので描かない
+  const NORTHERN = new Set(['01695', '01696', '01697', '01698', '01699', '01700']);
+  const feats = fc.features.filter((f) => f.properties.N03_001 === prefName && f.properties.N03_007 && !NORTHERN.has(f.properties.N03_007));
   // ポリゴン（陸地）に分ける
   const parts = [];
   for (const f of feats) {

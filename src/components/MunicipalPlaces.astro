@@ -169,27 +169,33 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
 
 <script>
   // 絞り込み。市区町村名・施設名に含まれる文字で、表示する行を減らす（ひらがな・カタカナ、全角・半角、大文字・小文字の違いは無視）。
-  // 「住所・電話番号のある施設だけ」にもできる。クリアで元に戻る。JavaScript が使えないときは、欄ごと出ない。
+  // 「住所・電話番号のある施設だけ」にもできる。クリアで元に戻る（折りたたみの開閉も、絞り込む前の状態に戻す）。
+  // JavaScript が使えないときは、欄ごと出ない。
+  const root = document.querySelector<HTMLElement>('#municipal-places');
+  const more = [...(root?.querySelectorAll<HTMLDetailsElement>('[data-place-more]') ?? [])];
+  const visibleOf = (code: string) => [...(root?.querySelectorAll<HTMLElement>(`[data-place-item][data-code="${code}"]`) ?? [])].filter((el) => !el.hidden);
+
   const box = document.querySelector<HTMLElement>('[data-place-filter]');
-  if (box) {
+  if (root && box) {
     box.hidden = false;
     const input = box.querySelector<HTMLInputElement>('input[type=search]')!;
     const only = box.querySelector<HTMLInputElement>('[data-place-detail-only]')!;
     const clear = box.querySelector<HTMLButtonElement>('[data-place-clear]')!;
     const status = box.querySelector<HTMLElement>('#place-filter-status')!;
-    const items = [...document.querySelectorAll<HTMLElement>('#municipal-places [data-place-item]')];
-    const sections = [...document.querySelectorAll<HTMLElement>('#municipal-places [data-place-section]')];
-    const chips = [...document.querySelectorAll<HTMLElement>('#municipal-places [data-place-chip]')];
-    const more = [...document.querySelectorAll<HTMLDetailsElement>('#municipal-places [data-place-more]')];
-    const initialMore = new Map(more.map((d) => [d, d.open]));
+    const items = [...root.querySelectorAll<HTMLElement>('[data-place-item]')];
+    const sections = [...root.querySelectorAll<HTMLElement>('[data-place-section]')];
+    const chips = [...root.querySelectorAll<HTMLElement>('[data-place-chip]')];
     const norm = (s: string) =>
       s.normalize('NFKC').toLowerCase().replace(/\s+/g, '').replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+    let saved: Map<HTMLDetailsElement, boolean> | null = null;
 
     const apply = () => {
       const raw = input.value.trim();
       const q = norm(raw);
       const active = q !== '' || only.checked;
       clear.hidden = !active;
+      // 絞り込みを始めた時点の開閉を覚えておき、クリアしたときに戻す
+      if (active && !saved) saved = new Map(more.map((d) => [d, d.open]));
       let n = 0;
       const codes = new Set<string>();
       for (const li of items) {
@@ -198,9 +204,13 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
         if (hit) { n++; if (li.dataset.code) codes.add(li.dataset.code); }
       }
       for (const s of sections) s.hidden = !s.querySelector('[data-place-item]:not([hidden])');
-      for (const d of more) d.open = active ? true : (initialMore.get(d) ?? false);
+      for (const d of more) {
+        const any = Boolean(d.querySelector('[data-place-item]:not([hidden])'));
+        d.hidden = active && !any;
+        d.open = active ? any : (saved?.get(d) ?? d.open);
+      }
       for (const c of chips) c.hidden = active && !codes.has(c.dataset.code ?? '');
-      if (!active) { status.textContent = ''; return; }
+      if (!active) { saved = null; status.textContent = ''; return; }
       status.textContent = n > 0
         ? `${n}件（${codes.size}市区町村）が見つかりました。`
         : `${raw ? `「${raw}」` : 'この条件'}に合う記載は見つかりませんでした。載っていないだけで、ないという意味ではありません。`;
@@ -214,23 +224,25 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
       input.focus();
     });
   }
-</script>
 
-<script>
-  // 目次や地図から、折りたたみの中の項目へ移るときは、先に折りたたみを開く。
-  const openFor = (hash: string) => {
-    if (!hash.startsWith('#m-')) return;
-    const el = document.getElementById(decodeURIComponent(hash.slice(1)));
-    const d = el?.closest('details');
-    if (el && d && !d.open) {
-      d.open = true;
-      el.scrollIntoView();
-    }
+  // 目次や地図から移るとき。その市区町村の、いま表示されている最初の項目へ移る（折りたたみの中なら先に開く）。
+  const jump = (hash: string): boolean => {
+    const m = /^#m-(\d+)$/.exec(decodeURIComponent(hash));
+    if (!m) return false;
+    const el = visibleOf(m[1])[0] ?? document.getElementById(`m-${m[1]}`);
+    if (!el) return false;
+    const d = el.closest('details');
+    if (d) d.open = true;
+    root?.querySelectorAll('.is-target').forEach((x) => x.classList.remove('is-target'));
+    el.classList.add('is-target');
+    el.setAttribute('tabindex', '-1');
+    el.scrollIntoView();
+    el.focus({ preventScroll: true });
+    return true;
   };
   document.addEventListener('click', (e) => {
     const a = (e.target as Element).closest('a[href^="#m-"]');
-    if (a) openFor(a.getAttribute('href')!);
+    if (a && jump(a.getAttribute('href')!)) e.preventDefault();
   });
-  window.addEventListener('hashchange', () => openFor(location.hash));
-  openFor(location.hash);
+  if (location.hash.startsWith('#m-')) jump(location.hash);
 </script>

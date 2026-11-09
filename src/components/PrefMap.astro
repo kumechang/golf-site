@@ -30,6 +30,11 @@ const tileClass: Record<MunicipalityState, string> = {
   none: 'border-slate-400 bg-slate-100 text-slate-700',
 };
 const marked = (code: string) => stateOf(code) !== 'none' && targets.has(code);
+// スマホ（幅343px・高さ上限320px）で表示したときの縮尺。数字の大きさを、実際の表示で14px前後になるよう、図の単位で決める
+const scale = Math.min(343 / map.width, 320 / map.height, 1);
+const fontSize = Math.round(14 / scale);
+const minLabelW = Math.round(26 / scale);
+const minLabelH = Math.round(20 / scale);
 ---
 
 <figure class="mt-6" data-pref-map>
@@ -69,15 +74,13 @@ const marked = (code: string) => stateOf(code) !== 'none' && targets.has(code);
       return marked(m.code) ? (
         <a href={`#${targets.get(m.code)}`} tabindex="-1" aria-label={labelText(m.code)} data-pref-map-link>
           {shape}
-          {/* 指で押しやすいように、透明な太い輪郭で当たりを広げる */}
-          <path d={m.d} fill="none" stroke="transparent" stroke-width="10" pointer-events="stroke" />
         </a>
       ) : shape;
     })}
-    {map.municipalities.filter((m) => marked(m.code) && m.label[2] >= 26 && m.label[3] >= 20).map((m) => {
+    {map.municipalities.filter((m) => marked(m.code) && m.label[2] >= minLabelW && m.label[3] >= minLabelH).map((m) => {
       const st = stateOf(m.code);
       return (
-        <text x={m.label[0]} y={m.label[1]} text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="700" fill={st === 'detail' ? '#ffffff' : '#052e16'} stroke={st === 'detail' ? 'none' : '#ffffff'} stroke-width="3" paint-order="stroke" pointer-events="none">{counts.get(m.code)}</text>
+        <text x={m.label[0]} y={m.label[1]} text-anchor="middle" dominant-baseline="central" font-size={fontSize} font-weight="700" fill={st === 'detail' ? '#ffffff' : '#052e16'} stroke={st === 'detail' ? 'none' : '#ffffff'} stroke-width={Math.round(3 / scale)} paint-order="stroke" pointer-events="none">{counts.get(m.code)}</text>
       );
     })}
   </svg>
@@ -111,7 +114,8 @@ const marked = (code: string) => stateOf(code) !== 'none' && targets.has(code);
   .pref-map-tile-hatch {
     background-image: repeating-linear-gradient(45deg, #bbf7d0 0 6px, #86efac 6px 8px);
   }
-  [data-place-item]:target {
+  [data-place-item]:target,
+  [data-place-item].is-target {
     outline: 4px solid #166534;
     outline-offset: 3px;
   }
