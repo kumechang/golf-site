@@ -44,7 +44,7 @@ faqItems:
 <li>女性向けで、足幅が広め（4E）・防水の記載があり、5,000円以下の靴：<a href="#shoe-row-moonstar-l171">ムーンスター L171（女性向け）<span class="sr-only">の表の行へ</span></a></li>
 <li>男性向けで、足幅が広め（4E）・防水の記載があり、5,000円以下の靴：<a href="#shoe-row-moonstar-m196">ムーンスター M196（男性向け）<span class="sr-only">の表の行へ</span></a></li>
 <li>贈り物で足幅が分からないとき、男女の足幅の記載がある靴：<a href="#shoe-row-achilles-walking-shoes">アキレス LJM 9020（男性4E・女性3E）<span class="sr-only">の表の行へ</span></a></li>
-<li>着け外しを楽にしたいとき、面ファスナー（マジックテープ）で留める靴：<a href="#shoe-row-dunlop-dm287">ダンロップ DM287<span class="sr-only">の表の行へ</span></a></li>
+<li>着脱が面ファスナー（マジックテープ）の記載がある靴：<a href="#shoe-row-dunlop-dm287">ダンロップ DM287<span class="sr-only">の表の行へ</span></a></li>
 </ul>
 <p class="key-points-note">商品名・商品ページの記載だけで選びました。履き心地や効果は確認していません。ほかの靴は<a href="#article-products">表で比べられます</a>。</p>
 </section>

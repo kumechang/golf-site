@@ -264,6 +264,7 @@ button {
   font-weight: 700;
 }
 .prose-article .key-points ul { list-style: disc; }
+.prose-article .scene-picks li a { display: block; min-height: 2.75rem; padding-top: 0.65rem; line-height: 1.5; }
 .prose-article .key-points-note {
   margin: 0.75rem 0 0;
   font-size: 1rem;
