@@ -1,0 +1,190 @@
+---
+// シューズ記事の商品欄。シューズは「比較表＋絞り込み＋先頭の数枚だけ見せるカード」、手袋・日よけは別枠。
+// 表の値は products.ts の shoe（商品名・商品ページの記載のとおり。効果は確認していない）。
+import type { Product } from '../data/products';
+import ProductCard from './ProductCard.astro';
+
+interface Props {
+  heading: string;
+  products: Product[]; // 価格の安い順に並んだ商品（shoe のあるものがシューズ）
+}
+
+const { heading, products } = Astro.props as Props;
+const shoes = products.filter((p) => p.shoe);
+const others = products.filter((p) => !p.shoe);
+const fmt = new Intl.NumberFormat('ja-JP');
+const SHOW = 3; // 先頭に見せるカードの数
+const UNDER = 5000;
+// 表の商品名（短く）。カードの名前と同じ商品だと分かる程度に縮める
+const SHORT: Record<string, string> = {
+  'dunlop-refined-shoes': 'ダンロップ DM2001',
+  'achilles-walking-shoes': 'アキレス LJM 9020',
+  'moonstar-m196': 'ムーンスター M196（メンズ）',
+  'moonstar-l171': 'ムーンスター L171（レディース）',
+  'achilles-ljm9030': 'アキレス LJM 9030（メンズ）',
+  'dunlop-dm287': 'ダンロップ DM287',
+  'mizuno-freeride2': 'ミズノ ウエーブフリーライド2',
+  'mizuno-frd-wp': 'ミズノ WAVE FRD WP',
+  'mizuno-me05-gtx': 'ミズノ ME-05 GTX3',
+  'mizuno-ld40-gtx': 'ミズノ LD40 VII GTX（メンズ）',
+};
+const flags = (p: Product) => ({
+  'data-e4': p.shoe!.widthE >= 4 ? '1' : '0',
+  'data-velcro': p.shoe!.velcro ? '1' : '0',
+  'data-water': p.shoe!.waterStated ? '1' : '0',
+  'data-low': p.priceYen <= UNDER ? '1' : '0',
+});
+const dates = [...new Set(shoes.map((p) => p.priceCheckedAt))].sort();
+const dateText = dates.map((d) => `${Number(d.slice(5, 7))}月${Number(d.slice(8, 10))}日`).join('・');
+const filters = [
+  { key: 'e4', label: '足幅4E以上の表記' },
+  { key: 'velcro', label: '面ファスナー' },
+  { key: 'water', label: '防水の記載あり' },
+  { key: 'low', label: '5,000円以下' },
+];
+const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 border-slate-500 bg-white px-4 text-base font-bold text-slate-900 hover:bg-slate-50 aria-pressed:border-green-800 aria-pressed:bg-green-50 aria-pressed:text-green-900';
+---
+
+<div class="not-prose mt-10" id="article-products" data-shoe-compare>
+  <h2 class="text-2xl font-bold text-slate-900">{heading}</h2>
+
+  <h3 class="mt-6 text-xl font-bold text-slate-900">シューズ{shoes.length}足の比較</h3>
+  <p class="mt-2 text-base leading-relaxed text-slate-800">{shoes.length}足を価格の安い順に並べました。足幅・着脱・防水は、商品ページや商品名の記載です。</p>
+
+  <div class="mt-4 rounded-xl border border-slate-300 bg-slate-50 p-4" data-shoe-filter hidden>
+    <p class="text-base font-bold text-slate-900" id="shoe-filter-label">条件で絞り込む</p>
+    <div class="mt-2 flex flex-wrap gap-2" role="group" aria-labelledby="shoe-filter-label">
+      {filters.map((f) => (
+        <button type="button" aria-pressed="false" data-shoe-btn={f.key} class={btn}>
+          <span aria-hidden="true" class="hidden font-bold [[aria-pressed=true]>&]:inline">✓</span>{f.label}
+        </button>
+      ))}
+      <button type="button" data-shoe-clear hidden class="tap-target inline-flex items-center rounded-full border-2 border-slate-500 bg-white px-4 text-base font-bold text-slate-900 hover:bg-slate-50">条件をクリア</button>
+    </div>
+    <p class="mt-2 text-base text-slate-800">複数選ぶと、すべてに当てはまる靴だけ表示します。「足幅4E以上」は、足幅の表記が4E以上のものです。表記の基準は商品ごとに違うことがあります。</p>
+    <p role="status" id="shoe-status" class="mt-2 min-h-[1.5rem] text-base font-bold text-slate-900"></p>
+  </div>
+
+  <table class="shoe-table mt-4 w-full border-collapse text-left text-base text-slate-800" role="table">
+    <caption class="sr-only">シューズ{shoes.length}足の、価格・足幅・着脱・防水の記載の比較</caption>
+    <thead role="rowgroup">
+      <tr role="row" class="border-b-2 border-slate-300">
+        <th role="columnheader" scope="col" class="py-2 pr-3 font-bold">商品名</th>
+        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">価格</th>
+        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">足幅</th>
+        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">着脱</th>
+        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">防水の記載</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      {shoes.map((p) => (
+        <tr role="row" class="border-b border-slate-200 align-top" data-shoe-row data-id={p.id} {...flags(p)}>
+          <th role="rowheader" scope="row" class="py-2 pr-3 font-bold">
+            <a href={`#product-${p.id}`} class="font-bold text-green-800 underline underline-offset-2 hover:text-green-900" data-shoe-link>{SHORT[p.id] ?? p.name}<span class="sr-only">のカードへ</span></a>
+          </th>
+          <td role="cell" data-label="価格" class="whitespace-nowrap px-3 py-2">¥{fmt.format(p.priceYen)}</td>
+          <td role="cell" data-label="足幅" class="px-3 py-2">{p.shoe!.width}</td>
+          <td role="cell" data-label="着脱" class="px-3 py-2">{p.shoe!.closure}</td>
+          <td role="cell" data-label="防水の記載" class="px-3 py-2">{p.shoe!.water}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="mt-3 text-base leading-relaxed text-slate-800">
+    防水や滑りにくさの効果は確認していません。グラウンドゴルフ専用品ではなく、一般のウォーキングシューズです。価格は{dateText}に確認した参考価格で、変わることがあります。購入前に商品ページをご確認ください。
+  </p>
+  <p role="status" id="shoe-empty" hidden class="mt-3 rounded-xl border border-slate-300 bg-slate-50 p-4 text-base text-slate-800">条件に合う靴は見つかりませんでした。条件を1つ外してみてください。</p>
+
+  <h3 class="mt-8 text-xl font-bold text-slate-900">シューズのカード</h3>
+  <div class="mt-3 grid gap-5 sm:grid-cols-2" data-shoe-cards>
+    {shoes.slice(0, SHOW).map((p) => (
+      <div id={`product-${p.id}`} data-shoe-card {...flags(p)}><ProductCard product={p} /></div>
+    ))}
+  </div>
+  {shoes.length > SHOW && (
+    <details class="mt-5 rounded-xl border border-slate-300 bg-white" data-shoe-more>
+      <summary class="tap-target cursor-pointer px-4 py-2 text-base font-bold text-green-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">ほかの{shoes.length - SHOW}足のカードを見る</summary>
+      <div class="grid gap-5 p-4 sm:grid-cols-2" data-shoe-cards>
+        {shoes.slice(SHOW).map((p) => (
+          <div id={`product-${p.id}`} data-shoe-card {...flags(p)}><ProductCard product={p} /></div>
+        ))}
+      </div>
+    </details>
+  )}
+
+  {others.length > 0 && (
+    <>
+      <h3 class="mt-10 text-xl font-bold text-slate-900">靴以外（手袋・日よけ）</h3>
+      <p class="mt-2 text-base leading-relaxed text-slate-800">絞り込みは靴だけです。商品名の「UPF50+」などは商品名の記載で、効果は確認していません。</p>
+      <div class="mt-3 grid gap-5 sm:grid-cols-2">
+        {others.map((p) => <ProductCard product={p} />)}
+      </div>
+    </>
+  )}
+</div>
+
+<style is:global>
+  /* 記事本文用の表の設定（横スクロール・案内文・最小幅）を、この表では使わない */
+  .shoe-table { display: table; width: 100%; margin: 1rem 0 0; overflow: visible; border: 0; border-radius: 0; font-size: 1rem; line-height: 1.6; }
+  .shoe-table::before { content: none; display: none; }
+  .shoe-table thead { background: transparent; }
+  .shoe-table th, .shoe-table td { min-width: 0; padding: 0.5rem 0.6rem; vertical-align: top; text-align: left; white-space: normal; border-bottom: 1px solid #e2e8f0; color: #1e293b; }
+  .shoe-table thead th { color: #0f172a; border-bottom: 2px solid #cbd5e1; }
+  .shoe-table tbody tr:last-child td { border-bottom: 1px solid #e2e8f0; }
+  .shoe-table td[data-label="価格"] { white-space: nowrap; }
+  @media (max-width: 639px) {
+    .shoe-table, .shoe-table tbody, .shoe-table tr, .shoe-table th, .shoe-table td { display: block; width: 100%; }
+    .shoe-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .shoe-table tr { margin-top: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.75rem; padding: 0.5rem 0.75rem; background: #fff; }
+    .shoe-table th, .shoe-table td { border-bottom: 0; padding-left: 0; padding-right: 0; }
+    .shoe-table td { border-top: 1px solid #f1f5f9; }
+    .shoe-table tbody th { padding: 0 0 0.25rem 0; font-size: 1.0625rem; }
+    .shoe-table td { display: grid; grid-template-columns: 7rem 1fr; gap: 0.5rem; padding: 0.15rem 0; white-space: normal; }
+    .shoe-table td::before { content: attr(data-label); font-weight: 700; color: #0f172a; }
+  }
+  [data-shoe-card]:target { outline: 4px solid #166534; outline-offset: 3px; }
+</style>
+
+<script>
+  // 絞り込み（複数選んだらすべてに当てはまるものだけ）。カードの折りたたみは、絞り込み中は開き、クリアで元に戻す。
+  const root = document.querySelector<HTMLElement>('[data-shoe-compare]');
+  if (root) {
+    const box = root.querySelector<HTMLElement>('[data-shoe-filter]')!;
+    box.hidden = false;
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>('[data-shoe-btn]')];
+    const clear = root.querySelector<HTMLButtonElement>('[data-shoe-clear]')!;
+    const status = root.querySelector<HTMLElement>('#shoe-status')!;
+    const empty = root.querySelector<HTMLElement>('#shoe-empty')!;
+    const rows = [...root.querySelectorAll<HTMLElement>('[data-shoe-row]')];
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-shoe-card]')];
+    const more = root.querySelector<HTMLDetailsElement>('[data-shoe-more]');
+    let saved: boolean | null = null;
+    const apply = () => {
+      const on = buttons.filter((b) => b.getAttribute('aria-pressed') === 'true').map((b) => b.dataset.shoeBtn!);
+      const match = (el: HTMLElement) => on.every((k) => el.dataset[k] === '1');
+      let n = 0;
+      for (const r of rows) { const ok = match(r); r.hidden = !ok; if (ok) n++; }
+      for (const c of cards) c.hidden = !match(c);
+      clear.hidden = on.length === 0;
+      empty.hidden = !(on.length > 0 && n === 0);
+      if (more) {
+        if (on.length > 0 && saved === null) saved = more.open;
+        const any = Boolean(more.querySelector('[data-shoe-card]:not([hidden])'));
+        more.hidden = on.length > 0 && !any;
+        if (on.length > 0) more.open = any;
+        else if (saved !== null) { more.open = saved; saved = null; }
+      }
+      status.textContent = on.length > 0 ? `${rows.length}足中${n}足を表示中` : '';
+    };
+    for (const b of buttons) b.addEventListener('click', () => { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); apply(); });
+    clear.addEventListener('click', () => { buttons.forEach((b) => b.setAttribute('aria-pressed', 'false')); apply(); buttons[0]?.focus(); });
+    // 表の商品名から、折りたたみの中のカードへ移るときは、先に開く
+    root.addEventListener('click', (e) => {
+      const a = (e.target as Element).closest<HTMLAnchorElement>('a[data-shoe-link]');
+      if (!a) return;
+      const el = document.getElementById(a.getAttribute('href')!.slice(1));
+      const d = el?.closest('details');
+      if (el && d && !d.open) { d.open = true; el.scrollIntoView(); }
+    });
+  }
+</script>

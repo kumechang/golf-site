@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 472" role="img" aria-labelledby="shoes-three-views-t shoes-three-views-d" font-family='"Hiragino Sans","Noto Sans JP","Yu Gothic",system-ui,sans-serif'>
+<title id="shoes-three-views-t">靴選びの3つの見方</title>
+<desc id="shoes-three-views-d">靴選びの見方を3つの枠で示した図です。1 足幅：幅広や4Eなどの表記は目安で、基準は商品ごとに違うことがあるため、実際に履いて確かめる。2 着脱：ひもは結び方で足への当たりを調整できる。面ファスナーはかがまずに留められることがある。3 雨の日：商品名や仕様欄に防水などの記載があるかを見る。防水の効果は確認していない。絵はイメージです。</desc>
+<defs><marker id="shoes-three-views-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+<rect x="8" y="8" width="344" height="40" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+<text x="20" y="35" font-size="18" font-weight="700" fill="#0f172a" text-anchor="start">靴選びの3つの見方</text>
+<rect x="8" y="58" width="344" height="110" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="3"/>
+<circle cx="32" cy="86" r="16" fill="#15803d" stroke="#15803d" stroke-width="2"/><text x="32" y="92" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+<text x="58" y="93" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">足幅は履いて確かめる</text>
+<rect x="290" y="68" width="52" height="52" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+<path d="M307 75 Q323 71 327 85 Q331 101 323 113 Q315 119 307 113 Q299 103 301 87 Q301 79 307 75 Z" fill="#f8fafc" stroke="#334155" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="303" y1="97" x2="327" y2="97" stroke="#15803d" stroke-width="3" stroke-linecap="round"/>
+<polygon points="295,97 304,91 304,103" fill="#15803d"/>
+<polygon points="339,97 330,91 330,103" fill="#15803d"/>
+<text x="20" y="130" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">「幅広」「4E」などの表記は目安です。</text>
+<text x="20" y="152" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">基準は商品ごとに違うことがあります。</text>
+<rect x="8" y="178" width="344" height="110" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="3"/>
+<circle cx="32" cy="206" r="16" fill="#15803d" stroke="#15803d" stroke-width="2"/><text x="32" y="212" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+<text x="58" y="213" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">着脱は続けやすいほうを</text>
+<rect x="290" y="188" width="52" height="52" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+<line x1="301" y1="195" x2="301" y2="235" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+<line x1="321" y1="195" x2="321" y2="235" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+<line x1="301" y1="199" x2="321" y2="211" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+<line x1="321" y1="199" x2="301" y2="211" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+<line x1="301" y1="213" x2="321" y2="225" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+<line x1="321" y1="213" x2="301" y2="225" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+<line x1="301" y1="227" x2="321" y2="239" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+<line x1="321" y1="227" x2="301" y2="239" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+<rect x="329" y="207" width="12" height="16" rx="3" fill="#ffffff" stroke="#334155" stroke-width="3"/>
+<text x="20" y="250" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">ひも：結び方で当たりを調整できます</text>
+<text x="20" y="272" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">面ファスナー：かがまずに留められることも</text>
+<rect x="8" y="298" width="344" height="110" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="3"/>
+<circle cx="32" cy="326" r="16" fill="#15803d" stroke="#15803d" stroke-width="2"/><text x="32" y="332" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+<text x="58" y="333" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">雨の日は記載を確かめる</text>
+<rect x="290" y="308" width="52" height="52" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+<path d="M295 335 Q317 305 339 335 Z" fill="#fef3c7" stroke="#92400e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M317 335 L317 351 Q317 357 311 355" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="299" y1="345" x2="297" y2="353" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+<line x1="333" y1="345" x2="331" y2="353" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+<text x="20" y="370" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">商品名・仕様欄に「防水」などの記載が</text>
+<text x="20" y="392" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">あるか見ます。効果は確認していません。</text>
+<rect x="8" y="418" width="344" height="44" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+<rect x="20" y="437" width="7" height="7" rx="1" fill="#475569" stroke="none" stroke-width="0"/>
+<text x="34" y="445" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">絵はイメージです。</text>
+</svg>

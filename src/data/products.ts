@@ -285,7 +285,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「幅広4E」「撥水」「軽量」と書かれたウォーキングシューズ。Amazonの評価は4.1（1,494件）。撥水・軽量の程度やソールの滑りにくさは確認できていないため、購入前に商品ページでご確認ください。',
     tags: ['under-10000', 'shoes'],
-    shoe: { width: '4E', closure: '商品ページで確認', water: '撥水（商品名の記載）', widthE: 4, velcro: false, waterStated: true },
+    shoe: { width: '4E', closure: '未確認', water: '撥水（商品名の記載。防水の記載は未確認）', widthE: 4, velcro: false, waterStated: false },
   },
   {
     id: 'achilles-walking-shoes',
@@ -301,7 +301,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「防水」「幅広」「軽量」「男性4E・女性3E」と書かれたウォーキングシューズ。Amazonの評価は4.3（99件）。防水・軽量の程度やソールの滑りにくさは確認できていないため、購入前に商品ページでご確認ください。',
     tags: ['under-10000', 'shoes'],
-    shoe: { width: '男性4E・女性3E', closure: '商品ページで確認', water: '防水（商品名の記載）', widthE: 4, velcro: false, waterStated: true },
+    shoe: { width: '男性4E・女性3E', closure: '未確認', water: '防水（商品名の記載）', widthE: 4, velcro: false, waterStated: true },
   },
   {
     id: 'moonstar-m196',
@@ -333,7 +333,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「晴雨兼用」「防水」「4E」と書かれたレディース（22〜25cm）のウォーキングシューズ。Amazonの評価は4.1（290件）。仕様欄の着脱は紐だが、説明に「マジックテープ」「開口部が広い」という語もあるため、着脱の方式は商品ページで確認したい。商品ページには防滑を考慮したソール設計だという記載がある。防水の程度や滑りにくさの効果は確認できていない。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['under-10000', 'shoes'],
-    shoe: { width: '4E', closure: '商品ページで確認', water: '防水（商品ページの記載）', widthE: 4, velcro: false, waterStated: true },
+    shoe: { width: '4E', closure: '紐（要確認）', water: '防水（商品ページの記載）', widthE: 4, velcro: false, waterStated: true },
   },
   {
     id: 'achilles-ljm9030',
@@ -381,7 +381,7 @@ export const products: Product[] = [
     reasonSelected:
       'MIZUNOのウォーキングシューズで、足幅の表記は4E。耐水レベルの欄には非防水とある（商品ページの記載）。着脱は紐だが、ページに内甲ファスナーの記載もあり、この型番のものかは商品ページで確認したい。ソールは説明欄にX10ラバーとあるが、滑りにくさは確認できていない。Amazonの評価は4.2（261件）。グラウンドゴルフ専用ではなく、一般のウォーキングシューズ。',
     tags: ['under-10000', 'shoes'],
-    shoe: { width: '4E', closure: '紐（内甲ファスナーは商品ページで確認）', water: '防水の記載なし（耐水レベル欄に非防水）', widthE: 4, velcro: false, waterStated: false },
+    shoe: { width: '4E', closure: '紐（要確認）', water: '非防水と記載（商品ページ）', widthE: 4, velcro: false, waterStated: false },
   },
   {
     id: 'mizuno-frd-wp',

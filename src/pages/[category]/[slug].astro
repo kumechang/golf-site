@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import ProductComparisonList from '../../components/ProductComparisonList.astro';
 import ProductComparisonTable from '../../components/ProductComparisonTable.astro';
+import ShoeCompare from '../../components/ShoeCompare.astro';
 import { getProductsByIds } from '../../data/products';
 import { articleImages } from '../../data/article-images';
 import { getPrefecturesByRegion } from '../../data/prefectures';
@@ -23,7 +24,7 @@ const relatedProducts = article.data.productIds ? getProductsByIds(article.data.
 const toc = article.data.showToc
   ? [
       ...headings.filter((h) => h.depth === 2).map((h) => ({ text: h.text, id: h.slug })),
-      ...(relatedProducts.length > 0 ? [{ text: article.data.productsHeading ?? '商品の例', id: 'article-products' }] : []),
+      ...(relatedProducts.length > 0 ? [{ text: article.data.productFilter ? 'シューズ10点の比較' : (article.data.productsHeading ?? '商品の例'), id: 'article-products' }] : []),
       ...(article.data.faqItems && article.data.faqItems.length > 0 ? [{ text: 'よくある質問', id: 'faq-heading' }] : []),
     ]
   : undefined;
@@ -44,7 +45,11 @@ const prefectureRegions = article.id === 'find-a-club-near-you' ? getPrefectures
 >
   <Content />
 
-  {relatedProducts.length > 0 && (
+  {relatedProducts.length > 0 && article.data.productFilter && (
+    <ShoeCompare heading={article.data.productsHeading ?? '商品の例'} products={relatedProducts} />
+  )}
+
+  {relatedProducts.length > 0 && !article.data.productFilter && (
     <div class="not-prose mt-10">
       <h2 id="article-products" class="text-2xl font-bold text-slate-900">{article.data.productsHeading ?? 'おすすめクラブセット比較'}</h2>
       {article.data.articleType === 'comparison' && relatedProducts.length > 2 && (

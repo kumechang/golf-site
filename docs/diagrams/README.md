@@ -11,6 +11,10 @@
 | `tournament-ranges` | tournament-overview | JGGAでは未確認の一般的な目安。階段・矢印・番号は使わない |
 | `compare-three` | vs-gateball-parkgolf | 記事の比較表のみ（alt は空。表と同じ内容） |
 | `fouls` | fouls-and-manners | 第9条。押し出し・かき寄せの絵は一般的なイメージ |
+| `shoes-three-views` | shoes-and-apparel（靴を選ぶ見方） | 足幅・着脱・重さの3点。一般的な目安 |
+| `shoes-spike-vs-sneaker` | shoes-and-apparel（スパイクは使える？） | 大会案内に書かれていた例のみ（2026年11月時点）。JGGAの規定ではない |
+| `shoes-check-flow` | shoes-and-apparel | 迷ったときの確認の順。会場・主催者への確認を優先 |
+| `shoes-tryon-checks` | shoes-and-apparel（試し履き） | 試し履きの3つの確認。数値の基準は描かない |
 
 ## 作るときの約束
 

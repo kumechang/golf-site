@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 768" role="img" aria-labelledby="shoes-spike-vs-sneaker-t shoes-spike-vs-sneaker-d" font-family='"Hiragino Sans","Noto Sans JP","Yu Gothic",system-ui,sans-serif'>
+<title id="shoes-spike-vs-sneaker-t">スパイクと運動靴</title>
+<desc id="shoes-spike-vs-sneaker-d">金具やポイントのあるスパイクの靴底のイメージ（突起つき）と、一般の運動靴の靴底のイメージ（平ら）を並べ、会場の案内の例を4つ示した図です。佐世保市の大会開催要項はスパイクは不可と読める。練馬区の多目的広場は金具・ポイントのあるスパイクが禁止。希望が丘文化公園の芝地はスパイクシューズを使わない、公園全体の決まり。五霞町は持ち物に運動靴と書かれている。一部の例です。会場ごとに案内で確認してください。絵はイメージです。</desc>
+<defs><marker id="shoes-spike-vs-sneaker-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+<rect x="8" y="8" width="344" height="40" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+<text x="20" y="35" font-size="18" font-weight="700" fill="#0f172a" text-anchor="start">スパイクと運動靴</text>
+<rect x="8" y="58" width="168" height="168" rx="10" fill="#ffffff" stroke="#334155" stroke-width="3"/>
+<rect x="184" y="58" width="168" height="168" rx="10" fill="#ffffff" stroke="#334155" stroke-width="3"/>
+<text x="18" y="86" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">スパイク</text>
+<text x="18" y="108" font-size="15" font-weight="400" fill="#334155" text-anchor="start">金具・ポイントのある</text>
+<text x="194" y="86" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">一般の運動靴</text>
+<path d="M30 170 L30 136 Q34 130 60 130 L74 130 L80 148 Q102 150 130 160 Q150 164 150 170 Z" fill="#e2e8f0" stroke="#334155" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="28" y="170" width="124" height="8" rx="3" fill="#334155"/>
+<polygon points="31,178 41,178 36,192" fill="#334155" stroke="#334155" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="55,178 65,178 60,192" fill="#334155" stroke="#334155" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="79,178 89,178 84,192" fill="#334155" stroke="#334155" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="103,178 113,178 108,192" fill="#334155" stroke="#334155" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="127,178 137,178 132,192" fill="#334155" stroke="#334155" stroke-width="2" stroke-linejoin="round"/>
+<path d="M206 170 L206 136 Q210 130 236 130 L250 130 L256 148 Q278 150 306 160 Q326 164 326 170 Z" fill="#e2e8f0" stroke="#334155" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="204" y="170" width="124" height="8" rx="3" fill="#334155"/>
+<text x="18" y="214" font-size="14" font-weight="400" fill="#334155" text-anchor="start">靴底：突起つき</text>
+<text x="194" y="214" font-size="14" font-weight="400" fill="#334155" text-anchor="start">靴底：平ら</text>
+<rect x="8" y="236" width="344" height="40" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+<text x="20" y="263" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">会場の案内の例</text>
+<rect x="8" y="286" width="344" height="88" rx="10" fill="#ffffff" stroke="#92400e" stroke-width="3"/>
+<circle cx="32" cy="330" r="16" fill="#fef3c7" stroke="#92400e" stroke-width="3"/><line x1="26" y1="324" x2="38" y2="336" stroke="#92400e" stroke-width="4" stroke-linecap="round"/><line x1="26" y1="336" x2="38" y2="324" stroke="#92400e" stroke-width="4" stroke-linecap="round"/>
+<text x="58" y="316" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start">佐世保市の大会開催要項</text>
+<text x="58" y="340" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">スパイクは不可と読めます</text>
+<text x="58" y="361" font-size="15" font-weight="400" fill="#334155" text-anchor="start">「運動靴」の条件の中に記載</text>
+<rect x="8" y="382" width="344" height="88" rx="10" fill="#ffffff" stroke="#92400e" stroke-width="3"/>
+<circle cx="32" cy="426" r="16" fill="#fef3c7" stroke="#92400e" stroke-width="3"/><line x1="26" y1="420" x2="38" y2="432" stroke="#92400e" stroke-width="4" stroke-linecap="round"/><line x1="26" y1="432" x2="38" y2="420" stroke="#92400e" stroke-width="4" stroke-linecap="round"/>
+<text x="58" y="412" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start">練馬区の多目的広場</text>
+<text x="58" y="436" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">スパイク（金具・ポイント）は禁止</text>
+<text x="58" y="457" font-size="15" font-weight="400" fill="#334155" text-anchor="start">芝生を守るため</text>
+<rect x="8" y="478" width="344" height="88" rx="10" fill="#ffffff" stroke="#92400e" stroke-width="3"/>
+<circle cx="32" cy="522" r="16" fill="#fef3c7" stroke="#92400e" stroke-width="3"/><line x1="26" y1="516" x2="38" y2="528" stroke="#92400e" stroke-width="4" stroke-linecap="round"/><line x1="26" y1="528" x2="38" y2="516" stroke="#92400e" stroke-width="4" stroke-linecap="round"/>
+<text x="58" y="508" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start">希望が丘文化公園の芝地</text>
+<text x="58" y="532" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">スパイクシューズは使わない</text>
+<text x="58" y="553" font-size="15" font-weight="400" fill="#334155" text-anchor="start">公園全体の決まり（専用ではない）</text>
+<rect x="8" y="574" width="344" height="88" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="3"/>
+<circle cx="32" cy="618" r="16" fill="#dcfce7" stroke="#15803d" stroke-width="3"/><text x="32" y="624" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">靴</text>
+<text x="58" y="604" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start">五霞町のグラウンド・ゴルフ大会</text>
+<text x="58" y="628" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">持ち物に「運動靴」と書かれている</text>
+<text x="58" y="649" font-size="15" font-weight="400" fill="#334155" text-anchor="start">（「動きやすい服装・運動靴」）</text>
+<rect x="8" y="670" width="344" height="88" rx="8" fill="#fef3c7" stroke="#92400e" stroke-width="2"/>
+<rect x="20" y="689" width="7" height="7" rx="1" fill="#92400e" stroke="none" stroke-width="0"/>
+<text x="34" y="697" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">絵はイメージです。</text>
+<text x="34" y="719" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">一部の例です。</text>
+<text x="34" y="741" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">会場ごとに案内で確認してください。</text>
+</svg>
