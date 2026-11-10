@@ -116,3 +116,13 @@ npm run places:details -- <統合CSV> --enriched --fetched=<ISO日時> --review=
 - 地図（`PrefMap.astro`）は補助。濃い緑＝住所・電話番号のある施設がある、斜線＝市区町村の案内に記載がある、灰色＝調べられていない・記載を確認できなかった。色だけに頼らず、模様と、広い市区町村の件数の数字を付ける。タップで目次と同じ場所へ移る。キーボード・読み上げは目次で行う。
 - 形のデータ: `src/data/pref-maps/<slug>.json`。作り方は `scripts/maps/build-pref-maps.mjs`（`npm run maps:build -- <TopoJSON>`）。元は、国土交通省 国土数値情報（行政区域データ）2021年版を、スマートニュース メディア研究所が簡素化した `N03-21_210101_designated_city.json`（https://github.com/smartnews-smri/japan-topography。政令指定都市の区は市に結合済み）。本土（いちばん面積の大きい、25km以内でつながる陸地のまとまり）だけを描き、離れた島だけの市区町村は「離島など」のタイルにする。座標は間引いてあり、境界は正確ではない。出典の表記は、図の直下と `/about/#places`。
 - 市区町村の合併・再編で、施設データの市区町村コードが地図の元データ（2021年版）にないと、図に出ない。その場合は元データを新しい版に替えて、`npm run maps:build` をやり直す。
+
+
+## 市区町村の五十音順（読み仮名）
+県ページの「市区町村から探す」は、市区町村が8以上のとき、五十音の行（あ行・か行…）ごとに並べる。読み仮名は総務省「全国地方公共団体コード」（令和6年1月1日現在）から作った。
+
+- データ: `data/places/municipality-readings.json`（団体コードの先頭5桁 → ひらがな。政令指定都市の区・東京23区を含む。約1,900件）
+- 作り方: 元のExcelを `https://www.soumu.go.jp/main_content/000925835.xlsx` から取り、リポジトリの外に置いて `python3 -I scripts/places/build-readings.py code.xlsx data/places/municipality-readings.json`（標準ライブラリだけで動く）
+- 使う所: `src/data/municipality-readings.ts`（行の判定）、`MunicipalPlaces.astro`（並べ替え・見出し）。読み仮名が無い団体は、名前の順で最後に置く（総務省の表に無い団体コードのとき）
+- 出典の表記: 該当の節の下に「市区町村の読み仮名：総務省『全国地方公共団体コード』による。」
+- 市区町村の合併・名称変更があったら、新しい表で作り直す（地図データの更新と合わせる）

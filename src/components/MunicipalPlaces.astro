@@ -8,6 +8,7 @@ import PlainPlaceRow from './PlainPlaceRow.astro';
 import ListingPlaceRow from './ListingPlaceRow.astro';
 import PrefMap from './PrefMap.astro';
 import type { VideoItem } from './VideoEmbed.astro';
+import { readingOf, rowLabelOf, ROW_ORDER } from '../data/municipality-readings';
 
 interface Props {
   prefName: string;
@@ -26,6 +27,17 @@ const targets = new Map(view.chips.filter((c) => c.target).map((c) => [c.code, c
 // 調べた日。1つの日ならその日、範囲なら「から」でつなぐ。
 const surveyed = !view.from ? null : view.from === view.to ? jaDate(view.from) : `${jaDate(view.from)}から${jaDate(view.to!).replace(/^\d{4}年/, '')}`;
 const filterable = view.total >= 10;
+// 市区町村が多い県は、五十音の行ごとに並べて、見つけやすくする（読み仮名は総務省の団体コード表）
+const GROUP_CHIPS_FROM = 8;
+const chipsByRow = (() => {
+  if (view.chips.length < GROUP_CHIPS_FROM) return null;
+  const m = new Map<string, typeof view.chips>();
+  for (const c of [...view.chips].sort((a, b) => (readingOf(a.code) ?? 'ん' + a.name).localeCompare(readingOf(b.code) ?? 'ん' + b.name, 'ja'))) {
+    const row = rowLabelOf(readingOf(c.code));
+    m.set(row, [...(m.get(row) ?? []), c]);
+  }
+  return ROW_ORDER.filter((r) => m.has(r)).map((r) => ({ row: r, chips: m.get(r)! }));
+})();
 // スマホで縦に長くならないよう、先頭だけ見せて、残りは「ほかの◯件を見る」にたたむ。
 const SHOW_CARDS = 12;
 const SHOW_PLAIN = 15;
@@ -50,14 +62,29 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
       </p>
       {view.chips.length > 0 && (
         <nav aria-label="市区町村から探す" class="mt-6">
-          <p class="text-base font-bold text-slate-900">市区町村から探す</p>
-          <ul role="list" class="mt-2 flex flex-wrap gap-2">
-            {view.chips.map((c) => (
+          <p class="text-base font-bold text-slate-900">市区町村から探す{chipsByRow && '（五十音順）'}</p>
+          {chipsByRow ? (
+            chipsByRow.map((g) => (
+              <div class="mt-3" data-chip-group>
+                <p class="text-base font-bold text-slate-700">{g.row}</p>
+                <ul role="list" class="mt-1 flex flex-wrap gap-2">
+                  {g.chips.map((c) => (
+                    <li data-place-chip data-code={c.code}>
+                      <a href={`#${c.target}`} class="tap-target inline-flex items-center rounded-full border border-slate-400 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">{c.name}<span class="ml-1 font-normal text-slate-700">（{c.count}）</span></a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          ) : (
+            <ul role="list" class="mt-2 flex flex-wrap gap-2">
+              {view.chips.map((c) => (
               <li data-place-chip data-code={c.code}>
                 <a href={`#${c.target}`} class="tap-target inline-flex items-center rounded-full border border-slate-400 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">{c.name}<span class="ml-1 font-normal text-slate-700">（{c.count}）</span></a>
               </li>
-            ))}
-          </ul>
+              ))}
+            </ul>
+          )}
         </nav>
       )}
 
@@ -159,6 +186,9 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
     </>
   )}
 
+  {chipsByRow && (
+    <p class="mt-6 text-base text-slate-700">市区町村の読み仮名：<a href="https://www.soumu.go.jp/denshijiti/code.html" rel="nofollow noopener" target="_blank" class={link}>総務省「全国地方公共団体コード」</a>による。</p>
+  )}
   <p class="mt-8 text-base leading-relaxed text-slate-800">
     お住まいの市区町村が載っていない場合は、市区町村のスポーツ振興課や社会福祉協議会に、グラウンドゴルフができる場所を尋ねてみてください。上の「{prefName}グラウンド・ゴルフ協会の窓口」も手がかりになります。
   </p>
@@ -210,6 +240,7 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
         d.open = active ? any : (saved?.get(d) ?? d.open);
       }
       for (const c of chips) c.hidden = active && !codes.has(c.dataset.code ?? '');
+      root.querySelectorAll<HTMLElement>('[data-chip-group]').forEach((g) => { g.hidden = !g.querySelector('[data-place-chip]:not([hidden])'); });
       if (!active) { saved = null; status.textContent = ''; return; }
       status.textContent = n > 0
         ? `${n}件（${codes.size}市区町村）が見つかりました。`
