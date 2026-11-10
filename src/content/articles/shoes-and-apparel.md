@@ -41,10 +41,10 @@ faqItems:
 <section class="key-points scene-picks" aria-labelledby="scene-picks-h">
 <p id="scene-picks-h" class="key-points-title">サイト管理者のおすすめ：場面別の目安</p>
 <ul>
-<li>女性向けで、足幅が広め（4E）・防水の記載があり、5,000円以下の靴：<a href="#shoe-row-moonstar-l171">ムーンスター L171（女性向け）<span class="sr-only">の表の行へ</span></a></li>
-<li>男性向けで、足幅が広め（4E）・防水の記載があり、5,000円以下の靴：<a href="#shoe-row-moonstar-m196">ムーンスター M196（男性向け）<span class="sr-only">の表の行へ</span></a></li>
-<li>贈り物で足幅が分からないとき、男女の足幅の記載がある靴：<a href="#shoe-row-achilles-walking-shoes">アキレス LJM 9020（男性4E・女性3E）<span class="sr-only">の表の行へ</span></a></li>
-<li>着脱が面ファスナー（マジックテープ）の記載がある靴：<a href="#shoe-row-dunlop-dm287">ダンロップ DM287<span class="sr-only">の表の行へ</span></a></li>
+<li>女性向けで、足幅が広め（4E）・防水の記載があり、5,000円以下の靴：<a href="#shoe-row-moonstar-l171">ムーンスター L171（女性向け）<span class="sr-only">の表の行へ</span></a><a class="scene-buy" href="https://www.amazon.co.jp/dp/B07PJPYCBF/?tag=hiroshirevolu-22" target="_blank" rel="nofollow sponsored noopener" data-gg-outbound="amazon" data-gg-product="moonstar-l171">Amazonで見る<span class="sr-only">（ムーンスター L171・新しい画面）</span></a></li>
+<li>男性向けで、足幅が広め（4E）・防水の記載があり、5,000円以下の靴：<a href="#shoe-row-moonstar-m196">ムーンスター M196（男性向け）<span class="sr-only">の表の行へ</span></a><a class="scene-buy" href="https://www.amazon.co.jp/dp/B07PYV39B4/?tag=hiroshirevolu-22" target="_blank" rel="nofollow sponsored noopener" data-gg-outbound="amazon" data-gg-product="moonstar-m196">Amazonで見る<span class="sr-only">（ムーンスター M196・新しい画面）</span></a></li>
+<li>贈り物で足幅が分からないとき、男女の足幅の記載がある靴：<a href="#shoe-row-achilles-walking-shoes">アキレス LJM 9020（男性4E・女性3E）<span class="sr-only">の表の行へ</span></a><a class="scene-buy" href="https://www.amazon.co.jp/dp/B0GT44W584/?tag=hiroshirevolu-22" target="_blank" rel="nofollow sponsored noopener" data-gg-outbound="amazon" data-gg-product="achilles-walking-shoes">Amazonで見る<span class="sr-only">（アキレス LJM 9020・新しい画面）</span></a></li>
+<li>着脱が面ファスナー（マジックテープ）の記載がある靴：<a href="#shoe-row-dunlop-dm287">ダンロップ DM287<span class="sr-only">の表の行へ</span></a><a class="scene-buy" href="https://www.amazon.co.jp/dp/B09TDL9GCF/?tag=hiroshirevolu-22" target="_blank" rel="nofollow sponsored noopener" data-gg-outbound="amazon" data-gg-product="dunlop-dm287">Amazonで見る<span class="sr-only">（ダンロップ DM287・新しい画面）</span></a></li>
 </ul>
 <p class="key-points-note">商品名・商品ページの記載だけで選びました。履き心地や効果は確認していません。ほかの靴は<a href="#article-products">表で比べられます</a>。</p>
 </section>
@@ -131,7 +131,7 @@ faqItems:
 
 足幅の「E」は、親指と小指の付け根まわり（足囲）の大きさを表す記号です。確認できた範囲では、E、2E、3E、4Eと数が増えるほど幅広の表記です。ただし、同じ「4E」でも基準はメーカーや商品によって違うことがあります。足囲は、親指と小指の付け根の出っ張りを通るように巻き尺で一周して測るのが一般的です。数字だけで決めず、商品の寸法表も見比べ、試し履きで確かめましょう。
 
-4Eが合うかどうかは、数字だけでは決められません。今の靴で窮屈な所がないかを見て、届いたら試し履きをしてみましょう。
+4Eは、かなり幅広の表記です。足幅が広めの方でも、余裕を感じることが多いサイズです。足幅が分からない贈り物なら、4Eから選ぶ考え方もあります。今の靴で窮屈な所がないかを見て、届いたら試し履きをしてみましょう。
 
 つま先が窮屈すぎないか、かかとがぱかぱか動かないかも確認したいところです。靴下は、プレーのときに履くものを合わせて試し、サイズが合うか確かめましょう。
 
