@@ -73,7 +73,7 @@ const galleryVideos = allVideos.filter((v) => !inMunicipal.includes(v) && !inVer
     <nav aria-label="このページの内容" class="mt-5">
       <ul role="list" class="flex flex-wrap gap-2">
         {[
-          { href: '#municipal-places', text: '市区町村の名前から探す' },
+          { href: '#municipal-places', text: '市区町村の施設を探す' },
           { href: '#association', text: `${pref.name}グラウンド・ゴルフ協会の窓口` },
           { href: '#jgga-courses', text: 'JGGA認定コース' },
           ...(eventPage?.hasPage ? [{ href: `/community/events/${pref.slug}/`, text: `${pref.name}のグラウンドゴルフ予定表` }] : []),

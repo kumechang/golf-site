@@ -24,7 +24,13 @@ if (confirmedAt && daysBetween(confirmedAt, today) >= 90) {
 }
 
 const prefSummaries = loadPrefEvents(today);
-const prefList = prefectures.map((p) => ({ name: p.name, slug: p.slug, s: prefSummaries.get(p.name) }));
+// 「今後」は開催日が基準。申込期限が過ぎたものは分けて数える（県ごとのページと同じ判定）
+const closedCount = (s?: { up: { deadline?: string | null }[] }) => (s ? s.up.filter((e) => !!e.deadline && e.deadline < today).length : 0);
+const prefList = prefectures.map((p) => {
+  const s = prefSummaries.get(p.name);
+  const closed = closedCount(s);
+  return { name: p.name, slug: p.slug, s, closed, open: s ? s.up.length - closed : 0 };
+});
 
 const jump = [
   ...groups.map((g) => ({ id: g.slug, name: g.name })),
@@ -65,13 +71,13 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
       </p>
     </header>
 
-    {prefList.some((p) => p.s?.hasPage && p.s.up.length > 0) && (
-      <nav aria-label="今後の予定がある県" class="mt-8">
-        <h2 class="text-xl font-bold leading-snug text-slate-900">今後の予定がある県</h2>
+    {prefList.some((p) => p.s?.hasPage && p.open > 0) && (
+      <nav aria-label="申込期限が過ぎていない予定がある県" class="mt-8">
+        <h2 class="text-xl font-bold leading-snug text-slate-900">申込期限が過ぎていない予定がある県</h2>
         <ul role="list" class="mt-3 flex flex-wrap gap-2">
-          {prefList.filter((p) => p.s?.hasPage && p.s.up.length > 0).map((p) => (
+          {prefList.filter((p) => p.s?.hasPage && p.open > 0).map((p) => (
             <li>
-              <a href={`/community/events/${p.slug}/`} class="tap-target inline-flex items-center rounded-full border border-green-800 bg-white px-4 text-base font-bold text-green-900 hover:bg-green-50">{p.name}（{p.s!.up.length}件）</a>
+              <a href={`/community/events/${p.slug}/`} class="tap-target inline-flex items-center rounded-full border border-green-800 bg-white px-4 text-base font-bold text-green-900 hover:bg-green-50">{p.name}（{p.open}件）</a>
             </li>
           ))}
         </ul>
@@ -99,7 +105,7 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
             {p.s?.hasPage ? (
               <a class="tap-target flex flex-wrap items-center justify-between gap-x-3 font-bold text-green-800 underline underline-offset-2 hover:text-green-900" href={`/community/events/${p.slug}/`}>
                 <span>{p.name}</span>
-                <span class="text-base font-normal text-slate-700">今後{p.s.up.length}件{p.s.undated.length > 0 ? `・日程は元のページで${p.s.undated.length}件` : ''}{p.s.past.length > 0 ? `・終了${p.s.past.length}件` : ''}</span>
+                <span class="text-base font-normal text-slate-700">申込期限が過ぎていない予定{p.open}件{p.closed > 0 ? `・期限が過ぎた予定${p.closed}件` : ''}{p.s.undated.length > 0 ? `・日程は元のページで${p.s.undated.length}件` : ''}{p.s.past.length > 0 ? `・終了${p.s.past.length}件` : ''}</span>
               </a>
             ) : (
               <span class="flex flex-wrap items-center justify-between gap-x-3 py-1"><span>{p.name}</span><span>掲載なし　<a class="tap-target inline-flex items-center font-bold text-green-800 underline underline-offset-2 hover:text-green-900" href={`/community/find-a-club-near-you/${p.slug}/`}>クラブ・窓口を見る<span class="sr-only">（{p.name}）</span></a></span></span>

@@ -24,7 +24,7 @@ const isPast = variant === 'past';
 const wrap = isPast ? 'border-slate-200 bg-slate-50' : 'border-slate-300 bg-white';
 const dateHtml = e.start ? nowrap(e.start === e.end ? formatDate(e.start) : formatRange(e.start!, e.end!)) : '';
 const pastDate = e.start ? `${e.start.slice(0, 4)}年${Number(e.start.slice(5, 7))}月${Number(e.start.slice(8, 10))}日` : '';
-const residentOnly = !!e.target && /在住|在勤|在学|住民|市民|町民|村民|区民|市内|町内|村内|区内/.test(e.target);
+const residentOnly = !!e.target && /在住|在勤|在学|お住まい|住民|市民|町民|村民|区民|市内|町内|村内|区内/.test(e.target);
 const telHref = e.contactPhone ? `tel:${e.contactPhone.replace(/-/g, '')}` : null;
 ---
 
