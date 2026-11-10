@@ -29,7 +29,7 @@ const articles = (await getCollection('articles', (a) => a.data.category === cat
         <span class:list={['inline-block rounded-full px-3 py-1 text-xs font-bold', cat.accent.bg, cat.accent.text]}>
           カテゴリ
         </span>
-        <h1 class="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{cat.name}</h1>
+        <h1 class="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{cat.heading ?? cat.name}</h1>
         <p class="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">{cat.description}</p>
       </div>
       {image && (
@@ -45,6 +45,25 @@ const articles = (await getCollection('articles', (a) => a.data.category === cat
   </header>
 
   <section class="mx-auto max-w-5xl px-4 py-10">
+    {(cat.slug === 'guide' || cat.slug === 'start') && (
+      <div class="mb-6 rounded-2xl border border-green-200 bg-green-50 p-5">
+        <p class="text-lg font-bold text-green-900">近くで始めたい方へ</p>
+        <div class="mt-3 flex flex-col gap-3 sm:flex-row">
+          <a href="/start/find-a-class/" class="inline-flex min-h-[3rem] items-center justify-center rounded-lg bg-green-800 px-5 py-2 text-lg font-bold text-white hover:bg-green-900">体験教室の探し方を読む</a>
+          <a href="/start/find-a-class/#pref-list" class="inline-flex min-h-[3rem] items-center justify-center rounded-lg border-2 border-green-800 bg-white px-5 py-2 text-lg font-bold text-green-900 hover:bg-green-50">県の名前から探す</a>
+        </div>
+      </div>
+    )}
+    {cat.slug === 'guide' && (
+      <nav aria-label="あなたに近いものを選んでください" class="mb-6">
+        <p class="text-lg font-bold text-slate-900">あなたに近いものを選んでください</p>
+        <ul role="list" class="mt-2 flex flex-wrap gap-2">
+          <li><a href="/guide/retirement-hobby-comparison/" class="tap-target inline-flex items-center rounded-full border border-slate-400 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">定年後の趣味を探している</a></li>
+          <li><a href="/guide/from-golf-to-ground-golf/" class="tap-target inline-flex items-center rounded-full border border-slate-400 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">ゴルフの経験がある</a></li>
+          <li><a href="/guide/gentle-exercise-comparison/" class="tap-target inline-flex items-center rounded-full border border-slate-400 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">膝や腰が気になる</a></li>
+        </ul>
+      </nav>
+    )}
     {cat.slug === 'community' && (
       <a
         href="/community/events/"

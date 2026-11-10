@@ -21,9 +21,13 @@ interface Props {
   image?: { src: ImageMetadata; alt: string };
   /** 記事の冒頭に出す目次（見出しへ移るボタン）。長い記事向け */
   toc?: { text: string; id: string }[];
+  /** 冒頭と末尾に出す「次の一歩」ボタン（最大2つ。1つ目が主） */
+  nextSteps?: { label: string; href: string }[];
+  /** 長い記事の「読む人から選ぶ」入口（見出しへ移るボタン） */
+  entrances?: { heading: string; items: { label: string; href: string }[] };
 }
 
-const { title, description, category, pubDate, updatedDate, faqItems, videos, showAffiliateNotice = false, image, toc } =
+const { title, description, category, pubDate, updatedDate, faqItems, videos, showAffiliateNotice = false, image, toc, nextSteps, entrances } =
   Astro.props as Props;
 
 const cat = getCategory(category);
@@ -104,6 +108,38 @@ const faqJsonLd = faqItems
       )}
     </header>
 
+{nextSteps && nextSteps.length > 0 && (
+      <nav aria-label="次の一歩" class="not-prose mt-5" data-next-steps>
+        
+        <ul role="list" class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          {nextSteps.map((s, i) => (
+            <li>
+              <a
+                href={s.href}
+                class:list={[
+                  'inline-flex min-h-[3rem] w-full items-center justify-center rounded-lg px-5 py-2 text-center text-lg font-bold sm:w-auto',
+                  i === 0 ? 'bg-green-800 text-white hover:bg-green-900' : 'border-2 border-green-800 bg-white text-green-900 hover:bg-green-50',
+                ]}
+              >{s.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+
+    {entrances && entrances.items.length > 0 && (
+      <nav aria-label={entrances.heading} class="mt-5" data-entrances>
+        <p class="text-base font-bold text-slate-900">{entrances.heading}</p>
+        <ul role="list" class="mt-2 flex flex-wrap gap-2">
+          {entrances.items.map((t) => (
+            <li>
+              <a href={t.href} class="tap-target inline-flex items-center rounded-full border border-slate-400 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">{t.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+
     {image && (
       <Image
         src={image.src}
@@ -130,6 +166,25 @@ const faqJsonLd = faqItems
     <div class="prose-article mt-8 text-slate-800">
       <slot />
     </div>
+
+{nextSteps && nextSteps.length > 0 && (
+      <nav aria-label="次にすること" class="not-prose mt-10" data-next-steps-end>
+        <p class="mb-3 text-xl font-bold text-slate-900">次にすること</p>
+        <ul role="list" class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          {nextSteps.map((s, i) => (
+            <li>
+              <a
+                href={s.href}
+                class:list={[
+                  'inline-flex min-h-[3rem] w-full items-center justify-center rounded-lg px-5 py-2 text-center text-lg font-bold sm:w-auto',
+                  i === 0 ? 'bg-green-800 text-white hover:bg-green-900' : 'border-2 border-green-800 bg-white text-green-900 hover:bg-green-50',
+                ]}
+              >{s.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
 
     {videos && videos.length > 0 && (
       <VideoGallery
