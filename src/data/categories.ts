@@ -3,6 +3,8 @@ export type CategorySlug = 'guide' | 'start' | 'gear' | 'rules' | 'community';
 export interface CategoryMeta {
   slug: CategorySlug;
   name: string;
+  /** ページの見出し（h1）。ナビの名前と変えたいときだけ書く */
+  heading?: string;
   shortName: string;
   description: string;
   // <title>・meta descriptionに使うSEO用の文言。
@@ -22,6 +24,7 @@ export const categories: CategoryMeta[] = [
   {
     slug: 'guide',
     name: 'グラウンドゴルフとは',
+    heading: 'グラウンドゴルフ入門ガイド',
     shortName: 'グラウンドゴルフとは？',
     description: 'ルールや魅力など、グラウンドゴルフの基本をやさしく解説します。',
     metaTitle: 'グラウンドゴルフ入門ガイド一覧｜まずはここから',

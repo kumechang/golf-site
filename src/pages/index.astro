@@ -26,7 +26,7 @@ const startHereIds = [
   'who-is-it-for',
   'cost',
   'basic-rules',
-  'how-to-score',
+  'find-a-class',
   'how-to-choose-a-club',
 ];
 const startHereArticles = startHereIds
@@ -75,10 +75,16 @@ const pageDescription =
           </p>
           <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <a
-              href="/guide/what-is-ground-golf/"
+              href="/start/find-a-class/"
               class="tap-target inline-flex items-center rounded-lg bg-white px-6 py-3.5 text-base font-bold text-green-900 transition-colors hover:bg-green-50"
             >
-              グラウンドゴルフとは？から読む
+              近くの体験教室を探す
+            </a>
+            <a
+              href="#by-region"
+              class="tap-target inline-flex items-center rounded-lg border-2 border-white px-6 py-3 text-base font-bold text-white transition-colors hover:bg-white/10"
+            >
+              お住まいの県から、クラブを探す
             </a>
             <a
               href="/gear/"
@@ -112,6 +118,27 @@ const pageDescription =
       </ul>
     </section>
   )}
+
+  <section class="mx-auto max-w-5xl px-4 pt-14" aria-labelledby="by-region">
+    <h2 id="by-region" class="text-2xl font-bold text-slate-900">お住まいの地域から探す</h2>
+    <p class="mt-3 max-w-3xl text-base leading-relaxed text-slate-700">
+      都道府県ごとに、協会の窓口と、市区町村の案内にグラウンドゴルフの記載がある施設へのリンクをまとめています（全国をそろえたものではありません）。今後の大会は、<a href="/community/events/" class="font-bold text-green-800 underline underline-offset-2">地域別の大会カレンダー（一部地域）</a>で見られます。
+    </p>
+    <div class="mt-6 space-y-5">
+      {regions.map((r) => (
+        <div>
+          <h3 class="text-base font-bold text-slate-900">{r.region}</h3>
+          <ul role="list" class="mt-2 flex flex-wrap gap-2">
+            {r.prefectures.map((p) => (
+              <li>
+                <a href={`/community/find-a-club-near-you/${p.slug}/`} class="tap-target inline-flex items-center rounded-full border border-slate-300 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">{p.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
 
   <section class="mx-auto max-w-5xl px-4 py-14">
     <h2 class="text-2xl font-bold text-slate-900">カテゴリから探す</h2>
@@ -183,27 +210,6 @@ const pageDescription =
           />
         ))
       }
-    </div>
-  </section>
-
-  <section class="mx-auto max-w-5xl px-4 pb-14" aria-labelledby="by-region">
-    <h2 id="by-region" class="text-2xl font-bold text-slate-900">お住まいの地域から探す</h2>
-    <p class="mt-3 max-w-3xl text-base leading-relaxed text-slate-700">
-      都道府県ごとに、協会の窓口と、市区町村の案内にグラウンドゴルフの記載がある施設へのリンクをまとめています（全国をそろえたものではありません）。今後の大会は、<a href="/community/events/" class="font-bold text-green-800 underline underline-offset-2">地域別の大会カレンダー（一部地域）</a>で見られます。
-    </p>
-    <div class="mt-6 space-y-5">
-      {regions.map((r) => (
-        <div>
-          <h3 class="text-base font-bold text-slate-900">{r.region}</h3>
-          <ul role="list" class="mt-2 flex flex-wrap gap-2">
-            {r.prefectures.map((p) => (
-              <li>
-                <a href={`/community/find-a-club-near-you/${p.slug}/`} class="tap-target inline-flex items-center rounded-full border border-slate-300 bg-white px-4 text-base font-bold text-slate-800 hover:bg-slate-50">{p.name}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
     </div>
   </section>
 

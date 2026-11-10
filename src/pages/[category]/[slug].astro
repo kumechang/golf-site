@@ -6,7 +6,8 @@ import ProductComparisonTable from '../../components/ProductComparisonTable.astr
 import ShoeCompare from '../../components/ShoeCompare.astro';
 import { getProductsByIds } from '../../data/products';
 import { articleImages } from '../../data/article-images';
-import { getPrefecturesByRegion } from '../../data/prefectures';
+import PrefectureLinks from '../../components/PrefectureLinks.astro';
+import { articleGuides } from '../../data/article-guides';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -28,7 +29,20 @@ const toc = article.data.showToc
       ...(article.data.faqItems && article.data.faqItems.length > 0 ? [{ text: 'よくある質問', id: 'faq-heading' }] : []),
     ]
   : undefined;
-const prefectureRegions = article.id === 'find-a-club-near-you' ? getPrefecturesByRegion() : null;
+// 「次の一歩」ボタンと「読む人から選ぶ」入口。'h:語' は、本文の h2 の先頭が一致する見出しの id に直す（無ければビルドを失敗させる）
+const guide = articleGuides[article.id];
+const h2s = headings.filter((h) => h.depth === 2);
+const resolveHref = (href: string) => {
+  if (!href.startsWith('h:')) return href;
+  const key = href.slice(2);
+  const h = h2s.find((x) => x.text.startsWith(key));
+  if (!h) throw new Error(`article-guides: 見出しが見つかりません: ${article.id} / ${key}`);
+  return `#${h.slug}`;
+};
+const nextSteps = guide?.steps.map((l) => ({ label: l.label, href: resolveHref(l.href) }));
+const entrances = guide?.entrances
+  ? { heading: guide.entrancesHeading ?? '読む人から選ぶ', items: guide.entrances.map((l) => ({ label: l.label, href: resolveHref(l.href) })) }
+  : undefined;
 ---
 
 <ArticleLayout
@@ -42,6 +56,8 @@ const prefectureRegions = article.id === 'find-a-club-near-you' ? getPrefectures
   showAffiliateNotice={relatedProducts.length > 0}
   image={articleImages[article.id]}
   toc={toc}
+  nextSteps={nextSteps}
+  entrances={entrances}
 >
   <Content />
 
@@ -63,31 +79,17 @@ const prefectureRegions = article.id === 'find-a-club-near-you' ? getPrefectures
     </div>
   )}
 
-  {prefectureRegions && (
-    <div class="not-prose mx-auto max-w-3xl px-4 pb-16">
-      <h2 class="text-2xl font-bold text-slate-900">都道府県から探す</h2>
-      <p class="mt-2 text-sm text-slate-600">
-        お住まいの都道府県を選ぶと、協会の窓口情報と、JGGA認定コースの有無・件数（詳細はJGGA公式サイトへのリンクからご確認いただけます）を確認できます。
-      </p>
-      <div class="mt-6 space-y-6">
-        {prefectureRegions.map((group) => (
-          <div>
-            <h3 class="text-sm font-bold text-indigo-700">{group.region}</h3>
-            <ul class="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm sm:grid-cols-3">
-              {group.prefectures.map((pref) => (
-                <li>
-                  <a
-                    href={`/community/find-a-club-near-you/${pref.slug}/`}
-                    class="text-slate-700 hover:text-green-700 hover:underline"
-                  >
-                    {pref.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
+  {article.id === 'find-a-club-near-you' && (
+    <PrefectureLinks
+      heading="県の名前から探す"
+      lead="県を選ぶと、協会の窓口と、市区町村の案内にグラウンドゴルフの記載がある施設が見られます（全国をそろえたものではありません）。"
+    />
+  )}
+
+  {article.id === 'find-a-class' && (
+    <PrefectureLinks
+      heading="県の名前から、近くの窓口を探す"
+      lead="県を選ぶと、協会の窓口と、市区町村の案内にある施設が見られます。体験教室の問い合わせ先を探す手がかりになります。"
+    />
   )}
 </ArticleLayout>
