@@ -7,9 +7,9 @@ import { loadPrefEvents } from '../../../data/pref-events';
 import { prefectures } from '../../../data/prefectures';
 import { loadEvents, groupEvents, todayJst, jstDate, daysBetween, STALE_DAYS } from '../../../data/events';
 
-const title = 'グラウンドゴルフの大会カレンダー｜地域別（一部地域）';
+const title = 'グラウンドゴルフの大会予定表｜地域別（一部地域）';
 const description =
-  'グラウンドゴルフの今後の大会を、一部の地域に限って日程と開催地で見られるカレンダーです。掲載元の協会などのページへのリンク付き。参加資格・申込は主催者の案内で確認してください。';
+  'グラウンドゴルフの今後の大会を、一部の地域に限って日程と開催地で見られる予定表です。掲載元の協会などのページへのリンク付き。参加資格・申込は主催者の案内で確認してください。';
 
 const today = todayJst();
 const all = loadEvents();
@@ -34,8 +34,8 @@ const jump = [
 
 const breadcrumbItems = [
   { name: 'トップ', href: '/' },
-  { name: '大会・コミュニティ情報', href: '/community/' },
-  { name: '地域別の大会カレンダー', href: Astro.url.pathname },
+  { name: '大会・地域の集まり情報', href: '/community/' },
+  { name: '地域別の大会予定表', href: Astro.url.pathname },
 ];
 
 const h2 = 'mt-12 text-2xl font-bold leading-snug text-slate-900';
@@ -47,13 +47,13 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
 
   <div id="events-page" class="mx-auto max-w-3xl px-4 pb-20 pt-6" data-confirmed={confirmedAt ?? undefined} data-stale-days={STALE_DAYS}>
     <header>
-      <a href="/community/" class="inline-block rounded-full bg-indigo-50 px-3 py-1 text-sm font-bold text-indigo-700">大会・コミュニティ情報</a>
-      <h1 class="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">地域別の大会カレンダー（掲載は一部の地域）</h1>
+      <a href="/community/" class="inline-block rounded-full bg-indigo-50 px-3 py-1 text-sm font-bold text-indigo-700">大会・地域の集まり情報</a>
+      <h1 class="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">地域別の大会予定表（掲載は一部の地域）</h1>
       <p class="mt-4 text-base leading-relaxed text-slate-700">
         グラウンドゴルフの今後の大会を、地域ごとに眺められるページです。参加を勧めるものではなく、どんな大会がいつ、どこで開かれるのかを知る手がかりとして使えます。
       </p>
       <p class="mt-3 text-base leading-relaxed text-slate-700">
-        市民向けの体験会や交流の場をお探しの方は、<a class={link} href="/start/find-a-class/">初めてのグラウンドゴルフ体験教室の探し方</a>をご覧ください。このカレンダーには、まだ載せられていません。
+        市民向けの体験会や交流の場をお探しの方は、<a class={link} href="/start/find-a-class/">初めてのグラウンドゴルフ体験教室の探し方</a>をご覧ください。この予定表には、まだ載せられていません。
       </p>
       {confirmedText && (
         <p class="mt-3 text-base leading-relaxed text-slate-700">
@@ -78,7 +78,7 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
     <section aria-labelledby="by-prefecture">
       <h2 id="by-prefecture" class={h2}>都道府県別の予定表（市区町村の大会・教室）</h2>
       <p class="mt-3 text-base leading-relaxed text-slate-800">
-        市区町村の公式ページなどに載っていた大会や教室を、都道府県ごとにまとめています。下のカレンダーの協会の大会とは、集め方が異なります。「掲載なし」は、いまのところ載せられていないという意味で、予定がないという意味ではありません。
+        市区町村の公式ページなどに載っていた大会や教室を、都道府県ごとにまとめています。下の予定表の協会の大会とは、集め方が異なります。「掲載なし」は、いまのところ載せられていないという意味で、予定がないという意味ではありません。
       </p>
       <ul role="list" class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
         {prefList.map((p) => (
@@ -148,7 +148,7 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
     )}
 
     <p class="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-5 text-base leading-relaxed text-slate-800" data-empty-notice hidden={total > 0}>
-      いま、このカレンダーに載せている今後の大会はありません。大会がないという意味ではありません。日程の探し方は、<a class={link} href="/community/tournament-overview/">グラウンドゴルフの大会の種類</a>の「大会の日程の探し方」にまとめています。
+      いま、この予定表に載せている今後の大会はありません。大会がないという意味ではありません。日程の探し方は、<a class={link} href="/community/tournament-overview/">グラウンドゴルフの大会の種類</a>の「大会の日程の探し方」にまとめています。
     </p>
 
     <section aria-labelledby="not-listed">

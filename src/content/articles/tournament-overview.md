@@ -148,7 +148,7 @@ videos:
 
 - [JGGA公式サイトの「今年度の大会」ページ](https://www.groundgolf.or.jp/tournaments/thisyear-tournaments/)
 - [JGGA公式サイトの「今後の大会予定」ページ](https://www.groundgolf.or.jp/tournaments/upcoming-tournaments/)
-- [地域別の大会カレンダー](/community/events/)：市区町村の公式ページなどに載っていた大会や教室を、都道府県ごとの予定表で見られます
+- [地域別の大会予定表](/community/events/)：市区町村の公式ページなどに載っていた大会や教室を、都道府県ごとの予定表で見られます
 
 当サイトでは、一部の地域の今後の大会を、日程と開催地で見られるようにしています。[地域別の今後の大会（一部地域）を見る](/community/events/)。載っているのは一部の地域と大会だけで、掲載元の団体は主催者とは限りません。日程は変わることがあります。参加資格や申込、見学できるかどうかは、それぞれの主催者の案内で確認してください。
 
