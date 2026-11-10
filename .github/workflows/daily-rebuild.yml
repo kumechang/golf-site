@@ -1,0 +1,34 @@
+# 毎日1回、サイトを作り直して公開する。
+# 目的: 予定表の「申込期限が過ぎた予定」などは、ビルドの日付で判定している。作り直さないと、日がたつほど表示が古くなる。
+# 仕組み: Cloudflare の「Deploy Hook」（Workers Builds）に POST すると、main の最新で、ビルドと公開が走る。
+# 準備（運営者）:
+#   1. Cloudflare の Workers & Pages で、このサイトの Worker を開き、Settings > Builds > Deploy Hooks で、ブランチ main のフックを作り、URL をコピーする
+#   2. GitHub のこのリポジトリの Settings > Secrets and variables > Actions で、CLOUDFLARE_DEPLOY_HOOK_URL という名前で、その URL を登録する
+# 手動で動かすには、GitHub の Actions タブからこのワークフローを選び、Run workflow を押す。
+name: 毎日の再ビルド
+
+on:
+  schedule:
+    - cron: '10 15 * * *' # 日本時間の毎日0時10分（UTC 15:10）
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Cloudflare の Deploy Hook を呼ぶ
+        env:
+          HOOK_URL: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK_URL" ]; then
+            echo "::error::CLOUDFLARE_DEPLOY_HOOK_URL が未登録です。このファイルの先頭の「準備」を見てください。"
+            exit 1
+          fi
+          # URL そのものが認証の代わり。ログに出さない（-s）。失敗したら3回までやり直す。
+          curl --fail --silent --show-error --retry 3 --retry-delay 10 -X POST "$HOOK_URL" > response.json
+          echo "再ビルドを依頼しました。"
+          # 応答には、ビルドの番号とブランチ名だけが入る
+          grep -o '"build_uuid":"[^"]*"' response.json || true
