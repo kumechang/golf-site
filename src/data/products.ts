@@ -332,9 +332,9 @@ export const products: Product[] = [
     material: '商品ページで要確認',
     recommendedFor: '足幅が広めで、4E表記のレディースのウォーキングシューズを探している方（22〜25cm）',
     reasonSelected:
-      '商品名に「晴雨兼用」「防水」「4E」と書かれたレディース（22〜25cm）のウォーキングシューズ。Amazonの評価は4.1（290件）。仕様欄の着脱は紐だが、説明に「マジックテープ」「開口部が広い」という語もあるため、着脱の方式は商品ページで確認したい。商品ページには防滑を考慮したソール設計だという記載がある。',
+      '商品名に「晴雨兼用」「防水」「4E」と書かれたレディース（22〜25cm）のウォーキングシューズ。Amazonの評価は4.1（290件）。着脱は紐。商品ページには防滑を考慮したソール設計だという記載がある。',
     tags: ['under-10000', 'shoes'],
-    shoe: { target: '女性向け', width: '幅広（4E）', closure: '紐（説明にマジックテープの語もあり）', water: '防水', widthE: 4, velcro: false, waterStated: true },
+    shoe: { target: '女性向け', width: '幅広（4E）', closure: '紐', water: '防水', widthE: 4, velcro: false, waterStated: true },
   },
   {
     id: 'achilles-ljm9030',
