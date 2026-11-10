@@ -48,20 +48,6 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
       <p class="mt-4 text-base leading-relaxed text-slate-800">
         {prefName}内の市区町村の案内ページのうち、グラウンドゴルフの記載があったものへのリンクをまとめました。調べた範囲の例で、すべてではありません。{view.municipalityCount}市区町村・{view.total}件です。{surveyed && <><time datetime={view.from!}>{surveyed}</time>に、</>}各市区町村のページで調べたもので、その後に変わっていることがあります。
       </p>
-      <p class="mt-3 text-base leading-relaxed text-slate-800">
-        確認できたのは「市区町村の案内に記載がある」ところまでです。利用できるか、予約・料金・使える方は、出かける前に市区町村か施設へ確認してください。載っていない市区町村は「ない」ではなく「未確認」です。
-      </p>
-      <details class="mt-3 rounded-lg border border-slate-300 bg-white">
-        <summary class="tap-target cursor-pointer px-4 py-2 text-base font-bold text-green-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">載っていない市区町村と、リンク先について（くわしい注意）</summary>
-        <ul role="list" class="list-disc space-y-2 px-4 pb-4 pl-8 text-base leading-relaxed text-slate-800">
-          <li>全国の市区町村をそろえて調べたものではありません。載っていない市区町村は、調べられていないか、記載を確認できなかったところで、施設がない、グラウンドゴルフができない、という意味ではありません。件数の多い少ないも、調べられた範囲の違いによることがあります。</li>
-          <li>確認できたのは、「市区町村の案内に、グラウンドゴルフの記載がある」ところまでです。いま利用できるか、誰でも使えるかは、確認できていません。予約が要るか、料金、使える方（その市区町村の方だけ、団体のみ、個人は不可など）、休業や工事は、施設ごとに違うので、出かける前に、市区町村の担当窓口か施設に確認してください。</li>
-          <li>リンク先は市区町村のページで、施設の運営者のページとは限りません。{view.cards.length > 0 && '住所・電話番号は、そのページに載っていたものか、個別に調べたものです。電話番号は、施設ではなく担当課などの問い合わせ先のことがあります。'}{view.hasWeb && '一部は、そのページに載っておらず、Web上の公開情報で補ったものです（各カードの出典に書いています）。'}{view.listings.length > 0 && '施設名がないものは、その市区町村の施設の案内ページへのリンクで、どの施設に記載があるかはリンク先でご覧いただけます。'}{view.hasOtherSport && '野球場など、別の競技の名前の施設も、案内にグラウンドゴルフの記載があったものとして載せています。'}</li>
-        </ul>
-      </details>
-
-      {map && <PrefMap map={map} prefName={prefName} states={view.states} counts={view.counts} targets={targets} />}
-
       {view.chips.length > 0 && (
         <nav aria-label="市区町村から探す" class="mt-6">
           <p class="text-base font-bold text-slate-900">市区町村から探す</p>
@@ -95,6 +81,20 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
           <p id="place-filter-status" role="status" class="mt-2 min-h-[1.5rem] text-base text-slate-800"></p>
         </div>
       )}
+
+      <p class="mt-3 text-base leading-relaxed text-slate-800">
+        確認できたのは「市区町村の案内に記載がある」ところまでです。利用できるか、予約・料金・使える方は、出かける前に市区町村か施設へ確認してください。載っていない市区町村は「ない」ではなく「未確認」です。
+      </p>
+      <details class="mt-3 rounded-lg border border-slate-300 bg-white">
+        <summary class="tap-target cursor-pointer px-4 py-2 text-base font-bold text-green-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">載っていない市区町村と、リンク先について（くわしい注意）</summary>
+        <ul role="list" class="list-disc space-y-2 px-4 pb-4 pl-8 text-base leading-relaxed text-slate-800">
+          <li>全国の市区町村をそろえて調べたものではありません。載っていない市区町村は、調べられていないか、記載を確認できなかったところで、施設がない、グラウンドゴルフができない、という意味ではありません。件数の多い少ないも、調べられた範囲の違いによることがあります。</li>
+          <li>確認できたのは、「市区町村の案内に、グラウンドゴルフの記載がある」ところまでです。いま利用できるか、誰でも使えるかは、確認できていません。予約が要るか、料金、使える方（その市区町村の方だけ、団体のみ、個人は不可など）、休業や工事は、施設ごとに違うので、出かける前に、市区町村の担当窓口か施設に確認してください。</li>
+          <li>リンク先は市区町村のページで、施設の運営者のページとは限りません。{view.cards.length > 0 && '住所・電話番号は、そのページに載っていたものか、個別に調べたものです。電話番号は、施設ではなく担当課などの問い合わせ先のことがあります。'}{view.hasWeb && '一部は、そのページに載っておらず、Web上の公開情報で補ったものです（各カードの出典に書いています）。'}{view.listings.length > 0 && '施設名がないものは、その市区町村の施設の案内ページへのリンクで、どの施設に記載があるかはリンク先でご覧いただけます。'}{view.hasOtherSport && '野球場など、別の競技の名前の施設も、案内にグラウンドゴルフの記載があったものとして載せています。'}</li>
+        </ul>
+      </details>
+
+      {map && <PrefMap map={map} prefName={prefName} states={view.states} counts={view.counts} targets={targets} />}
 
       {view.cards.length > 0 && (
         <section data-place-section aria-labelledby="places-detail-h">
