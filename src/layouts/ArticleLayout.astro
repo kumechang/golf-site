@@ -163,6 +163,8 @@ const faqJsonLd = faqItems
       </nav>
     )}
 
+    {Astro.slots.has('lead') && <div class="mt-8"><slot name="lead" /></div>}
+
     <div class="prose-article mt-8 text-slate-800">
       <slot />
     </div>

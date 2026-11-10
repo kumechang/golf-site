@@ -32,6 +32,8 @@ export interface Product {
   recommendedFor: string;
   reasonSelected: string;
   tags: string[]; // gift-guide等での絞り込みに使用
+  /** Amazonの評価（星と件数）。確認時点の表示。「評価件数が多い品」の選び方に使う */
+  rating?: { stars: number; count: number };
   // シューズの比較表・絞り込み用。商品名・商品ページの記載のとおりに書く（効果は確認していない）
   shoe?: {
     target: string; // 対象（男性向け／女性向け／男女共用。書かれていなければ空文字で、表には出さない）。商品名・商品ページの記載だけを根拠にする
@@ -439,15 +441,16 @@ export const products: Product[] = [
     asin: 'B0FJRGRHDV',
     name: 'HATACHI（ハタチ） グラウンドゴルフ ボール エアロボール 2025年',
     brand: 'HATACHI（羽立工業）',
-    priceYen: 1650,
+    priceYen: 1883,
     priceBand: 'entry',
-    priceCheckedAt: '2026-10-30',
+    priceCheckedAt: '2026-11-10',
     setContents: 'ボール（個数は商品ページでご確認ください）',
     material: '特殊合成樹脂（商品ページの記載）',
     recommendedFor: '青×赤のボールを探している方、HATACHIのボールを試してみたい方',
     reasonSelected:
-      'グラウンドゴルフ用品を扱うHATACHIの2025年版ボールで、色は青×赤。Amazonの評価は4.1（85件）。商品ページにJGGAの認定に関する記載は確認できていないため、大会で使う場合は主催者の規定とあわせてご確認ください。',
-    tags: ['under-10000', 'ball'],
+      'グラウンドゴルフ用品を扱うHATACHIの2025年版ボールで、色は青×赤。Amazonの評価は4.1（88件）。商品ページにJGGAの認定に関する記載は確認できていないため、大会で使う場合は主催者の規定とあわせてご確認ください。',
+    rating: { stars: 4.1, count: 88 },
+    tags: ['under-10000', 'gift', 'ball'],
   },
   {
     id: 'hatachi-blade-ball',
@@ -508,6 +511,7 @@ export const products: Product[] = [
     recommendedFor: 'HATACHIのストレッチ手袋を探している方',
     reasonSelected:
       'グラウンドゴルフ用品を扱うHATACHIの手袋で、商品名に「ストレッチ」と書かれている。Amazonの評価は4.0（148件）。JGGAの記載は商品ページにない。同じHATACHIの「ウルトラストレッチグローブ」とは別の商品。',
+    rating: { stars: 4.0, count: 148 },
     tags: ['under-10000', 'gift', 'glove'],
   },
   {
@@ -515,15 +519,16 @@ export const products: Product[] = [
     asin: 'B0BJD5777F',
     name: 'asics（アシックス） グラウンドゴルフ 磁石付きグローブ',
     brand: 'asics（アシックス）',
-    priceYen: 2002,
+    priceYen: 2860,
     priceBand: 'entry',
-    priceCheckedAt: '2026-10-30',
+    priceCheckedAt: '2026-11-10',
     setContents: 'グローブ（枚数・片手用か両手用かは商品ページでご確認ください。サイズ・色により価格が変わります）',
     material: 'ひら：合成皮革、甲：ポリエステル・合成皮革',
     handedness: '手の向き（右用・左用）は確認できていません。購入前に商品ページでご確認ください',
     recommendedFor: '普段から使い慣れたスポーツブランドで、磁石付きのグローブを探している方',
     reasonSelected:
       '大手スポーツブランドasicsのグラウンドゴルフ用グローブで、商品名に「磁石付き」と書かれている。Amazonの評価は4.2（52件）。磁石の位置や使い方は確認できていないため、商品ページでご確認ください。',
+    rating: { stars: 4.2, count: 52 },
     tags: ['under-10000', 'gift', 'glove'],
   },
   {

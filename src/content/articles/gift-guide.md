@@ -10,6 +10,7 @@ productIds:
   - "ground-golf-ball-resin"
   - "hatachi-win4-ball"
   - "hatachi-ball-pouch"
+  - "hatachi-aero-ball"
   - "lezax-gloves"
   - "asics-magnet-gloves"
   - "hatachi-bh8080-gloves"

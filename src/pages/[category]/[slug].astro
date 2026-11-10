@@ -7,6 +7,7 @@ import ShoeCompare from '../../components/ShoeCompare.astro';
 import { getProductsByIds } from '../../data/products';
 import { articleImages } from '../../data/article-images';
 import PrefectureLinks from '../../components/PrefectureLinks.astro';
+import GiftPicks from '../../components/GiftPicks.astro';
 import { articleGuides } from '../../data/article-guides';
 
 export async function getStaticPaths() {
@@ -59,6 +60,12 @@ const entrances = guide?.entrances
   nextSteps={nextSteps}
   entrances={entrances}
 >
+  {article.id === 'gift-guide' && (
+    <Fragment slot="lead">
+      <GiftPicks products={relatedProducts} />
+    </Fragment>
+  )}
+
   <Content />
 
   {relatedProducts.length > 0 && article.data.productFilter && (
