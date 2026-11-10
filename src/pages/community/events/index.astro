@@ -65,6 +65,19 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
       </p>
     </header>
 
+    {prefList.some((p) => p.s?.hasPage && p.s.up.length > 0) && (
+      <nav aria-label="今後の予定がある県" class="mt-8">
+        <h2 class="text-xl font-bold leading-snug text-slate-900">今後の予定がある県</h2>
+        <ul role="list" class="mt-3 flex flex-wrap gap-2">
+          {prefList.filter((p) => p.s?.hasPage && p.s.up.length > 0).map((p) => (
+            <li>
+              <a href={`/community/events/${p.slug}/`} class="tap-target inline-flex items-center rounded-full border border-green-800 bg-white px-4 text-base font-bold text-green-900 hover:bg-green-50">{p.name}（{p.s!.up.length}件）</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+
     <nav aria-label="地域へ移動" class="mt-8">
       <ul role="list" class="flex flex-wrap gap-2" data-jump-list>
         {jump.map((j) => (
@@ -89,7 +102,7 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
                 <span class="text-base font-normal text-slate-700">今後{p.s.up.length}件{p.s.undated.length > 0 ? `・日程は元のページで${p.s.undated.length}件` : ''}{p.s.past.length > 0 ? `・終了${p.s.past.length}件` : ''}</span>
               </a>
             ) : (
-              <span class="flex flex-wrap items-center justify-between gap-x-3 py-2"><span>{p.name}</span><span>掲載なし</span></span>
+              <span class="flex flex-wrap items-center justify-between gap-x-3 py-1"><span>{p.name}</span><span>掲載なし　<a class="tap-target inline-flex items-center font-bold text-green-800 underline underline-offset-2 hover:text-green-900" href={`/community/find-a-club-near-you/${p.slug}/`}>クラブ・窓口を見る<span class="sr-only">（{p.name}）</span></a></span></span>
             )}
           </li>
         ))}

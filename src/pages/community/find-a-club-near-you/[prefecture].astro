@@ -73,9 +73,9 @@ const galleryVideos = allVideos.filter((v) => !inMunicipal.includes(v) && !inVer
     <nav aria-label="このページの内容" class="mt-5">
       <ul role="list" class="flex flex-wrap gap-2">
         {[
+          { href: '#municipal-places', text: '市区町村の名前から探す' },
           { href: '#association', text: `${pref.name}グラウンド・ゴルフ協会の窓口` },
           { href: '#jgga-courses', text: 'JGGA認定コース' },
-          { href: '#municipal-places', text: '市区町村の案内にある施設' },
           ...(eventPage?.hasPage ? [{ href: `/community/events/${pref.slug}/`, text: `${pref.name}のグラウンドゴルフ予定表` }] : []),
         ].map((b) => (
           <li>
@@ -161,6 +161,7 @@ const galleryVideos = allVideos.filter((v) => !inMunicipal.includes(v) && !inVer
       <ul>
         <li><a href="/community/find-a-club-near-you/">都道府県別グラウンドゴルフクラブ・コースの探し方（一覧に戻る）</a></li>
         <li><a href="/start/find-a-class/">体験教室の探し方</a></li>
+        <li><a href="/start/find-a-class/#電話やメールで問い合わせるとき">電話が苦手な方は、問い合わせの文例をお使いください</a></li>
         <li><a href="/gear/how-to-choose-a-club/">クラブの選び方（初心者向け）</a></li>
       </ul>
     </div>

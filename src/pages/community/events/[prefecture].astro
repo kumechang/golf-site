@@ -25,9 +25,14 @@ const description = s.up.length
   ? `${s.name}で、市区町村の公式ページなどに載っていたグラウンドゴルフの大会・教室の日程をまとめました。今後の予定${s.up.length}件、終了した予定も掲載。各ページへのリンク付きです。`
   : `${s.name}で、市区町村の公式ページなどに載っていたグラウンドゴルフの大会・教室を、まとめました。いま日程の分かる今後の予定はありませんが、終了した予定や元のページへのリンクを掲載しています。`;
 
+// 申込期限が過ぎた予定は、受け付けている予定と分ける（「今後」は開催日が基準。noindex・サイトマップの判定は変えない）
+const isClosed = (e: (typeof s.up)[number]) => !!e.deadline && e.deadline < today;
+const upOpen = s.up.filter((e) => !isClosed(e));
+const upClosed = s.up.filter(isClosed);
+
 const months: { label: string; events: typeof s.up }[] = [];
-if (s.up.length >= 9) {
-  for (const e of s.up) {
+if (upOpen.length >= 9) {
+  for (const e of upOpen) {
     const label = `${Number(e.start!.slice(0, 4))}年${Number(e.start!.slice(5, 7))}月`;
     const last = months.at(-1);
     if (last && last.label === label) last.events.push(e);
@@ -78,39 +83,62 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
         </p>
       )}
       <p class="mt-3 text-base leading-relaxed text-slate-800">
-        今後の予定 {s.up.length}件
-        {s.undated.length > 0 && <>／日程は元のページで確認するもの {s.undated.length}件</>}
+        申込を受け付けている予定 <span data-count-open>{upOpen.length}</span>件
+        <span data-closed-summary hidden={upClosed.length === 0}>／申込期限が過ぎた予定 <span data-count-closed>{upClosed.length}</span>件</span>
+        {s.undated.length > 0 && <>／日付が分からない予定 {s.undated.length}件</>}
         {s.past.length > 0 && <>／終了した予定 {s.past.length}件（直近12か月）</>}
         ／掲載している市区町村 {s.municipalityCount}か所
       </p>
     </header>
 
-    {s.up.length > 0 ? (
-      <section aria-labelledby="upcoming">
-        <h2 id="upcoming" class={h2}>これからの予定</h2>
+    <section class="mt-10 rounded-xl border border-slate-300 bg-slate-50 p-5" aria-labelledby="no-upcoming" data-no-upcoming hidden={upOpen.length > 0}>
+        <h2 id="no-upcoming" class="text-xl font-bold leading-snug text-slate-900" data-no-upcoming-title>
+          {s.up.length > 0 ? 'いま、申込を受け付けている予定は載っていません' : 'いま、日程の載っている予定はありません'}
+        </h2>
+        <p class="mt-2 text-base leading-relaxed text-slate-800">予定がない、という意味ではありません。近くの体験教室やクラブを探してみましょう。</p>
+        <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+          <a href={`/community/find-a-club-near-you/${s.slug}/`} class="inline-flex min-h-[3rem] items-center justify-center rounded-lg bg-green-800 px-5 py-2 text-center text-lg font-bold text-white hover:bg-green-900">{s.name}のクラブ・窓口を探す</a>
+          <a href="/start/find-a-class/" class="inline-flex min-h-[3rem] items-center justify-center rounded-lg border-2 border-green-800 bg-white px-5 py-2 text-center text-lg font-bold text-green-900 hover:bg-green-50">体験教室の探し方を読む</a>
+        </div>
+      </section>
+
+    {upOpen.length > 0 && (
+      <section aria-labelledby="upcoming" data-open-section>
+        <h2 id="upcoming" class={h2}>これからの予定（申込を受け付けているもの）</h2>
         {months.length > 0 ? (
           months.map((m) => (
-            <>
+            <div data-month>
               <h3 class="mt-8 text-xl font-bold text-slate-900">{m.label}</h3>
-              <ul role="list" class="mt-3 space-y-4">{m.events.map((e) => <PrefEventCard event={e} variant="upcoming" headingLevel="h4" />)}</ul>
-            </>
+              <ul role="list" class="mt-3 space-y-4" data-open-list>{m.events.map((e) => <PrefEventCard event={e} variant="upcoming" headingLevel="h4" />)}</ul>
+            </div>
           ))
         ) : (
-          <ul role="list" class="mt-4 space-y-4">{s.up.map((e) => <PrefEventCard event={e} variant="upcoming" />)}</ul>
+          <ul role="list" class="mt-4 space-y-4" data-open-list>{upOpen.map((e) => <PrefEventCard event={e} variant="upcoming" />)}</ul>
         )}
         <p class="mt-4 text-base leading-relaxed text-slate-700">読み取りの際、誤りが残ることがあります。出かける前に、元のページで日程と会場をご確認ください。</p>
       </section>
-    ) : (
-      <p class="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-5 text-base leading-relaxed text-slate-800">
-        いま、日程が分かる今後の予定は載せていません。予定がないという意味ではありません。市区町村の窓口やクラブへお問い合わせください。
-      </p>
     )}
+
+    {upOpen.length > 0 || upClosed.length > 0 ? (
+      <details class="mt-6 rounded-xl border border-slate-300 bg-white" data-closed-details hidden={upClosed.length === 0}>
+        <summary class="tap-target cursor-pointer px-4 py-3 text-base font-bold text-slate-900 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">
+          申込期限が過ぎた予定（<span data-count-closed>{upClosed.length}</span>件）を見る
+        </summary>
+        <p class="px-4 text-base leading-relaxed text-slate-800">開催日はまだ先ですが、申込の期限が過ぎているものです。</p>
+        <ul role="list" class="space-y-3 p-4" data-closed-list>{upClosed.map((e) => <PrefEventCard event={e} variant="upcoming" closedApp />)}</ul>
+      </details>
+    ) : null}
 
     {s.undated.length > 0 && (
       <section aria-labelledby="undated">
-        <h2 id="undated" class={h2}>日程は元のページで</h2>
-        <p class="mt-3 text-base leading-relaxed text-slate-800">元のページに日付が書かれていない、または読み取れなかったものです。日程は元のページで確かめてください。</p>
-        <ul role="list" class="mt-4 space-y-4">{s.undated.map((e) => <PrefEventCard event={e} variant="undated" />)}</ul>
+        <h2 id="undated" class={h2}>日付が分からない予定</h2>
+        <details class="mt-4 rounded-xl border border-slate-300 bg-white">
+          <summary class="tap-target cursor-pointer px-4 py-3 text-base font-bold text-slate-900 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">
+            日付が分からない予定（{s.undated.length}件）を見る
+          </summary>
+          <p class="px-4 text-base leading-relaxed text-slate-800">元のページに日付がない、または読み取れなかったものです。開かれる日は、元のページか問い合わせ先で確かめてください。</p>
+          <ul role="list" class="space-y-4 p-4">{s.undated.map((e) => <PrefEventCard event={e} variant="undated" />)}</ul>
+        </details>
       </section>
     )}
 
@@ -171,16 +199,46 @@ const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-g
         <li><a class={link} href={`/community/find-a-club-near-you/${s.slug}/`}>{s.name}のグラウンドゴルフクラブ・コースの探し方</a>（市区町村の施設・協会の窓口）</li>
         <li><a class={link} href="/community/entering-a-tournament/">グラウンドゴルフの大会に出てみたい人向けガイド</a></li>
         <li><a class={link} href="/start/find-a-class/">初めてのグラウンドゴルフ体験教室の探し方</a></li>
+        <li><a class={link} href="/start/find-a-class/#電話やメールで問い合わせるとき">電話が苦手な方は、問い合わせの文例をお使いください</a></li>
       </ul>
     </section>
   </div>
 </BaseLayout>
 
 <script>
-  // 再ビルドされるまで日付が古くなるため、過ぎた「これからの予定」に「終了」の文字を出す。
+  // 再ビルドされるまで日付が古くなるため、ブラウザで今日（日本時間）を見て直す。
+  // ・開催日が過ぎた予定に「終了」の文字を出す
+  // ・申込期限が過ぎた予定を「申込期限が過ぎた予定」へ移し、件数を直す
   // JavaScript が無効でも、全件が年つきの日付で読める。
   const jst = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   document.querySelectorAll<HTMLElement>('[data-event][data-end]').forEach((el) => {
     if ((el.dataset.end ?? '') < jst) el.querySelector('[data-ended]')?.removeAttribute('hidden');
   });
+  const closedList = document.querySelector<HTMLElement>('[data-closed-list]');
+  const details = document.querySelector<HTMLElement>('[data-closed-details]');
+  if (closedList) {
+    document.querySelectorAll<HTMLElement>('[data-open-list] [data-event][data-deadline]').forEach((el) => {
+      if ((el.dataset.deadline ?? '') < jst) {
+        el.querySelector('[data-closed-pill]')?.removeAttribute('hidden');
+        closedList.appendChild(el);
+      }
+    });
+    const open = document.querySelectorAll('[data-open-list] [data-event]').length;
+    const closed = closedList.querySelectorAll('[data-event]').length;
+    document.querySelectorAll('[data-count-open]').forEach((n) => (n.textContent = String(open)));
+    document.querySelectorAll('[data-count-closed]').forEach((n) => (n.textContent = String(closed)));
+    if (closed > 0) {
+      details?.removeAttribute('hidden');
+      document.querySelector('[data-closed-summary]')?.removeAttribute('hidden');
+    }
+    document.querySelectorAll<HTMLElement>('[data-month]').forEach((m) => { if (!m.querySelector('[data-event]')) m.hidden = true; });
+    if (open === 0) {
+      const sec = document.querySelector<HTMLElement>('[data-open-section]');
+      if (sec) sec.hidden = true;
+      const box = document.querySelector<HTMLElement>('[data-no-upcoming]');
+      const title = document.querySelector<HTMLElement>('[data-no-upcoming-title]');
+      if (title) title.textContent = 'いま、申込を受け付けている予定は載っていません';
+      box?.removeAttribute('hidden');
+    }
+  }
 </script>
