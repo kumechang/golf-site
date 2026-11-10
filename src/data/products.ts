@@ -380,9 +380,9 @@ export const products: Product[] = [
     material: '商品ページで要確認',
     recommendedFor: '足幅が広めで、4E表記の防水ではないウォーキングシューズを探している方',
     reasonSelected:
-      'MIZUNOのウォーキングシューズで、足幅の表記は4E。耐水レベルの欄には非防水とある（商品ページの記載）。着脱は紐。ソールは説明欄にX10ラバーとある。Amazonの評価は4.2（261件）。',
+      'MIZUNOのウォーキングシューズで、足幅の表記は4E。耐水レベルの欄には非防水とある（商品ページの記載）。着脱は紐に加えて内甲ファスナー。ソールは説明欄にX10ラバーとある。Amazonの評価は4.2（261件）。',
     tags: ['under-10000', 'shoes'],
-    shoe: { target: '', width: '幅広（4E）', closure: '紐', water: '非防水と記載', widthE: 4, velcro: false, waterStated: false },
+    shoe: { target: '', width: '幅広（4E）', closure: '紐＋内甲ファスナー', water: '非防水と記載', widthE: 4, velcro: false, waterStated: false },
   },
   {
     id: 'mizuno-frd-wp',
