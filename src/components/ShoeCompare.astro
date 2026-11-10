@@ -37,8 +37,6 @@ const flags = (p: Product) => ({
   'data-low': p.priceYen <= UNDER ? '1' : '0',
   'data-women': /女性向け|男女共用/.test(p.shoe!.target) ? '1' : '0',
 });
-const dates = [...new Set(shoes.map((p) => p.priceCheckedAt))].sort();
-const dateText = dates.map((d) => `${Number(d.slice(5, 7))}月${Number(d.slice(8, 10))}日`).join('・');
 const filters = [
   { key: 'e4', label: '足幅が広め（4E以上の表記）' },
   { key: 'velcro', label: '面ファスナー（マジックテープ）' },
@@ -140,7 +138,7 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
   <aside id="shoe-notes" class="mt-10 rounded-xl border border-slate-300 bg-slate-50 p-4 text-base leading-relaxed text-slate-800">
     <h3 class="text-base font-bold text-slate-900">注釈</h3>
     <p class="mt-2">※1 対象・足幅・着脱・防水の記載は、商品名と商品ページに書かれたとおりです。足幅の「E」は数が大きいほど幅広の表記ですが、基準は商品ごとに違うことがあります。</p>
-    <p class="mt-2">※2 価格は{dateText}に確認した参考価格です。サイズ・色・時期によって変わり、最新の価格は商品ページに表示されます。</p>
+    <p class="mt-2">※2 価格は参考価格です。サイズ・色・時期によって変わり、最新の価格は商品ページに表示されます。</p>
   </aside>
 </div>
 
