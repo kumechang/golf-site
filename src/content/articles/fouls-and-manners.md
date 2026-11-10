@@ -22,7 +22,7 @@ updatedDate: 2026-10-26
 
 ### ボールの打ち方（押し出し・かき寄せ）
 
-日本グラウンド・ゴルフ協会のルールでは、ボールはクラブのヘッドで正しく打つこととされ、押し出したりかき寄せたりすると反則になり、1打が加わります（出典：[JGGA公式サイトのルール](https://www.groundgolf.or.jp/about/ground-golf-rules/)の第9条）。ただし、空振り（から振り）は打数に数えません。
+日本グラウンド・ゴルフ協会（JGGA）のルールでは、ボールはクラブのヘッドで正しく打つこととされ、押し出したりかき寄せたりすると反則になり、1打が加わります（出典：[JGGA公式サイトのルール](https://www.groundgolf.or.jp/about/ground-golf-rules/)の第9条）。ただし、空振り（から振り）は打数に数えません。
 
 <figure class="diagram">
   <img src="/diagrams/fouls.svg" width="360" height="1073" alt="打ち方のちがいの図（ヘッドで正しく打つ、押し出し、かき寄せ、から振り）" loading="lazy" decoding="async" />

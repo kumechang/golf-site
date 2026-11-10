@@ -56,7 +56,7 @@ export const products: Product[] = [
     priceBand: 'entry',
     priceCheckedAt: '2026-10-30',
     setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
-    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    material: '協会の用具の決まりに合うヘッド＋シャフト',
     handedness: '両面打ち（左右兼用・利き手を選ばず使える）',
     recommendedFor: 'まずは費用を抑えて始めてみたい方、利き手が分からない相手に贈りたい方',
     reasonSelected:
@@ -72,7 +72,7 @@ export const products: Product[] = [
     priceBand: 'entry',
     priceCheckedAt: '2026-11-10',
     setContents: 'クラブ＋ボール＋ケース等の4点セット（内容は商品ページで要確認）',
-    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    material: '協会の用具の決まりに合うヘッド＋シャフト',
     handedness: '両利き（商品ページの仕様欄に「手の向き：両利き」と記載）',
     recommendedFor: '道具を一式まとめて揃えたい初心者の方',
     reasonSelected:
@@ -88,7 +88,7 @@ export const products: Product[] = [
     priceBand: 'entry',
     priceCheckedAt: '2026-10-30',
     setContents: 'クラブ＋ケース＋ボールの3点セット',
-    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    material: '協会の用具の決まりに合うヘッド＋シャフト',
     handedness: '商品ページに利き手（右打ち／左打ち）の記載なし。購入前に商品ページでご確認ください',
     recommendedFor: 'これから体験教室に通う方、初めての1本を探している方',
     reasonSelected:
@@ -104,7 +104,7 @@ export const products: Product[] = [
     priceBand: 'standard',
     priceCheckedAt: '2026-10-30',
     setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
-    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    material: '協会の用具の決まりに合うヘッド＋シャフト',
     handedness: '右打ち専用',
     recommendedFor: '体験教室から本格的に始めることが決まった方、振りやすさを重視したい方',
     reasonSelected:
@@ -120,7 +120,7 @@ export const products: Product[] = [
     priceBand: 'premium',
     priceCheckedAt: '2026-10-30',
     setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
-    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    material: '協会の用具の決まりに合うヘッド＋シャフト',
     handedness: '商品ページに「左打用」のバリエーションの記載あり。右打ち・左打ちの別は購入前に商品ページでご確認ください',
     recommendedFor: '普段から使い慣れたスポーツブランドで選びたい方',
     reasonSelected:
@@ -136,7 +136,7 @@ export const products: Product[] = [
     priceBand: 'premium',
     priceCheckedAt: '2026-10-30',
     setContents: 'クラブ＋ケース＋ボールの3点セット',
-    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    material: '協会の用具の決まりに合うヘッド＋シャフト',
     handedness: '右打ち専用',
     recommendedFor: 'セットで上位モデルを揃えたい方、長く使う1本を探している方',
     reasonSelected:
@@ -152,7 +152,7 @@ export const products: Product[] = [
     priceBand: 'premium',
     priceCheckedAt: '2026-10-30',
     setContents: 'クラブ本体のみ（ケース・ボールは別売り）',
-    material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
+    material: '協会の用具の決まりに合うヘッド＋シャフト',
     handedness: '商品ページに利き手（右打ち／左打ち）の記載なし。購入前に商品ページでご確認ください',
     recommendedFor: '打感や打ちやすさにこだわりたい、上達を目指す方',
     reasonSelected:

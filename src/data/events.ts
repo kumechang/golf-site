@@ -1,4 +1,4 @@
-// 大会カレンダーのデータ。data/events/approved.json（運営者が確認した承認済みの大会）を読み、
+// 大会予定表のデータ。data/events/approved.json（運営者が確認した承認済みの大会）を読み、
 // 検証して、ページが使いやすい形にする。壊れたデータは黙って公開せず、ビルドを失敗させる。
 import approved from '../../data/events/approved.json';
 import { prefectures, type PrefectureData } from './prefectures';

@@ -64,7 +64,7 @@ export const categories: CategoryMeta[] = [
   },
   {
     slug: 'community',
-    name: '大会・コミュニティ情報',
+    name: '大会・地域の集まり情報',
     shortName: '大会・地域',
     description: 'お住まいの地域のクラブの探し方、大会の種類と参加資格の見方、大会に初めて出るときのガイドです。',
     metaTitle: 'グラウンドゴルフの大会・クラブの探し方ガイド',

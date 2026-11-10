@@ -26,7 +26,7 @@ const description = `${pref.name}でグラウンドゴルフ（グランドゴ�
 
 const breadcrumbItems = [
   { name: 'トップ', href: '/' },
-  { name: '大会・コミュニティ情報', href: '/community/' },
+  { name: '大会・地域の集まり情報', href: '/community/' },
   { name: '都道府県別クラブ・コースの探し方', href: '/community/find-a-club-near-you/' },
   { name: pref.name, href: Astro.url.pathname },
 ];
@@ -65,7 +65,7 @@ const galleryVideos = allVideos.filter((v) => !inMunicipal.includes(v) && !inVer
         href="/community/"
         class="inline-block rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-700"
       >
-        大会・コミュニティ情報
+        大会・地域の集まり情報
       </a>
       <h1 class="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">{title}</h1>
       <p class="mt-3 text-base leading-relaxed text-slate-600">{description}</p>
