@@ -7,11 +7,12 @@ import { productImages } from '../data/product-images';
 interface Props {
   product: Product;
   large?: boolean; // 読みやすさのため、説明の文字を大きくする（シューズ記事）
+  compactNote?: boolean; // ボタン下の注記を短くする（シューズ記事）
 }
 
 const priceFormatter = new Intl.NumberFormat('ja-JP');
 
-const { product, large = false } = Astro.props as Props;
+const { product, large = false, compactNote = false } = Astro.props as Props;
 
 const bandLabel: Record<Product['priceBand'], string> = {
   entry: 'エントリー帯',
@@ -49,7 +50,7 @@ const bandColor: Record<Product['priceBand'], string> = {
   <h3 class="mt-3 text-lg font-bold text-slate-900">{product.name}</h3>
   <p class="mt-1 text-base font-semibold text-slate-800">
     参考価格 ¥{priceFormatter.format(product.priceYen)}
-    <span class:list={['ml-1 font-normal text-slate-500', large ? 'text-sm' : 'text-xs']}>（{product.priceCheckedAt}時点・変動あり）</span>
+    <span class:list={['ml-1 font-normal text-slate-500', large ? 'text-sm' : 'text-xs']}>（{product.priceCheckedAt}時点{compactNote ? '' : '・変動あり'}）</span>
   </p>
 
   {product.handedness && (
@@ -68,10 +69,12 @@ const bandColor: Record<Product['priceBand'], string> = {
       <dt class:list={['shrink-0 font-semibold text-slate-500', large ? 'w-28' : 'w-24']}>セット内容</dt>
       <dd>{product.setContents}</dd>
     </div>
-    <div class="flex gap-2">
-      <dt class:list={['shrink-0 font-semibold text-slate-500', large ? 'w-28' : 'w-24']}>素材</dt>
-      <dd>{product.material}</dd>
-    </div>
+    {product.material !== '商品ページで要確認' && (
+      <div class="flex gap-2">
+        <dt class:list={['shrink-0 font-semibold text-slate-500', large ? 'w-28' : 'w-24']}>素材</dt>
+        <dd>{product.material}</dd>
+      </div>
+    )}
     <div class="flex gap-2">
       <dt class:list={['shrink-0 font-semibold text-slate-500', large ? 'w-28' : 'w-24']}>向いている方</dt>
       <dd>{product.recommendedFor}</dd>
@@ -84,6 +87,6 @@ const bandColor: Record<Product['priceBand'], string> = {
   </p>
 
   <div class="mt-5">
-    <AmazonButton product={product} />
+    <AmazonButton product={product} compact={compactNote} />
   </div>
 </div>
