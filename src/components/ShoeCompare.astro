@@ -96,7 +96,7 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
                 )}
                 <span class="shoe-title">
                   <span class="block font-bold text-slate-900">{name}</span>
-                  <span class="block text-base font-normal text-slate-700">{p.shoe!.target}</span>
+                  {p.shoe!.target && <span class="block text-base font-normal text-slate-700">{p.shoe!.target}</span>}
                 </span>
               </div>
             </th>

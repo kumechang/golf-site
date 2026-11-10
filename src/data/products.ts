@@ -34,7 +34,7 @@ export interface Product {
   tags: string[]; // gift-guide等での絞り込みに使用
   // シューズの比較表・絞り込み用。商品名・商品ページの記載のとおりに書く（効果は確認していない）
   shoe?: {
-    target: string; // 対象（男性向け／女性向け／男女共用／記載なし）。商品名・商品ページの記載だけを根拠にする
+    target: string; // 対象（男性向け／女性向け／男女共用。書かれていなければ空文字で、表には出さない）。商品名・商品ページの記載だけを根拠にする
     width: string; // 足幅の表記（例: 幅広（4E））
     closure: string; // 着脱（紐／面ファスナー（マジックテープ） など。確認できない場合は「確認できていません」）
     water: string; // 防水・撥水の記載（例: 防水（商品ページの記載））
@@ -286,7 +286,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「幅広4E」「撥水」「軽量」と書かれたウォーキングシューズで、着脱は紐。Amazonの評価は4.1（1,494件）。',
     tags: ['under-10000', 'shoes'],
-    shoe: { target: '記載なし', width: '幅広（4E）', closure: '紐', water: '撥水', widthE: 4, velcro: false, waterStated: false },
+    shoe: { target: '', width: '幅広（4E）', closure: '紐', water: '撥水', widthE: 4, velcro: false, waterStated: false },
   },
   {
     id: 'achilles-walking-shoes',
@@ -366,7 +366,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「防水」「幅広」「4E」「面ファスナー」と書かれたウォーキングシューズ。Amazonの評価は4.2（583件）で、販売元はAmazon.co.jpと表示されている。商品ページには滑り止めソールだという記載がある。',
     tags: ['under-10000', 'shoes'],
-    shoe: { target: '記載なし', width: '幅広（4E）', closure: '面ファスナー（マジックテープ）', water: '防水', widthE: 4, velcro: true, waterStated: true },
+    shoe: { target: '', width: '幅広（4E）', closure: '面ファスナー（マジックテープ）', water: '防水', widthE: 4, velcro: true, waterStated: true },
   },
   {
     id: 'mizuno-freeride2',
@@ -382,7 +382,7 @@ export const products: Product[] = [
     reasonSelected:
       'MIZUNOのウォーキングシューズで、足幅の表記は4E。耐水レベルの欄には非防水とある（商品ページの記載）。着脱は紐だが、ページに内甲ファスナーの記載もあり、この型番のものかは商品ページで確認したい。ソールは説明欄にX10ラバーとある。Amazonの評価は4.2（261件）。',
     tags: ['under-10000', 'shoes'],
-    shoe: { target: '記載なし', width: '幅広（4E）', closure: '紐（内甲ファスナーの記載もあり）', water: '非防水と記載', widthE: 4, velcro: false, waterStated: false },
+    shoe: { target: '', width: '幅広（4E）', closure: '紐（内甲ファスナーの記載もあり）', water: '非防水と記載', widthE: 4, velcro: false, waterStated: false },
   },
   {
     id: 'mizuno-frd-wp',
@@ -398,7 +398,7 @@ export const products: Product[] = [
     reasonSelected:
       '商品名に「WP」「防水」「幅広」「厚底」「Amazon.co.jp限定」と書かれたMIZUNOのウォーキングシューズで、足幅の表記は3E、着脱は紐。Amazonの評価は4.0（86件）。',
     tags: ['under-10000', 'shoes'],
-    shoe: { target: '記載なし', width: '幅広（3E）', closure: '紐', water: '防水', widthE: 3, velcro: false, waterStated: true },
+    shoe: { target: '', width: '幅広（3E）', closure: '紐', water: '防水', widthE: 3, velcro: false, waterStated: true },
   },
   {
     id: 'mizuno-me05-gtx',
