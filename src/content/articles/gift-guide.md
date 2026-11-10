@@ -14,7 +14,7 @@ productIds:
   - "asics-magnet-gloves"
   - "hatachi-bh8080-gloves"
   - "northway-waist-pouch"
-  - "aruka-entry-club"
+  - "nichiyo-club-set"
   - "hatachi-entry-set"
   - "marushin-premium-club"
   - "nichiyo-practice-set"
@@ -40,7 +40,7 @@ faqItems:
 
 - 本人に利き手・希望のメーカー・予算感をそれとなく聞いておく
 - 使っているクラブの長さ・利き手をさりげなく確認しておく
-- **利き手が分からない場合は、右打ち・左打ちどちらでも使える「両面打ち」タイプのクラブを選ぶ**（本記事で紹介しているアルカのクラブが該当します）
+- **利き手が分からない場合は、右打ち・左打ちどちらでも使える「両面打ち」タイプのクラブを選ぶ**（本記事で紹介しているニチヨーの4点セットは、商品ページの仕様欄に「手の向き：両利き」とあります）
 - サイズを気にせず贈れるボールや小物類を選ぶ
 
 ## 実際に贈られた方の声
