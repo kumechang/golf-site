@@ -46,7 +46,7 @@ faqItems:
 <li>贈り物で足幅が分からないとき、男女の足幅の記載がある靴：<a href="#shoe-row-achilles-walking-shoes">アキレス LJM 9020（男性4E・女性3E）<span class="sr-only">の表の行へ</span></a><a class="scene-buy" href="https://www.amazon.co.jp/dp/B0GT44W584/?tag=hiroshirevolu-22" target="_blank" rel="nofollow sponsored noopener" data-gg-outbound="amazon" data-gg-product="achilles-walking-shoes">Amazonで見る<span class="sr-only">（アキレス LJM 9020・新しい画面）</span></a></li>
 <li>着脱が面ファスナー（マジックテープ）の記載がある靴：<a href="#shoe-row-dunlop-dm287">ダンロップ DM287<span class="sr-only">の表の行へ</span></a><a class="scene-buy" href="https://www.amazon.co.jp/dp/B09TDL9GCF/?tag=hiroshirevolu-22" target="_blank" rel="nofollow sponsored noopener" data-gg-outbound="amazon" data-gg-product="dunlop-dm287">Amazonで見る<span class="sr-only">（ダンロップ DM287・新しい画面）</span></a></li>
 </ul>
-<p class="key-points-note">商品名・商品ページの記載だけで選びました。履き心地や効果は確認していません。ほかの靴は<a href="#article-products">表で比べられます</a>。ムーンスター M196とダンロップ DM287は、商品ページに「返品無料」と表示されています。</p>
+<p class="key-points-note">商品名・商品ページの記載だけで選びました。履き心地や効果は確認していません。ほかの靴は<a href="#article-products">表で比べられます</a>。Amazonが発送する商品には、30日の返品保証がついています。</p>
 </section>
 
 <aside class="key-points" aria-labelledby="key-points-h">
