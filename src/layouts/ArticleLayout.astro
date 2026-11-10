@@ -169,6 +169,8 @@ const faqJsonLd = faqItems
       <slot />
     </div>
 
+    {Astro.slots.has('after') && <div><slot name="after" /></div>}
+
 {nextSteps && nextSteps.length > 0 && (
       <nav aria-label="次にすること" class="not-prose mt-10" data-next-steps-end>
         <p class="mb-3 text-xl font-bold text-slate-900">次にすること</p>
