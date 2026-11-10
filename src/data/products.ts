@@ -46,6 +46,7 @@ export interface Product {
 }
 
 export const products: Product[] = [
+  // 2026-11-10 在庫切れ（しばらく入荷なし）のため、記事から外した。再入荷したら productIds に戻せる
   {
     id: 'aruka-entry-club',
     asin: 'B0H2XHN15X',
@@ -67,16 +68,16 @@ export const products: Product[] = [
     asin: 'B0D7PXWGSW',
     name: 'ニチヨー（NICHIYO） 特選入門用4点セット K-1700',
     brand: 'ニチヨー（NICHIYO）',
-    priceYen: 9800,
+    priceYen: 9980,
     priceBand: 'entry',
-    priceCheckedAt: '2026-10-30',
+    priceCheckedAt: '2026-11-10',
     setContents: 'クラブ＋ボール＋ケース等の4点セット（内容は商品ページで要確認）',
     material: 'JGGA用具標準規則に準拠したヘッド＋シャフト',
-    handedness: '商品ページに利き手（右打ち／左打ち）の記載なし。購入前に商品ページでご確認ください',
+    handedness: '両利き（商品ページの仕様欄に「手の向き：両利き」と記載）',
     recommendedFor: '道具を一式まとめて揃えたい初心者の方',
     reasonSelected:
       'グラウンドゴルフ・パークゴルフ用品を専門的に扱うメーカーの入門者向けセットで、クラブ単体を買い足す手間がない。',
-    tags: ['under-10000', 'beginner', 'gift'],
+    tags: ['under-10000', 'beginner', 'gift', 'ambidextrous'],
   },
   {
     id: 'hatachi-entry-set',
