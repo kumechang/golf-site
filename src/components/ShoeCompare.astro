@@ -69,15 +69,16 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
   </div>
 
   <table class="shoe-table mt-4 w-full border-collapse text-left text-base text-slate-800" role="table">
-    <caption class="sr-only">シューズ{shoes.length}足の、対象・価格・足幅・着脱・防水の記載の比較と、Amazonへのリンク</caption>
+    <caption class="sr-only">シューズ{shoes.length}足の、対象・価格・Amazonの評価・足幅・着脱・防水の記載の比較と、Amazonへのリンク</caption>
     <thead role="rowgroup">
       <tr role="row" class="border-b-2 border-slate-300">
         <th role="columnheader" scope="col" class="py-2 pr-3 font-bold">商品（対象）</th>
-        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">価格<a href="#shoe-notes" class="underline">※2</a></th>
-        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">足幅</th>
-        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">着脱</th>
-        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">防水の記載</th>
-        <th role="columnheader" scope="col" class="px-3 py-2 font-bold">購入</th>
+        <th role="columnheader" scope="col" class="px-2 py-2 font-bold">価格</th>
+        <th role="columnheader" scope="col" class="px-2 py-2 font-bold">Amazon評価<a href="#shoe-notes" class="underline">※2</a></th>
+        <th role="columnheader" scope="col" class="px-2 py-2 font-bold">足幅</th>
+        <th role="columnheader" scope="col" class="px-2 py-2 font-bold">着脱</th>
+        <th role="columnheader" scope="col" class="px-2 py-2 font-bold">防水の記載</th>
+        <th role="columnheader" scope="col" class="px-2 py-2 font-bold">購入</th>
       </tr>
     </thead>
     <tbody role="rowgroup">
@@ -98,11 +99,12 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
                 </span>
               </div>
             </th>
-            <td role="cell" data-label="価格" class="whitespace-nowrap px-3 py-2">¥{fmt.format(p.priceYen)}</td>
-            <td role="cell" data-label="足幅" class="px-3 py-2">{p.shoe!.width}</td>
-            <td role="cell" data-label="着脱" class="px-3 py-2">{p.shoe!.closure}</td>
-            <td role="cell" data-label="防水の記載" class="px-3 py-2">{p.shoe!.water}</td>
-            <td role="cell" class="shoe-buy px-3 py-2">
+            <td role="cell" data-label="価格" class="whitespace-nowrap px-2 py-2">¥{fmt.format(p.priceYen)}</td>
+            <td role="cell" data-label="Amazonの評価" class="px-2 py-2">{p.shoe!.rating.stars.toFixed(1)}（{fmt.format(p.shoe!.rating.count)}件）</td>
+            <td role="cell" data-label="足幅" class="px-2 py-2">{p.shoe!.width}</td>
+            <td role="cell" data-label="着脱" class="px-2 py-2">{p.shoe!.closure}</td>
+            <td role="cell" data-label="防水の記載" class="px-2 py-2">{p.shoe!.water}</td>
+            <td role="cell" class="shoe-buy px-2 py-2">
               <a href={buildAmazonProductUrl(p.asin)} target="_blank" rel="nofollow sponsored noopener" data-gg-outbound="amazon" data-gg-product={p.id} class="shoe-buy-btn">
                 Amazonで見る<span class="sr-only">（{name}・新しい画面）</span>
               </a>
@@ -138,7 +140,7 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
   <aside id="shoe-notes" class="mt-10 rounded-xl border border-slate-300 bg-slate-50 p-4 text-base leading-relaxed text-slate-800">
     <h3 class="text-base font-bold text-slate-900">注釈</h3>
     <p class="mt-2">※1 対象・足幅・着脱・防水の記載は、商品名と商品ページに書かれたとおりです。足幅の「E」は数が大きいほど幅広の表記ですが、基準は商品ごとに違うことがあります。</p>
-    <p class="mt-2">※2 価格は参考価格です。サイズ・色・時期によって変わり、最新の価格は商品ページに表示されます。</p>
+    <p class="mt-2">※2 価格とAmazonの評価は参考です。サイズ・色・時期によって変わり、最新の内容は商品ページに表示されます。</p>
   </aside>
 </div>
 
@@ -147,13 +149,15 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
   table.shoe-table { display: table; width: 100%; margin: 1rem 0 0; overflow: visible; border: 0; border-radius: 0; font-size: 1rem; line-height: 1.6; }
   table.shoe-table::before { content: none; display: none; }
   table.shoe-table thead { background: transparent; }
-  table.shoe-table th, table.shoe-table td { min-width: 0; padding: 0.5rem 0.6rem; vertical-align: top; text-align: left; white-space: normal; border-bottom: 1px solid #e2e8f0; color: #1e293b; }
+  table.shoe-table th, table.shoe-table td { min-width: 0; padding: 0.5rem 0.4rem; vertical-align: top; text-align: left; white-space: normal; border-bottom: 1px solid #e2e8f0; color: #1e293b; }
   table.shoe-table thead th { color: #0f172a; border-bottom: 2px solid #cbd5e1; }
   table.shoe-table tbody tr:last-child td { border-bottom: 1px solid #e2e8f0; }
-  table.shoe-table td[data-label="価格"] { white-space: nowrap; }
-  table.shoe-table .shoe-name { display: flex; align-items: center; gap: 0.6rem; }
-  table.shoe-table .shoe-thumb { flex: none; width: 5rem; height: 5rem; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem; background: #f8fafc; }
-  table.shoe-table .shoe-buy-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.5rem 1rem; border-radius: 0.5rem; background: #f59e0b; color: #0f172a; font-weight: 700; font-size: 1rem; line-height: 1.3; text-align: center; text-decoration: none; white-space: nowrap; }
+  table.shoe-table td[data-label="価格"], table.shoe-table td[data-label="Amazonの評価"] { white-space: nowrap; }
+  table.shoe-table .shoe-name { display: flex; align-items: center; gap: 0.5rem; }
+  table.shoe-table thead th { white-space: nowrap; }
+  table.shoe-table .shoe-thumb { flex: none; width: 4rem; height: 4rem; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem; background: #f8fafc; }
+  table.shoe-table tbody th { min-width: 10.5rem; }
+  table.shoe-table .shoe-buy-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.5rem 0.6rem; border-radius: 0.5rem; background: #f59e0b; color: #0f172a; font-weight: 700; font-size: 1rem; line-height: 1.3; text-align: center; text-decoration: none; white-space: nowrap; }
   table.shoe-table .shoe-buy-btn:hover { background: #fbbf24; }
   @media (max-width: 767px) {
     table.shoe-table, table.shoe-table tbody, table.shoe-table tr, table.shoe-table th, table.shoe-table td { display: block; width: 100%; }
@@ -161,9 +165,9 @@ const btn = 'tap-target inline-flex items-center gap-2 rounded-full border-2 bor
     table.shoe-table tr { margin-top: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.75rem; padding: 0.5rem 0.75rem; background: #fff; }
     table.shoe-table th, table.shoe-table td { border-bottom: 0; padding-left: 0; padding-right: 0; }
     table.shoe-table td { border-top: 1px solid #f1f5f9; }
-    table.shoe-table tbody th { padding: 0 0 0.5rem 0; font-size: 1.0625rem; }
+    table.shoe-table tbody th { padding: 0 0 0.5rem 0; font-size: 1.0625rem; min-width: 0; }
     table.shoe-table .shoe-thumb { width: 6rem; height: 6rem; }
-    table.shoe-table td { display: grid; grid-template-columns: 7rem 1fr; gap: 0.5rem; padding: 0.15rem 0; white-space: normal; }
+    table.shoe-table td { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.5rem; padding: 0.15rem 0; white-space: normal; }
     table.shoe-table td::before { content: attr(data-label); font-weight: 700; color: #0f172a; }
     table.shoe-table td.shoe-buy { display: block; border-top: 0; padding-top: 0.5rem; }
     table.shoe-table td.shoe-buy::before { content: none; }
