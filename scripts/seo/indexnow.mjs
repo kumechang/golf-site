@@ -1,8 +1,9 @@
 // IndexNow: ページの追加・更新を Bing などへ通知する（Google は参加していない）。
 // 使い方（デプロイが終わってから）:
 //   node scripts/seo/indexnow.mjs --dry-run                 送信先とURL数だけ確認
-//   node scripts/seo/indexnow.mjs                           サイトマップの全URLを送信
+//   node scripts/seo/indexnow.mjs --all                     サイトマップの全URLを送信（明示したときだけ。URLの指定なしでは送らない）
 //   node scripts/seo/indexnow.mjs --url <URL> [--url <URL>] 指定したURLだけ送信
+//   node scripts/seo/indexnow.mjs --urls-file <ファイル>     1行1URLのファイルのURLだけ送信（scripts/seo/changed-urls.mjs の出力を使う）
 //   --sitemap <URLまたはファイル>                           サイトマップの場所を変える（確認用）
 import { readFileSync } from 'node:fs';
 
@@ -36,7 +37,21 @@ async function sitemapUrls(src) {
   return out;
 }
 
-const explicit = values('--url');
+import { existsSync } from 'node:fs';
+const fileUrls = values('--urls-file').flatMap((f) => {
+  if (!existsSync(f)) throw new Error(`--urls-file のファイルがありません: ${f}`);
+  return readFileSync(f, 'utf8').split('\n').map((l) => l.trim()).filter(Boolean);
+});
+const explicit = [...values('--url'), ...fileUrls];
+// 一覧づくりが失敗して空になったときに、黙って全URLを送らない（2026-11-11 に実際に起きた）
+if (!explicit.length && !flag('--all')) {
+  console.error('送るURLが指定されていません。--url / --urls-file で指定するか、全URLを送るなら --all を付けてください。');
+  process.exit(1);
+}
+if ((flag('--urls-file') || args.includes('--urls-file')) && !fileUrls.length) {
+  console.error('--urls-file のURLが0件です。送りません（変更のあったページがないか、一覧づくりに失敗しています）。');
+  process.exit(1);
+}
 const sitemap = values('--sitemap')[0] ?? `${SITE}/sitemap-index.xml`;
 const urls = [...new Set(explicit.length ? explicit : await sitemapUrls(sitemap))];
 
