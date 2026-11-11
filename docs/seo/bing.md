@@ -15,7 +15,7 @@
 - 鍵ファイル: `public/c04d3d05e01358fcc70d8c3656f0a6a2.txt`（公開URL `https://ground-golf-navi.com/c04d3d05e01358fcc70d8c3656f0a6a2.txt`、中身は鍵そのもの。鍵は公開される前提で秘密情報ではない）
 - 送信スクリプト: `scripts/seo/indexnow.mjs`（`npm run indexnow -- <引数>`）
   - `--dry-run`: 送信先とURL数だけ確認（送らない）
-  - 引数なし: サイトマップ（`sitemap-index.xml` → `sitemap-0.xml`）の全URLを `https://api.indexnow.org/indexnow` へ送信
+  - `--all`: サイトマップ（`sitemap-index.xml` → `sitemap-0.xml`）の全URLを `https://api.indexnow.org/indexnow` へ送信
   - `--url <URL>`: 指定URLだけ送信（繰り返し可）
   - `--sitemap <URLまたはファイル>`: サイトマップの場所を変える（`dist/sitemap-index.xml` で事前確認できる）
   - 送信前に鍵ファイルが公開されていることを確認し、見えなければ送らない。このサイト以外のURLは送らない。
@@ -23,7 +23,7 @@
 
 ### 運営者の作業（マージ・デプロイ後）
 1. `https://ground-golf-navi.com/c04d3d05e01358fcc70d8c3656f0a6a2.txt` が表示されることを確認する。
-2. `npm run indexnow` を実行して全URLを1回送信する。
+2. `npm run indexnow -- --all` を実行して全URLを1回送信する。
 3. 記事の追加・大きな更新のあとは、デプロイ後に `npm run indexnow -- --url <更新したURL>` を実行する。
 4. Bing Webmaster Tools の IndexNow の画面で、送信が反映されたか見る（時間がかかることがある）。
 5. 1〜2週間後に、SEO Recommendations の指摘が減ったか確認する。
