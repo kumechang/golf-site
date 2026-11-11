@@ -15,7 +15,7 @@
 - 鍵ファイル: `public/c04d3d05e01358fcc70d8c3656f0a6a2.txt`（公開URL `https://ground-golf-navi.com/c04d3d05e01358fcc70d8c3656f0a6a2.txt`、中身は鍵そのもの。鍵は公開される前提で秘密情報ではない）
 - 送信スクリプト: `scripts/seo/indexnow.mjs`（`npm run indexnow -- <引数>`）
   - `--dry-run`: 送信先とURL数だけ確認（送らない）
-  - 引数なし: サイトマップ（`sitemap-index.xml` → `sitemap-0.xml`）の全URLを `https://api.indexnow.org/indexnow` へ送信
+  - `--all`: サイトマップ（`sitemap-index.xml` → `sitemap-0.xml`）の全URLを `https://api.indexnow.org/indexnow` へ送信
   - `--url <URL>`: 指定URLだけ送信（繰り返し可）
   - `--sitemap <URLまたはファイル>`: サイトマップの場所を変える（`dist/sitemap-index.xml` で事前確認できる）
   - 送信前に鍵ファイルが公開されていることを確認し、見えなければ送らない。このサイト以外のURLは送らない。
@@ -23,7 +23,7 @@
 
 ### 運営者の作業（マージ・デプロイ後）
 1. `https://ground-golf-navi.com/c04d3d05e01358fcc70d8c3656f0a6a2.txt` が表示されることを確認する。
-2. `npm run indexnow` を実行して全URLを1回送信する。
+2. `npm run indexnow -- --all` を実行して全URLを1回送信する。
 3. 記事の追加・大きな更新のあとは、デプロイ後に `npm run indexnow -- --url <更新したURL>` を実行する。
 4. Bing Webmaster Tools の IndexNow の画面で、送信が反映されたか見る（時間がかかることがある）。
 5. 1〜2週間後に、SEO Recommendations の指摘が減ったか確認する。
@@ -41,3 +41,17 @@ Bing が短いと指摘する対象のうち、特に短かった7ページ（40
 他サイトからのリンクはコードでは増やせない。自然な紹介の機会を作る。
 - 地域のクラブ・協会・自治体の施設案内・個人のブログなどに、役立つ記事（ルール、大会の種類、都道府県別の探し方）を紹介してもらう。
 - 避けること: リンクの売買、相互リンクの大量依頼、掲示板・SNSへの機械的な投稿（検索エンジンの規約違反になりうる）。
+
+
+## 送るページを絞る（2026-11-11 に追加）
+- `node scripts/seo/indexnow.mjs` は、URLを指定しないと送らない（全URLは `--all` を付けたときだけ）。一覧づくりに失敗して空になったとき、黙って全URLを送ってしまった（2026-11-11）ため。
+- 変更のあったページだけを送る手順（デプロイが終わってから）:
+```
+npm run build
+node scripts/seo/changed-urls.mjs <基準のコミット> [<比較先。省略はHEAD>] > urls.txt
+node scripts/seo/indexnow.mjs --urls-file urls.txt
+```
+  - 記事の変更 → その記事、`data/places/*.json` の差 → 差のあった都道府県のクラブ・施設のページ、`data/events/*.json` の差 → 差のあった都道府県の予定表と一覧
+  - 検索に載るページ（手元の `dist/sitemap-0.xml` にあるもの）だけに絞る。公開サイトは見ない（Cloudflare のボット対策で、Python などからは 403 になることがある）
+  - 部品・画面・スタイルのコードを変えたときは、全ページに影響するかもしれないので、警告だけが出る。`--all` を使うかは、人が決める
+- 例: 2026-11-11 の取り直しの取り込み（PR #136）は、この手順で39ページになる（実際には、一覧づくりに失敗して全90ページを送った）
