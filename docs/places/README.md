@@ -126,3 +126,18 @@ npm run places:details -- <統合CSV> --enriched --fetched=<ISO日時> --review=
 - 使う所: `src/data/municipality-readings.ts`（行の判定）、`MunicipalPlaces.astro`（並べ替え・見出し）。読み仮名が無い団体は、名前の順で最後に置く（総務省の表に無い団体コードのとき）
 - 出典の表記: 該当の節の下に「市区町村の読み仮名：総務省『全国地方公共団体コード』による。」
 - 市区町村の合併・名称変更があったら、新しい表で作り直す（地図データの更新と合わせる）
+
+
+## 週ごとの取り直し（2026-11-11〜。置き換えず、足す）
+運営者が週ごとに取り直す「施設の詳細CSV」（列: prefecture, municipality_code, municipality_name, facility_name, address, phone, inquiry_dept, inquiry_phone, page_title, page_url, multi_facility, keyword_in_item, matched_text, …。`extract_route` が `weekly_…`）を、いま載せているデータに足す。
+```
+node scripts/places/check-https.mjs <今週のCSV>
+node scripts/places/weekly-update.mjs <今週のCSV> --surveyed=<取得日> --review-dir=<確認用ファイルを置く場所>
+npm run build
+```
+- 新しい元ページ（places.json にないURL）は `clean-places.mjs --append` で足す。住所・電話番号（details.json）は、施設の項目にグラウンドゴルフの語がある行（`keyword_in_item=1`）か、1施設だけのページの行だけを使う（複数施設を並べたページの、語のない施設に「グラウンドゴルフあり」と誤って付けないため）
+- すでにある施設は、住所か電話番号が空だったときだけ埋める。値が食い違うものは、いまの値を残して、確認用の `details-skipped-and-conflicts.json` に出す
+- イベント・記事の題名らしい名前、付帯施設、使用料などの名前は足さない（その一覧も同じファイル）
+- 今週のCSVに無いものは残す。同じCSVをもう一度流しても結果は変わらない
+- **やってはいけないこと**: 週のCSVで、details.json を作り直さない（住所・電話番号を補ってあるデータが、取り直しの粗いデータに置き換わってしまう。実際に、直接作り直すと、郡山市のスポーツ広場の住所が消えた）
+- 実績（2026-11-11のCSV、1,405行）: 新しい元ページ100件のうち、追加45件（施設・一覧ページ）、新しい市区町村8（宮城県角田市、新潟県小千谷市、群馬県渋川市、福岡県大木町、京都府京丹波町、岐阜県川辺町、鹿児島県大崎町・宇検村）。住所・電話番号は、新しい施設20件を追加し、空欄1件を補った。足さなかった5件（イベントや記事の題名など）。http のページ28件のうち25件は https で開けた

@@ -1,4 +1,5 @@
-// 使い方: node scripts/events/clean-municipal.mjs <CSV> [<CSV>...] [--out=<出力JSON>] [--review=<除いたものの確認用CSV>]
+// 使い方: node scripts/events/clean-municipal.mjs <CSV> [<CSV>...] [--out=<出力JSON>] [--review=<除いたものの確認用CSV>] [--merge]
+// --merge: 今ある municipal.json に足す（週ごとの取り直しのとき）。今週のCSVにあるものは新しい内容・読み取り日に置き換え、今週のCSVに無いものは、消えたのか取れなかっただけなのか分からないので残す（開催日が過ぎたものは、ページの分類が自然に「終了」へ移す）。
 // 市区町村のイベントCSVから、載せてよい項目だけを data/events/municipal.json に書く。元のCSV（市区町村のページの文字を含む）はリポジトリに入れない。
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -25,8 +26,23 @@ const events = built.events.filter((e) => !(e.id in overrides));
 const excluded = [...built.excluded, ...built.events.filter((e) => e.id in overrides).map((e) => ({ reason: `運営者の判断: ${overrides[e.id]}`, prefecture: e.prefecture, municipality: e.municipality, name: e.name, date_text: e.start ?? '', url: e.source_url }))];
 const stats = { ...built.stats, kept: events.length, dated: events.filter((e) => e.start).length, undated: events.filter((e) => !e.start).length, excluded: excluded.length };
 const extracted = rows.map((r) => r.extracted_at).filter(Boolean).sort();
-const out = { generated_at: new Date().toISOString(), source_extracted_from: extracted[0] ?? null, source_extracted_to: extracted.at(-1) ?? null, events };
-writeFileSync(flag('out') || join(root, 'data', 'events', 'municipal.json'), JSON.stringify(out, null, 2) + '\n');
+const outPath = flag('out') || join(root, 'data', 'events', 'municipal.json');
+let finalEvents = events;
+let from = extracted[0] ?? null;
+if (args.includes('--merge') && existsSync(outPath)) {
+  const prev = JSON.parse(readFileSync(outPath, 'utf8'));
+  const byId = new Map(prev.events.map((e) => [e.id, e]));
+  const fresh = new Set(events.map((e) => e.id));
+  const added = events.filter((e) => !byId.has(e.id)).length;
+  const changed = events.filter((e) => byId.has(e.id) && ['name', 'start', 'end', 'venue', 'organizer', 'target', 'fee', 'deadline', 'contact_dept', 'contact_phone', 'cancelled', 'postponed', 'date_kind', 'source_url'].some((k) => (byId.get(e.id)[k] ?? null) !== (e[k] ?? null))).length;
+  const kept = prev.events.filter((e) => !fresh.has(e.id) && !(e.id in overrides));
+  for (const e of events) byId.set(e.id, e);
+  finalEvents = [...prev.events.filter((e) => byId.has(e.id) && !(e.id in overrides)).map((e) => byId.get(e.id)), ...events.filter((e) => !prev.events.some((p) => p.id === e.id))];
+  from = prev.source_extracted_from ?? from;
+  console.log({ merge: true, 追加: added, 内容が変わった: changed, 今週のCSVに無く残したもの: kept.length, 合計: finalEvents.length });
+}
+const out = { generated_at: new Date().toISOString(), source_extracted_from: from, source_extracted_to: extracted.at(-1) ?? null, events: finalEvents };
+writeFileSync(outPath, JSON.stringify(out, null, 2) + '\n');
 console.log(stats);
 const why = {};
 for (const e of excluded) why[e.reason] = (why[e.reason] ?? 0) + 1;
