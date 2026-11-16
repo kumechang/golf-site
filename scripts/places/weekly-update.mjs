@@ -33,7 +33,11 @@ const run = (script, a) => {
 };
 
 const httpsMap = readJson('data/places/https-upgrades.json').upgrades ?? {};
-const rows = parseCsv(readFileSync(input, 'utf8').replace(/^﻿/, '')).map((r) => ({ ...r, page_url: httpsMap[r.page_url] ?? r.page_url }));
+const allRows = parseCsv(readFileSync(input, 'utf8').replace(/^﻿/, '')).map((r) => ({ ...r, page_url: httpsMap[r.page_url] ?? r.page_url }));
+// PDF（予定表・申請書・説明会資料なども多い）は、施設の案内かどうかを見分ける規則ができるまで、足さない
+const isPdf = (u) => /\.pdf($|[?#])/i.test(u);
+const rows = allRows.filter((r) => !isPdf(r.page_url));
+console.log(`PDFのページの行を除いた: ${allRows.length - rows.length}行（残り ${rows.length}行）`);
 const single = (r) => r.keyword_in_item === '1' || !r.multi_facility;
 
 // 1. 新しい元ページ
@@ -61,7 +65,7 @@ writeCsv(filtered, detailHeader, detailRows);
 const fetched = `${surveyed}T00:00:00Z`;
 const fresh = join(dir, 'details.fresh.json');
 run('clean-details.mjs', [filtered, `--out=${fresh}`, `--fetched=${fetched}`]);
-const NOT_FACILITY = /体験会|交歓会|大会|誕生|付帯施設|武道館|使用料|利用料/;
+const NOT_FACILITY = /体験会|交歓会|大会|誕生|付帯施設|武道館|使用料|利用料|予定表|行事予定|事業|説明会|資料|申請|お知らせ|整備されました|What's New|シルバー人材|公園全域|使用許可|^公園緑地$/;
 const cur = readJson('data/places/details.json').details;
 const next = JSON.parse(readFileSync(fresh, 'utf8')).details;
 const key = (d) => `${d.source_url}|${d.name}`;

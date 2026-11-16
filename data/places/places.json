@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-11T02:46:52.182Z",
-  "count": 1566,
+  "generated_at": "2026-11-16T05:59:01.807Z",
+  "count": 1744,
   "places": [
     {
       "kind": "facility",
@@ -43,6 +43,16 @@
       "municipality_code": "02206",
       "source_url": "https://www.city.towada.lg.jp/shisei/shisetsu/okunai.html",
       "surveyed_at": "2026-10-18T00:05:49Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "青森県",
+      "municipality": "むつ市",
+      "municipality_code": "02208",
+      "source_url": "https://kyoushin.org/sports/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -223,6 +233,26 @@
       "kind": "listing",
       "name": null,
       "prefecture": "岩手県",
+      "municipality": "紫波町",
+      "municipality_code": "03321",
+      "source_url": "https://www.morioka-sportspal.jp/facilities",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岩手県",
+      "municipality": "紫波町",
+      "municipality_code": "03321",
+      "source_url": "https://www.morioka-sportspal.jp/facilities-2",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岩手県",
       "municipality": "大槌町",
       "municipality_code": "03461",
       "source_url": "https://www.town.otsuchi.iwate.jp/gyosei/docs/444912.html",
@@ -237,6 +267,16 @@
       "municipality_code": "03506",
       "source_url": "https://www.vill.kunohe.iwate.jp/docs/221.html",
       "surveyed_at": "2026-10-18T00:04:30Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "宮城県",
+      "municipality": "仙台市",
+      "municipality_code": "04100",
+      "source_url": "https://www.city.sendai.jp/shisetsukanri/shisetsu/kouennryokuti.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -422,6 +462,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "宮城県",
+      "municipality": "大和町",
+      "municipality_code": "04421",
+      "source_url": "https://shisetsu.mizuno.jp/m-7761/gallery",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "多目的運動広場",
       "prefecture": "宮城県",
@@ -549,6 +599,16 @@
       "municipality_code": "05201",
       "source_url": "https://www.city.akita.lg.jp/kurashi/shakai-shogai/1008481/1009949/1008633.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "秋田県",
+      "municipality": "秋田市",
+      "municipality_code": "05201",
+      "source_url": "https://akitasports.com/athletic/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -1305,6 +1365,26 @@
       "kind": "listing",
       "name": null,
       "prefecture": "山形県",
+      "municipality": "酒田市",
+      "municipality_code": "06204",
+      "source_url": "https://www.city.sakata.lg.jp/jyutaku/kouenryokuchi/kouen/kouengaido.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "山形県",
+      "municipality": "酒田市",
+      "municipality_code": "06204",
+      "source_url": "https://www.city.sakata.lg.jp/jyutaku/kouenryokuchi/kouen/dokusen.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "山形県",
       "municipality": "村山市",
       "municipality_code": "06208",
       "source_url": "https://www.city.murayama.lg.jp/kurashi/sports_yoka/sports/sports_shisetsu.html",
@@ -1442,6 +1522,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "庄内町余目第四まちづくりセンター「和合館」",
+      "prefecture": "山形県",
+      "municipality": "庄内町",
+      "municipality_code": "06428",
+      "source_url": "https://www.wagounosato.jp/kouen",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "山形県",
@@ -1519,6 +1609,16 @@
       "municipality_code": "06461",
       "source_url": "https://www.town.yuza.yamagata.jp/archive/contents-225",
       "surveyed_at": "2026-10-18T00:08:27Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "十六沼公園",
+      "prefecture": "福島県",
+      "municipality": "福島市",
+      "municipality_code": "07201",
+      "source_url": "https://www.sportspc.jp/?page_id=63",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -1662,6 +1762,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "福島県",
+      "municipality": "田村市",
+      "municipality_code": "07211",
+      "source_url": "https://tamura-sportspark.com/facility",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "真野交流センター",
       "prefecture": "福島県",
@@ -1802,6 +1912,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "結城市鹿窪運動公園・かなくぼ総合体育館",
+      "prefecture": "茨城県",
+      "municipality": "結城市",
+      "municipality_code": "08207",
+      "source_url": "https://information.konamisportsclub.jp/trust/kanakubo/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "茨城県",
@@ -1809,6 +1929,16 @@
       "municipality_code": "08207",
       "source_url": "https://www.city.yuki.lg.jp/kosodate-kyouiku/sports/kanakubo/page000982.html",
       "surveyed_at": "2026-10-18T00:12:10Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "ふるさとふれあい公園",
+      "prefecture": "茨城県",
+      "municipality": "龍ケ崎市",
+      "municipality_code": "08208",
+      "source_url": "https://www.city.ryugasaki.ibaraki.jp/kanko/filmcommission/locationlibrary/park/2013091800402.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -1849,6 +1979,26 @@
       "municipality_code": "08215",
       "source_url": "https://www.city.kitaibaraki.lg.jp/docs/2023060900019/",
       "surveyed_at": "2026-10-18T00:04:51Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "茨城県",
+      "municipality": "北茨城市",
+      "municipality_code": "08215",
+      "source_url": "https://shisetsu.mizuno.jp/m-7622/gallery",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "茨城県",
+      "municipality": "北茨城市",
+      "municipality_code": "08215",
+      "source_url": "https://shisetsu.mizuno.jp/m-7622/guide",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -2032,6 +2182,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "茨城県",
+      "municipality": "坂東市",
+      "municipality_code": "08228",
+      "source_url": "https://www.bando-shakyo.jp/facility",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "第1常陸野公園・千代田B&G海洋センター",
       "prefecture": "茨城県",
@@ -2049,6 +2209,16 @@
       "municipality_code": "08232",
       "source_url": "https://www.city.kamisu.ibaraki.jp/shisei/p_facility/1002954/1002982/1008670.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "茨城県",
+      "municipality": "神栖市",
+      "municipality_code": "08232",
+      "source_url": "https://www.city.kamisu.ibaraki.jp/living/park/1001229/1013841.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -2092,6 +2262,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "茨城県",
+      "municipality": "河内町",
+      "municipality_code": "08447",
+      "source_url": "https://www.town.ibaraki-kawachi.lg.jp/page/page002148.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "町民公園",
       "prefecture": "茨城県",
@@ -2132,6 +2312,36 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "栃木県",
+      "municipality": "宇都宮市",
+      "municipality_code": "09201",
+      "source_url": "https://www.utsunomiya-sponavi.or.jp/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "はつらつセンター事業",
+      "prefecture": "栃木県",
+      "municipality": "栃木市",
+      "municipality_code": "09203",
+      "source_url": "https://www.city.tochigi.lg.jp/soshiki/103/14727.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "大平運動公園",
+      "prefecture": "栃木県",
+      "municipality": "栃木市",
+      "municipality_code": "09203",
+      "source_url": "https://agekke-sp.co.jp/oohirasportspark/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "岩舟総合運動公園",
       "prefecture": "栃木県",
@@ -2139,6 +2349,16 @@
       "municipality_code": "09203",
       "source_url": "https://www.city.tochigi.lg.jp/soshiki/40/502.html",
       "surveyed_at": "2026-10-17T22:16:45Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "永野川緑地公園に新しい広場が整備されました!",
+      "prefecture": "栃木県",
+      "municipality": "栃木市",
+      "municipality_code": "09203",
+      "source_url": "https://www.city.tochigi.lg.jp/soshiki/40/56376.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -2159,6 +2379,16 @@
       "municipality_code": "09208",
       "source_url": "https://www.city.oyama.tochigi.jp/kurashi/douro-kouen/kouen/page008693.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "栃木県",
+      "municipality": "小山市",
+      "municipality_code": "09208",
+      "source_url": "https://www.city.oyama.tochigi.jp/kurashi/sports-shogaigakushu/shogaigakushu/event/aitopia-shiba.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -2262,6 +2492,46 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "栃木県",
+      "municipality": "矢板市",
+      "municipality_code": "09211",
+      "source_url": "https://sports-spot-yaita.com/shisetu.php",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "三島体育センター",
+      "prefecture": "栃木県",
+      "municipality": "那須塩原市",
+      "municipality_code": "09213",
+      "source_url": "https://nh-sportsnomori.jp/mishima-sports-center//facilities/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "三島体育センター -",
+      "prefecture": "栃木県",
+      "municipality": "那須塩原市",
+      "municipality_code": "09213",
+      "source_url": "https://nh-sportsnomori.jp/mishima-sports-center/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "塩原B&G海洋センター",
+      "prefecture": "栃木県",
+      "municipality": "那須塩原市",
+      "municipality_code": "09213",
+      "source_url": "https://nh-sportsnomori.jp/shiobara-bg/experience_search",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "蓼沼親水公園",
       "prefecture": "栃木県",
@@ -2329,6 +2599,16 @@
       "municipality_code": "09407",
       "source_url": "https://www.town.nasu.lg.jp/0150/info-0000000588-1.html",
       "surveyed_at": "2026-10-17T22:19:05Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "ヤマト市民体育館前橋 主要施設",
+      "prefecture": "群馬県",
+      "municipality": "前橋市",
+      "municipality_code": "10201",
+      "source_url": "https://shimintaiiku.maebashi-cc.or.jp/gaiyo",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -2714,6 +2994,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "群馬県",
+      "municipality": "伊勢崎市",
+      "municipality_code": "10204",
+      "source_url": "https://www.city.isesaki.lg.jp/soshiki/kensui/sport/sisetukanri/9832.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "休泊スポーツ広場",
       "prefecture": "群馬県",
@@ -2966,6 +3256,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "金島公民館(金島ふれあいセンター)",
+      "prefecture": "群馬県",
+      "municipality": "渋川市",
+      "municipality_code": "10208",
+      "source_url": "https://www.city.shibukawa.lg.jp/kyouiku/000121/000125/p000960.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "群馬県",
@@ -2973,6 +3273,26 @@
       "municipality_code": "10208",
       "source_url": "https://www.city.shibukawa.lg.jp/kyouiku/000144/000148/p001549.html",
       "surveyed_at": "2026-11-11T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "群馬県",
+      "municipality": "渋川市",
+      "municipality_code": "10208",
+      "source_url": "https://www.city.shibukawa.lg.jp/kyouiku/000144/000148/p001547.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "群馬県",
+      "municipality": "渋川市",
+      "municipality_code": "10208",
+      "source_url": "https://www.city.shibukawa.lg.jp/kyouiku/000144/000148/index2.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -3063,6 +3383,16 @@
       "municipality_code": "10344",
       "source_url": "https://www.vill.shinto.gunma.jp/sightseeing/000255/000264/p000396.html",
       "surveyed_at": "2026-10-17T22:19:16Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "吉岡町緑地運動公園",
+      "prefecture": "群馬県",
+      "municipality": "吉岡町",
+      "municipality_code": "10345",
+      "source_url": "https://www.yoshioka-onsen.jp/park/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -3446,6 +3776,26 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "埼玉県",
+      "municipality": "さいたま市",
+      "municipality_code": "11100",
+      "source_url": "https://www.oomiyataiikukan-shinkosports.com/複製-キッズスポーツパーク",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "なぐわし公園",
+      "prefecture": "埼玉県",
+      "municipality": "川越市",
+      "municipality_code": "11201",
+      "source_url": "https://www.city.kawagoe.saitama.jp/shisei/seisaku/1008208/1008337/1008352.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "高階運動広場(たかしなうんどうひろば)",
       "prefecture": "埼玉県",
@@ -3483,6 +3833,26 @@
       "municipality_code": "11202",
       "source_url": "https://www.city.kumagaya.lg.jp/kumagaya-sc/facility-map/index.html",
       "surveyed_at": "2026-10-18T00:11:41Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "入間市市民体育館",
+      "prefecture": "埼玉県",
+      "municipality": "飯能市",
+      "municipality_code": "11209",
+      "source_url": "https://iruma-sports.jp/taiikukan/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "入間市運動公園",
+      "prefecture": "埼玉県",
+      "municipality": "飯能市",
+      "municipality_code": "11209",
+      "source_url": "https://iruma-sports.jp/undo-park/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -3706,6 +4076,26 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "上奥富運動公園",
+      "prefecture": "埼玉県",
+      "municipality": "狭山市",
+      "municipality_code": "11215",
+      "source_url": "https://www.seibu-green.co.jp/sayamapark/parks/kamiokutomi.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "堀兼・上赤坂公園",
+      "prefecture": "埼玉県",
+      "municipality": "狭山市",
+      "municipality_code": "11215",
+      "source_url": "https://www.seibu-green.co.jp/sayamapark/parks/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "埼玉県",
@@ -3713,6 +4103,36 @@
       "municipality_code": "11215",
       "source_url": "https://www.city.sayama.saitama.jp/shisei/shisetsu/sports/okugaiundoshisetsu/annai/00_manual.html",
       "surveyed_at": "2026-10-18T00:15:16Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "コート番号、AED設置場所、ウォーキングコース",
+      "prefecture": "埼玉県",
+      "municipality": "羽生市",
+      "municipality_code": "11216",
+      "source_url": "https://www.hanyu-gym.com/ホーム/各種コート番号/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "羽生市体育館",
+      "prefecture": "埼玉県",
+      "municipality": "羽生市",
+      "municipality_code": "11216",
+      "source_url": "https://www.hanyu-gym.com/ホーム/施設案内-利用料金/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "羽生市体育館 What's New",
+      "prefecture": "埼玉県",
+      "municipality": "羽生市",
+      "municipality_code": "11216",
+      "source_url": "https://www.hanyu-gym.com/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -4111,6 +4531,46 @@
     },
     {
       "kind": "facility",
+      "name": "鶴ヶ島市運動公園",
+      "prefecture": "埼玉県",
+      "municipality": "鶴ヶ島市",
+      "municipality_code": "11241",
+      "source_url": "https://www.city.tsurugashima.lg.jp/kurashi-tetsuduki/kouen-ryokuchi/other/page000474.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "埼玉県",
+      "municipality": "鶴ヶ島市",
+      "municipality_code": "11241",
+      "source_url": "https://www.city.tsurugashima.lg.jp/kurashi-tetsuduki/kouen-ryokuchi/page011123.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "埼玉県",
+      "municipality": "鶴ヶ島市",
+      "municipality_code": "11241",
+      "source_url": "https://www.city.tsurugashima.lg.jp/bunka-sports-kankou/sports/shisetu/page000508.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "埼玉県",
+      "municipality": "鶴ヶ島市",
+      "municipality_code": "11241",
+      "source_url": "https://www.city.tsurugashima.lg.jp/kenkou-iryou-fukushi/koureisha-kaigo/sakasagisou/page005889.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "総合福祉センター「高麗の郷」利用",
       "prefecture": "埼玉県",
       "municipality": "日高市",
@@ -4177,6 +4637,16 @@
       "municipality_code": "11301",
       "source_url": "https://www.town.saitama-ina.lg.jp/0000001933.html",
       "surveyed_at": "2026-10-18T00:20:50Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "埼玉県",
+      "municipality": "三芳町",
+      "municipality_code": "11324",
+      "source_url": "https://miyoshi-sports.com/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -4503,6 +4973,16 @@
     },
     {
       "kind": "facility",
+      "name": "オーエンススポーツフィールド(江川総合運動場)",
+      "prefecture": "千葉県",
+      "municipality": "木更津市",
+      "municipality_code": "12206",
+      "source_url": "https://www.kisarazu-sports.jp/egawa_athletic/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "ちば野菊の里スポーツ広場",
       "prefecture": "千葉県",
       "municipality": "松戸市",
@@ -4595,6 +5075,26 @@
       "kind": "listing",
       "name": null,
       "prefecture": "千葉県",
+      "municipality": "野田市",
+      "municipality_code": "12208",
+      "source_url": "https://www.sekiyado-sogopark.com/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "成田エアポート東雲パークゴルフ場",
+      "prefecture": "千葉県",
+      "municipality": "成田市",
+      "municipality_code": "12211",
+      "source_url": "https://www.narita-parkgolf.jp/about/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "千葉県",
       "municipality": "成田市",
       "municipality_code": "12211",
       "source_url": "https://www.city.narita.chiba.jp/bunka_sports/page0118_00237.html",
@@ -4609,6 +5109,16 @@
       "municipality_code": "12212",
       "source_url": "https://www.city.sakura.lg.jp/soshiki/shogaisportska/oshirase/21819.html",
       "surveyed_at": "2026-10-18T00:04:58Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "東金市家徳スポーツ広場",
+      "prefecture": "千葉県",
+      "municipality": "東金市",
+      "municipality_code": "12213",
+      "source_url": "https://www.togane-bunspo.or.jp/arena/facility/sports_hiroba/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -4629,6 +5139,26 @@
       "municipality_code": "12216",
       "source_url": "https://www.city.narashino.lg.jp/kurashi/sports/shisetsu_kashidashi/640220150108140433756.html",
       "surveyed_at": "2026-10-18T00:03:44Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "公園の使用許可",
+      "prefecture": "千葉県",
+      "municipality": "柏市",
+      "municipality_code": "12217",
+      "source_url": "https://www.city.kashiwa.lg.jp/koenryokuchi/shiseijoho/keikaku/shigoto/kaihatsu/kouen/shiyoshinse.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "柏市富勢運動場",
+      "prefecture": "千葉県",
+      "municipality": "柏市",
+      "municipality_code": "12217",
+      "source_url": "https://kashiwasports.kyoei.tokyo.jp/facility/facility-2/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -4759,6 +5289,26 @@
       "municipality_code": "12225",
       "source_url": "https://www.city.kimitsu.lg.jp/soshiki/2/71296.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "千葉県",
+      "municipality": "君津市",
+      "municipality_code": "12225",
+      "source_url": "https://www.city.kimitsu.lg.jp/soshiki/2/43462.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "浦安市運動公園",
+      "prefecture": "千葉県",
+      "municipality": "浦安市",
+      "municipality_code": "12227",
+      "source_url": "https://www.urayasu-zaidan.or.jp/undo/index.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -4902,6 +5452,26 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "千葉県",
+      "municipality": "大網白里市",
+      "municipality_code": "12239",
+      "source_url": "https://www.oamishirasato-taikyo.net/reservation/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "千葉県",
+      "municipality": "大網白里市",
+      "municipality_code": "12239",
+      "source_url": "https://www.oamishirasato-taikyo.net/reservation",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "東庄町スポーツ広場",
       "prefecture": "千葉県",
@@ -4954,6 +5524,26 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "東京都",
+      "municipality": "中央区",
+      "municipality_code": "13102",
+      "source_url": "https://www.city.chuo.lg.jp/a0015/bunkakankou/sports/jigyou/taikai/golfkousyukai.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "東京都",
+      "municipality": "墨田区",
+      "municipality_code": "13107",
+      "source_url": "https://www.city.sumida.lg.jp/sisetu_info/kouen/kunai_park_annai/sumida_park/park61.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "しながわ中央公園多目的広場",
       "prefecture": "東京都",
@@ -5001,6 +5591,16 @@
       "municipality_code": "13111",
       "source_url": "https://www.city.ota.tokyo.jp/shisetsu/sports/oomorifurusatonohamab_tamokuteki.html",
       "surveyed_at": "2026-10-17T22:34:17Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "塚山公園運動場",
+      "prefecture": "東京都",
+      "municipality": "杉並区",
+      "municipality_code": "13115",
+      "source_url": "https://www.city.suginami.tokyo.jp/s032/shisetsu/14538.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -5133,6 +5733,16 @@
       "municipality_code": "13123",
       "source_url": "https://www.city.edogawa.tokyo.jp/e028/sports/sports/kensaku/groundgolf_shi_d.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "八王子のみどり公園",
+      "prefecture": "東京都",
+      "municipality": "八王子市",
+      "municipality_code": "13201",
+      "source_url": "https://www.city.hachioji.tokyo.jp/shisetsu/109/p011897.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -5356,6 +5966,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "東京都",
+      "municipality": "府中市",
+      "municipality_code": "13206",
+      "source_url": "https://www.city.fuchu.tokyo.jp/bunka/bunkacenter/koremasa/heisei30nenndogyouji.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "調布基地跡地運動広場",
       "prefecture": "東京都",
@@ -5469,6 +6089,16 @@
     },
     {
       "kind": "facility",
+      "name": "日野市立多摩川グラウンドほか13 施設",
+      "prefecture": "東京都",
+      "municipality": "日野市",
+      "municipality_code": "13212",
+      "source_url": "https://hino-playground.com/facility/ballfield",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "旭が丘中央公園グラウンド・テニスコート",
       "prefecture": "東京都",
       "municipality": "日野市",
@@ -5525,6 +6155,16 @@
       "municipality_code": "13214",
       "source_url": "https://www.city.kokubunji.tokyo.jp/culture-sports-tourism/sports/1011397/1016245/1002614.html",
       "surveyed_at": "2026-10-17T22:25:56Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "東京都",
+      "municipality": "国分寺市",
+      "municipality_code": "13214",
+      "source_url": "https://www.kokubunji-sports.net/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -5588,6 +6228,26 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "東京都",
+      "municipality": "多摩市",
+      "municipality_code": "13224",
+      "source_url": "https://www.city.tama.lg.jp/kenkofukushi/1008238/sports/joho/kyoshitsu/1003884.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "東京都",
+      "municipality": "多摩市",
+      "municipality_code": "13224",
+      "source_url": "https://tama-sports.com?s",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "南多摩スポーツ広場(多目的広場)",
       "prefecture": "東京都",
@@ -5605,6 +6265,16 @@
       "municipality_code": "13225",
       "source_url": "https://www.city.inagi.tokyo.jp/shisetsu/sports/1004857/1004858/1004863.html",
       "surveyed_at": "2026-10-17T22:22:14Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "東京都",
+      "municipality": "稲城市",
+      "municipality_code": "13225",
+      "source_url": "https://www.inaginagamine-sportsfield.jp/facilities/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -5740,6 +6410,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "柳島スポーツ公園",
+      "prefecture": "神奈川県",
+      "municipality": "茅ヶ崎市",
+      "municipality_code": "14207",
+      "source_url": "https://www.ys-park.jp/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "神奈川県",
@@ -5760,6 +6440,16 @@
       "flags": [
         "記載が用語の説明の可能性"
       ]
+    },
+    {
+      "kind": "facility",
+      "name": "スポーツの祭典2019(第一運動公園野球場)",
+      "prefecture": "神奈川県",
+      "municipality": "逗子市",
+      "municipality_code": "14208",
+      "source_url": "https://www.city.zushi.kanagawa.jp/shiminkatsudo/sports/1004511/1007163/1007167.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
     },
     {
       "kind": "listing",
@@ -5849,6 +6539,16 @@
       "kind": "listing",
       "name": null,
       "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "municipality_code": "14212",
+      "source_url": "https://www.city.atsugi.kanagawa.jp/shinseisho/kanko/44067.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "神奈川県",
       "municipality": "大和市",
       "municipality_code": "14213",
       "source_url": "https://www.city.yamato.lg.jp/gyosei/soshik/10/sports/sportsshisetsu/6178.html",
@@ -5925,6 +6625,16 @@
       "municipality_code": "14321",
       "source_url": "https://www.town.samukawa.kanagawa.jp/soshiki/chomin/sports/sportsshisetu/tantou/shisetsu/tabatasportspark/1438663772433.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "神奈川県",
+      "municipality": "寒川町",
+      "municipality_code": "14321",
+      "source_url": "https://samukawa-sougoutaiikukan.com/tabata/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -6167,6 +6877,16 @@
       "municipality_code": "17203",
       "source_url": "https://www.city.komatsu.lg.jp/kanko_bunka/sports/2/5853.html",
       "surveyed_at": "2026-10-17T22:11:29Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "石川県",
+      "municipality": "小松市",
+      "municipality_code": "17203",
+      "source_url": "https://komatsu-ccf.com/sports/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -6440,6 +7160,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "福井市東山健康運動公園",
+      "prefecture": "福井県",
+      "municipality": "福井市",
+      "municipality_code": "18201",
+      "source_url": "https://fukui-higashiyama.jp/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "福井県",
@@ -6447,6 +7177,16 @@
       "municipality_code": "18201",
       "source_url": "https://www.city.fukui.lg.jp/kyoiku/sports/sisetu/spo-park.html",
       "surveyed_at": "2026-10-17T11:34:11Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "福井県",
+      "municipality": "福井市",
+      "municipality_code": "18201",
+      "source_url": "https://www.city.fukui.lg.jp/kyoiku/sports/sisetu/p004558.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -6652,6 +7392,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "長野県",
+      "municipality": "小諸市",
+      "municipality_code": "20208",
+      "source_url": "https://www.city.komoro.lg.jp/official/benri/facility_map/shisetsuannai/sportsshisetsu/3870.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "運動公園 多目的芝生広場",
       "prefecture": "長野県",
@@ -6701,6 +7451,56 @@
       "municipality_code": "20217",
       "source_url": "https://www.city.saku.nagano.jp/shisetsu/teijujiritsuken/sports_shichosom.html",
       "surveyed_at": "2026-10-17T23:53:56Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "長野県",
+      "municipality": "佐久市",
+      "municipality_code": "20217",
+      "source_url": "https://www.city.saku.nagano.jp/shisetsu/teijujiritsuken/teijusyakaikyouiku.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "B&G海洋センター(体育館)",
+      "prefecture": "長野県",
+      "municipality": "御代田町",
+      "municipality_code": "20323",
+      "source_url": "https://www.town.miyota.nagano.jp/category/shisetsuannai/2143.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "やまゆり公園",
+      "prefecture": "長野県",
+      "municipality": "御代田町",
+      "municipality_code": "20323",
+      "source_url": "https://www.town.miyota.nagano.jp/category/kouen/2207.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "やまゆり公園グラウンドゴルフ場",
+      "prefecture": "長野県",
+      "municipality": "御代田町",
+      "municipality_code": "20323",
+      "source_url": "https://www.town.miyota.nagano.jp/category/shisetsuannai/163684.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "長野県",
+      "municipality": "御代田町",
+      "municipality_code": "20323",
+      "source_url": "https://www.town.miyota.nagano.jp/category/shisetsuannai/index.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -6881,6 +7681,26 @@
       "municipality_code": "21217",
       "source_url": "https://www.city.hida.gifu.jp/map/s917.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岐阜県",
+      "municipality": "飛騨市",
+      "municipality_code": "21217",
+      "source_url": "https://hida-sunsportsland.jp/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岐阜県",
+      "municipality": "飛騨市",
+      "municipality_code": "21217",
+      "source_url": "https://hida-sunsportsland.jp/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -7165,6 +7985,16 @@
     },
     {
       "kind": "facility",
+      "name": "公園全域",
+      "prefecture": "静岡県",
+      "municipality": "熱海市",
+      "municipality_code": "22205",
+      "source_url": "https://www.seibu-la.co.jp/himenosawa/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "姫の沢公園",
       "prefecture": "静岡県",
       "municipality": "熱海市",
@@ -7224,6 +8054,26 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "宝町公園",
+      "prefecture": "静岡県",
+      "municipality": "富士宮市",
+      "municipality_code": "22207",
+      "source_url": "https://www.city.fujinomiya.lg.jp/1030300000/shisetsu/p000089.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "白糸自然公園",
+      "prefecture": "静岡県",
+      "municipality": "富士宮市",
+      "municipality_code": "22207",
+      "source_url": "https://www.city.fujinomiya.lg.jp/1030300000/shisetsu/p000084.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "静岡県",
@@ -7242,6 +8092,18 @@
       "source_url": "https://www.city.ito.shizuoka.jp/gyosei/bunka_sports/sports/sportsshisetsu/5365.html",
       "surveyed_at": "2026-10-17T22:12:08Z",
       "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "公園",
+      "prefecture": "静岡県",
+      "municipality": "島田市",
+      "municipality_code": "22209",
+      "source_url": "https://www.city.shimada.shizuoka.jp/kanko-docs/kouennoshoukai.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": [
+        "名前が一般的（市区町村名と合わせて表示する）"
+      ]
     },
     {
       "kind": "facility",
@@ -7284,6 +8146,26 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "静岡県",
+      "municipality": "島田市",
+      "municipality_code": "22209",
+      "source_url": "https://www.city.shimada.shizuoka.jp/kanko-docs/0874.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "静岡県",
+      "municipality": "島田市",
+      "municipality_code": "22209",
+      "source_url": "https://www.city.shimada.shizuoka.jp/kanko-docs/2368.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "中央公園",
       "prefecture": "静岡県",
@@ -7311,6 +8193,16 @@
       "municipality_code": "22213",
       "source_url": "https://www.city.kakegawa.shizuoka.jp/gyosei/docs/9384.html",
       "surveyed_at": "2026-10-17T22:17:15Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "総合福祉センター「あいり~な」",
+      "prefecture": "静岡県",
+      "municipality": "掛川市",
+      "municipality_code": "22213",
+      "source_url": "https://www.city.kakegawa.shizuoka.jp/gyosei/docs/9316.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -7444,6 +8336,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "静岡県",
+      "municipality": "御殿場市",
+      "municipality_code": "22215",
+      "source_url": "https://spotogotemba.com/sportsfacility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "国道1号(バイパス)高架下多目的広場",
       "prefecture": "静岡県",
@@ -7471,6 +8373,16 @@
       "municipality_code": "22216",
       "source_url": "https://www.city.fukuroi.shizuoka.jp/kanko_bunka/suportsshinko/suportsshisetsu/sports_shisetsu/1425446943555.html",
       "surveyed_at": "2026-10-17T22:11:46Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "浅羽西コミュニティセンター",
+      "prefecture": "静岡県",
+      "municipality": "袋井市",
+      "municipality_code": "22216",
+      "source_url": "https://fukuroi-comicen.jp/comicen/asabawest/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -7647,12 +8559,32 @@
     },
     {
       "kind": "facility",
+      "name": "南区グラウンドゴルフ",
+      "prefecture": "愛知県",
+      "municipality": "名古屋市",
+      "municipality_code": "23100",
+      "source_url": "https://www.city.nagoya.jp/minami/kurashi/1023895/1023900.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "老人福祉センター等",
       "prefecture": "愛知県",
       "municipality": "豊橋市",
       "municipality_code": "23201",
       "source_url": "https://www.city.toyohashi.lg.jp/5012.htm",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "龍北スタジアム(陸上競技場)",
+      "prefecture": "愛知県",
+      "municipality": "岡崎市",
+      "municipality_code": "23202",
+      "source_url": "https://www.ryuhoku-sf.jp/shisetsu/stadium.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -8149,6 +9081,16 @@
     },
     {
       "kind": "facility",
+      "name": "海陽多目的広場",
+      "prefecture": "愛知県",
+      "municipality": "蒲郡市",
+      "municipality_code": "23214",
+      "source_url": "https://www.city.gamagori.lg.jp/site/kaiyou/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "野球場・ソフトボール場",
       "prefecture": "愛知県",
       "municipality": "蒲郡市",
@@ -8491,6 +9433,18 @@
     },
     {
       "kind": "facility",
+      "name": "運動広場",
+      "prefecture": "愛知県",
+      "municipality": "大府市",
+      "municipality_code": "23223",
+      "source_url": "https://www.city.obu.aichi.jp/shisetsu/bunka_sports/park_ishigase/1005232/1005233.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": [
+        "名前が一般的（市区町村名と合わせて表示する）"
+      ]
+    },
+    {
+      "kind": "facility",
       "name": "長草多目的広場",
       "prefecture": "愛知県",
       "municipality": "大府市",
@@ -8715,6 +9669,16 @@
       "kind": "listing",
       "name": null,
       "prefecture": "愛知県",
+      "municipality": "東郷町",
+      "municipality_code": "23302",
+      "source_url": "https://www.togo-tis.co.jp/institution_cat/lending-togo-gym-outdoor/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "愛知県",
       "municipality": "豊山町",
       "municipality_code": "23342",
       "source_url": "https://www.town.toyoyama.lg.jp/shisetsu/sports/1000994.html",
@@ -8804,6 +9768,26 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "三重県",
+      "municipality": "津市",
+      "municipality_code": "24201",
+      "source_url": "https://www.tsushiundoshisetsu.jp/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "宮川ラブリバー公園",
+      "prefecture": "三重県",
+      "municipality": "伊勢市",
+      "municipality_code": "24203",
+      "source_url": "https://www.city.ise.mie.jp/kurashi/douro_kasen_kouen/park/1016057/1016067.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "嬉野グラウンド",
       "prefecture": "三重県",
@@ -8876,6 +9860,36 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "三重県",
+      "municipality": "桑名市",
+      "municipality_code": "24205",
+      "source_url": "https://www.kuwanashisportshisetsu.jp/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "三重県",
+      "municipality": "桑名市",
+      "municipality_code": "24205",
+      "source_url": "https://www.kuwanashisportshisetsu.jp/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "三重県",
+      "municipality": "桑名市",
+      "municipality_code": "24205",
+      "source_url": "https://www.kuwanashisportshisetsu.jp/facility/category/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "つつじが丘公園",
       "prefecture": "三重県",
@@ -8883,6 +9897,16 @@
       "municipality_code": "24208",
       "source_url": "https://www.city.nabari.lg.jp/s062/010/420/201502051839.html",
       "surveyed_at": "2026-10-17T23:54:47Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "公益社団法人いなべ市シルバー人材センター",
+      "prefecture": "三重県",
+      "municipality": "いなべ市",
+      "municipality_code": "24214",
+      "source_url": "https://webc.sjc.ne.jp/inabe/index",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -9099,6 +10123,16 @@
     },
     {
       "kind": "facility",
+      "name": "彦根市金亀公園",
+      "prefecture": "滋賀県",
+      "municipality": "彦根市",
+      "municipality_code": "25202",
+      "source_url": "https://konkipark.org/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "荒神山公園運動施設",
       "prefecture": "滋賀県",
       "municipality": "彦根市",
@@ -9187,6 +10221,16 @@
       "municipality_code": "25203",
       "source_url": "https://www.city.nagahama.lg.jp/0000002424.html",
       "surveyed_at": "2026-11-11T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "滋賀県",
+      "municipality": "長浜市",
+      "municipality_code": "25203",
+      "source_url": "https://www.city.nagahama.lg.jp/0000002194.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -9302,6 +10346,36 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "滋賀県",
+      "municipality": "甲賀市",
+      "municipality_code": "25209",
+      "source_url": "https://www.city.koka.lg.jp/4393.htm",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "中主B&G海洋センター",
+      "prefecture": "滋賀県",
+      "municipality": "野洲市",
+      "municipality_code": "25210",
+      "source_url": "https://yasu-bs.jp/bg-center/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "野洲川河川公園",
+      "prefecture": "滋賀県",
+      "municipality": "野洲市",
+      "municipality_code": "25210",
+      "source_url": "https://www5f.biglobe.ne.jp/~hohoemi-club/kasen/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "野洲市野洲川河川公園",
       "prefecture": "滋賀県",
@@ -9323,12 +10397,32 @@
     },
     {
       "kind": "facility",
+      "name": "今津総合運動公園",
+      "prefecture": "滋賀県",
+      "municipality": "高島市",
+      "municipality_code": "25212",
+      "source_url": "https://shiga-imazu.com/park",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "今津総合運動公園・今津B&G海洋センター",
       "prefecture": "滋賀県",
       "municipality": "高島市",
       "municipality_code": "25212",
       "source_url": "https://www.city.takashima.lg.jp/kurashi_tetsuzuki/shisetsuannai/1/4628.html",
       "surveyed_at": "2026-10-18T00:04:41Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "高島市今津総合運動公園",
+      "prefecture": "滋賀県",
+      "municipality": "高島市",
+      "municipality_code": "25212",
+      "source_url": "https://shiga-imazu.com/park/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -9514,6 +10608,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "京都府",
+      "municipality": "舞鶴市",
+      "municipality_code": "26202",
+      "source_url": "https://shisetsu.mizuno.jp/m-7120-0002/gallery",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "丸山スポーツ公園",
       "prefecture": "京都府",
@@ -9531,6 +10635,16 @@
       "municipality_code": "26203",
       "source_url": "https://www.city.ayabe.lg.jp/0000000879.html",
       "surveyed_at": "2026-10-17T22:12:03Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "京都府",
+      "municipality": "綾部市",
+      "municipality_code": "26203",
+      "source_url": "https://www.ayabeonsen.com/leisure/golf/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -9554,6 +10668,16 @@
       "flags": [
         "記載が用語の説明の可能性"
       ]
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "京都府",
+      "municipality": "大山崎町",
+      "municipality_code": "26303",
+      "source_url": "https://www.town.oyamazaki.kyoto.jp/annai/kyoikuiinkai/sports_facilities/others/1622.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
     },
     {
       "kind": "facility",
@@ -9717,6 +10841,16 @@
     },
     {
       "kind": "facility",
+      "name": "グラウンド・ゴルフ 豊中市",
+      "prefecture": "大阪府",
+      "municipality": "豊中市",
+      "municipality_code": "27203",
+      "source_url": "https://www.city.toyonaka.osaka.jp/jinken_gakushu/sports/play_sports/event/groundgolf.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "ニノ切少年球技場(旧青少年運動広場)",
       "prefecture": "大阪府",
       "municipality": "豊中市",
@@ -9759,6 +10893,16 @@
     },
     {
       "kind": "facility",
+      "name": "吹田市立総合運動場",
+      "prefecture": "大阪府",
+      "municipality": "吹田市",
+      "municipality_code": "27205",
+      "source_url": "https://playground.suita-shisetsu.com",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "コミュニティセンター",
       "prefecture": "大阪府",
       "municipality": "高槻市",
@@ -9785,6 +10929,16 @@
       "municipality_code": "27207",
       "source_url": "https://www.city.takatsuki.osaka.jp/soshiki/61/4486.html",
       "surveyed_at": "2026-10-17T22:22:20Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "KTM河本工業総合体育館",
+      "prefecture": "大阪府",
+      "municipality": "枚方市",
+      "municipality_code": "27210",
+      "source_url": "https://shisetsu.mizuno.jp/mss-7292/guide",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -9888,6 +11042,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "大阪府",
+      "municipality": "河内長野市",
+      "municipality_code": "27216",
+      "source_url": "https://www.ssksports.com/shisetsu/kawachinagano/about",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "三宅東公園多目的広場",
       "prefecture": "大阪府",
@@ -9895,6 +11059,16 @@
       "municipality_code": "27217",
       "source_url": "https://www.city.matsubara.lg.jp/docs/page4058.html",
       "surveyed_at": "2026-10-17T22:15:48Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "北部リージョンセンター",
+      "prefecture": "大阪府",
+      "municipality": "和泉市",
+      "municipality_code": "27219",
+      "source_url": "https://www.city.osaka-izumi.lg.jp/kakukano/kousitu/kyoudou/gyoumu/hokuburegioncenter/1427347136272.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -9909,6 +11083,16 @@
     },
     {
       "kind": "facility",
+      "name": "堅下北スポーツ広場",
+      "prefecture": "大阪府",
+      "municipality": "柏原市",
+      "municipality_code": "27221",
+      "source_url": "https://www.kashiwara-lifetime-sports.net/katashimo_north/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "片山青少年運動広場",
       "prefecture": "大阪府",
       "municipality": "柏原市",
@@ -9916,6 +11100,18 @@
       "source_url": "https://www.city.kashiwara.lg.jp/docs/2023060900040/",
       "surveyed_at": "2026-11-05T00:00:00Z",
       "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "羽曳野市立健康ふれあいの郷グラウンド・ゴルフ場",
+      "prefecture": "大阪府",
+      "municipality": "羽曳野市",
+      "municipality_code": "27222",
+      "source_url": "https://cleankobo-groundgolfhabikino.com/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": [
+        "記載が用語の説明の可能性"
+      ]
     },
     {
       "kind": "facility",
@@ -10049,6 +11245,16 @@
       "municipality_code": "27229",
       "source_url": "https://www.city.shijonawate.lg.jp/page/17-19115.html",
       "surveyed_at": "2026-10-17T22:20:21Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "大阪府",
+      "municipality": "大阪狭山市",
+      "municipality_code": "27231",
+      "source_url": "https://www.ssksports.com/shisetsu/sayama/about",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -10617,6 +11823,16 @@
     },
     {
       "kind": "facility",
+      "name": "養父市はさまじ里山の森公園",
+      "prefecture": "兵庫県",
+      "municipality": "養父市",
+      "municipality_code": "28222",
+      "source_url": "https://www.city.yabu.hyogo.jp/kanko_ibento/asobu/9360.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "漢方の里総合運動公園",
       "prefecture": "兵庫県",
       "municipality": "丹波市",
@@ -10697,6 +11913,18 @@
     },
     {
       "kind": "facility",
+      "name": "グラウンド1面等",
+      "prefecture": "兵庫県",
+      "municipality": "たつの市",
+      "municipality_code": "28229",
+      "source_url": "https://www.city.tatsuno.lg.jp/soshiki/1026/gyomu/2/1/2377.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": [
+        "使えない趣旨の記載の可能性"
+      ]
+    },
+    {
+      "kind": "facility",
       "name": "教育事業部 御津体育館",
       "prefecture": "兵庫県",
       "municipality": "たつの市",
@@ -10734,6 +11962,18 @@
       "source_url": "https://www.city.tatsuno.lg.jp/kanko-bunka-sports/shizen-koen/8/4943.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
       "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "龍野公園:グラウンド",
+      "prefecture": "兵庫県",
+      "municipality": "たつの市",
+      "municipality_code": "28229",
+      "source_url": "https://www.city.tatsuno.lg.jp/kanko-bunka-sports/shizen-koen/8/5244.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": [
+        "使えない趣旨の記載の可能性"
+      ]
     },
     {
       "kind": "listing",
@@ -10775,6 +12015,16 @@
       "municipality_code": "28381",
       "source_url": "https://www.town.hyogo-inami.lg.jp/soshiki/4-2-0-0-0_11.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "公益社団法人 加古郡広域シルバー人材センター",
+      "prefecture": "兵庫県",
+      "municipality": "稲美町",
+      "municipality_code": "28381",
+      "source_url": "https://www.kakogun-sjc.org/wp/jobs/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -11121,6 +12371,16 @@
     },
     {
       "kind": "facility",
+      "name": "山添村総合スポーツセンター",
+      "prefecture": "奈良県",
+      "municipality": "山添村",
+      "municipality_code": "29322",
+      "source_url": "https://www.vill.yamazoe.nara.jp/life/shisetsu/spocen",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "三郷中央公園多目的広場",
       "prefecture": "奈良県",
       "municipality": "三郷町",
@@ -11324,6 +12584,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "和歌山県",
+      "municipality": "上富田町",
+      "municipality_code": "30404",
+      "source_url": "https://www.town.kamitonda.lg.jp/sportscenter/2198.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "田原若者広場",
       "prefecture": "和歌山県",
@@ -11394,6 +12664,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "岩井グラウンドゴルフ場",
+      "prefecture": "鳥取県",
+      "municipality": "岩美町",
+      "municipality_code": "31302",
+      "source_url": "https://www.iwami.gr.jp/2771.htm",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "鳥取県",
@@ -11401,6 +12681,16 @@
       "municipality_code": "31302",
       "source_url": "https://www.iwami.gr.jp/3125.htm",
       "surveyed_at": "2026-11-11T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "鳥取県",
+      "municipality": "岩美町",
+      "municipality_code": "31302",
+      "source_url": "https://www.iwami.gr.jp/3254.htm",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -11716,6 +13006,48 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "島根県",
+      "municipality": "松江市",
+      "municipality_code": "32201",
+      "source_url": "https://www.city.matsue.lg.jp/kanko_bunka_sports/park/riyou/12559.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "島根県",
+      "municipality": "松江市",
+      "municipality_code": "32201",
+      "source_url": "https://www.city.matsue.lg.jp/soshikikarasagasu/toshiseibibu_koenryokuchika/koen/11273.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "今福スポーツ広場",
+      "prefecture": "島根県",
+      "municipality": "浜田市",
+      "municipality_code": "32202",
+      "source_url": "https://fureaigym-kanagi.jp/imahuku/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "多目的広場",
+      "prefecture": "島根県",
+      "municipality": "浜田市",
+      "municipality_code": "32202",
+      "source_url": "https://fureaigym-kanagi.jp/square/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": [
+        "名前が一般的（市区町村名と合わせて表示する）"
+      ]
+    },
+    {
       "kind": "facility",
       "name": "浜田市弥栄運動広場",
       "prefecture": "島根県",
@@ -11783,6 +13115,16 @@
       "municipality_code": "32203",
       "source_url": "https://www.city.izumo.shimane.jp/www/contents/1611797362784/index.html",
       "surveyed_at": "2026-10-18T00:00:29Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "多目的運動場",
+      "prefecture": "島根県",
+      "municipality": "出雲市",
+      "municipality_code": "32203",
+      "source_url": "https://sports21.jp/pages/125/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -11863,6 +13205,16 @@
       "municipality_code": "33100",
       "source_url": "https://www.city.okayama.jp/life/category/18-2-2-5-0-0-0-0-0-0.html",
       "surveyed_at": "2026-10-17T23:57:03Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "健康みつ21公園",
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "municipality_code": "33100",
+      "source_url": "https://www.city.okayama.jp/life/0000043222.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -11998,6 +13350,56 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "municipality_code": "33100",
+      "source_url": "https://www.city.okayama.jp/life/0000041453.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "municipality_code": "33100",
+      "source_url": "https://www.city.okayama.jp/life/0000041450.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "municipality_code": "33100",
+      "source_url": "https://www.city.okayama.jp/life/0000041448.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "municipality_code": "33100",
+      "source_url": "https://www.city.okayama.jp/life/0000041444.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "municipality_code": "33100",
+      "source_url": "https://www.city.okayama.jp/soshiki/6-3-5-0-0_50.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "倉敷市グラウンド・ゴルフ場",
       "prefecture": "岡山県",
@@ -12008,6 +13410,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "倉敷市西部ふれあい広場",
+      "prefecture": "岡山県",
+      "municipality": "倉敷市",
+      "municipality_code": "33202",
+      "source_url": "https://www.city.kurashiki.okayama.jp/kurashi/jinken/1012991/1003844.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "岡山県",
@@ -12015,6 +13427,16 @@
       "municipality_code": "33202",
       "source_url": "https://www.city.kurashiki.okayama.jp/culture/sports/1005100/index.html",
       "surveyed_at": "2026-10-17T23:55:21Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岡山県",
+      "municipality": "倉敷市",
+      "municipality_code": "33202",
+      "source_url": "https://k-sports.or.jp/facilities/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -12180,6 +13602,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岡山県",
+      "municipality": "新見市",
+      "municipality_code": "33210",
+      "source_url": "https://www.city.niimi.okayama.jp/kurashi/kurashi_detail/index/1103.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "赤磐市グラウンド・ゴルフ場",
       "prefecture": "岡山県",
@@ -12330,6 +13762,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "岡山県",
+      "municipality": "矢掛町",
+      "municipality_code": "33461",
+      "source_url": "https://www.town.yakage.okayama.jp/machi/shisetsu/shisetsu.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "奈義町総合運動公園",
       "prefecture": "岡山県",
@@ -12462,6 +13904,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "広島県",
+      "municipality": "尾道市",
+      "municipality_code": "34205",
+      "source_url": "https://www.city.onomichi.hiroshima.jp/soshiki/15/49538.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "沼隈グラウンド・ゴルフ交歓会",
       "prefecture": "広島県",
@@ -12573,6 +14025,16 @@
     },
     {
       "kind": "facility",
+      "name": "福富多目的グラウンド",
+      "prefecture": "広島県",
+      "municipality": "東広島市",
+      "municipality_code": "34212",
+      "source_url": "https://www.rikuchi.co.jp/fukutomi/fukutomi.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "黒瀬多目的グラウンド",
       "prefecture": "広島県",
       "municipality": "東広島市",
@@ -12589,6 +14051,36 @@
       "municipality_code": "34212",
       "source_url": "https://www.city.higashihiroshima.lg.jp/shisetsu/koen/7541.html",
       "surveyed_at": "2026-10-17T23:55:08Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "広島県",
+      "municipality": "東広島市",
+      "municipality_code": "34212",
+      "source_url": "https://higashihiroshima-sp.com/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "広島県",
+      "municipality": "東広島市",
+      "municipality_code": "34212",
+      "source_url": "https://higashihiroshima-sp.com/intro",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "広島県",
+      "municipality": "東広島市",
+      "municipality_code": "34212",
+      "source_url": "https://higashihiroshima-sp.com/intro/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -12609,6 +14101,16 @@
       "municipality_code": "34213",
       "source_url": "https://www.city.hatsukaichi.hiroshima.jp/soshiki/127/12230.html",
       "surveyed_at": "2026-10-17T23:53:25Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "広島県",
+      "municipality": "廿日市市",
+      "municipality_code": "34213",
+      "source_url": "https://suncherry.hatsukaichi-sports.net/facilities/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -12742,6 +14244,36 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "山口県",
+      "municipality": "防府市",
+      "municipality_code": "35206",
+      "source_url": "https://hofu-spc.com/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "山口県",
+      "municipality": "防府市",
+      "municipality_code": "35206",
+      "source_url": "https://hofu-spc.com/institution/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "玖珂総合公園",
+      "prefecture": "山口県",
+      "municipality": "岩国市",
+      "municipality_code": "35208",
+      "source_url": "https://kuga-taiku.com/park/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "玖珂運動総合公園 グラウンドゴルフ場",
       "prefecture": "山口県",
@@ -12795,6 +14327,16 @@
       "kind": "listing",
       "name": null,
       "prefecture": "山口県",
+      "municipality": "長門市",
+      "municipality_code": "35211",
+      "source_url": "https://www.city.nagato.yamaguchi.jp/soshiki/42/1375.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "山口県",
       "municipality": "周南市",
       "municipality_code": "35215",
       "source_url": "https://www.city.shunan.lg.jp/soshiki/16/145269.html",
@@ -12819,6 +14361,26 @@
       "municipality_code": "35215",
       "source_url": "https://www.city.shunan.lg.jp/soshiki/42/149134.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "山口県",
+      "municipality": "山陽小野田市",
+      "municipality_code": "35216",
+      "source_url": "https://www.city.sanyo-onoda.lg.jp/site/takatomarikouminkan/reiwa07nenndo-suidsenmaturi.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "山口県",
+      "municipality": "山陽小野田市",
+      "municipality_code": "35216",
+      "source_url": "https://www.city.sanyo-onoda.lg.jp/site/takatomarikouminkan/reiwa07nendo-takatomari-fureaifes-2025.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -12889,6 +14451,16 @@
       "municipality_code": "37205",
       "source_url": "https://www.city.kanonji.kagawa.jp/soshiki/31/13373.html",
       "surveyed_at": "2026-10-18T00:03:24Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "白鳥スポーツセンター",
+      "prefecture": "香川県",
+      "municipality": "東かがわ市",
+      "municipality_code": "37207",
+      "source_url": "https://hksz.or.jp/pages/68/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -13002,6 +14574,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "愛媛県",
+      "municipality": "新居浜市",
+      "municipality_code": "38205",
+      "source_url": "https://www.ehime-np.co.jp/special/egao_sports/enjoy/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "小松中央公園グラウンドゴルフ場",
       "prefecture": "愛媛県",
@@ -13052,6 +14634,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "砥部町 陶街道ゆとり公園",
+      "prefecture": "愛媛県",
+      "municipality": "砥部町",
+      "municipality_code": "38402",
+      "source_url": "https://www.fuyom.com/tobepark/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "愛媛県",
@@ -13059,6 +14651,16 @@
       "municipality_code": "38402",
       "source_url": "https://www.town.tobe.ehime.jp/bunka_supotsu/2/2448.html",
       "surveyed_at": "2026-10-17T23:55:37Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "鬼北総合公園",
+      "prefecture": "愛媛県",
+      "municipality": "鬼北町",
+      "municipality_code": "38488",
+      "source_url": "https://www.town.kihoku.ehime.jp/map/sougou-koen.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -13201,6 +14803,16 @@
       "municipality_code": "40203",
       "source_url": "https://www.city.kurume.fukuoka.jp/1050kurashi/2060dourokasen/3030kouen/2008-0108-0959-436.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "福岡県",
+      "municipality": "久留米市",
+      "municipality_code": "40203",
+      "source_url": "https://ssk-miduma-gym.com/mizuma-sports-facilities/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -13364,6 +14976,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "糸島市運動公園 人とまちを豊かにする運動施設",
+      "prefecture": "福岡県",
+      "municipality": "糸島市",
+      "municipality_code": "40230",
+      "source_url": "https://itoshimashisportspark.jp/facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "福岡県",
@@ -13511,6 +15133,16 @@
       "municipality_code": "40522",
       "source_url": "https://www.town.ooki.lg.jp/soshiki/chiiki/kyoudou/sisetu/sisetu/shisetu/4555.html",
       "surveyed_at": "2026-11-11T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "広川町運動公園(久泉地区内)",
+      "prefecture": "福岡県",
+      "municipality": "広川町",
+      "municipality_code": "40544",
+      "source_url": "https://www.town.hirokawa.fukuoka.jp/chosei/chosha_shisetsu/kouen/2080.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -13929,6 +15561,16 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "佐賀県",
+      "municipality": "鹿島市",
+      "municipality_code": "41207",
+      "source_url": "https://www.city.saga-kashima.lg.jp/main/21850.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "牛津総合公園",
       "prefecture": "佐賀県",
@@ -13946,6 +15588,16 @@
       "municipality_code": "41208",
       "source_url": "https://www.city.ogi.lg.jp/main/5454.html",
       "surveyed_at": "2026-10-17T23:58:02Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "佐賀県",
+      "municipality": "小城市",
+      "municipality_code": "41208",
+      "source_url": "https://ssk-ushidu.com/footballcenter.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -14093,6 +15745,16 @@
     {
       "kind": "listing",
       "name": null,
+      "prefecture": "長崎県",
+      "municipality": "長与町",
+      "municipality_code": "42307",
+      "source_url": "https://webtown.nagayo.jp/dynamic/info/pub/detail.aspx?c_id=29&id=40",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
       "prefecture": "熊本県",
       "municipality": "熊本市",
       "municipality_code": "43100",
@@ -14201,6 +15863,26 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "熊本県",
+      "municipality": "玉名市",
+      "municipality_code": "43206",
+      "source_url": "https://www.city.tamana.lg.jp/q/list/429.html?pg=1",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "11時12分 菊池市営都市公園",
+      "prefecture": "熊本県",
+      "municipality": "菊池市",
+      "municipality_code": "43210",
+      "source_url": "https://www.city.kikuchi.lg.jp/article/view/1024/1214.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "菊池市営グラウンド",
       "prefecture": "熊本県",
@@ -14291,6 +15973,16 @@
       "flags": [
         "名前が一般的（市区町村名と合わせて表示する）"
       ]
+    },
+    {
+      "kind": "facility",
+      "name": "林間広場",
+      "prefecture": "熊本県",
+      "municipality": "小国町",
+      "municipality_code": "43424",
+      "source_url": "https://www.town.kumamoto-oguni.lg.jp/kurashinojyoho/kurashi_shisetsu/20235",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
     },
     {
       "kind": "facility",
@@ -14412,6 +16104,16 @@
       "municipality_code": "44201",
       "source_url": "https://www.city.oita.oita.jp/o044/tobukominkanshisetu.html",
       "surveyed_at": "2026-10-17T23:54:48Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "南部地域交流センター・南部児童館 行事予定",
+      "prefecture": "大分県",
+      "municipality": "別府市",
+      "municipality_code": "44202",
+      "source_url": "https://www.city.beppu.oita.jp/kosodate/kouza_event_saakuru/nanbu_gyouji.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -14790,6 +16492,16 @@
       "kind": "listing",
       "name": null,
       "prefecture": "宮崎県",
+      "municipality": "えびの市",
+      "municipality_code": "45209",
+      "source_url": "https://ebinosportstourism.wixsite.com/estpc/facility",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "宮崎県",
       "municipality": "三股町",
       "municipality_code": "45341",
       "source_url": "https://www.town.mimata.lg.jp/contents/1301.html",
@@ -14877,6 +16589,18 @@
       "source_url": "https://www.city.kagoshima.lg.jp/sports/shisetsu/kanko/044_50025_325.html",
       "surveyed_at": "2026-10-18T00:05:47Z",
       "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "広場",
+      "prefecture": "鹿児島県",
+      "municipality": "鹿児島市",
+      "municipality_code": "46201",
+      "source_url": "https://www.city.kagoshima.lg.jp/kensetu/kensetukanri/kouenryokuka/shisetsu/kanko/40063_40063_162.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": [
+        "名前が一般的（市区町村名と合わせて表示する）"
+      ]
     },
     {
       "kind": "facility",
@@ -15115,6 +16839,26 @@
       "flags": []
     },
     {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "鹿児島県",
+      "municipality": "指宿市",
+      "municipality_code": "46210",
+      "source_url": "https://www.city.ibusuki.lg.jp/main/kyoiku/sports/shisetsu/page007338.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "鹿児島県",
+      "municipality": "指宿市",
+      "municipality_code": "46210",
+      "source_url": "https://www.city.ibusuki.lg.jp/main/kyoiku/sports/shisetsu/page007337.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "facility",
       "name": "中央運動公園キララドーム",
       "prefecture": "鹿児島県",
@@ -15205,6 +16949,26 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "樋脇 グラウンド・ゴルフ場",
+      "prefecture": "鹿児島県",
+      "municipality": "薩摩川内市",
+      "municipality_code": "46215",
+      "source_url": "https://ichihino.com/blog/category/gg",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "薩摩川内市 樋脇 グラウンド・ゴルフ場",
+      "prefecture": "鹿児島県",
+      "municipality": "薩摩川内市",
+      "municipality_code": "46215",
+      "source_url": "https://ichihino.com/blog/gg/gg",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "鹿児島県",
@@ -15222,6 +16986,16 @@
       "municipality_code": "46215",
       "source_url": "https://www.city.satsumasendai.lg.jp/kanko_bunka_sports/sports/2/9052.html",
       "surveyed_at": "2026-10-18T00:06:14Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "日置市B&G東市来海洋センター",
+      "prefecture": "鹿児島県",
+      "municipality": "日置市",
+      "municipality_code": "46216",
+      "source_url": "https://www.city.hioki.kagoshima.jp/sposhin/shisetsu/taiku/higashiichikikaiyoucenter.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {
@@ -15683,6 +17457,18 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "野球場",
+      "prefecture": "鹿児島県",
+      "municipality": "中種子町",
+      "municipality_code": "46501",
+      "source_url": "https://town.nakatane.kagoshima.jp/taiku/kyoiku-bunka/sports/shisetsu/yakyujo.html",
+      "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": [
+        "名前が一般的（市区町村名と合わせて表示する）"
+      ]
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "鹿児島県",
@@ -15730,6 +17516,16 @@
       "municipality_code": "47208",
       "source_url": "https://www.city.urasoe.lg.jp/doc/2025030500083/",
       "surveyed_at": "2026-10-17T23:55:06Z",
+      "flags": []
+    },
+    {
+      "kind": "listing",
+      "name": null,
+      "prefecture": "沖縄県",
+      "municipality": "名護市",
+      "municipality_code": "47209",
+      "source_url": "https://www.sports-commission.okinawa/sports-facility/",
+      "surveyed_at": "2026-11-14T00:00:00Z",
       "flags": []
     },
     {

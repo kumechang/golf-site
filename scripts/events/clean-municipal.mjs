@@ -5,7 +5,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseCsv } from '../places/lib.mjs';
-import { buildMunicipalEvents } from './municipal-lib.mjs';
+import { buildMunicipalEvents, tidyEventName } from './municipal-lib.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const args = process.argv.slice(2);
@@ -31,10 +31,14 @@ let finalEvents = events;
 let from = extracted[0] ?? null;
 if (args.includes('--merge') && existsSync(outPath)) {
   const prev = JSON.parse(readFileSync(outPath, 'utf8'));
+  // 名前の整え方を直したときに、すでに載せているものの名前にも反映する（id は変えない）
+  const prevRaw = new Map(prev.events.map((e) => [e.id, e]));
+  const freshIds = new Set(events.map((e) => e.id));
+  prev.events = prev.events.map((e) => (freshIds.has(e.id) ? e : { ...e, name: tidyEventName(e.name).name || e.name }));
   const byId = new Map(prev.events.map((e) => [e.id, e]));
   const fresh = new Set(events.map((e) => e.id));
   const added = events.filter((e) => !byId.has(e.id)).length;
-  const changed = events.filter((e) => byId.has(e.id) && ['name', 'start', 'end', 'venue', 'organizer', 'target', 'fee', 'deadline', 'contact_dept', 'contact_phone', 'cancelled', 'postponed', 'date_kind', 'source_url'].some((k) => (byId.get(e.id)[k] ?? null) !== (e[k] ?? null))).length;
+  const changed = events.filter((e) => prevRaw.has(e.id) && ['name', 'start', 'end', 'venue', 'organizer', 'target', 'fee', 'deadline', 'contact_dept', 'contact_phone', 'cancelled', 'postponed', 'date_kind', 'source_url'].some((k) => (prevRaw.get(e.id)[k] ?? null) !== (e[k] ?? null))).length;
   const kept = prev.events.filter((e) => !fresh.has(e.id) && !(e.id in overrides));
   for (const e of events) byId.set(e.id, e);
   finalEvents = [...prev.events.filter((e) => byId.has(e.id) && !(e.id in overrides)).map((e) => byId.get(e.id)), ...events.filter((e) => !prev.events.some((p) => p.id === e.id))];

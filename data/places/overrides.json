@@ -399,6 +399,90 @@
     {
       "source_url": "https://www.town.fukuchi.lg.jp/life/shisetsu/sport/1077.html",
       "exclude": true
+    },
+    {
+      "source_url": "https://www.city.tochigi.lg.jp/soshiki/103/14727.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.tochigi.lg.jp/soshiki/40/56376.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.hanyu-gym.com/ホーム/各種コート番号/",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.hanyu-gym.com/",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.kashiwa.lg.jp/koenryokuchi/shiseijoho/keikaku/shigoto/kaihatsu/kouen/shiyoshinse.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.seibu-la.co.jp/himenosawa/facility/",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.zushi.kanagawa.jp/shiminkatsudo/sports/1004511/1007163/1007167.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://iruma-sports.jp/taiikukan/",
+      "exclude": true
+    },
+    {
+      "source_url": "https://iruma-sports.jp/undo-park/",
+      "exclude": true
+    },
+    {
+      "source_url": "https://webc.sjc.ne.jp/inabe/index",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.kakogun-sjc.org/wp/jobs/",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.toyonaka.osaka.jp/jinken_gakushu/sports/play_sports/event/groundgolf.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.nagoya.jp/minami/kurashi/1023895/1023900.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://nh-sportsnomori.jp/mishima-sports-center/",
+      "exclude": true
+    },
+    {
+      "source_url": "https://shiga-imazu.com/park",
+      "exclude": true
+    },
+    {
+      "source_url": "https://ichihino.com/blog/gg/gg",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.kikuchi.lg.jp/article/view/1024/1214.html",
+      "name": "菊池市営都市公園"
+    },
+    {
+      "source_url": "https://www.city.beppu.oita.jp/kosodate/kouza_event_saakuru/nanbu_gyouji.html",
+      "name": "南部地域交流センター・南部児童館"
+    },
+    {
+      "source_url": "https://itoshimashisportspark.jp/facility/",
+      "name": "糸島市運動公園"
+    },
+    {
+      "source_url": "https://hino-playground.com/facility/ballfield",
+      "name": "日野市立多摩川グラウンド"
+    },
+    {
+      "source_url": "https://shimintaiiku.maebashi-cc.or.jp/gaiyo",
+      "name": "ヤマト市民体育館前橋"
     }
   ]
 }
