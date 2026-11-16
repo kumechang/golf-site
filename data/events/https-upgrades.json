@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-11T02:41:59.524Z",
+  "checked_at": "2026-11-16T05:45:50.330Z",
   "upgrades": {
     "http://www.tokunoshima-town.org/omotenashikanko/gyoujiyotei/2026guraunndogoruhu.html": "https://www.tokunoshima-town.org/omotenashikanko/gyoujiyotei/2026guraunndogoruhu.html",
     "http://www.town.kikai.lg.jp/koho/eventcalendar/2026102505.html": "https://www.town.kikai.lg.jp/koho/eventcalendar/2026102505.html",
@@ -14,6 +14,7 @@
     "http://www.town.takahama.fukui.jp/page/kyouiku/p009035.html": "https://www.town.takahama.fukui.jp/page/kyouiku/p009035.html",
     "http://www.yurihama.jp/soshiki/20/28417.html": "https://www.yurihama.jp/soshiki/20/28417.html",
     "http://www.yurihama.jp/soshiki/7/10633.html": "https://www.yurihama.jp/soshiki/7/10633.html",
-    "http://www.town.kikai.lg.jp/cgi-bin/event_cal_multi/calendar.cgi?type=1&year=2026&month=9": "https://www.town.kikai.lg.jp/cgi-bin/event_cal_multi/calendar.cgi?type=1&year=2026&month=9"
+    "http://www.town.kikai.lg.jp/cgi-bin/event_cal_multi/calendar.cgi?type=1&year=2026&month=9": "https://www.town.kikai.lg.jp/cgi-bin/event_cal_multi/calendar.cgi?type=1&year=2026&month=9",
+    "http://www.yurihama.jp/soshiki/7/10631.html": "https://www.yurihama.jp/soshiki/7/10631.html"
   }
 }

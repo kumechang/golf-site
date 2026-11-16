@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-11T02:46:27.357Z",
+  "generated_at": "2026-11-16T05:47:39.973Z",
   "source_extracted_from": "2026-11-04T04:24:45Z",
-  "source_extracted_to": "2026-11-11T02:35:24Z",
+  "source_extracted_to": "2026-11-14T05:12:39Z",
   "events": [
     {
       "id": "M-d1df3a13",
@@ -24,7 +24,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.tachiarai.fukuoka.jp/kiji0031541/index.html",
-      "extracted_at": "2026-11-11T02:33:23Z"
+      "extracted_at": "2026-11-14T05:12:39Z"
     },
     {
       "id": "M-124cadab",
@@ -47,7 +47,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.nonoichi.lg.jp/soshiki/37/59281.html",
-      "extracted_at": "2026-11-11T02:28:24Z"
+      "extracted_at": "2026-11-14T01:30:28Z"
     },
     {
       "id": "M-58dbec4c",
@@ -70,7 +70,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.nonoichi.lg.jp/soshiki/37/59139.html",
-      "extracted_at": "2026-11-11T02:28:24Z"
+      "extracted_at": "2026-11-14T01:30:28Z"
     },
     {
       "id": "M-00565774",
@@ -93,7 +93,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.nagoya.jp/nishi/kurashi/1020437/1035846.html",
-      "extracted_at": "2026-11-11T02:28:07Z"
+      "extracted_at": "2026-11-14T02:06:45Z"
     },
     {
       "id": "M-536be8cd",
@@ -116,7 +116,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.sakado.lg.jp/soshiki/51/52456.html",
-      "extracted_at": "2026-11-11T02:30:13Z"
+      "extracted_at": "2026-11-14T03:25:34Z"
     },
     {
       "id": "M-13c22db3",
@@ -139,7 +139,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.shiogama.miyagi.jp/soshiki/38/32292.html",
-      "extracted_at": "2026-11-11T02:30:54Z"
+      "extracted_at": "2026-11-14T02:57:43Z"
     },
     {
       "id": "M-b8c7cbc8",
@@ -185,7 +185,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.numata.gunma.jp/event/taiiku/1009418.html",
-      "extracted_at": "2026-11-11T02:29:51Z"
+      "extracted_at": "2026-11-14T02:16:52Z"
     },
     {
       "id": "M-1da69298",
@@ -208,7 +208,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.shibushi.lg.jp/soshiki/35/31496.html",
-      "extracted_at": "2026-11-11T02:35:00Z"
+      "extracted_at": "2026-11-14T04:42:08Z"
     },
     {
       "id": "M-80e7a946",
@@ -231,7 +231,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.hachinohe.aomori.jp/bunka_sports/sports/oshirase/20637.html",
-      "extracted_at": "2026-11-11T02:30:28Z"
+      "extracted_at": "2026-11-14T03:19:05Z"
     },
     {
       "id": "M-6d90a0bc",
@@ -254,7 +254,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.ami.lg.jp/0000010508.html",
-      "extracted_at": "2026-11-11T02:29:48Z"
+      "extracted_at": "2026-11-14T03:07:01Z"
     },
     {
       "id": "M-f3f3f7b2",
@@ -277,7 +277,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yokkaichi.lg.jp/www/contents/1751268024375/index.html",
-      "extracted_at": "2026-11-11T02:27:55Z"
+      "extracted_at": "2026-11-14T01:38:27Z"
     },
     {
       "id": "M-5c90bed5",
@@ -300,7 +300,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.choshi.chiba.jp/edu/sg-guide/page2101_00087.html",
-      "extracted_at": "2026-11-11T02:29:47Z"
+      "extracted_at": "2026-11-14T02:32:15Z"
     },
     {
       "id": "M-80f89e4a",
@@ -323,7 +323,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.omura.nagasaki.jp/sportsshisetsu/kyoiku/sport/event/shiminsports/2025shiminsportstaikai.html",
-      "extracted_at": "2026-11-04T04:25:57Z"
+      "extracted_at": "2026-11-14T04:13:25Z"
     },
     {
       "id": "M-fb6219bc",
@@ -346,7 +346,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.nakadomari.lg.jp/kanko_bunka_sports/shogaigakushu/4878.html",
-      "extracted_at": "2026-11-11T02:30:31Z"
+      "extracted_at": "2026-11-14T03:19:08Z"
     },
     {
       "id": "M-3b30dc95",
@@ -392,14 +392,14 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.harima.lg.jp/kyodo/event/golf.html",
-      "extracted_at": "2026-11-11T02:28:02Z"
+      "extracted_at": "2026-11-14T02:53:45Z"
     },
     {
       "id": "M-d73d5e33",
       "prefecture": "大阪府",
       "municipality_code": "27229",
       "municipality": "四條畷市",
-      "name": "なわてスポーツフェスティバル2025 ご参加ありがとうございました",
+      "name": "なわてスポーツフェスティバル2025",
       "kind": "multi",
       "start": "2025-10-26",
       "end": "2025-10-26",
@@ -438,7 +438,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.numata.gunma.jp/event/taiiku/1016166.html",
-      "extracted_at": "2026-11-11T02:29:51Z"
+      "extracted_at": "2026-11-14T02:16:52Z"
     },
     {
       "id": "M-f96771b2",
@@ -461,7 +461,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.ibaraki-koga.lg.jp/soshiki/sports/2/sportsfesta/20205.html",
-      "extracted_at": "2026-11-11T02:29:43Z"
+      "extracted_at": "2026-11-14T03:06:56Z"
     },
     {
       "id": "M-203e4c85",
@@ -507,7 +507,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.sakado.lg.jp/soshiki/51/54885.html",
-      "extracted_at": "2026-11-11T02:30:13Z"
+      "extracted_at": "2026-11-14T03:25:34Z"
     },
     {
       "id": "M-c1e55588",
@@ -530,7 +530,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.masaki.ehime.jp/soshiki/39/33885.html",
-      "extracted_at": "2026-11-11T02:32:59Z"
+      "extracted_at": "2026-11-14T03:59:02Z"
     },
     {
       "id": "M-7d87ac6d",
@@ -553,7 +553,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kanoya.lg.jp/shisupo/bunka/sport/event/minaminihon.html",
-      "extracted_at": "2026-11-11T02:35:04Z"
+      "extracted_at": "2026-11-14T04:42:10Z"
     },
     {
       "id": "M-48ccd0c6",
@@ -576,7 +576,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kumagaya.lg.jp/kanko/kumaspo/sportsevent/suporec.html",
-      "extracted_at": "2026-11-11T02:30:01Z"
+      "extracted_at": "2026-11-14T03:25:22Z"
     },
     {
       "id": "M-55673b9c",
@@ -599,7 +599,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.nagoya.jp/chikusa/kurashi/1036473/1019080/index.html",
-      "extracted_at": "2026-11-04T04:25:19Z"
+      "extracted_at": "2026-11-14T02:06:45Z"
     },
     {
       "id": "M-b9da0b5e",
@@ -645,7 +645,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yatomi.lg.jp/kurashi/1000296/1000305/1003639.html",
-      "extracted_at": "2026-11-11T02:28:08Z"
+      "extracted_at": "2026-11-14T02:06:39Z"
     },
     {
       "id": "M-f115f544",
@@ -668,7 +668,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.hiratsuka.kanagawa.jp/sport/page-c_03364.html",
-      "extracted_at": "2026-11-11T02:30:09Z"
+      "extracted_at": "2026-11-14T03:18:16Z"
     },
     {
       "id": "M-7fdd270e",
@@ -691,7 +691,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.amagasaki.hyogo.jp/manabu/sports_act/1029729/1014192/index.html",
-      "extracted_at": "2026-11-11T02:27:51Z"
+      "extracted_at": "2026-11-14T02:53:30Z"
     },
     {
       "id": "M-621d9022",
@@ -714,7 +714,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.fujioka.gunma.jp/kanko_bunka_sports/sports/3/3/10220.html",
-      "extracted_at": "2026-11-11T02:29:57Z"
+      "extracted_at": "2026-11-14T02:16:58Z"
     },
     {
       "id": "M-6e1af1bf",
@@ -737,7 +737,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.chuo.lg.jp/a0015/bunkakankou/sports/jigyou/taikai/sportsfestival.html",
-      "extracted_at": "2026-11-11T02:30:00Z"
+      "extracted_at": "2026-11-14T03:15:19Z"
     },
     {
       "id": "M-32b7e719",
@@ -760,7 +760,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.nagoya.jp/midori/profile/1051388/1051495.html",
-      "extracted_at": "2026-11-11T02:28:07Z"
+      "extracted_at": "2026-11-14T02:06:45Z"
     },
     {
       "id": "M-3bf02f31",
@@ -806,7 +806,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.atsugi.kanagawa.jp/bunka_sports/sports/4/36268.html",
-      "extracted_at": "2026-11-11T02:30:10Z"
+      "extracted_at": "2026-11-14T03:18:17Z"
     },
     {
       "id": "M-baa2c637",
@@ -829,7 +829,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kumamoto.jp/kiji00348308/index.html",
-      "extracted_at": "2026-11-11T02:33:27Z"
+      "extracted_at": "2026-11-14T05:10:16Z"
     },
     {
       "id": "M-fa6bcc19",
@@ -852,7 +852,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.ora.gunma.jp/s047/040/080/020/sports3.html",
-      "extracted_at": "2026-11-11T02:29:51Z"
+      "extracted_at": "2026-11-14T02:16:53Z"
     },
     {
       "id": "M-0e676dd9",
@@ -875,7 +875,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yamatokoriyama.lg.jp/kanko_bunka_sports/sports/sportsevent/11455.html",
-      "extracted_at": "2026-11-11T02:27:51Z"
+      "extracted_at": "2026-11-14T01:28:58Z"
     },
     {
       "id": "M-1507611a",
@@ -898,7 +898,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.fujioka.gunma.jp/soshiki/kyoikuiinkai/sports/4/1/3/10358.html",
-      "extracted_at": "2026-11-11T02:29:57Z"
+      "extracted_at": "2026-11-14T02:16:58Z"
     },
     {
       "id": "M-d844a696",
@@ -921,7 +921,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.nagoya.jp/tempaku/kurashi/1025688/1048879/1050210.html",
-      "extracted_at": "2026-11-11T02:28:07Z"
+      "extracted_at": "2026-11-14T02:06:45Z"
     },
     {
       "id": "M-45d6af00",
@@ -967,7 +967,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.nagoya.jp/meito/kurashi/1025192/1025197/1049708/1050645.html",
-      "extracted_at": "2026-11-11T02:28:07Z"
+      "extracted_at": "2026-11-14T02:06:45Z"
     },
     {
       "id": "M-57795f19",
@@ -990,7 +990,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.fujioka.gunma.jp/soshiki/kyoikuiinkai/sports/4/1/3/10407.html",
-      "extracted_at": "2026-11-11T02:29:57Z"
+      "extracted_at": "2026-11-14T02:16:58Z"
     },
     {
       "id": "M-45f8b94b",
@@ -1013,7 +1013,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.yurihama.jp/soshiki/20/28417.html",
-      "extracted_at": "2026-11-11T02:34:16Z"
+      "extracted_at": "2026-11-14T03:46:14Z"
     },
     {
       "id": "M-43948b39",
@@ -1036,7 +1036,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yokohama.lg.jp/aoba/kurashi/kyodo_manabi/manabi/sports/aobagolf.html",
-      "extracted_at": "2026-11-11T02:30:22Z"
+      "extracted_at": "2026-11-14T03:18:29Z"
     },
     {
       "id": "M-77a90c9e",
@@ -1059,7 +1059,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www4.city.kanazawa.lg.jp/soshikikarasagasu/sportsshinkoka/gyomuannai/1/23444.html",
-      "extracted_at": "2026-11-11T02:28:22Z"
+      "extracted_at": "2026-11-14T01:30:27Z"
     },
     {
       "id": "M-f83ba384",
@@ -1082,7 +1082,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.hiezu.jp/%e6%b5%b7%e6%b5%9c%e9%81%8b%e5%8b%95%e5%85%ac%e5%9c%92%e3%82%b9%e3%83%9d%e3%83%bc%e3%83%84%e5%ba%83%e5%a0%b4%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%e3%80%8c%e6%97%a5/",
-      "extracted_at": "2026-11-11T02:31:45Z"
+      "extracted_at": "2026-11-14T03:43:33Z"
     },
     {
       "id": "M-c9cd247c",
@@ -1105,7 +1105,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.okagaki.lg.jp/s021/20260701114725.html",
-      "extracted_at": "2026-11-11T02:33:21Z"
+      "extracted_at": "2026-11-14T05:12:37Z"
     },
     {
       "id": "M-bcc7c506",
@@ -1128,7 +1128,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kashima.ibaraki.jp/site/kouminkan/91589.html",
-      "extracted_at": "2026-11-11T02:29:38Z"
+      "extracted_at": "2026-11-14T03:06:51Z"
     },
     {
       "id": "M-93fde42e",
@@ -1151,7 +1151,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.atsugi.kanagawa.jp/bunka_sports/sports/4/36268.html",
-      "extracted_at": "2026-11-11T02:30:10Z"
+      "extracted_at": "2026-11-14T03:18:17Z"
     },
     {
       "id": "M-4cd5be1c",
@@ -1174,7 +1174,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.atsugi.kanagawa.jp/bunka_sports/sports/4/36268.html",
-      "extracted_at": "2026-11-11T02:30:10Z"
+      "extracted_at": "2026-11-14T03:18:17Z"
     },
     {
       "id": "M-731f75a1",
@@ -1197,7 +1197,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kiyokawa.kanagawa.jp/Sightseeing/sports/4013.html",
-      "extracted_at": "2026-11-11T02:30:12Z"
+      "extracted_at": "2026-11-14T03:18:21Z"
     },
     {
       "id": "M-4061b4b0",
@@ -1220,7 +1220,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.nonoichi.lg.jp/soshiki/37/67652.html",
-      "extracted_at": "2026-11-11T02:28:24Z"
+      "extracted_at": "2026-11-14T01:30:28Z"
     },
     {
       "id": "M-afdeb4f4",
@@ -1243,7 +1243,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kanoya.lg.jp/kouhou/sonota/aki.html",
-      "extracted_at": "2026-11-11T02:35:04Z"
+      "extracted_at": "2026-11-14T04:42:10Z"
     },
     {
       "id": "M-9f0b4eb0",
@@ -1266,7 +1266,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.shiogama.miyagi.jp/soshiki/38/39108.html",
-      "extracted_at": "2026-11-11T02:30:54Z"
+      "extracted_at": "2026-11-14T02:57:43Z"
     },
     {
       "id": "M-6d7b2eeb",
@@ -1289,7 +1289,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.handa.lg.jp/bunka/sports/1002787/1002792/1002793.html",
-      "extracted_at": "2026-11-11T02:28:01Z"
+      "extracted_at": "2026-11-14T02:06:25Z"
     },
     {
       "id": "M-fa9753dc",
@@ -1312,7 +1312,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.higashiyamato.lg.jp/bunkasports/event/1003707/1011070.html",
-      "extracted_at": "2026-11-11T02:29:54Z"
+      "extracted_at": "2026-11-14T03:15:16Z"
     },
     {
       "id": "M-8c18e9ff",
@@ -1335,7 +1335,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kumatori.lg.jp/bunka_sports/15525.html",
-      "extracted_at": "2026-11-11T02:28:01Z"
+      "extracted_at": "2026-11-14T02:22:19Z"
     },
     {
       "id": "M-5e062213",
@@ -1358,7 +1358,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.numata.gunma.jp/event/taiiku/1018104.html",
-      "extracted_at": "2026-11-11T02:29:51Z"
+      "extracted_at": "2026-11-14T02:16:52Z"
     },
     {
       "id": "M-c4678f41",
@@ -1381,7 +1381,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.e-hokuei.net/soshiki/2/9144.html",
-      "extracted_at": "2026-11-11T02:31:44Z"
+      "extracted_at": "2026-11-14T03:43:32Z"
     },
     {
       "id": "M-22153ca3",
@@ -1404,7 +1404,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kanan.osaka.jp/kanko_bunka_sports/sports/1/8480.html",
-      "extracted_at": "2026-11-11T02:27:57Z"
+      "extracted_at": "2026-11-14T02:22:17Z"
     },
     {
       "id": "M-809fd27b",
@@ -1427,7 +1427,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.miura.kanagawa.jp/kanko_bunka_sports/leisure_sports/1/6204.html",
-      "extracted_at": "2026-11-11T02:30:09Z"
+      "extracted_at": "2026-11-14T03:18:15Z"
     },
     {
       "id": "M-c677fef4",
@@ -1450,7 +1450,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.bandai.fukushima.jp/site/bunka-sports/bandaispofes2026_event.html",
-      "extracted_at": "2026-11-11T02:31:34Z"
+      "extracted_at": "2026-11-14T03:07:11Z"
     },
     {
       "id": "M-4d2f7ba6",
@@ -1473,7 +1473,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.tokunoshima-town.org/omotenashikanko/gyoujiyotei/2026guraunndogoruhu.html",
-      "extracted_at": "2026-11-11T02:35:01Z"
+      "extracted_at": "2026-11-14T04:42:10Z"
     },
     {
       "id": "M-2b0e3cdb",
@@ -1496,7 +1496,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.miyazaki.miyazaki.jp/health/sports/205079.html",
-      "extracted_at": "2026-11-11T02:33:53Z"
+      "extracted_at": "2026-11-14T04:29:34Z"
     },
     {
       "id": "M-ff855200",
@@ -1542,7 +1542,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.tamamura.lg.jp/docs/2024040800022/",
-      "extracted_at": "2026-11-11T02:29:51Z"
+      "extracted_at": "2026-11-14T02:16:52Z"
     },
     {
       "id": "M-e6a3cabe",
@@ -1565,7 +1565,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.moriya.ibaraki.jp/bunka_sports_shiminkatsudou/sports/1008050/1009252.html",
-      "extracted_at": "2026-11-11T02:29:40Z"
+      "extracted_at": "2026-11-14T03:06:54Z"
     },
     {
       "id": "M-b8fdbe77",
@@ -1588,7 +1588,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yachiyo.lg.jp/soshiki/67/83901.html",
-      "extracted_at": "2026-11-11T02:29:55Z"
+      "extracted_at": "2026-11-14T02:32:22Z"
     },
     {
       "id": "M-1e981ebf",
@@ -1611,7 +1611,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kasai.hyogo.jp/soshiki/5/54015.html",
-      "extracted_at": "2026-11-11T02:27:49Z"
+      "extracted_at": "2026-11-14T02:53:28Z"
     },
     {
       "id": "M-697280cc",
@@ -1634,7 +1634,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.moroyama.saitama.jp/gyoseisite/manabi_bunka_sports/event/10740.html",
-      "extracted_at": "2026-11-11T02:30:08Z"
+      "extracted_at": "2026-11-14T03:25:29Z"
     },
     {
       "id": "M-c8afeb3c",
@@ -1657,7 +1657,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.tokigawa.lg.jp/Info/2778",
-      "extracted_at": "2026-11-11T02:30:14Z"
+      "extracted_at": "2026-11-14T03:25:35Z"
     },
     {
       "id": "M-cf3d7f53",
@@ -1680,7 +1680,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.fuchu.tokyo.jp/bunka/sport/jigyo/taikai/shimintaiikutaikaisyuukitaikai.html",
-      "extracted_at": "2026-11-11T02:29:58Z"
+      "extracted_at": "2026-11-14T03:15:20Z"
     },
     {
       "id": "M-10bb2081",
@@ -1703,7 +1703,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kumamoto-nishiki.lg.jp/kiji0031241/index.html",
-      "extracted_at": "2026-11-11T02:33:29Z"
+      "extracted_at": "2026-11-14T05:10:19Z"
     },
     {
       "id": "M-31284241",
@@ -1726,7 +1726,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kuwana.lg.jp/sports/bunka/sports/2026guraundogoruhu.html",
-      "extracted_at": "2026-11-11T02:27:54Z"
+      "extracted_at": "2026-11-14T01:38:26Z"
     },
     {
       "id": "M-6c960c65",
@@ -1749,7 +1749,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yokkaichi.lg.jp/www/contents/1782285993253/index.html",
-      "extracted_at": "2026-11-11T02:27:55Z"
+      "extracted_at": "2026-11-14T01:38:27Z"
     },
     {
       "id": "M-4942daa0",
@@ -1772,7 +1772,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.imari.lg.jp/14883.htm",
-      "extracted_at": "2026-11-11T02:33:26Z"
+      "extracted_at": "2026-11-14T03:58:16Z"
     },
     {
       "id": "M-577dfa69",
@@ -1795,7 +1795,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.imari.lg.jp/14883.htm",
-      "extracted_at": "2026-11-11T02:33:26Z"
+      "extracted_at": "2026-11-14T03:58:16Z"
     },
     {
       "id": "M-c1791c8a",
@@ -1818,7 +1818,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.karatsu.lg.jp/page/51539.html",
-      "extracted_at": "2026-11-11T02:33:24Z"
+      "extracted_at": "2026-11-14T03:58:15Z"
     },
     {
       "id": "M-f14e3831",
@@ -1841,7 +1841,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.karatsu.lg.jp/page/51540.html",
-      "extracted_at": "2026-11-11T02:33:24Z"
+      "extracted_at": "2026-11-14T03:58:15Z"
     },
     {
       "id": "M-cebbd484",
@@ -1864,7 +1864,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.aioi.lg.jp/soshiki/taiikushinko/festival.html",
-      "extracted_at": "2026-11-11T02:27:47Z"
+      "extracted_at": "2026-11-14T02:53:26Z"
     },
     {
       "id": "M-7efea3e0",
@@ -1887,7 +1887,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.choshi.chiba.jp/edu/sg-guide/page2101_00124.html",
-      "extracted_at": "2026-11-11T02:29:47Z"
+      "extracted_at": "2026-11-14T02:32:15Z"
     },
     {
       "id": "M-de274b77",
@@ -1910,7 +1910,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.shibayama.lg.jp/0000006566.html",
-      "extracted_at": "2026-11-11T02:29:53Z"
+      "extracted_at": "2026-11-14T02:32:21Z"
     },
     {
       "id": "M-5b2694b0",
@@ -1933,7 +1933,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kawai.nara.jp/taiiku/2/9/7810.html",
-      "extracted_at": "2026-11-11T02:27:55Z"
+      "extracted_at": "2026-11-14T01:29:04Z"
     },
     {
       "id": "M-dbe86928",
@@ -1956,7 +1956,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.chikujo.fukuoka.jp/s046/030/010/010/110/110/sports_festival.html",
-      "extracted_at": "2026-11-11T02:33:21Z"
+      "extracted_at": "2026-11-14T05:12:39Z"
     },
     {
       "id": "M-b9998624",
@@ -1979,7 +1979,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.omura.nagasaki.jp/sportsshisetsu/kyoiku/sport/event/shiminsports/2026shiminsportstaikai.html",
-      "extracted_at": "2026-11-04T04:25:57Z"
+      "extracted_at": "2026-11-14T04:13:25Z"
     },
     {
       "id": "M-fc2a8a50",
@@ -2002,7 +2002,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.nabari.lg.jp/s062/20220831154417.html",
-      "extracted_at": "2026-11-11T02:27:52Z"
+      "extracted_at": "2026-11-14T01:38:23Z"
     },
     {
       "id": "M-4d1bb66b",
@@ -2025,7 +2025,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.ichikawa.lg.jp/page/1436.html",
-      "extracted_at": "2026-11-11T02:29:46Z"
+      "extracted_at": "2026-11-14T02:32:15Z"
     },
     {
       "id": "M-52f439da",
@@ -2048,7 +2048,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.oji.nara.jp/kakuka/kyoikuiinkai/syogaigakusyu/event/oji_sports7_1/11822.html",
-      "extracted_at": "2026-11-11T02:27:53Z"
+      "extracted_at": "2026-11-14T01:28:59Z"
     },
     {
       "id": "M-7a1f8d5a",
@@ -2071,7 +2071,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.yukuhashi.fukuoka.jp/soshiki/14/33909.html",
-      "extracted_at": "2026-11-11T02:33:22Z"
+      "extracted_at": "2026-11-14T05:12:38Z"
     },
     {
       "id": "M-15027960",
@@ -2117,7 +2117,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.fuchu.tokyo.jp/bunka/bunkacenter/oshitate/guraunndogorufutaikai.html",
-      "extracted_at": "2026-11-11T02:29:58Z"
+      "extracted_at": "2026-11-14T03:15:20Z"
     },
     {
       "id": "M-a1bb9701",
@@ -2140,7 +2140,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.iwade.lg.jp/soshiki/20/2447.html",
-      "extracted_at": "2026-11-11T02:29:26Z"
+      "extracted_at": "2026-11-14T01:55:20Z"
     },
     {
       "id": "M-49afe3ec",
@@ -2163,7 +2163,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.hayakawa.yamanashi.jp/people/sports/groundgolf.html",
-      "extracted_at": "2026-11-11T02:31:26Z"
+      "extracted_at": "2026-11-14T03:30:04Z"
     },
     {
       "id": "M-4aed1f34",
@@ -2186,7 +2186,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.musashimurayama.lg.jp/kurashi/taiiku/1011913/1005584.html",
-      "extracted_at": "2026-11-11T02:30:08Z"
+      "extracted_at": "2026-11-14T03:15:30Z"
     },
     {
       "id": "M-f60e83a3",
@@ -2209,7 +2209,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kurume.fukuoka.jp/1500soshiki/9044fukushi/3010oshirase/hureai_sports.html",
-      "extracted_at": "2026-11-04T04:24:59Z"
+      "extracted_at": "2026-11-14T05:12:37Z"
     },
     {
       "id": "M-e636421e",
@@ -2232,7 +2232,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.fujioka.gunma.jp/soshiki/kyoikuiinkai/sports/4/1/3/9600.html",
-      "extracted_at": "2026-11-11T02:29:57Z"
+      "extracted_at": "2026-11-14T02:16:58Z"
     },
     {
       "id": "M-fcbd2af9",
@@ -2255,7 +2255,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.itabashi.tokyo.jp/bunka/sports/jigyo/1054490.html",
-      "extracted_at": "2026-11-11T02:29:57Z"
+      "extracted_at": "2026-11-14T03:15:18Z"
     },
     {
       "id": "M-bae62c62",
@@ -2278,7 +2278,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.numata.gunma.jp/event/taiiku/1018133.html",
-      "extracted_at": "2026-11-11T02:29:51Z"
+      "extracted_at": "2026-11-14T02:16:52Z"
     },
     {
       "id": "M-548aab3b",
@@ -2301,7 +2301,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.ichinoseki.iwate.jp/archive/p20260917135853",
-      "extracted_at": "2026-11-11T02:30:46Z"
+      "extracted_at": "2026-11-14T03:22:29Z"
     },
     {
       "id": "M-b9330af9",
@@ -2324,7 +2324,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.iizuka.lg.jp/soshiki/17/1278.html",
-      "extracted_at": "2026-11-11T02:33:20Z"
+      "extracted_at": "2026-11-14T05:12:35Z"
     },
     {
       "id": "M-556287a7",
@@ -2347,7 +2347,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.daisen.lg.jp/archive/p20261001132415",
-      "extracted_at": "2026-11-11T02:31:02Z"
+      "extracted_at": "2026-11-14T02:59:51Z"
     },
     {
       "id": "M-0fa5c37d",
@@ -2370,7 +2370,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kikai.lg.jp/koho/eventcalendar/2026102505.html",
-      "extracted_at": "2026-11-11T02:35:24Z"
+      "extracted_at": "2026-11-14T04:42:32Z"
     },
     {
       "id": "M-e581a5c5",
@@ -2393,7 +2393,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.amagasaki.hyogo.jp/manabu/sports_act/107ivento/1036582.html",
-      "extracted_at": "2026-11-11T02:27:51Z"
+      "extracted_at": "2026-11-14T02:53:30Z"
     },
     {
       "id": "M-95e25873",
@@ -2416,7 +2416,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city-nakatsu.jp/doc/2026102900015/",
-      "extracted_at": "2026-11-11T02:33:39Z"
+      "extracted_at": "2026-11-14T04:17:16Z"
     },
     {
       "id": "M-dad281f5",
@@ -2485,7 +2485,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kikai.lg.jp/koho/eventcalendar/2026110104.html",
-      "extracted_at": "2026-11-11T02:35:24Z"
+      "extracted_at": "2026-11-14T04:42:32Z"
     },
     {
       "id": "M-7e527ef5",
@@ -2508,7 +2508,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.inagi.tokyo.jp/event/sports/1004106.html",
-      "extracted_at": "2026-11-11T02:29:58Z"
+      "extracted_at": "2026-11-14T03:15:20Z"
     },
     {
       "id": "M-855b83fd",
@@ -2554,7 +2554,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.takahagi.ibaraki.jp/cal.php?mode=detail&lc=0&category=0&year=2026&month=11&day=4",
-      "extracted_at": "2026-11-11T02:29:45Z"
+      "extracted_at": "2026-11-14T03:06:59Z"
     },
     {
       "id": "M-940ae3b6",
@@ -2577,7 +2577,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kikai.lg.jp/cgi-bin/event_cal_multi/calendar.cgi?type=2&year=2026&month=11",
-      "extracted_at": "2026-11-11T02:35:24Z"
+      "extracted_at": "2026-11-14T04:42:32Z"
     },
     {
       "id": "M-b548f167",
@@ -2600,7 +2600,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.himeji.lg.jp/shisei/0000034586.html",
-      "extracted_at": "2026-11-11T02:27:47Z"
+      "extracted_at": "2026-11-14T02:53:27Z"
     },
     {
       "id": "M-e29fb9a5",
@@ -2669,7 +2669,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yokosuka.kanagawa.jp/2130/sports/2023_sportsevent.html",
-      "extracted_at": "2026-11-11T02:30:11Z"
+      "extracted_at": "2026-11-14T03:18:18Z"
     },
     {
       "id": "M-82de2248",
@@ -2715,7 +2715,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kasuga.fukuoka.jp/miryoku/sports/1009118/1010675.html",
-      "extracted_at": "2026-11-11T02:33:20Z"
+      "extracted_at": "2026-11-14T05:12:36Z"
     },
     {
       "id": "M-7ee6a7d0",
@@ -2761,7 +2761,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.toride.ibaraki.jp/sports/bunkakatsudo/shogaigakushu/sportsoshirase/groundgolf2026.html",
-      "extracted_at": "2026-11-11T02:29:58Z"
+      "extracted_at": "2026-11-14T03:07:30Z"
     },
     {
       "id": "M-48aca610",
@@ -2807,7 +2807,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kikai.lg.jp/koho/eventcalendar/2026110805.html",
-      "extracted_at": "2026-11-11T02:35:24Z"
+      "extracted_at": "2026-11-14T04:42:32Z"
     },
     {
       "id": "M-7fb28fd2",
@@ -2853,7 +2853,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yokosuka.kanagawa.jp/2130/sports/2023_sportsevent.html",
-      "extracted_at": "2026-11-11T02:30:11Z"
+      "extracted_at": "2026-11-14T03:18:18Z"
     },
     {
       "id": "M-44183163",
@@ -2876,7 +2876,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.inagi.tokyo.jp/event/kourei/1012946.html",
-      "extracted_at": "2026-11-11T02:29:58Z"
+      "extracted_at": "2026-11-14T03:15:20Z"
     },
     {
       "id": "M-06923227",
@@ -2899,7 +2899,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kobayashi.lg.jp/kanko_bunka_sports/event/11450.html",
-      "extracted_at": "2026-11-11T02:33:54Z"
+      "extracted_at": "2026-11-14T04:29:35Z"
     },
     {
       "id": "M-18ec5a71",
@@ -2945,7 +2945,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.higashimatsushima.miyagi.jp/kurashi/manabu-tanoshimu/sports/sportsivent/R8groundgolf.html",
-      "extracted_at": "2026-11-11T02:30:59Z"
+      "extracted_at": "2026-11-14T02:57:48Z"
     },
     {
       "id": "M-cd3aaa7c",
@@ -2991,7 +2991,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.gose.nara.jp/0000003746.html",
-      "extracted_at": "2026-11-11T02:27:50Z"
+      "extracted_at": "2026-11-14T01:28:57Z"
     },
     {
       "id": "M-fb64fd06",
@@ -3014,7 +3014,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.ichinoseki.iwate.jp/archive/p20261016144222",
-      "extracted_at": "2026-11-11T02:30:46Z"
+      "extracted_at": "2026-11-14T03:22:29Z"
     },
     {
       "id": "M-f56ceca3",
@@ -3037,7 +3037,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.fukuyama.hiroshima.jp/calendar/",
-      "extracted_at": "2026-11-11T02:32:12Z"
+      "extracted_at": "2026-11-14T03:54:40Z"
     },
     {
       "id": "M-99b15a44",
@@ -3060,7 +3060,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.iwakura.aichi.jp/0000005301.html",
-      "extracted_at": "2026-11-11T02:28:14Z"
+      "extracted_at": "2026-11-14T02:06:43Z"
     },
     {
       "id": "M-8131e4ed",
@@ -3083,7 +3083,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kikai.lg.jp/koho/eventcalendar/2026111504.html",
-      "extracted_at": "2026-11-11T02:35:24Z"
+      "extracted_at": "2026-11-14T04:42:32Z"
     },
     {
       "id": "M-fe34d056",
@@ -3106,7 +3106,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kosodate/supotu/event/files/reku_gg_r8.html",
-      "extracted_at": "2026-11-11T02:30:04Z"
+      "extracted_at": "2026-11-14T03:25:25Z"
     },
     {
       "id": "M-9061ca44",
@@ -3129,7 +3129,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.mishima.shizuoka.jp/page/35897.html",
-      "extracted_at": "2026-11-11T02:28:37Z"
+      "extracted_at": "2026-11-14T02:06:27Z"
     },
     {
       "id": "M-7b607744",
@@ -3152,7 +3152,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.hashimoto.lg.jp/guide/kyoikuiinkai/syougaku/sports/23259.html",
-      "extracted_at": "2026-11-11T02:29:27Z"
+      "extracted_at": "2026-11-14T01:55:21Z"
     },
     {
       "id": "M-81329f6b",
@@ -3198,7 +3198,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yoshikawa.saitama.jp/index.cfm/26,107298,143,771,html",
-      "extracted_at": "2026-11-11T02:30:08Z"
+      "extracted_at": "2026-11-14T03:25:30Z"
     },
     {
       "id": "M-08d18bb7",
@@ -3221,7 +3221,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.harima.lg.jp/kyodo/event/golf1125.html",
-      "extracted_at": "2026-11-11T02:28:02Z"
+      "extracted_at": "2026-11-14T02:53:45Z"
     },
     {
       "id": "M-b933b181",
@@ -3244,7 +3244,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.meguro.tokyo.jp/sports/event/f-event1130.html",
-      "extracted_at": "2026-11-11T02:30:06Z"
+      "extracted_at": "2026-11-14T03:15:27Z"
     },
     {
       "id": "M-b56c9ff1",
@@ -3267,7 +3267,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.fuchu.tokyo.jp/bunka/bunkacenter/yotuya/guraundogolf.html",
-      "extracted_at": "2026-11-11T02:29:58Z"
+      "extracted_at": "2026-11-14T03:15:20Z"
     },
     {
       "id": "M-c04ab086",
@@ -3290,7 +3290,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.satsuma-net.jp/event/10329.html",
-      "extracted_at": "2026-11-11T02:35:07Z"
+      "extracted_at": "2026-11-14T04:42:14Z"
     },
     {
       "id": "M-ded85371",
@@ -3302,7 +3302,7 @@
       "start": "2026-11-29",
       "end": "2026-11-29",
       "date_kind": "exact",
-      "venue": "栃木市総合運動公園",
+      "venue": "マルワアリーナとちぎ",
       "organizer": "栃木市・栃木市スポーツ協会 【協力】",
       "target": null,
       "fee": null,
@@ -3313,7 +3313,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.tochigi.lg.jp/site/culture/83640.html",
-      "extracted_at": "2026-11-11T02:29:41Z"
+      "extracted_at": "2026-11-14T02:20:07Z"
     },
     {
       "id": "M-944c553b",
@@ -3336,7 +3336,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.yokohama.lg.jp/kanko-bunka/kanko-event/eventannai/sports/calendar/list_calendar.html",
-      "extracted_at": "2026-11-11T02:30:22Z"
+      "extracted_at": "2026-11-14T03:18:29Z"
     },
     {
       "id": "M-d07236e7",
@@ -3359,7 +3359,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kikai.lg.jp/koho/eventcalendar/2026120604.html",
-      "extracted_at": "2026-11-11T02:35:24Z"
+      "extracted_at": "2026-11-14T04:42:32Z"
     },
     {
       "id": "M-90a2aa78",
@@ -3382,7 +3382,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kikai.lg.jp/cgi-bin/event_cal_multi/calendar.cgi?type=2&year=2026&month=12",
-      "extracted_at": "2026-11-11T02:35:24Z"
+      "extracted_at": "2026-11-14T04:42:32Z"
     },
     {
       "id": "M-50b449f9",
@@ -3405,7 +3405,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.mihara.hiroshima.jp/soshiki/45/169976.html",
-      "extracted_at": "2026-11-11T02:32:12Z"
+      "extracted_at": "2026-11-14T03:54:39Z"
     },
     {
       "id": "M-bdce0823",
@@ -3428,7 +3428,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.mimata.lg.jp/contents/2673.html",
-      "extracted_at": "2026-11-11T02:33:55Z"
+      "extracted_at": "2026-11-14T04:29:35Z"
     },
     {
       "id": "M-2b6a2ed1",
@@ -3451,7 +3451,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.yurihama.jp/soshiki/20/24278.html",
-      "extracted_at": "2026-11-11T02:34:16Z"
+      "extracted_at": "2026-11-14T03:46:14Z"
     },
     {
       "id": "M-d0506585",
@@ -3474,7 +3474,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.ureshino.lg.jp/kurashi/calendar/_26985.html?calendarFrom=20261001",
-      "extracted_at": "2026-11-04T04:25:08Z"
+      "extracted_at": "2026-11-14T03:58:23Z"
     },
     {
       "id": "M-db7eaecd",
@@ -3497,7 +3497,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.beppu.oita.jp/kosodate/kouza_event_saakuru/hokubu_gyouji.html",
-      "extracted_at": "2026-11-11T02:33:37Z"
+      "extracted_at": "2026-11-14T04:17:14Z"
     },
     {
       "id": "M-098f34f0",
@@ -3520,7 +3520,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.habikino.lg.jp/soshiki/shougaigakushu/shougaigakushsports/sports_shinko/ibenntotaikai/9032.html",
-      "extracted_at": "2026-11-11T02:27:53Z"
+      "extracted_at": "2026-11-14T02:22:10Z"
     },
     {
       "id": "M-0e54a720",
@@ -3543,7 +3543,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.takatsuki.osaka.jp/soshiki/17/168035.html",
-      "extracted_at": "2026-11-11T02:27:55Z"
+      "extracted_at": "2026-11-14T02:22:15Z"
     },
     {
       "id": "M-2fb6931b",
@@ -3566,7 +3566,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.habikino.lg.jp/soshiki/shougaigakushu/shougaigakushsports/sports_shinko/ibenntotaikai/shichohai/index.html",
-      "extracted_at": "2026-11-11T02:27:53Z"
+      "extracted_at": "2026-11-14T02:22:10Z"
     },
     {
       "id": "M-95193524",
@@ -3589,7 +3589,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.habikino.lg.jp/soshiki/shougaigakushu/shougaigakushsports/sports_shinko/ibenntotaikai/15912.html",
-      "extracted_at": "2026-11-11T02:27:53Z"
+      "extracted_at": "2026-11-14T02:22:10Z"
     },
     {
       "id": "M-b6c275b1",
@@ -3612,7 +3612,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kawai.nara.jp/taiiku/2/1_1/index.html",
-      "extracted_at": "2026-11-11T02:27:55Z"
+      "extracted_at": "2026-11-14T01:29:04Z"
     },
     {
       "id": "M-e0055cb1",
@@ -3635,7 +3635,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.chuo.yamanashi.jp/eventboshu/15026.html",
-      "extracted_at": "2026-11-11T02:31:26Z"
+      "extracted_at": "2026-11-14T03:30:05Z"
     },
     {
       "id": "M-1879bf76",
@@ -3658,7 +3658,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kumenan.lg.jp/news/living/2026groundgolf_sports.html",
-      "extracted_at": "2026-11-11T02:31:59Z"
+      "extracted_at": "2026-11-14T03:40:18Z"
     },
     {
       "id": "M-19d99fb1",
@@ -3681,7 +3681,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.saijo.ehime.jp/soshiki/sportskenko/sportsivent.html",
-      "extracted_at": "2026-11-11T02:32:57Z"
+      "extracted_at": "2026-11-14T03:58:57Z"
     },
     {
       "id": "M-a40777c8",
@@ -3704,7 +3704,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.chiryu.aichi.jp/kanko_bunka_sports/sports/sports_ibento/1644736374433.html",
-      "extracted_at": "2026-11-11T02:28:07Z"
+      "extracted_at": "2026-11-14T02:06:26Z"
     },
     {
       "id": "M-e0a89d39",
@@ -3727,7 +3727,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.toyokawa.lg.jp/kanko_bunka_sports/sports/3/3/11531.html",
-      "extracted_at": "2026-11-11T02:28:09Z"
+      "extracted_at": "2026-11-14T02:06:35Z"
     },
     {
       "id": "M-f2ea6cb3",
@@ -3750,7 +3750,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.oharu.aichi.jp/4167.htm",
-      "extracted_at": "2026-11-11T02:28:14Z"
+      "extracted_at": "2026-11-14T02:06:45Z"
     },
     {
       "id": "M-b6f7a10c",
@@ -3773,7 +3773,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.shinagawa.tokyo.jp/bunka/sports/1009525/1003650.html",
-      "extracted_at": "2026-11-11T02:30:02Z"
+      "extracted_at": "2026-11-14T03:15:24Z"
     },
     {
       "id": "M-02aa2e4e",
@@ -3819,7 +3819,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.nogi.lg.jp/kosodate_kyouiku/syougaigakusyu/nogi_sports/page007394.html",
-      "extracted_at": "2026-11-11T02:29:46Z"
+      "extracted_at": "2026-11-14T02:20:11Z"
     },
     {
       "id": "M-6d462da7",
@@ -3842,7 +3842,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.shiga-hino.lg.jp/0000009046.html",
-      "extracted_at": "2026-11-11T02:27:56Z"
+      "extracted_at": "2026-11-14T02:28:02Z"
     },
     {
       "id": "M-a0b90130",
@@ -3865,7 +3865,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.shiga-hino.lg.jp/0000008507.html",
-      "extracted_at": "2026-11-11T02:27:56Z"
+      "extracted_at": "2026-11-14T02:28:02Z"
     },
     {
       "id": "M-e18573ee",
@@ -3888,7 +3888,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.koga.fukuoka.jp/mayor/002.php",
-      "extracted_at": "2026-11-11T02:33:20Z"
+      "extracted_at": "2026-11-14T05:12:36Z"
     },
     {
       "id": "M-142f2806",
@@ -3911,7 +3911,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.ora.gunma.jp/s047/040/080/030/sports2.html",
-      "extracted_at": "2026-11-11T02:29:51Z"
+      "extracted_at": "2026-11-14T02:16:53Z"
     },
     {
       "id": "M-a52d9356",
@@ -3934,7 +3934,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.nakanojo.gunma.jp/soshiki/15/1029.html",
-      "extracted_at": "2026-11-11T02:29:49Z"
+      "extracted_at": "2026-11-14T02:16:50Z"
     },
     {
       "id": "M-22b35bbc",
@@ -3957,7 +3957,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://official.shinkamigoto.net/goto_culture.php?wcid=j00001x1",
-      "extracted_at": "2026-11-11T02:33:45Z"
+      "extracted_at": "2026-11-14T04:13:31Z"
     },
     {
       "id": "M-34cf66ca",
@@ -3980,7 +3980,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.yurihama.jp/soshiki/7/10631.html",
-      "extracted_at": "2026-11-11T02:34:16Z"
+      "extracted_at": "2026-11-14T03:46:14Z"
     },
     {
       "id": "M-cf8019b7",
@@ -4003,7 +4003,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.yurihama.jp/soshiki/7/10633.html",
-      "extracted_at": "2026-11-11T02:34:16Z"
+      "extracted_at": "2026-11-14T03:46:14Z"
     },
     {
       "id": "M-62dd8344",
@@ -4026,7 +4026,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.kanoya.lg.jp/shisupo/bunka/sport/event/gg.html",
-      "extracted_at": "2026-11-11T02:35:04Z"
+      "extracted_at": "2026-11-14T04:42:10Z"
     },
     {
       "id": "M-b29e3430",
@@ -4049,7 +4049,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kikai.lg.jp/cgi-bin/event_cal_multi/calendar.cgi",
-      "extracted_at": "2026-11-11T02:35:24Z"
+      "extracted_at": "2026-11-14T04:42:32Z"
     },
     {
       "id": "M-5be0cf70",
@@ -4072,7 +4072,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.toki.lg.jp/kanko/koza/1004848/1010599.html",
-      "extracted_at": "2026-11-11T02:28:49Z"
+      "extracted_at": "2026-11-14T02:15:09Z"
     },
     {
       "id": "M-b9151b29",
@@ -4095,7 +4095,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.shizuoka.lg.jp/s5423/s015353.html",
-      "extracted_at": "2026-11-11T02:28:37Z"
+      "extracted_at": "2026-11-14T02:06:30Z"
     },
     {
       "id": "M-080a60be",
@@ -4118,7 +4118,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.yamagata-yamagata.lg.jp/bunkasports/sports/1006712/1019594.html",
-      "extracted_at": "2026-11-11T02:31:13Z"
+      "extracted_at": "2026-11-14T03:13:37Z"
     },
     {
       "id": "M-9e0ec70b",
@@ -4141,7 +4141,7 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.city.toki.lg.jp/kanko/koza/1004848/1011575.html",
-      "extracted_at": "2026-11-11T02:28:49Z"
+      "extracted_at": "2026-11-14T02:15:09Z"
     },
     {
       "id": "M-03e4abf1",
@@ -4187,7 +4187,7 @@
       "postponed": false,
       "finished_note": true,
       "source_url": "https://www.city.tamano.lg.jp/site/community/15991.html",
-      "extracted_at": "2026-11-11T02:32:00Z"
+      "extracted_at": "2026-11-14T03:40:17Z"
     },
     {
       "id": "M-606c0bfe",
@@ -4210,7 +4210,352 @@
       "postponed": false,
       "finished_note": false,
       "source_url": "https://www.town.kikai.lg.jp/cgi-bin/event_cal_multi/calendar.cgi?type=1&year=2026&month=9",
-      "extracted_at": "2026-11-11T02:35:24Z"
+      "extracted_at": "2026-11-14T04:42:32Z"
+    },
+    {
+      "id": "M-a0bbf4b8",
+      "prefecture": "愛知県",
+      "municipality_code": "23100",
+      "municipality": "名古屋市",
+      "name": "第35回天白区春のグラウンド・ゴルフ大会の結果",
+      "kind": "gg",
+      "start": "2025-05-21",
+      "end": "2025-05-21",
+      "date_kind": "exact",
+      "venue": "パロマ瑞穂北陸上競技場 大会",
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": "天白区役所 区政部 地域力推進課 生涯学習",
+      "contact_phone": "052-807-3825",
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": true,
+      "source_url": "https://www.city.nagoya.jp/tempaku/kurashi/1025688/1036902/1035975.html",
+      "extracted_at": "2026-11-14T02:06:45Z"
+    },
+    {
+      "id": "M-3ffe8a46",
+      "prefecture": "愛知県",
+      "municipality_code": "23100",
+      "municipality": "名古屋市",
+      "name": "第33回学区対抗グラウンド・ゴルフ大会",
+      "kind": "gg",
+      "start": "2025-06-08",
+      "end": "2025-06-08",
+      "date_kind": "exact",
+      "venue": "牧野ケ池緑地 多目的広場",
+      "organizer": "名東区役所、名東区体育協会",
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": "名東区役所 区政部 地域力推進課 生涯学習",
+      "contact_phone": "052-778-3025",
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": true,
+      "source_url": "https://www.city.nagoya.jp/meito/kurashi/1025192/1025197/1036870/1036349.html",
+      "extracted_at": "2026-11-14T02:06:45Z"
+    },
+    {
+      "id": "M-8a5f7ede",
+      "prefecture": "福岡県",
+      "municipality_code": "40100",
+      "municipality": "北九州市",
+      "name": "グラウンドゴルフ大会",
+      "kind": "gg",
+      "start": "2026-10-21",
+      "end": "2026-10-21",
+      "date_kind": "exact",
+      "venue": "東谷興農会運動場",
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": "都市ブランド創造局スポーツ部スポーツ振興課",
+      "contact_phone": "093-582-2395",
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.kitakyushu.lg.jp/contents/924_01667.html",
+      "extracted_at": "2026-11-14T05:12:35Z"
+    },
+    {
+      "id": "M-f83a74b0",
+      "prefecture": "岐阜県",
+      "municipality_code": "21215",
+      "municipality": "山県市",
+      "name": "いきいきはつらつ、笑顔の輪 軽スポーツ大会",
+      "kind": "multi",
+      "start": "2026-10-23",
+      "end": "2026-10-23",
+      "date_kind": "exact",
+      "venue": null,
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": null,
+      "contact_phone": null,
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.yamagata.gifu.jp/site/kouhou/57711.html",
+      "extracted_at": "2026-11-14T02:15:23Z"
+    },
+    {
+      "id": "M-f79b4122",
+      "prefecture": "大阪府",
+      "municipality_code": "27229",
+      "municipality": "四條畷市",
+      "name": "なわてスポーツフェスティバル2026",
+      "kind": "multi",
+      "start": "2026-10-25",
+      "end": "2026-10-25",
+      "date_kind": "exact",
+      "venue": null,
+      "organizer": "四條畷市",
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": null,
+      "contact_phone": null,
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.shijonawate.lg.jp/page/39-52215.html",
+      "extracted_at": "2026-11-14T02:22:12Z"
+    },
+    {
+      "id": "M-1cc97a4a",
+      "prefecture": "埼玉県",
+      "municipality_code": "11442",
+      "municipality": "宮代町",
+      "name": "町民グラウンド・ゴルフ大会",
+      "kind": "gg",
+      "start": "2026-10-28",
+      "end": "2026-10-28",
+      "date_kind": "exact",
+      "venue": null,
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": "宮代町役場健康介護課高齢者支援",
+      "contact_phone": "0480-34-1111",
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": true,
+      "source_url": "https://www.town.miyashiro.lg.jp/0000025470.html",
+      "extracted_at": "2026-11-14T03:25:28Z"
+    },
+    {
+      "id": "M-dd249d9a",
+      "prefecture": "鹿児島県",
+      "municipality_code": "46221",
+      "municipality": "志布志市",
+      "name": "高齢者学級合同グラウンド・ゴルフ大会",
+      "kind": "gg",
+      "start": "2026-11-06",
+      "end": "2026-11-06",
+      "date_kind": "exact",
+      "venue": null,
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": null,
+      "contact_phone": null,
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.shibushi.lg.jp/soshiki/22/35693.html",
+      "extracted_at": "2026-11-14T04:42:08Z"
+    },
+    {
+      "id": "M-7b3b5257",
+      "prefecture": "京都府",
+      "municipality_code": "26465",
+      "municipality": "与謝野町",
+      "name": "野田川グラウンド・ゴルフ大会",
+      "kind": "gg",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "date_kind": "exact",
+      "venue": null,
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": null,
+      "contact_phone": null,
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.town.yosano.lg.jp/culture/art/sports/entry_1267/",
+      "extracted_at": "2026-11-14T01:35:17Z"
+    },
+    {
+      "id": "M-c61e3a53",
+      "prefecture": "奈良県",
+      "municipality_code": "29442",
+      "municipality": "大淀町",
+      "name": "大淀町民スポーツフェスティバル",
+      "kind": "multi",
+      "start": "2026-11-29",
+      "end": "2026-11-29",
+      "date_kind": "exact",
+      "venue": "大淀町平畑運動公園サッカー場・体育館",
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": "大淀町役場教育委員会社会教育課",
+      "contact_phone": "0747-52-5549",
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.town.oyodo.lg.jp/0000002065.html",
+      "extracted_at": "2026-11-14T01:28:58Z"
+    },
+    {
+      "id": "M-157762db",
+      "prefecture": "佐賀県",
+      "municipality_code": "41209",
+      "municipality": "嬉野市",
+      "name": "グラウンドゴルフ大会（塩田）",
+      "kind": "gg",
+      "start": null,
+      "end": null,
+      "date_kind": "unknown",
+      "venue": null,
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": null,
+      "contact_phone": null,
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.ureshino.lg.jp/kurashi/calendar/_26985.html",
+      "extracted_at": "2026-11-14T03:58:23Z"
+    },
+    {
+      "id": "M-063de7b1",
+      "prefecture": "愛知県",
+      "municipality_code": "23100",
+      "municipality": "名古屋市",
+      "name": "昭和区グラウンド・ゴルフ大会",
+      "kind": "gg",
+      "start": null,
+      "end": null,
+      "date_kind": "unknown",
+      "venue": null,
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": null,
+      "contact_phone": null,
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.nagoya.jp/showa/kurashi/1021459/1021464/1021478/index.html",
+      "extracted_at": "2026-11-14T02:06:45Z"
+    },
+    {
+      "id": "M-1d62f0cb",
+      "prefecture": "愛知県",
+      "municipality_code": "23219",
+      "municipality": "小牧市",
+      "name": "第42回小牧市シルバースポーツ大会(グラウンドゴルフ・ディスクゴルフ・レクリエーション)",
+      "kind": "gg",
+      "start": null,
+      "end": null,
+      "date_kind": "unknown",
+      "venue": "南スポーツセンターグラウンド",
+      "organizer": null,
+      "target": "小牧市在住または在勤で、おおむね60歳以上の方",
+      "fee": "無料",
+      "deadline": null,
+      "contact_dept": null,
+      "contact_phone": null,
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.komaki.aichi.jp/admin/soshiki/kenkouikigai/bunkasports/zigyousuisin/4_2/52327.html",
+      "extracted_at": "2026-11-14T02:06:41Z"
+    },
+    {
+      "id": "M-343bde95",
+      "prefecture": "愛知県",
+      "municipality_code": "23100",
+      "municipality": "名古屋市",
+      "name": "グラウンド・ゴルフ大会[緑区]",
+      "kind": "gg",
+      "start": null,
+      "end": null,
+      "date_kind": "unknown",
+      "venue": null,
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": "緑区役所 区政部 地域力推進課 生涯学習",
+      "contact_phone": "052-625-3875",
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.nagoya.jp/midori/kurashi/1043014/1036834/1024678/index.html",
+      "extracted_at": "2026-11-14T02:06:45Z"
+    },
+    {
+      "id": "M-68fd737f",
+      "prefecture": "福岡県",
+      "municipality_code": "40223",
+      "municipality": "古賀市",
+      "name": "古賀市シニアクラブ連合会グラウンドゴルフ大会",
+      "kind": "gg",
+      "start": null,
+      "end": null,
+      "date_kind": "unknown",
+      "venue": null,
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": "人事秘書課 秘書係",
+      "contact_phone": "092-942-1143",
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.koga.fukuoka.jp/mayor/002.php",
+      "extracted_at": "2026-11-14T05:12:36Z"
+    },
+    {
+      "id": "M-7e6e5bd4",
+      "prefecture": "福岡県",
+      "municipality_code": "40223",
+      "municipality": "古賀市",
+      "name": "古賀西校区グランドゴルフ大会",
+      "kind": "gg",
+      "start": null,
+      "end": null,
+      "date_kind": "unknown",
+      "venue": null,
+      "organizer": null,
+      "target": null,
+      "fee": null,
+      "deadline": null,
+      "contact_dept": "人事秘書課 秘書係",
+      "contact_phone": "092-942-1143",
+      "cancelled": false,
+      "postponed": false,
+      "finished_note": false,
+      "source_url": "https://www.city.koga.fukuoka.jp/mayor/002.php",
+      "extracted_at": "2026-11-14T05:12:36Z"
     }
   ]
 }

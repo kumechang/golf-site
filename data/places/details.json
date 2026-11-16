@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-11T02:46:52.304Z",
-  "count": 777,
+  "generated_at": "2026-11-16T05:59:01.931Z",
+  "count": 791,
   "details": [
     {
       "municipality_code": "01205",
@@ -1237,6 +1237,18 @@
       "source_kind": "web",
       "source_url": "https://www.city.tochigi.lg.jp/site/shakaitaiiku-gakkoukaihou/33437.html",
       "fetched_at": "2026-10-20T00:40:00Z"
+    },
+    {
+      "municipality_code": "09210",
+      "municipality": "大田原市",
+      "prefecture": "栃木県",
+      "name": "水辺公園グラウンドゴルフ場",
+      "address": "大田原市若草2丁目",
+      "phone": "0287-23-8711",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.ohtawara.tochigi.jp/docs/2013082774873/",
+      "fetched_at": "2026-11-14T02:18:16Z"
     },
     {
       "municipality_code": "09211",
@@ -2509,6 +2521,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.sakado.lg.jp/soshiki/38/1273.html",
       "fetched_at": "2026-10-20T00:40:00Z"
+    },
+    {
+      "municipality_code": "11241",
+      "municipality": "鶴ヶ島市",
+      "prefecture": "埼玉県",
+      "name": "老人福祉センター逆木荘",
+      "address": null,
+      "phone": "049-271-1111",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.tsurugashima.lg.jp/kenkou-iryou-fukushi/koureisha-kaigo/sakasagisou/page005889.html",
+      "fetched_at": "2026-11-14T03:23:36Z"
     },
     {
       "source_kind": "municipal",
@@ -4189,6 +4213,30 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.fujinomiya.lg.jp/3010500000/p001969.html",
       "fetched_at": "2026-10-20T00:40:00Z"
+    },
+    {
+      "municipality_code": "22207",
+      "municipality": "富士宮市",
+      "prefecture": "静岡県",
+      "name": "宝町公園",
+      "address": "静岡県富士宮市宝町760",
+      "phone": "0544-22-1168",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.fujinomiya.lg.jp/1030300000/shisetsu/p000089.html",
+      "fetched_at": "2026-11-14T02:04:45Z"
+    },
+    {
+      "municipality_code": "22207",
+      "municipality": "富士宮市",
+      "prefecture": "静岡県",
+      "name": "白糸自然公園",
+      "address": "静岡県富士宮市原436-1",
+      "phone": "0544-22-1168",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.fujinomiya.lg.jp/1030300000/shisetsu/p000084.html",
+      "fetched_at": "2026-11-14T02:04:45Z"
     },
     {
       "source_kind": "municipal",
@@ -6039,6 +6087,42 @@
       "fetched_at": "2026-11-11T02:29:23Z"
     },
     {
+      "municipality_code": "26201",
+      "municipality": "福知山市",
+      "prefecture": "京都府",
+      "name": "三段池公園",
+      "address": null,
+      "phone": "0773-23-6295",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.fukuchiyama.lg.jp/soshiki/7/2025.html",
+      "fetched_at": "2026-11-14T01:33:42Z"
+    },
+    {
+      "municipality_code": "26201",
+      "municipality": "福知山市",
+      "prefecture": "京都府",
+      "name": "大呂グラウンドゴルフ場",
+      "address": null,
+      "phone": "0773-33-5500",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.fukuchiyama.lg.jp/soshiki/26/2037.html",
+      "fetched_at": "2026-11-14T01:33:42Z"
+    },
+    {
+      "municipality_code": "26201",
+      "municipality": "福知山市",
+      "prefecture": "京都府",
+      "name": "大呂自然休養村センター",
+      "address": null,
+      "phone": "0773-24-7041",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.fukuchiyama.lg.jp/soshiki/26/2002.html",
+      "fetched_at": "2026-11-14T01:33:42Z"
+    },
+    {
       "municipality_code": "26465",
       "municipality": "与謝野町",
       "prefecture": "京都府",
@@ -6193,6 +6277,18 @@
       "source_kind": "web",
       "source_url": "https://www.city.matsubara.lg.jp/docs/page4058.html",
       "fetched_at": "2026-10-20T00:40:00Z"
+    },
+    {
+      "municipality_code": "27219",
+      "municipality": "和泉市",
+      "prefecture": "大阪府",
+      "name": "和泉市北部リージョンセンター",
+      "address": null,
+      "phone": "0725-99-8103",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.osaka-izumi.lg.jp/kakukano/kousitu/kyoudou/gyoumu/hokuburegioncenter/1427347136272.html",
+      "fetched_at": "2026-11-14T02:19:51Z"
     },
     {
       "municipality_code": "27221",
@@ -6687,6 +6783,18 @@
       "fetched_at": "2026-10-19T05:49:25Z"
     },
     {
+      "municipality_code": "29322",
+      "municipality": "山添村",
+      "prefecture": "奈良県",
+      "name": "山添村総合スポーツセンター",
+      "address": "奈良県山辺郡山添村大字大西69番地",
+      "phone": "0743-85-0214",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.vill.yamazoe.nara.jp/life/shisetsu/spocen",
+      "fetched_at": "2026-11-14T01:27:20Z"
+    },
+    {
       "municipality_code": "29343",
       "municipality": "三郷町",
       "prefecture": "奈良県",
@@ -7069,6 +7177,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.town.hayashima.lg.jp/kanko_bunka_sports/shisetsu/2/3566.html",
       "fetched_at": "2026-10-20T00:40:00Z"
+    },
+    {
+      "municipality_code": "33461",
+      "municipality": "矢掛町",
+      "prefecture": "岡山県",
+      "name": "矢掛町総合運動公園",
+      "address": "矢掛町矢掛342",
+      "phone": null,
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.town.yakage.okayama.jp/machi/shisetsu/shisetsu.html",
+      "fetched_at": "2026-11-14T03:38:46Z"
     },
     {
       "municipality_code": "33623",
@@ -8103,6 +8223,18 @@
       "fetched_at": "2026-11-11T02:33:24Z"
     },
     {
+      "municipality_code": "40544",
+      "municipality": "広川町",
+      "prefecture": "福岡県",
+      "name": "広川町運動公園(久泉地区内)",
+      "address": null,
+      "phone": "0943-32-0093",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.town.hirokawa.fukuoka.jp/chosei/chosha_shisetsu/kouen/2080.html",
+      "fetched_at": "2026-11-14T05:10:39Z"
+    },
+    {
       "municipality_code": "40605",
       "municipality": "川崎町",
       "prefecture": "福岡県",
@@ -8535,6 +8667,18 @@
       "fetched_at": "2026-10-20T00:40:00Z"
     },
     {
+      "municipality_code": "43424",
+      "municipality": "小国町",
+      "prefecture": "熊本県",
+      "name": "林間広場",
+      "address": null,
+      "phone": "0967-46-2111",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.town.kumamoto-oguni.lg.jp/kantankensaku/kantan_shisetsu/20235",
+      "fetched_at": "2026-11-14T05:08:40Z"
+    },
+    {
       "municipality_code": "43442",
       "municipality": "嘉島町",
       "prefecture": "熊本県",
@@ -8907,6 +9051,18 @@
       "fetched_at": "2026-10-20T01:00:00Z"
     },
     {
+      "municipality_code": "46210",
+      "municipality": "指宿市",
+      "prefecture": "鹿児島県",
+      "name": "山川運動場",
+      "address": "指宿市山川福元22番地",
+      "phone": "0993-34-0101",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.ibusuki.lg.jp/main/kyoiku/sports/shisetsu/page007337.html",
+      "fetched_at": "2026-11-14T04:40:07Z"
+    },
+    {
       "municipality_code": "46214",
       "municipality": "垂水市",
       "prefecture": "鹿児島県",
@@ -8965,6 +9121,18 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.satsumasendai.lg.jp/kanko_bunka_sports/sports/2/9052.html",
       "fetched_at": "2026-10-19T05:49:41Z"
+    },
+    {
+      "municipality_code": "46216",
+      "municipality": "日置市",
+      "prefecture": "鹿児島県",
+      "name": "日置市B&G東市来海洋センター",
+      "address": "日置市東市来町湯田3465-1",
+      "phone": "099-274-2401",
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.hioki.kagoshima.jp/sposhin/shisetsu/taiku/higashiichikikaiyoucenter.html",
+      "fetched_at": "2026-11-14T04:40:09Z"
     },
     {
       "municipality_code": "46216",
