@@ -113,8 +113,8 @@ export function tidyContact(dept, phone) {
   return okDept ? { dept: d, phone: p } : { dept: null, phone: null };
 }
 
-const coreKey = (name) => clean(name).replace(/\d{4}年\d{1,2}月\d{1,2}日.*$/, '').replace(/第\s*\d+\s*回/g, '').replace(/(令和|R)\s*\d+年度?/g, '').replace(/20\d{2}年?度?/g, '').replace(/[\s・･\-ー]/g, '').toLowerCase();
-const hash8 = (s) => createHash('sha1').update(s).digest('hex').slice(0, 8);
+export const coreKey = (name) => clean(name).replace(/\d{4}年\d{1,2}月\d{1,2}日.*$/, '').replace(/第\s*\d+\s*回/g, '').replace(/(令和|R)\s*\d+年度?/g, '').replace(/20\d{2}年?度?/g, '').replace(/[\s・･\-ー]/g, '').toLowerCase();
+export const hash8 = (s) => createHash('sha1').update(s).digest('hex').slice(0, 8);
 
 /**
  * rows: parseCsv() した配列（見出しをキーにしたオブジェクト）
