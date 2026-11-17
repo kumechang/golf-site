@@ -118,8 +118,10 @@ function load(): PlaceItem[] {
     try { u = new URL(url); } catch { return fail(url, 'URLを解釈できません'); }
     if (u.protocol !== 'https:') fail(url, 'https ではありません');
     if (u.username || u.password) fail(url, 'URLにユーザー情報が含まれています');
-    if (seenUrl.has(url)) fail(url, 'URLが重複しています');
-    seenUrl.add(url);
+    // 同じURL（1つのPDFに複数の施設が載っているときなど）は、施設名が違う施設どうしだけ許す
+    const urlKey = r.kind === 'facility' && typeof r.name === 'string' ? `${url}|${r.name}` : url;
+    if (seenUrl.has(urlKey) || (urlKey !== url && seenUrl.has(url))) fail(url, 'URLが重複しています');
+    seenUrl.add(urlKey);
     const flags = Array.isArray(r.flags) ? r.flags : [];
     if (flags.length > 0) { excludedCount++; continue; } // 確認用の印があるものは載せない
     const ov = overrides.get(url);

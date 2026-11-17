@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-11-16T05:59:01.931Z",
-  "count": 791,
+  "count": 794,
   "details": [
     {
       "municipality_code": "01205",
@@ -9493,6 +9493,42 @@
       "source_kind": "municipal",
       "source_url": "https://vill.kitadaito.okinawa.jp/mokuteki/shisetsu/sougoundoukouen.html",
       "fetched_at": "2026-10-19T05:49:12Z"
+    },
+    {
+      "municipality_code": "23212",
+      "municipality": "安城市",
+      "prefecture": "愛知県",
+      "name": "安城市西部グラウンドゴルフ場",
+      "address": null,
+      "phone": "0566-76-9393",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.anjo.aichi.jp/tanoshimu/sports/2022/documents/seibuggriyouannnair0806.pdf",
+      "fetched_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "municipality_code": "23215",
+      "municipality": "犬山市",
+      "prefecture": "愛知県",
+      "name": "犬山市野外活動センター グラウンド・ゴルフ場",
+      "address": null,
+      "phone": "0568-44-0353",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.inuyama.aichi.jp/_res/projects/default_project/_page_/001/004/678/2026.06.29yakatu.pdf",
+      "fetched_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "municipality_code": "45431",
+      "municipality": "美郷町",
+      "prefecture": "宮崎県",
+      "name": "西郷総合グラウンド",
+      "address": "宮崎県美郷町西郷1870番地",
+      "phone": null,
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.town.miyazaki-misato.lg.jp/kiji003561/3_561_1209_up_zdl0xkz1.pdf",
+      "fetched_at": "2026-11-17T00:00:00Z"
     }
   ]
 }
