@@ -483,6 +483,22 @@
     {
       "source_url": "https://shimintaiiku.maebashi-cc.or.jp/gaiyo",
       "name": "ヤマト市民体育館前橋"
+    },
+    {
+      "source_url": "https://www.city-yuzawa.jp/soshiki/87/504.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.shinagawa.tokyo.jp/PC/shisetsu/shisetsu-kuyakusyo/shisetsu-kuyakusyo-chiiki/shisetsu-kuyakusyo-chiiki-oosaki1/shisetsu-kuyakusyo-chiiki-oosaki1-oshirase/20191106093315.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.kokubunji.tokyo.jp/culture-sports-tourism/sports/1002602/1014056.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.fukuoka.lg.jp/kankyo/k-seisaku/genre/07.html",
+      "exclude": true
     }
   ]
 }
