@@ -499,6 +499,22 @@
     {
       "source_url": "https://www.city.fukuoka.lg.jp/kankyo/k-seisaku/genre/07.html",
       "exclude": true
+    },
+    {
+      "source_url": "https://www.city.shimada.shizuoka.jp/kanko-docs/0874.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.shimada.shizuoka.jp/kanko-docs/2368.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.shimada.shizuoka.jp/kanko-docs/kouennoshoukai.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.tamana.lg.jp/q/list/429.html?pg=1",
+      "exclude": true
     }
   ]
 }
