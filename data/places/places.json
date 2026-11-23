@@ -663,6 +663,16 @@
     },
     {
       "kind": "facility",
+      "name": "吉田地区交流センター（隣接の公認グラウンド・ゴルフ場）",
+      "prefecture": "秋田県",
+      "municipality": "横手市",
+      "municipality_code": "05203",
+      "source_url": "https://www.city.yokote.lg.jp/shisetsu/1005531/1005534/1003991.html",
+      "surveyed_at": "2026-11-21T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "吉田多目的運動広場",
       "prefecture": "秋田県",
       "municipality": "横手市",
@@ -3263,6 +3273,16 @@
       "municipality_code": "10207",
       "source_url": "https://www.city.tatebayashi.gunma.jp/s094/060/010/20250116172414.html",
       "surveyed_at": "2026-10-17T22:15:52Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "坂東橋緑地公園",
+      "prefecture": "群馬県",
+      "municipality": "渋川市",
+      "municipality_code": "10208",
+      "source_url": "https://www.city.shibukawa.lg.jp/kyouiku/000144/000148/p000229.html",
+      "surveyed_at": "2026-11-21T00:00:00Z",
       "flags": []
     },
     {
@@ -7635,6 +7655,16 @@
     },
     {
       "kind": "facility",
+      "name": "かみいしづ緑の村公園",
+      "prefecture": "岐阜県",
+      "municipality": "大垣市",
+      "municipality_code": "21202",
+      "source_url": "https://www.city.ogaki.lg.jp/0000009551.html",
+      "surveyed_at": "2026-11-21T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "南部グラウンド",
       "prefecture": "岐阜県",
       "municipality": "高山市",
@@ -7931,6 +7961,16 @@
       "municipality_code": "22100",
       "source_url": "https://www.city.shizuoka.lg.jp/shisetsu/s0000073.html",
       "surveyed_at": "2026-10-17T22:19:01Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "有度山総合公園運動施設グラウンドゴルフ場",
+      "prefecture": "静岡県",
+      "municipality": "静岡市",
+      "municipality_code": "22100",
+      "source_url": "https://www.sanko-shizuoka.jp/facility/category/grand_golf/",
+      "surveyed_at": "2026-11-21T00:00:00Z",
       "flags": []
     },
     {
@@ -8573,6 +8613,16 @@
       "municipality_code": "22225",
       "source_url": "https://www.city.izunokuni.shizuoka.jp/sports/manabi/kashidashi/ichiran/007.html",
       "surveyed_at": "2026-10-17T22:14:18Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "小堤山公園",
+      "prefecture": "静岡県",
+      "municipality": "牧之原市",
+      "municipality_code": "22226",
+      "source_url": "https://www.city.makinohara.shizuoka.jp/soshiki/26/2001.html",
+      "surveyed_at": "2026-11-21T00:00:00Z",
       "flags": []
     },
     {
@@ -10927,6 +10977,16 @@
       "municipality_code": "27100",
       "source_url": "https://www.city.osaka.lg.jp/kensetsu/page/0000010427.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "みの池野球場",
+      "prefecture": "大阪府",
+      "municipality": "堺市",
+      "municipality_code": "27140",
+      "source_url": "https://www.city.sakai.lg.jp/kurashi/sports/sports_shisetsu/shisetsu/taiikukan/mihara/minoikeyakyu.html",
+      "surveyed_at": "2026-11-21T00:00:00Z",
       "flags": []
     },
     {
@@ -14324,6 +14384,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "さんわ総合センター",
+      "prefecture": "広島県",
+      "municipality": "神石高原町",
+      "municipality_code": "34545",
+      "source_url": "https://jkougen.jp/kankou/spot-info/sanwa-sogo-center/",
+      "surveyed_at": "2026-11-21T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "広島県",
@@ -15984,6 +16054,16 @@
     },
     {
       "kind": "facility",
+      "name": "蛇ヶ谷公園",
+      "prefecture": "熊本県",
+      "municipality": "玉名市",
+      "municipality_code": "43206",
+      "source_url": "https://www.city.tamana.lg.jp/q/aview/408/370.html",
+      "surveyed_at": "2026-11-21T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "金栗記念広場(多目的運動広場)",
       "prefecture": "熊本県",
       "municipality": "玉名市",
@@ -16234,6 +16314,16 @@
       "municipality_code": "43442",
       "source_url": "https://www.town.kumamoto-kashima.lg.jp/q/aview/253/540.html",
       "surveyed_at": "2026-10-17T23:59:42Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "安津橋健康広場グラウンド・ゴルフ場（グリーンパル甲佐）",
+      "prefecture": "熊本県",
+      "municipality": "甲佐町",
+      "municipality_code": "43444",
+      "source_url": "https://www.town.kosa.lg.jp/q/aview/125/24.html",
+      "surveyed_at": "2026-11-21T00:00:00Z",
       "flags": []
     },
     {

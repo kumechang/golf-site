@@ -9529,6 +9529,30 @@
       "source_kind": "municipal",
       "source_url": "https://www.town.miyazaki-misato.lg.jp/kiji003561/3_561_1209_up_zdl0xkz1.pdf",
       "fetched_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "municipality_code": "20323",
+      "municipality": "御代田町",
+      "prefecture": "長野県",
+      "name": "やまゆり公園",
+      "address": "長野県北佐久郡御代田町大字塩野3036番48",
+      "phone": null,
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.town.miyota.nagano.jp/category/kouen/2207.html",
+      "fetched_at": "2026-11-21T00:00:00Z"
+    },
+    {
+      "municipality_code": "27140",
+      "municipality": "堺市",
+      "prefecture": "大阪府",
+      "name": "原池公園",
+      "address": "大阪府堺市中区八田寺町320",
+      "phone": null,
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.sakai.lg.jp/kurashi/koen/shokai/baraike.html",
+      "fetched_at": "2026-11-21T00:00:00Z"
     }
   ]
 }
