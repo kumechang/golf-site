@@ -1088,8 +1088,8 @@
       "prefecture": "茨城県",
       "name": "北茨城市華川スポーツパーク",
       "address": "北茨城市華川町下相田109",
-      "phone": "0293-44-3090",
-      "phone_is_contact": true,
+      "phone": null,
+      "phone_is_contact": false,
       "source_kind": "municipal",
       "source_url": "https://www.city.kitaibaraki.lg.jp/docs/2023060900019/",
       "fetched_at": "2026-10-19T05:49:57Z"
