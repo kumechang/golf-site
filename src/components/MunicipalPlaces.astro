@@ -6,6 +6,8 @@ import type { OsmCourseExample } from '../data/osm-course-examples';
 import PlaceCard from './PlaceCard.astro';
 import PlainPlaceRow from './PlainPlaceRow.astro';
 import ListingPlaceRow from './ListingPlaceRow.astro';
+import GroupRow from './GroupRow.astro';
+import { getGroupsBySlug } from '../data/groups';
 import PrefMap from './PrefMap.astro';
 import type { VideoItem } from './VideoEmbed.astro';
 import { readingOf, rowLabelOf, ROW_ORDER } from '../data/municipality-readings';
@@ -21,12 +23,13 @@ interface Props {
 const { prefName, slug, verified = [], videos = [], verifiedVideos = [] } = Astro.props as Props;
 const view = buildPlacesView(slug, prefName, verified);
 const map = getPrefMap(slug);
+const groups = getGroupsBySlug(slug);
 const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
 const videoFor = (c: DetailCard) => (c.place ? videos.find((v) => c.name.includes(v.facility!)) : verifiedVideos.find((v) => c.name.includes(v.facility!)));
 const targets = new Map(view.chips.filter((c) => c.target).map((c) => [c.code, c.target!]));
 // 調べた日。1つの日ならその日、範囲なら「から」でつなぐ。
 const surveyed = !view.from ? null : view.from === view.to ? jaDate(view.from) : `${jaDate(view.from)}から${jaDate(view.to!).replace(/^\d{4}年/, '')}`;
-const filterable = view.total >= 10;
+const filterable = view.total + groups.length >= 10;
 // 市区町村が多い県は、五十音の行ごとに並べて、見つけやすくする（読み仮名は総務省の団体コード表）
 const GROUP_CHIPS_FROM = 8;
 const chipsByRow = (() => {
@@ -42,6 +45,7 @@ const chipsByRow = (() => {
 const SHOW_CARDS = 12;
 const SHOW_PLAIN = 15;
 const SHOW_LISTINGS = 12;
+const SHOW_GROUPS = 12;
 const moreSummary = 'tap-target cursor-pointer px-4 py-2 text-base font-bold text-green-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700';
 const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
 ---
@@ -90,7 +94,7 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
 
       {filterable && (
         <div class="mt-6 rounded-xl border border-slate-300 bg-slate-50 p-4" data-place-filter hidden>
-          <label for="place-filter" class="block text-base font-bold text-slate-900">市区町村名・施設名で絞り込む</label>
+          <label for="place-filter" class="block text-base font-bold text-slate-900">市区町村名・施設名・団体名で絞り込む</label>
           <div class="mt-2 flex gap-2">
             <input
               id="place-filter"
@@ -178,6 +182,24 @@ const h3 = 'mt-10 text-xl font-bold leading-snug text-slate-900';
               <summary class={moreSummary}>ほかの{view.listings.length - SHOW_LISTINGS}市区町村を見る</summary>
               <ul role="list" class="list-none divide-y divide-slate-200 border-t border-slate-200 pl-0">
                 {view.listings.slice(SHOW_LISTINGS).map((r) => <ListingPlaceRow r={r} />)}
+              </ul>
+            </details>
+          )}
+        </section>
+      )}
+
+      {groups.length > 0 && (
+        <section data-place-section aria-labelledby="places-groups-h">
+          <h3 id="places-groups-h" class={h3}>市区町村の資料に載っていた団体（{groups.length}件）</h3>
+          <p class="mt-2 text-base leading-relaxed text-slate-800">市区町村の資料（案内ページやPDF）に載っていた、グラウンドゴルフの団体です。調べた範囲の例で、すべてではありません。入会や見学は、元のページか、市区町村の窓口に尋ねてください。</p>
+          <ul role="list" class="mt-3 list-none divide-y divide-slate-200 rounded-xl border border-slate-300 bg-white pl-0">
+            {groups.slice(0, SHOW_GROUPS).map((g) => <GroupRow g={g} />)}
+          </ul>
+          {groups.length > SHOW_GROUPS && (
+            <details class="mt-3 rounded-xl border border-slate-300 bg-white" data-place-more>
+              <summary class={moreSummary}>ほかの{groups.length - SHOW_GROUPS}件を見る</summary>
+              <ul role="list" class="list-none divide-y divide-slate-200 border-t border-slate-200 pl-0">
+                {groups.slice(SHOW_GROUPS).map((g) => <GroupRow g={g} />)}
               </ul>
             </details>
           )}

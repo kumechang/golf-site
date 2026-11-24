@@ -1,0 +1,16 @@
+---
+// 市区町村の資料に載っていた団体の1行（県ページの「団体」の節）。代表者名・電話・メールは載せない。
+import type { GroupItem } from '../data/groups';
+
+interface Props { g: GroupItem }
+const { g } = Astro.props as Props;
+const link = 'font-bold text-green-800 underline underline-offset-2 hover:text-green-900';
+---
+
+<li class="list-none px-4 py-3" data-place-item data-code={g.code} data-search={g.search}>
+  <span class="block min-w-0 break-words text-base font-bold text-slate-900">{g.name}<span class="ml-2 font-normal text-slate-700">（{g.municipality}{g.kind ? `・${g.kind}` : ''}）</span></span>
+  {g.place && <p class="mt-1 text-base leading-relaxed text-slate-800"><span class="font-bold">活動の場所：</span>{g.place}</p>}
+  {g.schedule && <p class="mt-1 text-base leading-relaxed text-slate-800"><span class="font-bold">活動日：</span>{g.schedule}</p>}
+  {g.sourceYear && <p class="mt-1 text-base leading-relaxed text-slate-800">{g.sourceYear}の資料です。いまの活動は、元のページで確かめてください。</p>}
+  <a href={g.url} rel="nofollow noopener" target="_blank" data-gg-outbound="group-source" class={`tap-target inline-flex items-center text-base ${link}`}>元の案内ページ<span class="sr-only">（{g.name}・新しい画面）</span><span aria-hidden="true" class="ml-1 text-sm">↗</span></a>
+</li>
