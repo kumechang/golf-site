@@ -37,6 +37,16 @@
     },
     {
       "kind": "facility",
+      "name": "屋内運動場（グリーンドーム）",
+      "prefecture": "青森県",
+      "municipality": "八戸市",
+      "municipality_code": "02203",
+      "source_url": "https://www.city.hachinohe.aomori.jp/material/files/group/9/202504nango_ryokin04dome.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "黒石運動公園",
       "prefecture": "青森県",
       "municipality": "黒石市",
@@ -357,6 +367,16 @@
       "municipality_code": "04216",
       "source_url": "https://www.tomiya-city.miyagi.jp/souunn/facility/ground.html",
       "surveyed_at": "2026-10-18T00:02:58Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "蔵王町総合運動公園 グラウンドゴルフ場",
+      "prefecture": "宮城県",
+      "municipality": "蔵王町",
+      "municipality_code": "04301",
+      "source_url": "https://www.town.zao.miyagi.jp/kurashi_guide/koukyoushisetsu/taiikushisetsu/sogokoen.files/yutai.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -743,6 +763,16 @@
     },
     {
       "kind": "facility",
+      "name": "赤坂総合公園グラウンド・ゴルフ場",
+      "prefecture": "秋田県",
+      "municipality": "横手市",
+      "municipality_code": "05203",
+      "source_url": "https://www.city.yokote.lg.jp/_res/projects/default_project/_page_/001/003/445/r8.4.pdf.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "雄物川河川公園(雄物川)",
       "prefecture": "秋田県",
       "municipality": "横手市",
@@ -1033,6 +1063,26 @@
     },
     {
       "kind": "facility",
+      "name": "トレイクかたがみ グラウンドゴルフ場",
+      "prefecture": "秋田県",
+      "municipality": "潟上市",
+      "municipality_code": "05211",
+      "source_url": "https://www.city.katagami.lg.jp/material/files/group/17/supofesu2026tirasi2.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "昭和グラウンドゴルフ場",
+      "prefecture": "秋田県",
+      "municipality": "潟上市",
+      "municipality_code": "05211",
+      "source_url": "https://www.city.katagami.lg.jp/material/files/group/17/supofesu2026tirasi2.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "昭和介護予防センター",
       "prefecture": "秋田県",
       "municipality": "潟上市",
@@ -1043,12 +1093,32 @@
     },
     {
       "kind": "facility",
+      "name": "飯田川二荒山グラウンドゴルフ場",
+      "prefecture": "秋田県",
+      "municipality": "潟上市",
+      "municipality_code": "05211",
+      "source_url": "https://www.city.katagami.lg.jp/material/files/group/17/katagamisuportskeikaku.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "「大曲の花火」公園",
       "prefecture": "秋田県",
       "municipality": "大仙市",
       "municipality_code": "05212",
       "source_url": "https://www.city.daisen.lg.jp/archive/contents-14287",
       "surveyed_at": "2026-10-17T23:54:19Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "南外グラウンド・ゴルフ場",
+      "prefecture": "秋田県",
+      "municipality": "大仙市",
+      "municipality_code": "05212",
+      "source_url": "https://www.city.daisen.lg.jp/uploads/public/archive_0000000071_00/daisen_walking_map.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -1189,6 +1259,16 @@
       "municipality_code": "06201",
       "source_url": "https://www.city.yamagata-yamagata.lg.jp/shisetsu/bunkasports/sports/1007199/1002017.html",
       "surveyed_at": "2026-10-18T00:05:54Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "山形市グラウンド・ゴルフ場",
+      "prefecture": "山形県",
+      "municipality": "山形市",
+      "municipality_code": "06201",
+      "source_url": "https://www.city.yamagata-yamagata.lg.jp/_res/projects/default_project/_page_/001/004/615/r7_shisetugennmenn.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -1412,6 +1492,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "金谷グラウンド・ゴルフ場",
+      "prefecture": "山形県",
+      "municipality": "村山市",
+      "municipality_code": "06208",
+      "source_url": "https://www.city.murayama.lg.jp/kurashi/sports_yoka/sports/sports_shisetsu.files/shiyouryouichiran.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "山形県",
@@ -1419,6 +1509,16 @@
       "municipality_code": "06208",
       "source_url": "https://www.city.murayama.lg.jp/kurashi/sports_yoka/sports/sports_shisetsu.html",
       "surveyed_at": "2026-10-18T00:02:23Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "天童市グラウンドゴルフ場",
+      "prefecture": "山形県",
+      "municipality": "天童市",
+      "municipality_code": "06210",
+      "source_url": "https://www.city.tendo.yamagata.jp/lifeinfo/sports/2026akaneenjoy.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -1522,6 +1622,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "真室川町グラウンドゴルフ場",
+      "prefecture": "山形県",
+      "municipality": "真室川町",
+      "municipality_code": "06364",
+      "source_url": "https://www.town.mamurogawa.yamagata.jp/material/files/group/6/2109taiikusisetusiyouryou.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "山形県",
@@ -1559,6 +1669,16 @@
       "municipality_code": "06428",
       "source_url": "https://www.wagounosato.jp/kouen",
       "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "庄内町笠山グラウンドゴルフ場",
+      "prefecture": "山形県",
+      "municipality": "庄内町",
+      "municipality_code": "06428",
+      "source_url": "https://www.town.shonai.lg.jp/kurashi/shisetsu/undou/siteikannritaiikukann.files/210302_kome_sitei.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -1803,6 +1923,26 @@
     },
     {
       "kind": "facility",
+      "name": "千倉グラウンド",
+      "prefecture": "福島県",
+      "municipality": "南相馬市",
+      "municipality_code": "07212",
+      "source_url": "https://www.city.minamisoma.lg.jp/material/files/group/15/itiran.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "小高片草運動場",
+      "prefecture": "福島県",
+      "municipality": "南相馬市",
+      "municipality_code": "07212",
+      "source_url": "https://www.city.minamisoma.lg.jp/material/files/group/15/itiran.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "真野交流センター",
       "prefecture": "福島県",
       "municipality": "南相馬市",
@@ -1949,6 +2089,16 @@
       "municipality_code": "08207",
       "source_url": "https://information.konamisportsclub.jp/trust/kanakubo/facility/",
       "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "鹿窪ニュースポーツ広場",
+      "prefecture": "茨城県",
+      "municipality": "結城市",
+      "municipality_code": "08207",
+      "source_url": "https://www.city.yuki.lg.jp/data/doc/1718351007_doc_114_0.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -2563,6 +2713,26 @@
     },
     {
       "kind": "facility",
+      "name": "兎田河原グラウンド・ゴルフ場",
+      "prefecture": "栃木県",
+      "municipality": "さくら市",
+      "municipality_code": "09214",
+      "source_url": "https://www.city.tochigi-sakura.lg.jp/manage/contents/upload/6ad6c0f8aa088.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "鬼怒川運動公園グラウンドゴルフ場",
+      "prefecture": "栃木県",
+      "municipality": "さくら市",
+      "municipality_code": "09214",
+      "source_url": "https://www.city.tochigi-sakura.lg.jp/manage/contents/upload/6997e3c7904cd.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "大桶運動公園 野球場北側広場",
       "prefecture": "栃木県",
       "municipality": "那須烏山市",
@@ -2841,6 +3011,36 @@
       "municipality_code": "10204",
       "source_url": "https://www.city.isesaki.lg.jp/soshiki/tokeibu/koen/ijikannri/kouen/21325.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "つつみ公園グランドゴルフ場",
+      "prefecture": "群馬県",
+      "municipality": "伊勢崎市",
+      "municipality_code": "10204",
+      "source_url": "https://www.city.isesaki.lg.jp/material/files/group/34/azumaryoukin.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "境広瀬川緑地グラウンドゴルフ場",
+      "prefecture": "群馬県",
+      "municipality": "伊勢崎市",
+      "municipality_code": "10204",
+      "source_url": "https://www.city.isesaki.lg.jp/material/files/group/34/R1-10-1.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "西小保方沼公園グラウンドゴルフ場",
+      "prefecture": "群馬県",
+      "municipality": "伊勢崎市",
+      "municipality_code": "10204",
+      "source_url": "https://www.city.isesaki.lg.jp/material/files/group/34/azumaryoukin.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -3387,12 +3587,32 @@
     },
     {
       "kind": "facility",
+      "name": "あすかホールグラウンドゴルフ場",
+      "prefecture": "群馬県",
+      "municipality": "みどり市",
+      "municipality_code": "10212",
+      "source_url": "https://www.city.midori.gunma.jp/_res/projects/default_project/_page_/001/003/762/syakai.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "福岡中央グラウンド",
       "prefecture": "群馬県",
       "municipality": "みどり市",
       "municipality_code": "10212",
       "source_url": "https://www.city.midori.gunma.jp/shisetsu/1001688/1003869.html",
       "surveyed_at": "2026-10-17T22:13:23Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "笠懸グラウンドゴルフ場",
+      "prefecture": "群馬県",
+      "municipality": "みどり市",
+      "municipality_code": "10212",
+      "source_url": "https://www.city.midori.gunma.jp/_res/projects/default_project/_page_/001/003/762/syakai.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -3503,6 +3723,16 @@
       "municipality_code": "10424",
       "source_url": "https://www.town.naganohara.gunma.jp/development/?category=52",
       "surveyed_at": "2026-10-17T22:17:18Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "総合運動公園グラウンドゴルフ場",
+      "prefecture": "群馬県",
+      "municipality": "昭和村",
+      "municipality_code": "10448",
+      "source_url": "https://www.vill.showa.gunma.jp/kurashi/kyouiku/taikyo/files/01/R08_kyositsutaikai.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -3897,6 +4127,16 @@
     },
     {
       "kind": "facility",
+      "name": "羊山公園グラウンド（A・B）",
+      "prefecture": "埼玉県",
+      "municipality": "秩父市",
+      "municipality_code": "11207",
+      "source_url": "https://www.city.chichibu.lg.jp/secure/19685/p16～p22.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "入間市市民体育館",
       "prefecture": "埼玉県",
       "municipality": "飯能市",
@@ -4153,6 +4393,16 @@
       "municipality_code": "11215",
       "source_url": "https://www.seibu-green.co.jp/sayamapark/parks/",
       "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "多目的グラウンド",
+      "prefecture": "埼玉県",
+      "municipality": "狭山市",
+      "municipality_code": "11215",
+      "source_url": "https://www.city.sayama.saitama.jp/shisei/shisetsu/sports/okugaiundoshisetsu/annai/00_manual.files/R8.10.1.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -4541,6 +4791,16 @@
     },
     {
       "kind": "facility",
+      "name": "北入西運動公園",
+      "prefecture": "埼玉県",
+      "municipality": "坂戸市",
+      "municipality_code": "11239",
+      "source_url": "https://www.city.sakado.lg.jp/uploaded/attachment/22573.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "坂戸市北坂戸地域交流センター",
       "prefecture": "埼玉県",
       "municipality": "坂戸市",
@@ -4657,6 +4917,16 @@
       "municipality_code": "11242",
       "source_url": "https://www.city.hidaka.lg.jp/soshiki/kyoiku/shogaigakushu/shiminsupotsu/supotsu/1098.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "大井グラウンド・ゴルフ場",
+      "prefecture": "埼玉県",
+      "municipality": "ふじみ野市",
+      "municipality_code": "11245",
+      "source_url": "https://www.city.fujimino.saitama.jp/material/files/group/18/R7_fujiminocity_sports.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -5113,6 +5383,16 @@
     },
     {
       "kind": "facility",
+      "name": "関宿パークMOPS グラウンド・ゴルフ場",
+      "prefecture": "千葉県",
+      "municipality": "野田市",
+      "municipality_code": "12208",
+      "source_url": "https://www.city.noda.chiba.jp/_res/projects/default_project/_page_/001/001/069/r7sekiyadopa-kumoxtupusu.goruhuzyou.huxtutosaruzyou.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "関宿パークMOPS(関宿総合公園)",
       "prefecture": "千葉県",
       "municipality": "野田市",
@@ -5299,6 +5579,16 @@
       "municipality_code": "12221",
       "source_url": "https://www.city.yachiyo.lg.jp/soshiki/79/74133.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "布佐下多目的広場",
+      "prefecture": "千葉県",
+      "municipality": "我孫子市",
+      "municipality_code": "12222",
+      "source_url": "https://www.city.abiko.chiba.jp/event/taiikukan_sport/sports_riyo/tamokuteki0225.files/shiyouichiran08.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -5634,6 +5924,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "鮫洲運動公園",
+      "prefecture": "東京都",
+      "municipality": "品川区",
+      "municipality_code": "13109",
+      "source_url": "https://www.city.shinagawa.tokyo.jp/_res/projects/default_project/_page_/001/008/245/20251212144353_10.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "東京都",
@@ -5671,6 +5971,26 @@
       "municipality_code": "13111",
       "source_url": "https://www.city.ota.tokyo.jp/shisetsu/sports/oomorifurusatonohamab_tamokuteki.html",
       "surveyed_at": "2026-10-17T22:34:17Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "萩中公園運動場",
+      "prefecture": "東京都",
+      "municipality": "大田区",
+      "municipality_code": "13111",
+      "source_url": "https://www.city.ota.tokyo.jp/shisetsu/uguisunet_annai/shisetsushiyouryounokaitei.files/uguisunettaishoushisetsushiyouryoukaitei.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "鷺宮運動広場",
+      "prefecture": "東京都",
+      "municipality": "中野区",
+      "municipality_code": "13114",
+      "source_url": "https://www.city.tokyo-nakano.lg.jp/kurashi/bunka/manabu/2023shogaigakushu.files/supo-tu.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -6930,6 +7250,26 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "こなん水辺グラウンドゴルフ場",
+      "prefecture": "石川県",
+      "municipality": "金沢市",
+      "municipality_code": "17201",
+      "source_url": "https://www4.city.kanazawa.lg.jp/material/files/group/25/R4-shisetsu-ichiran-kanazawa-city.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "加賀朝日町グラウンドゴルフ場",
+      "prefecture": "石川県",
+      "municipality": "金沢市",
+      "municipality_code": "17201",
+      "source_url": "https://www4.city.kanazawa.lg.jp/material/files/group/25/R4-shisetsu-ichiran-kanazawa-city.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "石川県",
@@ -6947,6 +7287,16 @@
       "municipality_code": "17202",
       "source_url": "https://www.city.nanao.lg.jp/sportsbunka/kanko/shisetsu/sports/index.html",
       "surveyed_at": "2026-10-17T22:12:18Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "鶴ヶ島グラウンドゴルフ場",
+      "prefecture": "石川県",
+      "municipality": "小松市",
+      "municipality_code": "17203",
+      "source_url": "https://www.city.komatsu.lg.jp/material/files/group/14/chikutaiikukan_siyounotebiki.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -7207,6 +7557,16 @@
       "municipality_code": "17384",
       "source_url": "https://www.town.shika.lg.jp/page/2486.html",
       "surveyed_at": "2026-10-17T22:14:30Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "宝達志水町グラウンドゴルフ場",
+      "prefecture": "石川県",
+      "municipality": "宝達志水町",
+      "municipality_code": "17386",
+      "source_url": "https://www.hodatsushimizu.jp/material/files/group/15/0000017355.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -7724,6 +8084,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "福岡グラウンドゴルフ場",
+      "prefecture": "岐阜県",
+      "municipality": "中津川市",
+      "municipality_code": "21206",
+      "source_url": "https://www.city.nakatsugawa.lg.jp/material/files/group/44/20210628_shogai-sp_golfryoukin.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "岐阜県",
@@ -7801,6 +8171,16 @@
       "municipality_code": "21217",
       "source_url": "https://hida-sunsportsland.jp/facility/",
       "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "きこちゃんスタジアム",
+      "prefecture": "岐阜県",
+      "municipality": "下呂市",
+      "municipality_code": "21220",
+      "source_url": "https://www.city.gero.lg.jp/uploaded/attachment/16567.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -8343,6 +8723,16 @@
       "municipality_code": "22214",
       "source_url": "https://www.city.fujieda.shizuoka.jp/bunka/sports/BU002/BE003/1447731254280.html",
       "surveyed_at": "2026-10-17T22:12:43Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "藤枝総合運動公園",
+      "prefecture": "静岡県",
+      "municipality": "藤枝市",
+      "municipality_code": "22214",
+      "source_url": "https://www.city.fujieda.shizuoka.jp/material/files/group/114/sougouundoukoensiseturiyouryou.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -10180,6 +10570,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "始神さくら広場",
+      "prefecture": "三重県",
+      "municipality": "紀北町",
+      "municipality_code": "24543",
+      "source_url": "https://www.town.mie-kihoku.lg.jp/assets25/pdf/05hajikamisakura.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "三重県",
@@ -10323,6 +10723,16 @@
     },
     {
       "kind": "facility",
+      "name": "荒神山公園グラウンド・ゴルフ場",
+      "prefecture": "滋賀県",
+      "municipality": "彦根市",
+      "municipality_code": "25202",
+      "source_url": "https://www.city.hikone.lg.jp/material/files/group/106/ABcourse.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "荒神山公園運動施設",
       "prefecture": "滋賀県",
       "municipality": "彦根市",
@@ -10421,6 +10831,16 @@
       "municipality_code": "25203",
       "source_url": "https://www.city.nagahama.lg.jp/0000002194.html",
       "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "日野川グラウンド・ゴルフ場",
+      "prefecture": "滋賀県",
+      "municipality": "近江八幡市",
+      "municipality_code": "25204",
+      "source_url": "https://www.city.omihachiman.lg.jp/material/files/group/132/honpenR6.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -10676,6 +11096,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "番場多目的広場",
+      "prefecture": "滋賀県",
+      "municipality": "米原市",
+      "municipality_code": "25214",
+      "source_url": "https://www.city.maibara.lg.jp/material/files/group/46/banbatamokutekihirobanoriyou_ver2.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "滋賀県",
@@ -10693,6 +11123,16 @@
       "municipality_code": "25214",
       "source_url": "https://www.city.maibara.lg.jp/soshiki/kyoiku/shogai/shisetu/syakaitaiikusisetunituite/banbatamotekihiroba/16890.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "大谷公園グラウンドゴルフ場",
+      "prefecture": "滋賀県",
+      "municipality": "日野町",
+      "municipality_code": "25383",
+      "source_url": "https://www.town.shiga-hino.lg.jp/cmsfiles/contents/0000004/4873/shiori.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -10858,6 +11298,26 @@
       "flags": [
         "記載が用語の説明の可能性"
       ]
+    },
+    {
+      "kind": "facility",
+      "name": "山城コミュニティ広場",
+      "prefecture": "京都府",
+      "municipality": "木津川市",
+      "municipality_code": "26214",
+      "source_url": "https://www.city.kizugawa.lg.jp/cmsfiles/contents/0000001/1544/20210128-135008.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "多目的広場A・B",
+      "prefecture": "京都府",
+      "municipality": "大山崎町",
+      "municipality_code": "26303",
+      "source_url": "https://www.town.oyamazaki.kyoto.jp/material/files/group/49/41872433.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
     },
     {
       "kind": "listing",
@@ -11080,6 +11540,16 @@
       "flags": [
         "使えない趣旨の記載の可能性"
       ]
+    },
+    {
+      "kind": "facility",
+      "name": "北多目的広場",
+      "prefecture": "大阪府",
+      "municipality": "池田市",
+      "municipality_code": "27204",
+      "source_url": "https://www.city.ikeda.osaka.jp/material/files/group/96/guide_shisetsuriyou.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
     },
     {
       "kind": "facility",
@@ -11903,6 +12373,16 @@
     },
     {
       "kind": "facility",
+      "name": "米田多目的広場公園",
+      "prefecture": "兵庫県",
+      "municipality": "高砂市",
+      "municipality_code": "28216",
+      "source_url": "https://www.city.takasago.lg.jp/material/files/group/39/20220228-2.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "堀井城跡ふれあい公園",
       "prefecture": "兵庫県",
       "municipality": "小野市",
@@ -12675,6 +13155,16 @@
     },
     {
       "kind": "facility",
+      "name": "神野々緑地芝生広場（グラウンドゴルフ場）",
+      "prefecture": "和歌山県",
+      "municipality": "橋本市",
+      "municipality_code": "30203",
+      "source_url": "https://www.city.hashimoto.lg.jp/material/files/group/64/R8_sports_youkou.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "文里芝グラウンド",
       "prefecture": "和歌山県",
       "municipality": "田辺市",
@@ -12914,6 +13404,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "八幡広場グラウンド・ゴルフコース",
+      "prefecture": "鳥取県",
+      "municipality": "若桜町",
+      "municipality_code": "31325",
+      "source_url": "https://www.town.wakasa.tottori.jp/material/files/group/2/98684955.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "鳥取県",
@@ -13064,6 +13564,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "伯耆町グラウンドゴルフ場",
+      "prefecture": "鳥取県",
+      "municipality": "伯耆町",
+      "municipality_code": "31390",
+      "source_url": "https://www.houki-town.jp/user/filer_public/00/1d/001d6e15-5af4-44cf-8be9-dd8928ea3775/bo-qi-ting-ti-yu-shi-she-shi-yong-liao-yi-lan.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "鳥取県",
@@ -13103,6 +13613,16 @@
       "municipality_code": "32201",
       "source_url": "https://www.city.matsue.lg.jp/kanko_bunka_sports/sports/3/8352.html",
       "surveyed_at": "2026-10-18T00:01:27Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "松江市ニュースポーツ公園グラウンドゴルフ場",
+      "prefecture": "島根県",
+      "municipality": "松江市",
+      "municipality_code": "32201",
+      "source_url": "https://www.city.matsue.lg.jp/material/files/group/36/newspo-GG.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -13398,6 +13918,26 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "やまびこグラウンドゴルフ場",
+      "prefecture": "島根県",
+      "municipality": "安来市",
+      "municipality_code": "32206",
+      "source_url": "https://www.city.yasugi.shimane.jp/kurashi/bunka/sports/sports-event/2026year.data/R8yotei_chiku-sports-kyokai.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "八幡町グラウンドゴルフ場",
+      "prefecture": "島根県",
+      "municipality": "安来市",
+      "municipality_code": "32206",
+      "source_url": "https://www.city.yasugi.shimane.jp/kurashi/bunka/sports/sports-event/2026year.data/R8yotei_chiku-sports-kyokai.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "島根県",
@@ -13445,6 +13985,26 @@
       "municipality_code": "33100",
       "source_url": "https://www.city.okayama.jp/shisei/0000013484.html",
       "surveyed_at": "2026-10-17T23:57:03Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "御津グラウンドゴルフ場",
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "municipality_code": "33100",
+      "source_url": "https://www.city.okayama.jp/shisei/cmsfiles/contents/0000046/46493/1-3keikakuzenntai.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "承芳ふれあい広場グラウンドゴルフ場",
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "municipality_code": "33100",
+      "source_url": "https://www.city.okayama.jp/shisei/cmsfiles/contents/0000046/46493/1-3keikakuzenntai.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -13792,6 +14352,26 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "いこいとふれあいの公園 グラウンドゴルフ場",
+      "prefecture": "岡山県",
+      "municipality": "新見市",
+      "municipality_code": "33210",
+      "source_url": "https://www.city.niimi.okayama.jp/media_images/files/ryokinhyo_ikoi_to_hureai_no_koen.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "新見市民運動公園",
+      "prefecture": "岡山県",
+      "municipality": "新見市",
+      "municipality_code": "33210",
+      "source_url": "https://www.city.niimi.okayama.jp/media_images/files/ryokinhyo_shimin_undou_koen.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "岡山県",
@@ -14009,6 +14589,16 @@
       "municipality_code": "33623",
       "source_url": "https://www.town.nagi.okayama.jp/kankou/kankou_spot/asobu/sougou_undoukouen.html",
       "surveyed_at": "2026-10-17T23:57:10Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "久米南町民運動公園",
+      "prefecture": "岡山県",
+      "municipality": "久米南町",
+      "municipality_code": "33663",
+      "source_url": "https://www.town.kumenan.lg.jp/shisetsu/documents/utsukushimori_leaflet.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -14235,6 +14825,16 @@
     },
     {
       "kind": "facility",
+      "name": "戸宇スポーツ広場",
+      "prefecture": "広島県",
+      "municipality": "庄原市",
+      "municipality_code": "34210",
+      "source_url": "https://www.city.shobara.hiroshima.jp/main/%E2%91%A1%E5%B1%8B%E5%A4%96%E4%BD%93%E8%82%B2%E6%96%BD%E8%A8%AD%E3%80%90344KB%E3%80%91.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "河内発祥園コミュニティスポーツ広場",
       "prefecture": "広島県",
       "municipality": "東広島市",
@@ -14305,6 +14905,16 @@
     },
     {
       "kind": "facility",
+      "name": "宮浜温泉グラウンド・ゴルフ場",
+      "prefecture": "広島県",
+      "municipality": "廿日市市",
+      "municipality_code": "34213",
+      "source_url": "https://www.city.hatsukaichi.hiroshima.jp/uploaded/attachment/30682.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "阿品公園",
       "prefecture": "広島県",
       "municipality": "廿日市市",
@@ -14361,6 +14971,16 @@
       "municipality_code": "34368",
       "source_url": "https://www.akiota.jp/site/kyoiku/1378.html",
       "surveyed_at": "2026-11-05T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "道の駅舞ロードIC千代田グラウンドゴルフ場",
+      "prefecture": "広島県",
+      "municipality": "北広島町",
+      "municipality_code": "34369",
+      "source_url": "https://www.town.kitahiroshima.lg.jp/uploaded/attachment/20560.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -14621,6 +15241,16 @@
       "municipality_code": "35305",
       "source_url": "https://www.town.suo-oshima.lg.jp/soshiki/27/2101.html",
       "surveyed_at": "2026-10-17T23:56:16Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "美馬市穴吹グラウンド・ゴルフ場",
+      "prefecture": "徳島県",
+      "municipality": "美馬市",
+      "municipality_code": "36207",
+      "source_url": "https://www.city.mima.lg.jp/fs/1/1/0/5/6/4/_/ggorufushiyou.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -15186,6 +15816,16 @@
       "flags": []
     },
     {
+      "kind": "facility",
+      "name": "西鞍の丘総合運動公園 芝生フィールド",
+      "prefecture": "福岡県",
+      "municipality": "宮若市",
+      "municipality_code": "40226",
+      "source_url": "https://www.city.miyawaka.lg.jp/kiji003444498/3_444498_2734_up_ykrixgy8.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
       "kind": "listing",
       "name": null,
       "prefecture": "福岡県",
@@ -15413,6 +16053,16 @@
       "municipality_code": "40605",
       "source_url": "https://www.town-kawasaki.com/machiannai/shisetsu/773",
       "surveyed_at": "2026-10-18T00:02:20Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "川崎町運動公園グラウンドゴルフ場",
+      "prefecture": "福岡県",
+      "municipality": "川崎町",
+      "municipality_code": "40605",
+      "source_url": "https://www.town-kawasaki.com/wp-content/uploads/2017/03/K402_R010620_shisetsu_undokoen.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -15762,6 +16412,16 @@
     },
     {
       "kind": "facility",
+      "name": "伊万里松浦グラウンド・ゴルフ場",
+      "prefecture": "佐賀県",
+      "municipality": "伊万里市",
+      "municipality_code": "41205",
+      "source_url": "https://www.city.imari.lg.jp/secure/34336/★使用料一覧（社会体育施設）R6.4.1.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
       "name": "松浦コミュニティセンター",
       "prefecture": "佐賀県",
       "municipality": "伊万里市",
@@ -15838,6 +16498,16 @@
       "municipality_code": "41208",
       "source_url": "https://ssk-ushidu.com/footballcenter.html",
       "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "嬉野総合運動公園 グランドゴルフ場",
+      "prefecture": "佐賀県",
+      "municipality": "嬉野市",
+      "municipality_code": "41209",
+      "source_url": "https://www.city.ureshino.lg.jp/var/rev0/0040/9056/12472911229.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -15960,6 +16630,26 @@
       "municipality_code": "42210",
       "source_url": "https://www.city.iki.nagasaki.jp/soshiki/bunkasportssinkou/sport_facility/4203.html",
       "surveyed_at": "2026-10-17T23:53:04Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "吾妻農村広場",
+      "prefecture": "長崎県",
+      "municipality": "雲仙市",
+      "municipality_code": "42213",
+      "source_url": "https://www.city.unzen.nagasaki.jp/kiji0038543/3_8543_23059_up_vqpm8wl3.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "愛野運動公園 グラウンドゴルフ場",
+      "prefecture": "長崎県",
+      "municipality": "雲仙市",
+      "municipality_code": "42213",
+      "source_url": "https://www.city.unzen.nagasaki.jp/kiji0038543/3_8543_23068_up_o5rbasj0.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -16120,6 +16810,16 @@
       "municipality_code": "43206",
       "source_url": "https://www.city.tamana.lg.jp/q/list/429.html?pg=1",
       "surveyed_at": "2026-11-14T00:00:00Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "湯の瀬川公園（にばんわく広場）グランドゴルフ場",
+      "prefecture": "熊本県",
+      "municipality": "山鹿市",
+      "municipality_code": "43208",
+      "source_url": "https://www.city.yamaga.kumamoto.jp/kiji003959/3_959_4_yunosegawahaiti.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
@@ -16514,6 +17214,16 @@
       "municipality_code": "44211",
       "source_url": "https://www.city.usa.oita.jp/sougo/soshiki/13/shinko/1/2_1/23975.html",
       "surveyed_at": "2026-10-17T23:56:23Z",
+      "flags": []
+    },
+    {
+      "kind": "facility",
+      "name": "庄内総合運動公園 多目的広場",
+      "prefecture": "大分県",
+      "municipality": "由布市",
+      "municipality_code": "44213",
+      "source_url": "https://www.city.yufu.oita.jp/wp-content/uploads/2021/02/syounaisisetu.pdf",
+      "surveyed_at": "2026-11-25T00:00:00Z",
       "flags": []
     },
     {
