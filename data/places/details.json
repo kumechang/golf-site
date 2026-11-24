@@ -9553,6 +9553,54 @@
       "source_kind": "municipal",
       "source_url": "https://www.city.sakai.lg.jp/kurashi/koen/shokai/baraike.html",
       "fetched_at": "2026-11-21T00:00:00Z"
+    },
+    {
+      "municipality_code": "05211",
+      "municipality": "潟上市",
+      "prefecture": "秋田県",
+      "name": "飯田川二荒山グラウンドゴルフ場",
+      "address": "秋田県潟上市飯田川下虻川字蟹沢12番地1",
+      "phone": null,
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.katagami.lg.jp/material/files/group/17/katagamisuportskeikaku.pdf",
+      "fetched_at": "2026-11-25T00:00:00Z"
+    },
+    {
+      "municipality_code": "06364",
+      "municipality": "真室川町",
+      "prefecture": "山形県",
+      "name": "真室川町グラウンドゴルフ場",
+      "address": null,
+      "phone": "0233-62-3411",
+      "phone_is_contact": true,
+      "source_kind": "municipal",
+      "source_url": "https://www.town.mamurogawa.yamagata.jp/material/files/group/6/2109taiikusisetusiyouryou.pdf",
+      "fetched_at": "2026-11-25T00:00:00Z"
+    },
+    {
+      "municipality_code": "11207",
+      "municipality": "秩父市",
+      "prefecture": "埼玉県",
+      "name": "羊山公園グラウンド（A・B）",
+      "address": "埼玉県秩父市大宮6208番地",
+      "phone": null,
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www.city.chichibu.lg.jp/secure/19685/p16～p22.pdf",
+      "fetched_at": "2026-11-25T00:00:00Z"
+    },
+    {
+      "municipality_code": "17201",
+      "municipality": "金沢市",
+      "prefecture": "石川県",
+      "name": "加賀朝日町グラウンドゴルフ場",
+      "address": "石川県金沢市加賀朝日町北6番地",
+      "phone": null,
+      "phone_is_contact": false,
+      "source_kind": "municipal",
+      "source_url": "https://www4.city.kanazawa.lg.jp/material/files/group/25/R4-shisetsu-ichiran-kanazawa-city.pdf",
+      "fetched_at": "2026-11-25T00:00:00Z"
     }
   ]
 }
