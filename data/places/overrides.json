@@ -515,6 +515,22 @@
     {
       "source_url": "https://www.city.tamana.lg.jp/q/list/429.html?pg=1",
       "exclude": true
+    },
+    {
+      "source_url": "https://www.city.shinagawa.tokyo.jp/PC/shisetsu/shisetsu-kuyakusyo/shisetsu-kuyakusyo-chiiki/hpg000016394.html",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.kawabe-gifu.jp/?page_id=51512",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.town.sayo.lg.jp/cms-sypher/www/section/detail.jsp?id=10144",
+      "exclude": true
+    },
+    {
+      "source_url": "https://www.city.itoshima.lg.jp/c012/index.html",
+      "exclude": true
     }
   ]
 }
