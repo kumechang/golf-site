@@ -3,6 +3,7 @@
 //  ・施設・一覧ページ（data/places/places.json）: ページに「グラウンド・ゴルフ」の記載があるか
 //  ・住所・電話番号（data/places/details.json）: 電話番号・住所がページの本文にあるか（表記ゆれ、全角・半角、ハイフンの違いは吸収）
 //  ・イベント（data/events/municipal.json）: 大会名と開催日がページの本文にあるか
+//   --since=YYYY-MM-DD で、その日以降に足したものだけに絞れる。
 // 同じホストには間隔をあけて1件ずつ、ホストどうしは並行して取得。TLS検証は外さず、User-Agent は名乗る（偽装しない）。PDFは読まない。
 // 除外している（overrides）ものは対象外。結果は「確認できた／確認できない／ページが読めない」。「確認できない」は、人が見て決める材料で、自動では消さない。
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -13,6 +14,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const args = process.argv.slice(2);
 const flag = (k, d) => args.find((a) => a.startsWith(`--${k}=`))?.slice(k.length + 3) ?? d;
 const out = flag('out', null);
+const since = flag('since', null); // 例: --since=2026-11-26 … その日以降に足した掲載（取得日・取得日時）だけを確かめる
 const delay = Number(flag('delay', 2000));
 const concurrency = Number(flag('hosts', 12));
 const rd = (p) => JSON.parse(readFileSync(join(root, p), 'utf8'));
@@ -31,9 +33,10 @@ const normAddr = (a) => nfkc(a).replace(/\s+/g, '').replace(/[‐−－ー―]/g
 // 取得する URL と、その URL にぶら下がる確認事項
 const jobs = new Map();
 const job = (url) => { if (!jobs.has(url)) jobs.set(url, { place: [], detail: [], event: [] }); return jobs.get(url); };
-for (const p of places) { if ((p.flags ?? []).length || exclude.has(p.source_url)) continue; job(p.source_url).place.push(p); }
-for (const d of details) { if (exclude.has(d.source_url)) continue; job(d.source_url).detail.push(d); }
-for (const e of events) job(e.source_url).event.push(e);
+const isNew = (d) => !since || String(d ?? '').slice(0, 10) >= since;
+for (const p of places) { if ((p.flags ?? []).length || exclude.has(p.source_url) || !isNew(p.surveyed_at)) continue; job(p.source_url).place.push(p); }
+for (const d of details) { if (exclude.has(d.source_url) || !isNew(d.fetched_at)) continue; job(d.source_url).detail.push(d); }
+for (const e of events) { if (!isNew(e.extracted_at)) continue; job(e.source_url).event.push(e); }
 
 const decode = async (res) => {
   const buf = new Uint8Array(await res.arrayBuffer());
